@@ -217,7 +217,6 @@ const HomeLayout = ({ children }) => {
           </div>
         </div>
         {/* End Announcement Banner */}
-
         {/* Home Navbar */}
       </nav>
       <div className="home-content w-full p-2">{children}</div>
