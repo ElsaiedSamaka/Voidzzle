@@ -16,6 +16,7 @@ const IndexPage = () => {
       <Provider store={store}>
         <main className="bg-green-400 p-4 md:ml-64 h-auto pt-20">
           <Home />
+          {/* <NewLetter /> */}
         </main>
       </Provider>
     </>

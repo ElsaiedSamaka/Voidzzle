@@ -1,6 +1,6 @@
 const HomeLayout = ({ children }) => {
   return (
-    <section className="home-layout">
+    <section className="home-layout p-2 bg-purple-500">
       <div className=" max-w-screen-xl">
         <h1 className="border-b py-6 text-4xl font-semibold">Home</h1>
         <div className="grid grid-cols-8 pt-3 pb-10 sm:grid-cols-10">

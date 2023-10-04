@@ -1,10 +1,10 @@
 import { RootLayout } from "shared";
 
-const Index = () => {
+const NewLetter = () => {
   return <div>news letter</div>;
 };
-Index.getLayout = (page) => {
+NewLetter.getLayout = (page) => {
   return <RootLayout>{page}</RootLayout>;
 };
 
-export default Index;
+export default NewLetter;

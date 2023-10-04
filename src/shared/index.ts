@@ -1,5 +1,5 @@
+import Aside from "./Common/Aside/Aside";
 import Card from "./Common/Card/Card";
-import Aside from "./Common/Header/Aside/Aside";
 import Navbar from "./Common/Header/Navbar/Navbar";
 import Counter from "./Counter/Counter";
 import Form from "./Forms/Form";
@@ -18,4 +18,3 @@ export {
   RootLayout,
   SettingsLayout,
 };
-
