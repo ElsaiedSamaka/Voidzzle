@@ -1,8 +1,8 @@
 import Head from "next/head";
 import { Provider } from "react-redux";
+import { HomeLayout } from "shared";
 import RootLayout from "shared/Layouts/RootLayout/RootLayout";
 import { store } from "../core/store";
-import Settings from "./settings";
 const IndexPage = () => {
   return (
     <>
@@ -14,10 +14,11 @@ const IndexPage = () => {
         />
       </Head>
       <Provider store={store}>
-        <main className="bg-green-400 p-4 md:ml-64 h-auto pt-20">
-          {/* <Home />
-          <NewLetter /> */}
-          <Settings />
+        <main className="bg-green-400 p-4 m-2">
+          <span className="text-white">inside the main of (index.tsx)</span>
+          {/* <Home /> */}
+          {/* <NewLetter /> */}
+          {/* <Settings /> */}
         </main>
       </Provider>
     </>
@@ -26,7 +27,11 @@ const IndexPage = () => {
 
 IndexPage.getLayout = (page) => {
   console.log("IndexPage.getLayout");
-  return <RootLayout>{page}</RootLayout>;
+  return (
+    <RootLayout>
+      <HomeLayout>{page}</HomeLayout>
+    </RootLayout>
+  );
 };
 
 export default IndexPage;
