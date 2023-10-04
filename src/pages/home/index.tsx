@@ -1,4 +1,4 @@
-import { HomeLayout, RootLayout } from "shared";
+import { CarouselControlsInside, HomeLayout, RootLayout } from "shared";
 
 const Home = () => {
   return (
@@ -159,6 +159,12 @@ const Home = () => {
         </div>
       </div>
       {/* products grid */}
+      {/* infinite carousel */}
+      {/* <InfiniteCarousel /> */}
+      {/* infinite carousel */}
+      {/* controls */}
+      <CarouselControlsInside />
+      {/* controls */}
     </section>
   );
 };
