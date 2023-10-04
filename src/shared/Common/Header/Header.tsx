@@ -2,7 +2,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import Aside from "./Aside/Aside";
+import Navbar from "./Navbar/Navbar";
 
 const ActiveMenuLink = ({ children, href }) => {
   const pathname = usePathname();
@@ -30,8 +31,6 @@ const menuItems = [
 ];
 
 const Header = () => {
-  const [search, setSearch] = useState("");
-
   return (
     <header className="">
       <div className="py-4 flex items-center">
@@ -44,7 +43,7 @@ const Header = () => {
             alt="logo"
           />
         </Link>
-        <nav className="ml-8">
+        {/* <nav className="ml-8">
           <ul className="flex flex-wrap gap-x-8 text-gray-900">
             {menuItems.map(({ url, label }, index) => (
               <li key={index}>
@@ -52,16 +51,10 @@ const Header = () => {
               </li>
             ))}
           </ul>
-        </nav>
+        </nav> */}
+        <Navbar />
+        <Aside />
       </div>
-
-      <input
-        type="text"
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-        className="block w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:border-gray-500"
-        placeholder="Search..."
-      />
     </header>
   );
 };
