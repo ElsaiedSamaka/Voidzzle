@@ -33,7 +33,7 @@ const menuItems = [
 const Header = () => {
   return (
     <header className="">
-      <div className="py-4 flex items-center">
+      <div className="py-2 flex items-center">
         <Link href="/">
           <Image
             width={36}
