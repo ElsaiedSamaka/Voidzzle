@@ -1,10 +1,7 @@
-import { RootLayout } from "shared";
+import OnlyFooterLayout from "shared/Layouts/OnlyFooter/OnlyFooter";
 
 const NewLetter = () => {
   return <div>news letter</div>;
 };
-NewLetter.getLayout = (page) => {
-  return <RootLayout>{page}</RootLayout>;
-};
-
+NewLetter.getLayout = (page) => <OnlyFooterLayout>{page}</OnlyFooterLayout>;
 export default NewLetter;
