@@ -1,4 +1,4 @@
-import { RootLayout, SettingsLayout } from "shared";
+import { DashboardLayout, RootLayout } from "shared";
 
 const Settings = () => {
   return <div>Settings</div>;
@@ -7,7 +7,7 @@ Settings.getLayout = (page) => {
   console.log("dashboard Settings.getLayout");
   return (
     <RootLayout>
-      <SettingsLayout>{page}</SettingsLayout>
+      <DashboardLayout>{page}</DashboardLayout>
     </RootLayout>
   );
 };
