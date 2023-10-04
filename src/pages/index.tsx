@@ -15,7 +15,7 @@ const IndexPage = () => {
         />
       </Head>
       <Provider store={store}>
-        <main className="bg-green-400">
+        <main className="bg-green-400 p-2">
           <span className="text-white">inside the main of (index.tsx)</span>
           {/* <Dashboard /> */}
           <Home />

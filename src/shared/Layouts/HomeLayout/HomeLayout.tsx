@@ -1,6 +1,6 @@
 const HomeLayout = ({ children }) => {
   return (
-    <section className="home-layout bg-purple-500">
+    <section className="home-layout p-2 bg-purple-500">
       <nav className="bg-white border-gray-200 dark:border-gray-600 dark:bg-gray-900">
         {/* Home Navbar */}
         <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4">
@@ -156,11 +156,7 @@ const HomeLayout = ({ children }) => {
         {/* submenu */}
         {/* Home Navbar */}
       </nav>
-      <div className="grid grid-cols-8 w-full">
-        <div className="col-span-8 rounded-xl sm:bg-gray-50 sm:px-8 sm:shadow">
-          {children}
-        </div>
-      </div>
+      <div className="home-content w-full p-2">{children}</div>
     </section>
   );
 };
