@@ -33,14 +33,14 @@ const Header = () => {
   const [search, setSearch] = useState("");
 
   return (
-    <header className="flex flex-col gap-5">
+    <header className="">
       <div className="py-4 flex items-center">
         <Link href="/">
           <Image
             width={36}
             height={36}
             src="/favicon.ico"
-            className="w-8 md:w-9"
+            className=""
             alt="logo"
           />
         </Link>
