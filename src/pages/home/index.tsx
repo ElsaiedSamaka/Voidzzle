@@ -1,8 +1,6 @@
 
 const Home = () => {
-  return (
-  <div>Home works</div>
-  );
+  return <section className="bg-yellow-300">Home works</section>;
 }
 
 export default Home

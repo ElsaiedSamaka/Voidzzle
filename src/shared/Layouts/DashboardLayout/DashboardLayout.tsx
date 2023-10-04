@@ -19,8 +19,8 @@ const ActiveMenuLink = ({ children, href }) => {
 
 const DashboardLayout = ({ children }) => {
   return (
-    <div className="flex gap-8">
-      <aside className="flex-[2]">
+    <section className="dashboard-layout bg-pink-600">
+      {/* <aside className="flex-[2]">
         <nav>
           <ul className="grid gap-3">
             <li>
@@ -38,11 +38,9 @@ const DashboardLayout = ({ children }) => {
             </li>
           </ul>
         </nav>
-      </aside>
-      <div className="bg-gray-100 flex-[8] p-4 rounded min-h-[300px]">
-        {children}
-      </div>
-    </div>
+      </aside> */}
+      <div className="bg-gray-100 p-4 rounded">{children}</div>
+    </section>
   );
 };
 

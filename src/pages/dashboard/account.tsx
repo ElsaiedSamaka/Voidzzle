@@ -1,16 +1,10 @@
-import { DashboardLayout, RootLayout } from "shared"
+import { DashboardLayout } from "shared";
 
 const Account = () => {
-  return (
-    <div>accout</div>
-  )
-}
+  return <div>account</div>;
+};
 Account.getLayout = (page) => {
-    return (<RootLayout>
-        <DashboardLayout>
-            {page}
-        </DashboardLayout>
-    </RootLayout>)
-}
+  return <DashboardLayout>{page}</DashboardLayout>;
+};
 
-export default Account
+export default Account;
