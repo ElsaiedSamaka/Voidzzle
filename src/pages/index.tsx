@@ -3,6 +3,7 @@ import { Provider } from "react-redux";
 import { HomeLayout } from "shared";
 import RootLayout from "shared/Layouts/RootLayout/RootLayout";
 import { store } from "../core/store";
+import Home from "./home";
 const IndexPage = () => {
   return (
     <>
@@ -16,7 +17,8 @@ const IndexPage = () => {
       <Provider store={store}>
         <main className="bg-green-400 p-4 m-2">
           <span className="text-white">inside the main of (index.tsx)</span>
-          {/* <Home /> */}
+          {/* <Dashboard /> */}
+          <Home />
           {/* <NewLetter /> */}
           {/* <Settings /> */}
         </main>
