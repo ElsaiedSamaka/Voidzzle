@@ -1,15 +1,13 @@
-import DashboardLayout from 'shared/DashboardLayout/DashboardLayout';
-import RootLayout from 'shared/Layouts/RootLayout/RootLayout';
+import { DashboardLayout } from "shared";
+import RootLayout from "shared/Layouts/RootLayout/RootLayout";
 
 const Settings = () => {
-  return (
-    <div>Settings</div>
-  )
-}
+  return <div>Settings</div>;
+};
 Settings.getLayout = (page) => (
   <RootLayout>
     <DashboardLayout>{page}</DashboardLayout>
   </RootLayout>
 );
 
-export default Settings
+export default Settings;

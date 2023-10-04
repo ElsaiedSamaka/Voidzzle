@@ -1,15 +1,13 @@
-import DashboardLayout from 'shared/DashboardLayout/DashboardLayout';
-import RootLayout from 'shared/Layouts/RootLayout/RootLayout';
+import { DashboardLayout } from "shared";
+import RootLayout from "shared/Layouts/RootLayout/RootLayout";
 
 const Analytics = () => {
-  return (
-    <div>Analytics</div>
-  )
-}
+  return <div>Analytics</div>;
+};
 Analytics.getLayout = (page) => (
   <RootLayout>
     <DashboardLayout>{page}</DashboardLayout>
   </RootLayout>
 );
 
-export default Analytics
+export default Analytics;
