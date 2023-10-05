@@ -1,4 +1,4 @@
-import { CarouselControlsInside, HomeLayout, RootLayout } from "shared";
+import { CarouselControlsInside, Footer, HomeLayout, RootLayout } from "shared";
 
 const Home = () => {
   return (
@@ -608,6 +608,9 @@ const Home = () => {
       {/* controls */}
       <CarouselControlsInside />
       {/* controls */}
+      {/* footer */}
+      <Footer />
+      {/* footer */}
     </section>
   );
 };

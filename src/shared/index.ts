@@ -2,6 +2,7 @@ import CarouselControlsInside from "./Carousels/CarouselIndicatorsControlsInside
 import InfiniteCarousel from "./Carousels/InfinteCarousel/InfinitCarousel";
 import Aside from "./Common/Aside/Aside";
 import Card from "./Common/Card/Card";
+import Footer from "./Common/Footer/Footer";
 import Navbar from "./Common/Header/Navbar/Navbar";
 import Counter from "./Counter/Counter";
 import Form from "./Forms/Form";
@@ -15,6 +16,7 @@ export {
   CarouselControlsInside,
   Counter,
   DashboardLayout,
+  Footer,
   Form,
   HomeLayout,
   InfiniteCarousel,
@@ -22,3 +24,4 @@ export {
   RootLayout,
   SettingsLayout,
 };
+
