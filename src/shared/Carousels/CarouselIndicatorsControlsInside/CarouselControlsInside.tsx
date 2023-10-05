@@ -46,13 +46,13 @@ function CarouselControlsInside({ title }) {
             className="w-5 h-5 group-hover:translate-x-3 group-hover:animate-ping duration:300"
             fill="none"
             stroke="currentColor"
-            stroke-width="1.5"
+            strokeWidth="1.5"
             viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg"
             aria-hidden="true"
           >
             <path
-              stroke-linecap="round"
+              strokeLinecap="round"
               strokeLinejoin="round"
               d="M8.25 4.5l7.5 7.5-7.5 7.5"
             ></path>
