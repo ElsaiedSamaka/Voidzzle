@@ -222,7 +222,6 @@ const Home = () => {
   );
 };
 Home.getLayout = (page) => {
-  console.log("Home.getLayout");
   return (
     <RootLayout>
       <HomeLayout>{page}</HomeLayout>

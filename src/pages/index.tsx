@@ -27,7 +27,6 @@ const IndexPage = () => {
 };
 
 IndexPage.getLayout = (page) => {
-  console.log("IndexPage.getLayout");
   return (
     <RootLayout>
       <HomeLayout>{page}</HomeLayout>
