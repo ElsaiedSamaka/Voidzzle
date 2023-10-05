@@ -65,8 +65,8 @@ function CarouselControlsInside({ title }) {
         <div className="overflow-hidden" data-glide-el="track">
           <ul className="whitespace-no-wrap flex-no-wrap [backface-visibility: hidden] [transform-style: preserve-3d] [touch-action: pan-Y] [will-change: transform] relative flex w-full overflow-hidden p-0">
             <li>
-              <div className="relative  flex w-full max-w-xs flex-col overflow-hidden rounded-xl border border-gray-100 bg-[#f5f5f5] ">
-                <a className="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl">
+              <div className="relative  flex w-full max-w-xs flex-col overflow-hidden rounded-2xl border border-gray-100 ">
+                <a className="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-2xl">
                   <img
                     className="object-cover"
                     src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8c25lYWtlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
