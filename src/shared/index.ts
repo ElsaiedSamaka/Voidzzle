@@ -10,6 +10,7 @@ import DashboardLayout from "./Layouts/DashboardLayout/DashboardLayout";
 import HomeLayout from "./Layouts/HomeLayout/HomeLayout";
 import RootLayout from "./Layouts/RootLayout/RootLayout";
 import SettingsLayout from "./Layouts/SettingsLayout/SettingsLayout";
+import ProfileLayout from "./Layouts/ProfileLayout/ProfileLayout";
 export {
   Aside,
   Card,
@@ -23,5 +24,6 @@ export {
   Navbar,
   RootLayout,
   SettingsLayout,
+  ProfileLayout,
 };
 

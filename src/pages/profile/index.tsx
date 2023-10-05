@@ -1,8 +1,13 @@
+import { ProfileLayout, RootLayout } from "shared";
 
 const Profile = () => {
+  return <div>Profile</div>;
+};
+Profile.getLayout = (page) => {
   return (
-    <div>Profile</div>
-  )
-}
-
-export default Profile
+    <RootLayout>
+      <ProfileLayout>{page}</ProfileLayout>
+    </RootLayout>
+  );
+};
+export default Profile;
