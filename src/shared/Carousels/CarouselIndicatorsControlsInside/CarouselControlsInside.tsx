@@ -39,9 +39,9 @@ function CarouselControlsInside({ title }) {
   return (
     <>
       <div className="flex justify-between items-center m-2 font-semibold">
-        <span>{title}</span>
-        <span className="inline-flex items-center">
-          View All
+        <span className="font-bold text-2xl">{title}</span>
+        <span className="inline-flex items-center text-zinc-200 hover:cursor-pointer hover:text-zinc-900 hover:underline">
+          See All
           <svg
             className="w-5 h-5"
             fill="none"

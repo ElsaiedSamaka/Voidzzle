@@ -1,6 +1,6 @@
 const HomeLayout = ({ children }) => {
   return (
-    <section className="home-layout p-2 bg-purple-500 w-full">
+    <section className="home-layout p-2  w-full">
       <nav className="bg-white border-gray-200 dark:border-gray-600 dark:bg-gray-900 w-full fixed top-14 right-0 md:left-64 z-10">
         {/* Home Navbar */}
         <div className="flex flex-wrap justify-between items-center  p-4">
@@ -156,9 +156,7 @@ const HomeLayout = ({ children }) => {
         {/* End Announcement Banner */}
         {/* Home Navbar */}
       </nav>
-      <div className="home-content w-full p-2 bg-emerald-300 mt-20">
-        {children}
-      </div>
+      <div className="home-content w-full p-2  mt-20">{children}</div>
     </section>
   );
 };

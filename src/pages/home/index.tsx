@@ -2,7 +2,7 @@ import { CarouselControlsInside, Footer, HomeLayout, RootLayout } from "shared";
 
 const Home = () => {
   return (
-    <section className="bg-yellow-300 p-2">
+    <section className=" p-2">
       {/* filteration card */}
       <div className="flex flex-col">
         <div className="rounded-xl border border-gray-200 bg-white p-6 mb-2">
@@ -108,7 +108,7 @@ const Home = () => {
       {/* <InfiniteCarousel /> */}
       {/* infinite carousel */}
       {/* controls */}
-      <CarouselControlsInside title="test" />
+      <CarouselControlsInside title="Deals of the day" />
       {/* controls */}
       {/* footer */}
       <Footer />
