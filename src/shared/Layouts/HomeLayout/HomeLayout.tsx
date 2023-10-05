@@ -1,7 +1,7 @@
 const HomeLayout = ({ children }) => {
   return (
     <section className="home-layout p-2 bg-purple-500">
-      <nav className="bg-white border-gray-200 dark:border-gray-600 dark:bg-gray-900">
+      <nav className="bg-white border-gray-200 dark:border-gray-600 dark:bg-gray-900 fixed top-14 right-0 left-0 z-10">
         {/* Home Navbar */}
         <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4">
           <a href="https://flowbite.com" className="flex items-center">
@@ -155,9 +155,8 @@ const HomeLayout = ({ children }) => {
         </div>
         {/* submenu */}
         {/* Announcement Banner */}
-        <div className="bg-red-400 backdrop-blur-lg m-2">
+        {/* <div className="bg-blue-900 backdrop-blur-lg m-2">
           <div className="max-w-[85rem] px-4 py-2 sm:px-6 lg:px-8 mx-auto">
-            {/* Grid */}
             <div className="grid justify-center sm:grid-cols-2 sm:items-center gap-4">
               <div className="flex items-center gap-x-3 md:gap-x-5">
                 <svg
@@ -196,7 +195,6 @@ const HomeLayout = ({ children }) => {
                   </p>
                 </div>
               </div>
-              {/* End Col */}
               <div className="text-center sm:text-left flex sm:justify-end sm:items-center gap-x-3 md:gap-x-4">
                 <a
                   className="py-2 px-3 inline-flex justify-center items-center gap-2 rounded-md sm:rounded-full border border-transparent font-semibold bg-blue-500 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm md:py-3 md:px-4"
@@ -211,15 +209,15 @@ const HomeLayout = ({ children }) => {
                   Buy now
                 </a>
               </div>
-              {/* End Col */}
             </div>
-            {/* End Grid */}
           </div>
-        </div>
+        </div> */}
         {/* End Announcement Banner */}
         {/* Home Navbar */}
       </nav>
-      <div className="home-content w-full p-2">{children}</div>
+      <div className="home-content w-full p-2 bg-emerald-300 mt-11">
+        {children}
+      </div>
     </section>
   );
 };
