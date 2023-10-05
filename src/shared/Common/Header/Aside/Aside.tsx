@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const Aside = () => {
   return (
     <aside
@@ -6,7 +8,7 @@ const Aside = () => {
       id="drawer-navigation"
     >
       <div className="overflow-y-auto py-5 px-3 h-full bg-white :bg-gray-800">
-        <form action="#" method="GET" className="md:hidden mb-2">
+        <form className="md:hidden mb-2">
           <label htmlFor="sidebar-search" className="sr-only">
             Search
           </label>
@@ -36,19 +38,21 @@ const Aside = () => {
         </form>
         <ul className="space-y-2">
           <li>
-            <a className="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg :text-white hover:bg-gray-100 :hover:bg-gray-700 group">
-              <svg
-                aria-hidden="true"
-                className="w-6 h-6 text-gray-500 transition duration-75 :text-gray-400 group-hover:text-gray-900 :group-hover:text-white"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z" />
-                <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z" />
-              </svg>
-              <span className="ml-3">Profile</span>
-            </a>
+            <Link href="/">
+              <div className="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg :text-white hover:bg-gray-100 :hover:bg-gray-700 group">
+                <svg
+                  aria-hidden="true"
+                  className="w-6 h-6 text-gray-500 transition duration-75 :text-gray-400 group-hover:text-gray-900 :group-hover:text-white"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z" />
+                  <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z" />
+                </svg>
+                <span className="ml-3">Home</span>
+              </div>
+            </Link>
           </li>
           <li>
             <button

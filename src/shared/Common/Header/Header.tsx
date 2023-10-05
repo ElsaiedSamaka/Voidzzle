@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import Aside from "../Aside/Aside";
+import Aside from "./Aside/Aside";
 import Navbar from "./Navbar/Navbar";
 
 const ActiveMenuLink = ({ children, href }) => {
