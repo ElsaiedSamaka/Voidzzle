@@ -41,15 +41,23 @@ const Aside = () => {
             <Link href="/">
               <div className="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg :text-white hover:bg-gray-100 :hover:bg-gray-700 group">
                 <svg
-                  aria-hidden="true"
-                  className="w-6 h-6 text-gray-500 transition duration-75 :text-gray-400 group-hover:text-gray-900 :group-hover:text-white"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
+                  className="w-6 h-6 text-gray-500 transition duration-75
+          :text-gray-400 group-hover:text-gray-900 group-hover:animate-pulse
+          :group-hover:text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
                 >
-                  <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z" />
-                  <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
+                  />
                 </svg>
+
                 <span className="ml-3">Home</span>
               </div>
             </Link>
@@ -59,7 +67,7 @@ const Aside = () => {
               <div className="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg :text-white hover:bg-gray-100 :hover:bg-gray-700 group">
                 <svg
                   className="flex-shrink-0 w-6 h-6 text-gray-500 transition
-                duration-75 :text-gray-400 group-hover:text-gray-900
+                duration-75 :text-gray-400 group-hover:text-gray-900 group-hover:animate-pulse
                 :group-hover:text-white"
                   fill="current"
                   stroke="currentColor"
@@ -109,7 +117,7 @@ const Aside = () => {
               <div className="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg :text-white hover:bg-gray-100 :hover:bg-gray-700 group">
                 <svg
                   aria-hidden="true"
-                  className="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 :text-gray-400 group-hover:text-gray-900 :group-hover:text-white"
+                  className="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 :text-gray-400 group-hover:text-gray-900 group-hover:animate-bounce :group-hover:text-white"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"
@@ -129,7 +137,7 @@ const Aside = () => {
               <div className="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg :text-white hover:bg-gray-100 :hover:bg-gray-700 group">
                 <svg
                   className="flex-shrink-0 w-6 h-6 text-gray-500 transition
-                duration-75 :text-gray-400 group-hover:text-gray-900
+                duration-75 :text-gray-400 group-hover:text-gray-900 group-hover:animate-pulse
                 :group-hover:text-white"
                   fill="none"
                   stroke="currentColor"
