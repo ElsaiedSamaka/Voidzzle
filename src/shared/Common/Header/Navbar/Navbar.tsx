@@ -1,14 +1,14 @@
 
 const Navbar = () => {
   return (
-    <nav className="bg-white border-b border-gray-200 px-4 py-2.5 dark:bg-gray-800 dark:border-gray-700 fixed left-0 right-0 top-0 z-50">
+    <nav className="bg-white border-b border-gray-200 px-4 py-2.5 :bg-gray-800 :border-gray-700 fixed left-0 right-0 top-0 z-50">
       <div className="flex flex-wrap justify-between items-center">
         <div className="flex justify-start items-center">
           <button
             data-drawer-target="drawer-navigation"
             data-drawer-toggle="drawer-navigation"
             aria-controls="drawer-navigation"
-            className="p-2 mr-2 text-gray-600 rounded-lg cursor-pointer md:hidden hover:text-gray-900 hover:bg-gray-100 focus:bg-gray-100 dark:focus:bg-gray-700 focus:ring-2 focus:ring-gray-100 dark:focus:ring-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+            className="p-2 mr-2 text-gray-600 rounded-lg cursor-pointer md:hidden hover:text-gray-900 hover:bg-gray-100 focus:bg-gray-100 :focus:bg-gray-700 focus:ring-2 focus:ring-gray-100 :focus:ring-gray-700 :text-gray-400 :hover:bg-gray-700 :hover:text-white"
           >
             <svg
               aria-hidden="true"
@@ -47,7 +47,7 @@ const Navbar = () => {
               className="mr-3 h-8"
               alt="Flowbite Logo"
             />
-            <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+            <span className="self-center text-2xl font-semibold whitespace-nowrap :text-white">
               Flowbite
             </span>
           </a>
@@ -58,7 +58,7 @@ const Navbar = () => {
             <div className="relative md:w-64 md:w-96">
               <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
                 <svg
-                  className="w-5 h-5 text-gray-500 dark:text-gray-400"
+                  className="w-5 h-5 text-gray-500 :text-gray-400"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"
@@ -74,7 +74,7 @@ const Navbar = () => {
                 type="text"
                 name="email"
                 id="topbar-search"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-10 p-2.5 :bg-gray-700 :border-gray-600 :placeholder-gray-400 :text-white :focus:ring-primary-500 :focus:border-primary-500"
                 placeholder="Search"
               />
             </div>
@@ -85,7 +85,7 @@ const Navbar = () => {
             type="button"
             data-drawer-toggle="drawer-navigation"
             aria-controls="drawer-navigation"
-            className="p-2 mr-1 text-gray-500 rounded-lg md:hidden hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-700 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+            className="p-2 mr-1 text-gray-500 rounded-lg md:hidden hover:text-gray-900 hover:bg-gray-100 :text-gray-400 :hover:text-white :hover:bg-gray-700 focus:ring-4 focus:ring-gray-300 :focus:ring-gray-600"
           >
             <span className="sr-only">Toggle search</span>
             <svg
@@ -106,7 +106,7 @@ const Navbar = () => {
           <button
             type="button"
             data-dropdown-toggle="notification-dropdown"
-            className="p-2 mr-1 text-gray-500 rounded-lg hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-700 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+            className="p-2 mr-1 text-gray-500 rounded-lg hover:text-gray-900 hover:bg-gray-100 :text-gray-400 :hover:text-white :hover:bg-gray-700 focus:ring-4 focus:ring-gray-300 :focus:ring-gray-600"
           >
             <span className="sr-only">View notifications</span>
             {/* Bell icon */}
@@ -122,21 +122,21 @@ const Navbar = () => {
           </button>
           {/* Dropdown menu */}
           <div
-            className="hidden overflow-hidden z-50 my-4 max-w-sm text-base list-none bg-white rounded divide-y divide-gray-100 shadow-lg dark:divide-gray-600 dark:bg-gray-700 rounded-xl"
+            className="hidden overflow-hidden z-50 my-4 max-w-sm text-base list-none bg-white rounded divide-y divide-gray-100 shadow-lg :divide-gray-600 :bg-gray-700 rounded-xl"
             id="notification-dropdown"
           >
-            <div className="block py-2 px-4 text-base font-medium text-center text-gray-700 bg-gray-50 dark:bg-gray-600 dark:text-gray-300">
+            <div className="block py-2 px-4 text-base font-medium text-center text-gray-700 bg-gray-50 :bg-gray-600 :text-gray-300">
               Notifications
             </div>
             <div>
-              <a className="flex py-3 px-4 border-b hover:bg-gray-100 dark:hover:bg-gray-600 dark:border-gray-600">
+              <a className="flex py-3 px-4 border-b hover:bg-gray-100 :hover:bg-gray-600 :border-gray-600">
                 <div className="flex-shrink-0">
                   <img
                     className="w-11 h-11 rounded-full"
                     src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png"
                     alt="Bonnie Green avatar"
                   />
-                  <div className="flex absolute justify-center items-center ml-6 -mt-5 w-5 h-5 rounded-full border border-white bg-primary-700 dark:border-gray-700">
+                  <div className="flex absolute justify-center items-center ml-6 -mt-5 w-5 h-5 rounded-full border border-white bg-primary-700 :border-gray-700">
                     <svg
                       aria-hidden="true"
                       className="w-3 h-3 text-white"
@@ -150,26 +150,26 @@ const Navbar = () => {
                   </div>
                 </div>
                 <div className="pl-3 w-full">
-                  <div className="text-gray-500 font-normal text-sm mb-1.5 dark:text-gray-400">
+                  <div className="text-gray-500 font-normal text-sm mb-1.5 :text-gray-400">
                     New message from
-                    <span className="font-semibold text-gray-900 dark:text-white">
+                    <span className="font-semibold text-gray-900 :text-white">
                       Bonnie Green
                     </span>
                     : "Hey, what's up? All set for the presentation?"
                   </div>
-                  <div className="text-xs font-medium text-primary-600 dark:text-primary-500">
+                  <div className="text-xs font-medium text-primary-600 :text-primary-500">
                     a few moments ago
                   </div>
                 </div>
               </a>
-              <a className="flex py-3 px-4 border-b hover:bg-gray-100 dark:hover:bg-gray-600 dark:border-gray-600">
+              <a className="flex py-3 px-4 border-b hover:bg-gray-100 :hover:bg-gray-600 :border-gray-600">
                 <div className="flex-shrink-0">
                   <img
                     className="w-11 h-11 rounded-full"
                     src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png"
                     alt="Jese Leos avatar"
                   />
-                  <div className="flex absolute justify-center items-center ml-6 -mt-5 w-5 h-5 bg-gray-900 rounded-full border border-white dark:border-gray-700">
+                  <div className="flex absolute justify-center items-center ml-6 -mt-5 w-5 h-5 bg-gray-900 rounded-full border border-white :border-gray-700">
                     <svg
                       aria-hidden="true"
                       className="w-3 h-3 text-white"
@@ -182,29 +182,29 @@ const Navbar = () => {
                   </div>
                 </div>
                 <div className="pl-3 w-full">
-                  <div className="text-gray-500 font-normal text-sm mb-1.5 dark:text-gray-400">
-                    <span className="font-semibold text-gray-900 dark:text-white">
+                  <div className="text-gray-500 font-normal text-sm mb-1.5 :text-gray-400">
+                    <span className="font-semibold text-gray-900 :text-white">
                       Jese leos
                     </span>
                     and
-                    <span className="font-medium text-gray-900 dark:text-white">
+                    <span className="font-medium text-gray-900 :text-white">
                       5 others
                     </span>
                     started following you.
                   </div>
-                  <div className="text-xs font-medium text-primary-600 dark:text-primary-500">
+                  <div className="text-xs font-medium text-primary-600 :text-primary-500">
                     10 minutes ago
                   </div>
                 </div>
               </a>
-              <a className="flex py-3 px-4 border-b hover:bg-gray-100 dark:hover:bg-gray-600 dark:border-gray-600">
+              <a className="flex py-3 px-4 border-b hover:bg-gray-100 :hover:bg-gray-600 :border-gray-600">
                 <div className="flex-shrink-0">
                   <img
                     className="w-11 h-11 rounded-full"
                     src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/joseph-mcfall.png"
                     alt="Joseph McFall avatar"
                   />
-                  <div className="flex absolute justify-center items-center ml-6 -mt-5 w-5 h-5 bg-red-600 rounded-full border border-white dark:border-gray-700">
+                  <div className="flex absolute justify-center items-center ml-6 -mt-5 w-5 h-5 bg-red-600 rounded-full border border-white :border-gray-700">
                     <svg
                       aria-hidden="true"
                       className="w-3 h-3 text-white"
@@ -221,29 +221,29 @@ const Navbar = () => {
                   </div>
                 </div>
                 <div className="pl-3 w-full">
-                  <div className="text-gray-500 font-normal text-sm mb-1.5 dark:text-gray-400">
-                    <span className="font-semibold text-gray-900 dark:text-white">
+                  <div className="text-gray-500 font-normal text-sm mb-1.5 :text-gray-400">
+                    <span className="font-semibold text-gray-900 :text-white">
                       Joseph Mcfall
                     </span>
                     and
-                    <span className="font-medium text-gray-900 dark:text-white">
+                    <span className="font-medium text-gray-900 :text-white">
                       141 others
                     </span>
                     love your story. See it and view more stories.
                   </div>
-                  <div className="text-xs font-medium text-primary-600 dark:text-primary-500">
+                  <div className="text-xs font-medium text-primary-600 :text-primary-500">
                     44 minutes ago
                   </div>
                 </div>
               </a>
-              <a className="flex py-3 px-4 border-b hover:bg-gray-100 dark:hover:bg-gray-600 dark:border-gray-600">
+              <a className="flex py-3 px-4 border-b hover:bg-gray-100 :hover:bg-gray-600 :border-gray-600">
                 <div className="flex-shrink-0">
                   <img
                     className="w-11 h-11 rounded-full"
                     src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/roberta-casas.png"
                     alt="Roberta Casas image"
                   />
-                  <div className="flex absolute justify-center items-center ml-6 -mt-5 w-5 h-5 bg-green-400 rounded-full border border-white dark:border-gray-700">
+                  <div className="flex absolute justify-center items-center ml-6 -mt-5 w-5 h-5 bg-green-400 rounded-full border border-white :border-gray-700">
                     <svg
                       aria-hidden="true"
                       className="w-3 h-3 text-white"
@@ -260,29 +260,29 @@ const Navbar = () => {
                   </div>
                 </div>
                 <div className="pl-3 w-full">
-                  <div className="text-gray-500 font-normal text-sm mb-1.5 dark:text-gray-400">
-                    <span className="font-semibold text-gray-900 dark:text-white">
+                  <div className="text-gray-500 font-normal text-sm mb-1.5 :text-gray-400">
+                    <span className="font-semibold text-gray-900 :text-white">
                       Leslie Livingston
                     </span>
                     mentioned you in a comment:
-                    <span className="font-medium text-primary-600 dark:text-primary-500">
+                    <span className="font-medium text-primary-600 :text-primary-500">
                       @bonnie.green
                     </span>
                     what do you say?
                   </div>
-                  <div className="text-xs font-medium text-primary-600 dark:text-primary-500">
+                  <div className="text-xs font-medium text-primary-600 :text-primary-500">
                     1 hour ago
                   </div>
                 </div>
               </a>
-              <a className="flex py-3 px-4 hover:bg-gray-100 dark:hover:bg-gray-600">
+              <a className="flex py-3 px-4 hover:bg-gray-100 :hover:bg-gray-600">
                 <div className="flex-shrink-0">
                   <img
                     className="w-11 h-11 rounded-full"
                     src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/robert-brown.png"
                     alt="Robert image"
                   />
-                  <div className="flex absolute justify-center items-center ml-6 -mt-5 w-5 h-5 bg-purple-500 rounded-full border border-white dark:border-gray-700">
+                  <div className="flex absolute justify-center items-center ml-6 -mt-5 w-5 h-5 bg-purple-500 rounded-full border border-white :border-gray-700">
                     <svg
                       aria-hidden="true"
                       className="w-3 h-3 text-white"
@@ -295,24 +295,24 @@ const Navbar = () => {
                   </div>
                 </div>
                 <div className="pl-3 w-full">
-                  <div className="text-gray-500 font-normal text-sm mb-1.5 dark:text-gray-400">
-                    <span className="font-semibold text-gray-900 dark:text-white">
+                  <div className="text-gray-500 font-normal text-sm mb-1.5 :text-gray-400">
+                    <span className="font-semibold text-gray-900 :text-white">
                       Robert Brown
                     </span>
                     posted a new video: Glassmorphism - learn how to implement
                     the new design trend.
                   </div>
-                  <div className="text-xs font-medium text-primary-600 dark:text-primary-500">
+                  <div className="text-xs font-medium text-primary-600 :text-primary-500">
                     3 hours ago
                   </div>
                 </div>
               </a>
             </div>
-            <a className="block py-2 text-md font-medium text-center text-gray-900 bg-gray-50 hover:bg-gray-100 dark:bg-gray-600 dark:text-white dark:hover:underline">
+            <a className="block py-2 text-md font-medium text-center text-gray-900 bg-gray-50 hover:bg-gray-100 :bg-gray-600 :text-white :hover:underline">
               <div className="inline-flex items-center">
                 <svg
                   aria-hidden="true"
-                  className="mr-2 w-4 h-4 text-gray-500 dark:text-gray-400"
+                  className="mr-2 w-4 h-4 text-gray-500 :text-gray-400"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"
@@ -332,7 +332,7 @@ const Navbar = () => {
           <button
             type="button"
             data-dropdown-toggle="apps-dropdown"
-            className="p-2 text-gray-500 rounded-lg hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-700 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+            className="p-2 text-gray-500 rounded-lg hover:text-gray-900 hover:bg-gray-100 :text-gray-400 :hover:text-white :hover:bg-gray-700 focus:ring-4 focus:ring-gray-300 :focus:ring-gray-600"
           >
             <span className="sr-only">View notifications</span>
             {/* Icon */}
@@ -347,17 +347,17 @@ const Navbar = () => {
           </button>
           {/* Dropdown menu */}
           <div
-            className="hidden overflow-hidden z-50 my-4 max-w-sm text-base list-none bg-white rounded divide-y divide-gray-100 shadow-lg dark:bg-gray-700 dark:divide-gray-600 rounded-xl"
+            className="hidden overflow-hidden z-50 my-4 max-w-sm text-base list-none bg-white rounded divide-y divide-gray-100 shadow-lg :bg-gray-700 :divide-gray-600 rounded-xl"
             id="apps-dropdown"
           >
-            <div className="block py-2 px-4 text-base font-medium text-center text-gray-700 bg-gray-50 dark:bg-gray-600 dark:text-gray-300">
+            <div className="block py-2 px-4 text-base font-medium text-center text-gray-700 bg-gray-50 :bg-gray-600 :text-gray-300">
               Apps
             </div>
             <div className="grid grid-cols-3 gap-4 p-4">
-              <a className="block p-4 text-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 group">
+              <a className="block p-4 text-center rounded-lg hover:bg-gray-100 :hover:bg-gray-600 group">
                 <svg
                   aria-hidden="true"
-                  className="mx-auto mb-1 w-7 h-7 text-gray-400 group-hover:text-gray-500 dark:text-gray-400 dark:group-hover:text-gray-400"
+                  className="mx-auto mb-1 w-7 h-7 text-gray-400 group-hover:text-gray-500 :text-gray-400 :group-hover:text-gray-400"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"
@@ -368,28 +368,24 @@ const Navbar = () => {
                     clipRule="evenodd"
                   />
                 </svg>
-                <div className="text-sm text-gray-900 dark:text-white">
-                  Sales
-                </div>
+                <div className="text-sm text-gray-900 :text-white">Sales</div>
               </a>
-              <a className="block p-4 text-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 group">
+              <a className="block p-4 text-center rounded-lg hover:bg-gray-100 :hover:bg-gray-600 group">
                 <svg
                   aria-hidden="true"
-                  className="mx-auto mb-1 w-7 h-7 text-gray-400 group-hover:text-gray-500 dark:text-gray-400 dark:group-hover:text-gray-400"
+                  className="mx-auto mb-1 w-7 h-7 text-gray-400 group-hover:text-gray-500 :text-gray-400 :group-hover:text-gray-400"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z" />
                 </svg>
-                <div className="text-sm text-gray-900 dark:text-white">
-                  Users
-                </div>
+                <div className="text-sm text-gray-900 :text-white">Users</div>
               </a>
-              <a className="block p-4 text-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 group">
+              <a className="block p-4 text-center rounded-lg hover:bg-gray-100 :hover:bg-gray-600 group">
                 <svg
                   aria-hidden="true"
-                  className="mx-auto mb-1 w-7 h-7 text-gray-400 group-hover:text-gray-500 dark:text-gray-400 dark:group-hover:text-gray-400"
+                  className="mx-auto mb-1 w-7 h-7 text-gray-400 group-hover:text-gray-500 :text-gray-400 :group-hover:text-gray-400"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"
@@ -400,14 +396,12 @@ const Navbar = () => {
                     clipRule="evenodd"
                   />
                 </svg>
-                <div className="text-sm text-gray-900 dark:text-white">
-                  Inbox
-                </div>
+                <div className="text-sm text-gray-900 :text-white">Inbox</div>
               </a>
-              <a className="block p-4 text-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 group">
+              <a className="block p-4 text-center rounded-lg hover:bg-gray-100 :hover:bg-gray-600 group">
                 <svg
                   aria-hidden="true"
-                  className="mx-auto mb-1 w-7 h-7 text-gray-400 group-hover:text-gray-500 dark:text-gray-400 dark:group-hover:text-gray-400"
+                  className="mx-auto mb-1 w-7 h-7 text-gray-400 group-hover:text-gray-500 :text-gray-400 :group-hover:text-gray-400"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"
@@ -418,14 +412,12 @@ const Navbar = () => {
                     clipRule="evenodd"
                   />
                 </svg>
-                <div className="text-sm text-gray-900 dark:text-white">
-                  Profile
-                </div>
+                <div className="text-sm text-gray-900 :text-white">Profile</div>
               </a>
-              <a className="block p-4 text-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 group">
+              <a className="block p-4 text-center rounded-lg hover:bg-gray-100 :hover:bg-gray-600 group">
                 <svg
                   aria-hidden="true"
-                  className="mx-auto mb-1 w-7 h-7 text-gray-400 group-hover:text-gray-500 dark:text-gray-400 dark:group-hover:text-gray-400"
+                  className="mx-auto mb-1 w-7 h-7 text-gray-400 group-hover:text-gray-500 :text-gray-400 :group-hover:text-gray-400"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"
@@ -436,14 +428,14 @@ const Navbar = () => {
                     clipRule="evenodd"
                   />
                 </svg>
-                <div className="text-sm text-gray-900 dark:text-white">
+                <div className="text-sm text-gray-900 :text-white">
                   Settings
                 </div>
               </a>
-              <a className="block p-4 text-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 group">
+              <a className="block p-4 text-center rounded-lg hover:bg-gray-100 :hover:bg-gray-600 group">
                 <svg
                   aria-hidden="true"
-                  className="mx-auto mb-1 w-7 h-7 text-gray-400 group-hover:text-gray-500 dark:text-gray-400 dark:group-hover:text-gray-400"
+                  className="mx-auto mb-1 w-7 h-7 text-gray-400 group-hover:text-gray-500 :text-gray-400 :group-hover:text-gray-400"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"
@@ -455,14 +447,14 @@ const Navbar = () => {
                     clipRule="evenodd"
                   />
                 </svg>
-                <div className="text-sm text-gray-900 dark:text-white">
+                <div className="text-sm text-gray-900 :text-white">
                   Products
                 </div>
               </a>
-              <a className="block p-4 text-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 group">
+              <a className="block p-4 text-center rounded-lg hover:bg-gray-100 :hover:bg-gray-600 group">
                 <svg
                   aria-hidden="true"
-                  className="mx-auto mb-1 w-7 h-7 text-gray-400 group-hover:text-gray-500 dark:text-gray-400 dark:group-hover:text-gray-400"
+                  className="mx-auto mb-1 w-7 h-7 text-gray-400 group-hover:text-gray-500 :text-gray-400 :group-hover:text-gray-400"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"
@@ -474,14 +466,12 @@ const Navbar = () => {
                     clipRule="evenodd"
                   />
                 </svg>
-                <div className="text-sm text-gray-900 dark:text-white">
-                  Pricing
-                </div>
+                <div className="text-sm text-gray-900 :text-white">Pricing</div>
               </a>
-              <a className="block p-4 text-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 group">
+              <a className="block p-4 text-center rounded-lg hover:bg-gray-100 :hover:bg-gray-600 group">
                 <svg
                   aria-hidden="true"
-                  className="mx-auto mb-1 w-7 h-7 text-gray-400 group-hover:text-gray-500 dark:text-gray-400 dark:group-hover:text-gray-400"
+                  className="mx-auto mb-1 w-7 h-7 text-gray-400 group-hover:text-gray-500 :text-gray-400 :group-hover:text-gray-400"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"
@@ -492,14 +482,12 @@ const Navbar = () => {
                     clipRule="evenodd"
                   />
                 </svg>
-                <div className="text-sm text-gray-900 dark:text-white">
-                  Billing
-                </div>
+                <div className="text-sm text-gray-900 :text-white">Billing</div>
               </a>
-              <a className="block p-4 text-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 group">
+              <a className="block p-4 text-center rounded-lg hover:bg-gray-100 :hover:bg-gray-600 group">
                 <svg
                   aria-hidden="true"
-                  className="mx-auto mb-1 w-7 h-7 text-gray-400 group-hover:text-gray-500 dark:text-gray-400 dark:group-hover:text-gray-400"
+                  className="mx-auto mb-1 w-7 h-7 text-gray-400 group-hover:text-gray-500 :text-gray-400 :group-hover:text-gray-400"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -512,15 +500,13 @@ const Navbar = () => {
                     d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
                   />
                 </svg>
-                <div className="text-sm text-gray-900 dark:text-white">
-                  Logout
-                </div>
+                <div className="text-sm text-gray-900 :text-white">Logout</div>
               </a>
             </div>
           </div>
           <button
             type="button"
-            className="flex mx-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+            className="flex mx-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 :focus:ring-gray-600"
             id="user-menu-button"
             aria-expanded="false"
             data-dropdown-toggle="dropdown"
@@ -534,38 +520,38 @@ const Navbar = () => {
           </button>
           {/* Dropdown menu */}
           <div
-            className="hidden z-50 my-4 w-56 text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600 rounded-xl"
+            className="hidden z-50 my-4 w-56 text-base list-none bg-white rounded divide-y divide-gray-100 shadow :bg-gray-700 :divide-gray-600 rounded-xl"
             id="dropdown"
           >
             <div className="py-3 px-4">
-              <span className="block text-sm font-semibold text-gray-900 dark:text-white">
+              <span className="block text-sm font-semibold text-gray-900 :text-white">
                 Neil Sims
               </span>
-              <span className="block text-sm text-gray-900 truncate dark:text-white">
+              <span className="block text-sm text-gray-900 truncate :text-white">
                 name@flowbite.com
               </span>
             </div>
             <ul
-              className="py-1 text-gray-700 dark:text-gray-300"
+              className="py-1 text-gray-700 :text-gray-300"
               aria-labelledby="dropdown"
             >
               <li>
-                <a className="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">
+                <a className="block py-2 px-4 text-sm hover:bg-gray-100 :hover:bg-gray-600 :text-gray-400 :hover:text-white">
                   My profile
                 </a>
               </li>
               <li>
-                <a className="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">
+                <a className="block py-2 px-4 text-sm hover:bg-gray-100 :hover:bg-gray-600 :text-gray-400 :hover:text-white">
                   Account settings
                 </a>
               </li>
             </ul>
             <ul
-              className="py-1 text-gray-700 dark:text-gray-300"
+              className="py-1 text-gray-700 :text-gray-300"
               aria-labelledby="dropdown"
             >
               <li>
-                <a className="flex items-center py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                <a className="flex items-center py-2 px-4 text-sm hover:bg-gray-100 :hover:bg-gray-600 :hover:text-white">
                   <svg
                     className="mr-2 w-5 h-5 text-gray-400"
                     fill="currentColor"
@@ -582,7 +568,7 @@ const Navbar = () => {
                 </a>
               </li>
               <li>
-                <a className="flex items-center py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                <a className="flex items-center py-2 px-4 text-sm hover:bg-gray-100 :hover:bg-gray-600 :hover:text-white">
                   <svg
                     className="mr-2 w-5 h-5 text-gray-400"
                     fill="currentColor"
@@ -595,11 +581,11 @@ const Navbar = () => {
                 </a>
               </li>
               <li>
-                <a className="flex justify-between items-center py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                <a className="flex justify-between items-center py-2 px-4 text-sm hover:bg-gray-100 :hover:bg-gray-600 :hover:text-white">
                   <span className="flex items-center">
                     <svg
                       aria-hidden="true"
-                      className="mr-2 w-5 h-5 text-primary-600 dark:text-primary-500"
+                      className="mr-2 w-5 h-5 text-primary-600 :text-primary-500"
                       fill="currentColor"
                       viewBox="0 0 20 20"
                       xmlns="http://www.w3.org/2000/svg"
@@ -629,11 +615,11 @@ const Navbar = () => {
               </li>
             </ul>
             <ul
-              className="py-1 text-gray-700 dark:text-gray-300"
+              className="py-1 text-gray-700 :text-gray-300"
               aria-labelledby="dropdown"
             >
               <li>
-                <a className="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                <a className="block py-2 px-4 text-sm hover:bg-gray-100 :hover:bg-gray-600 :hover:text-white">
                   Sign out
                 </a>
               </li>

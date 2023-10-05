@@ -1,18 +1,18 @@
 const HomeLayout = ({ children }) => {
   return (
     <section className="home-layout p-2  w-full">
-      <nav className="bg-white border-gray-200 dark:border-gray-600 dark:bg-gray-900 w-full fixed top-14 right-0 md:left-64 z-10">
+      <nav className="bg-white border-gray-200 :border-gray-600 :bg-gray-900 w-full fixed top-14 right-0 md:left-64 z-10">
         {/* Home Navbar */}
         <div className="flex flex-wrap justify-between items-center  p-4">
           <a href="https://flowbite.com" className="flex items-center ">
-            <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+            <span className="self-center text-2xl font-semibold whitespace-nowrap :text-white">
               Hello Saied
             </span>
           </a>
           <button
             data-collapse-toggle="mega-menu-full"
             type="button"
-            className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+            className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 :text-gray-400 :hover:bg-gray-700 :focus:ring-gray-600"
             aria-controls="mega-menu-full"
             aria-expanded="false"
           >
@@ -38,10 +38,10 @@ const HomeLayout = ({ children }) => {
             id="mega-menu-full"
             className="items-center justify-between font-medium  w-full md:flex "
           >
-            <ul className="flex flex-col w-full p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+            <ul className="flex flex-col w-full p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white :bg-gray-800 md::bg-gray-900 :border-gray-700">
               <li>
                 <a
-                  className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700"
+                  className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 :text-white md::hover:text-blue-500 :hover:bg-gray-700 :hover:text-blue-500 md::hover:bg-transparent :border-gray-700"
                   aria-current="page"
                 >
                   All
@@ -51,7 +51,7 @@ const HomeLayout = ({ children }) => {
                 <button
                   id="mega-menu-full-dropdown-button"
                   data-collapse-toggle="mega-menu-full-dropdown"
-                  className="flex items-center justify-between w-full py-2 pl-3 pr-4 text-gray-900 rounded md:w-auto hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700"
+                  className="flex items-center justify-between w-full py-2 pl-3 pr-4 text-gray-900 rounded md:w-auto hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 :text-white md::hover:text-blue-500 :hover:bg-gray-700 :hover:text-blue-500 md::hover:bg-transparent :border-gray-700"
                 >
                   Vehicles
                   <svg
@@ -72,22 +72,22 @@ const HomeLayout = ({ children }) => {
                 </button>
               </li>
               <li>
-                <a className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">
+                <a className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 :text-white md::hover:text-blue-500 :hover:bg-gray-700 :hover:text-blue-500 md::hover:bg-transparent :border-gray-700">
                   Properties
                 </a>
               </li>
               <li>
-                <a className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">
+                <a className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 :text-white md::hover:text-blue-500 :hover:bg-gray-700 :hover:text-blue-500 md::hover:bg-transparent :border-gray-700">
                   Mobiles & Tablets
                 </a>
               </li>
               <li>
-                <a className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">
+                <a className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 :text-white md::hover:text-blue-500 :hover:bg-gray-700 :hover:text-blue-500 md::hover:bg-transparent :border-gray-700">
                   Jobs
                 </a>
               </li>
               <li>
-                <a className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">
+                <a className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 :text-white md::hover:text-blue-500 :hover:bg-gray-700 :hover:text-blue-500 md::hover:bg-transparent :border-gray-700">
                   Electronics & Appliances
                 </a>
               </li>
@@ -128,10 +128,10 @@ const HomeLayout = ({ children }) => {
                   <circle cx={20} cy="19.5214" r={5} fill="white" />
                 </svg>
                 <div className="grow">
-                  <p className="md:text-xl text-gray-800 font-semibold dark:text-gray-200">
+                  <p className="md:text-xl text-gray-800 font-semibold :text-gray-200">
                     Get started today.
                   </p>
-                  <p className="text-sm md:text-base text-gray-800 dark:text-gray-200">
+                  <p className="text-sm md:text-base text-gray-800 :text-gray-200">
                     Sign up to get unlimited updates.
                   </p>
                 </div>
@@ -144,7 +144,7 @@ const HomeLayout = ({ children }) => {
                   Free trial
                 </a>
                 <a
-                  className="py-[.4125rem] px-3 inline-flex justify-center items-center gap-2 rounded-md sm:rounded-full border-2 border-gray-900 font-semibold text-gray-800 hover:text-white hover:bg-gray-800 hover:border-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-800 focus:ring-offset-2 transition-all text-sm md:py-[.688rem] md:px-4 dark:hover:bg-white dark:border-gray-200 dark:hover:border-white dark:text-white dark:hover:text-gray-800 dark:focus:ring-white dark:focus:ring-offset-gray-800"
+                  className="py-[.4125rem] px-3 inline-flex justify-center items-center gap-2 rounded-md sm:rounded-full border-2 border-gray-900 font-semibold text-gray-800 hover:text-white hover:bg-gray-800 hover:border-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-800 focus:ring-offset-2 transition-all text-sm md:py-[.688rem] md:px-4 :hover:bg-white :border-gray-200 :hover:border-white :text-white :hover:text-gray-800 :focus:ring-white :focus:ring-offset-gray-800"
                   href="#"
                 >
                   Buy now
