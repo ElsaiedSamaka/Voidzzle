@@ -6,6 +6,7 @@ const Home = () => {
       {/* filteration card */}
       <div className="flex flex-col">
         <div className="rounded-xl border border-gray-200 bg-white p-6 mb-2">
+          reach your wanted products flash fast ⚡
           <form className="">
             <div className="relative mb-10 w-full flex  items-center justify-between rounded-md">
               <svg
