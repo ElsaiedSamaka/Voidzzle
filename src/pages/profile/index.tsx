@@ -1,7 +1,11 @@
 import { ProfileLayout, RootLayout } from "shared";
 
 const Profile = () => {
-  return <div>Profile</div>;
+  return (
+    <div>
+      Profile (My adds,My orders ,My Saved ,My wishlist ,My payments , Billing)
+    </div>
+  );
 };
 Profile.getLayout = (page) => {
   return (
