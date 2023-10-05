@@ -58,7 +58,9 @@ const Aside = () => {
             <Link href="/profile">
               <div className="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg :text-white hover:bg-gray-100 :hover:bg-gray-700 group">
                 <svg
-                  className="w-5 h-5"
+                  className="flex-shrink-0 w-6 h-6 text-gray-500 transition
+                duration-75 :text-gray-400 group-hover:text-gray-900
+                :group-hover:text-white"
                   fill="current"
                   stroke="currentColor"
                   strokeWidth="1.5"
@@ -81,7 +83,9 @@ const Aside = () => {
             <Link href="/settings">
               <div className="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg :text-white hover:bg-gray-100 :hover:bg-gray-700 group">
                 <svg
-                  className="w-5 h-5"
+                  className="flex-shrink-0 w-6 h-6 text-gray-500 transition
+                duration-75 :text-gray-400 group-hover:text-gray-900 group-hover:animate-spin
+                :group-hover:text-white"
                   fill="none"
                   stroke="currentColor"
                   strokeWidth="1.5"
@@ -102,23 +106,51 @@ const Aside = () => {
           </li>
           <li>
             <Link href="/messages">
-
-            <div className="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg :text-white hover:bg-gray-100 :hover:bg-gray-700 group">
-              <svg
-                aria-hidden="true"
-                className="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 :text-gray-400 group-hover:text-gray-900 :group-hover:text-white"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M8.707 7.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l2-2a1 1 0 00-1.414-1.414L11 7.586V3a1 1 0 10-2 0v4.586l-.293-.293z" />
-                <path d="M3 5a2 2 0 012-2h1a1 1 0 010 2H5v7h2l1 2h4l1-2h2V5h-1a1 1 0 110-2h1a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V5z" />
-              </svg>
-              <span className="flex-1 ml-3 whitespace-nowrap">Messages</span>
-              <span className="inline-flex justify-center items-center w-5 h-5 text-xs font-semibold rounded-full text-primary-800 bg-primary-100 :bg-primary-200 :text-primary-800">
-                4
-              </span>
-            </div>
+              <div className="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg :text-white hover:bg-gray-100 :hover:bg-gray-700 group">
+                <svg
+                  aria-hidden="true"
+                  className="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 :text-gray-400 group-hover:text-gray-900 :group-hover:text-white"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M8.707 7.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l2-2a1 1 0 00-1.414-1.414L11 7.586V3a1 1 0 10-2 0v4.586l-.293-.293z" />
+                  <path d="M3 5a2 2 0 012-2h1a1 1 0 010 2H5v7h2l1 2h4l1-2h2V5h-1a1 1 0 110-2h1a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V5z" />
+                </svg>
+                <span className="flex-1 ml-3 whitespace-nowrap">Messages</span>
+                <span className="inline-flex justify-center items-center w-5 h-5 text-xs font-semibold rounded-full text-primary-800 bg-primary-100 :bg-primary-200 :text-primary-800">
+                  4
+                </span>
+              </div>
+            </Link>
+          </li>
+          <li>
+            <Link href="/notifications">
+              <div className="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg :text-white hover:bg-gray-100 :hover:bg-gray-700 group">
+                <svg
+                  className="flex-shrink-0 w-6 h-6 text-gray-500 transition
+                duration-75 :text-gray-400 group-hover:text-gray-900
+                :group-hover:text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0"
+                  />
+                </svg>
+                <span className="flex-1 ml-3 whitespace-nowrap">
+                  Notifications
+                </span>
+                <span className="inline-flex justify-center items-center w-5 h-5 text-xs font-semibold rounded-full text-primary-800 bg-primary-100 :bg-primary-200 :text-primary-800">
+                  4
+                </span>
+              </div>
             </Link>
           </li>
           <li>

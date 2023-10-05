@@ -12,6 +12,7 @@ import RootLayout from "./Layouts/RootLayout/RootLayout";
 import SettingsLayout from "./Layouts/SettingsLayout/SettingsLayout";
 import ProfileLayout from "./Layouts/ProfileLayout/ProfileLayout";
 import MessagesLayout from "./Layouts/MessagesLayout/MessagesLayout";
+import NotificationsLayout from "./Layouts/NotificationsLayout/NotificationsLayout";
 export {
   Aside,
   Card,
@@ -26,6 +27,7 @@ export {
   RootLayout,
   SettingsLayout,
   ProfileLayout,
+  NotificationsLayout,
   MessagesLayout,
 };
 
