@@ -66,7 +66,7 @@ function CarouselControlsInside({ title }) {
           <ul className="whitespace-no-wrap flex-no-wrap [backface-visibility: hidden] [transform-style: preserve-3d] [touch-action: pan-Y] [will-change: transform] relative flex w-full overflow-hidden p-0">
             <li>
               <div className="relative  flex w-full max-w-xs flex-col overflow-hidden rounded-2xl border border-gray-100 ">
-                <a className="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-2xl">
+                <a className="relative mx-2 mt-2 flex h-60 overflow-hidden rounded-2xl">
                   <img
                     className="object-cover"
                     src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8c25lYWtlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
@@ -89,73 +89,28 @@ function CarouselControlsInside({ title }) {
                     </svg>
                   </span>
                 </a>
-                <div className="mt-4 px-5 pb-5">
-                  <a>
-                    <h5 className="text-xl tracking-tight text-slate-900">
-                      Nike Air MX Super 2500 - Red
-                    </h5>
-                  </a>
-                  <div className="mt-2 mb-5 flex items-center justify-between">
+                {/* price and description */}
+                <div className="p-2.5">
+                  <div className=" flex items-center justify-between">
                     <p>
                       <span className="text-3xl font-bold text-slate-900">
                         $449
                       </span>
-                      <span className="text-sm text-slate-900 line-through">
+                      <span className="text-sm text-zinc-400 line-through">
                         $699
                       </span>
                     </p>
                     <div className="flex items-center">
-                      <svg
-                        aria-hidden="true"
-                        className="h-5 w-5 text-yellow-300"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                      </svg>
-                      <svg
-                        aria-hidden="true"
-                        className="h-5 w-5 text-yellow-300"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                      </svg>
-                      <svg
-                        aria-hidden="true"
-                        className="h-5 w-5 text-yellow-300"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                      </svg>
-                      <svg
-                        aria-hidden="true"
-                        className="h-5 w-5 text-yellow-300"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                      </svg>
-                      <svg
-                        aria-hidden="true"
-                        className="h-5 w-5 text-yellow-300"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                      </svg>
-                      <span className="mr-2 ml-3 rounded bg-yellow-200 px-2.5 py-0.5 text-xs font-semibold">
+                      {/* TODO:if the rating is under 2.5 then it's a red label instead of yellow */}
+                      <span className="mr-2 ml-3 rounded-2xl bg-amber-200 px-2.5 py-0.5 text-xs font-semibold">
                         5.0
                       </span>
                     </div>
                   </div>
-                  <a className="flex items-center justify-center rounded-md bg-slate-900 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-blue-300">
+                  <h5 className="text-xl tracking-tight text-zinc-900">
+                    Nike Air MX Super 2500 - Red
+                  </h5>
+                  <a className="flex items-center justify-center rounded-2xl border border-zinc-50 text-zinc-900 px-5 py-2.5 text-center text-sm font-medium transition-all duration-300 hover:cursor-pointer hover:border-zinc-500 focus:outline-none focus:ring-4 focus:ring-blue-300">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="mr-2 h-6 w-6"
@@ -173,6 +128,7 @@ function CarouselControlsInside({ title }) {
                     Add to cart
                   </a>
                 </div>
+                {/* price and description */}
               </div>
             </li>
           </ul>
