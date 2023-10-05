@@ -40,10 +40,10 @@ function CarouselControlsInside({ title }) {
     <>
       <div className="flex justify-between items-center m-2 font-semibold">
         <span className="font-bold text-2xl">{title}</span>
-        <span className="inline-flex items-center text-zinc-200 hover:cursor-pointer hover:text-zinc-900 hover:underline">
+        <span className="group inline-flex items-center font-semibold text-zinc-400 hover:cursor-pointer hover:text-zinc-900 hover:underline">
           See All
           <svg
-            className="w-5 h-5"
+            className="w-5 h-5 group-hover:translate-x-3 group-hover:animate-ping duration:300"
             fill="none"
             stroke="currentColor"
             stroke-width="1.5"
