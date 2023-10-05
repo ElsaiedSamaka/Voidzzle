@@ -1,15 +1,10 @@
 const HomeLayout = ({ children }) => {
   return (
-    <section className="home-layout p-2 bg-purple-500">
-      <nav className="bg-white border-gray-200 dark:border-gray-600 dark:bg-gray-900 fixed top-14 right-0 left-0 z-10">
+    <section className="home-layout p-2 bg-purple-500 w-full">
+      <nav className="bg-white border-gray-200 dark:border-gray-600 dark:bg-gray-900 w-full fixed top-14 right-0 md:left-64 z-10">
         {/* Home Navbar */}
-        <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4">
-          <a href="https://flowbite.com" className="flex items-center">
-            <img
-              src="https://flowbite.com/docs/images/logo.svg"
-              className="h-8 mr-3"
-              alt="Flowbite Logo"
-            />
+        <div className="flex flex-wrap justify-between items-center mx-auto w-full p-4">
+          <a href="https://flowbite.com" className="flex items-center ">
             <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
               Flowbite
             </span>
@@ -38,9 +33,10 @@ const HomeLayout = ({ children }) => {
               />
             </svg>
           </button>
+          {/* submenu */}
           <div
             id="mega-menu-full"
-            className="items-center justify-between font-medium hidden w-full md:flex md:w-auto md:order-1"
+            className="items-center  justify-between font-medium  w-full md:flex md:w-auto md:order-1"
           >
             <ul className="flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
               <li>
@@ -92,68 +88,8 @@ const HomeLayout = ({ children }) => {
               </li>
             </ul>
           </div>
+          {/* submenu */}
         </div>
-        {/* submenu */}
-        <div
-          id="mega-menu-full-dropdown"
-          className="mt-1 border-gray-200 hidden shadow-sm bg-gray-50 md:bg-white border-y dark:bg-gray-800 dark:border-gray-600"
-        >
-          <div className="grid max-w-screen-xl px-4 py-5 mx-auto text-gray-900 dark:text-white sm:grid-cols-2 md:px-6">
-            <ul>
-              <li>
-                <a className="block p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
-                  <div className="font-semibold">Online Stores</div>
-                  <span className="text-sm text-gray-500 dark:text-gray-400">
-                    Connect with third-party tools that you're already using.
-                  </span>
-                </a>
-              </li>
-              <li>
-                <a className="block p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
-                  <div className="font-semibold">Segmentation</div>
-                  <span className="text-sm text-gray-500 dark:text-gray-400">
-                    Connect with third-party tools that you're already using.
-                  </span>
-                </a>
-              </li>
-              <li>
-                <a className="block p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
-                  <div className="font-semibold">Marketing CRM</div>
-                  <span className="text-sm text-gray-500 dark:text-gray-400">
-                    Connect with third-party tools that you're already using.
-                  </span>
-                </a>
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <a className="block p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
-                  <div className="font-semibold">Online Stores</div>
-                  <span className="text-sm text-gray-500 dark:text-gray-400">
-                    Connect with third-party tools that you're already using.
-                  </span>
-                </a>
-              </li>
-              <li>
-                <a className="block p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
-                  <div className="font-semibold">Segmentation</div>
-                  <span className="text-sm text-gray-500 dark:text-gray-400">
-                    Connect with third-party tools that you're already using.
-                  </span>
-                </a>
-              </li>
-              <li>
-                <a className="block p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
-                  <div className="font-semibold">Marketing CRM</div>
-                  <span className="text-sm text-gray-500 dark:text-gray-400">
-                    Connect with third-party tools that you're already using.
-                  </span>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        {/* submenu */}
         {/* Announcement Banner */}
         {/* <div className="bg-blue-900 backdrop-blur-lg m-2">
           <div className="max-w-[85rem] px-4 py-2 sm:px-6 lg:px-8 mx-auto">

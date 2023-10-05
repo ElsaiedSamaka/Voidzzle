@@ -1,7 +1,7 @@
 import Glide from "@glidejs/glide";
 import { useEffect } from "react";
 
-function CarouselControlsInside() {
+function CarouselControlsInside({ title }) {
   useEffect(() => {
     const slider = new Glide(".glide-01", {
       type: "carousel",
@@ -38,6 +38,27 @@ function CarouselControlsInside() {
 
   return (
     <>
+      <div className="flex justify-between items-center m-2 font-semibold">
+        <span>{title}</span>
+        <span className="inline-flex items-center">
+          View All
+          <svg
+            className="w-5 h-5"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M8.25 4.5l7.5 7.5-7.5 7.5"
+            ></path>
+          </svg>
+        </span>
+      </div>
       {/*<!-- Component: Carousel with controls inside --> */}
       <div className="glide-01 relative w-full my-2">
         {/*    <!-- Slides --> */}
@@ -584,8 +605,6 @@ function CarouselControlsInside() {
           </button>
         </div>
       </div>
-
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.0.2/glide.js"></script>
       {/*<!-- End Carousel with controls inside --> */}
     </>
   );
