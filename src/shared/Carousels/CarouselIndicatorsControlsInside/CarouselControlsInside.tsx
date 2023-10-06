@@ -7,8 +7,8 @@ function CarouselControlsInside({ title }) {
       type: "carousel",
       focusAt: "center",
       perView: 5,
-      autoplay: 3000,
-      animationDuration: 700,
+      autoplay: 9000,
+      animationDuration: 900,
       gap: 10,
       classNames: {
         nav: {
