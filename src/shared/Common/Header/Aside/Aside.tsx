@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Anchor from "shared/Common/Anchor/Anchor";
 
 const Aside = () => {
   return (
@@ -31,19 +32,17 @@ const Aside = () => {
               type="text"
               name="search"
               id="sidebar-search"
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-10 p-2 :bg-gray-700 :border-gray-600 :placeholder-gray-400 :text-white :focus:ring-primary-500 :focus:border-primary-500"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-2xl focus:ring-primary-500 focus:border-primary-500 block w-full pl-10 :bg-gray-700 :border-gray-600 :placeholder-gray-400 :text-white :focus:ring-primary-500 :focus:border-primary-500"
               placeholder="Search"
             />
           </div>
         </form>
-        <ul className="space-y-2">
+        <ul className="space-y-2 rounded-2xl">
           <li>
-            <Link href="/">
-              <div className="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg :text-white hover:bg-gray-100 :hover:bg-gray-700 group">
+            <Anchor href="/">
+              <div className="p-2 flex items-center  text-base font-medium text-gray-900 rounded-2xl  hover:bg-gray-100  group">
                 <svg
-                  className="w-6 h-6 text-gray-500 transition duration-75
-          :text-gray-400 group-hover:text-gray-900 group-hover:animate-pulse
-          :group-hover:text-white"
+                  className="w-6 h-6 text-gray-500 transition duration-75  group-hover:text-gray-900 group-hover:animate-pulse  "
                   fill="none"
                   stroke="currentColor"
                   strokeWidth="1.5"
@@ -60,15 +59,15 @@ const Aside = () => {
 
                 <span className="ml-3">Home</span>
               </div>
-            </Link>
+            </Anchor>
           </li>
           <li>
-            <Link href="/profile">
-              <div className="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg :text-white hover:bg-gray-100 :hover:bg-gray-700 group">
+            <Anchor href="/profile">
+              <div className="p-2 flex items-center text-base font-medium text-gray-900 rounded-2xl :text-white hover:bg-gray-100 group">
                 <svg
                   className="flex-shrink-0 w-6 h-6 text-gray-500 transition
                 duration-75 :text-gray-400 group-hover:text-gray-900 group-hover:animate-pulse
-                :group-hover:text-white"
+                "
                   fill="current"
                   stroke="currentColor"
                   strokeWidth="1.5"
@@ -85,11 +84,11 @@ const Aside = () => {
 
                 <span className="ml-3">Profile</span>
               </div>
-            </Link>
+            </Anchor>
           </li>
           <li>
-            <Link href="/settings">
-              <div className="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg :text-white hover:bg-gray-100 :hover:bg-gray-700 group">
+            <Anchor href="/settings">
+              <div className="p-2 flex items-center text-base font-medium text-gray-900 rounded-2xl :text-white hover:bg-gray-100 group">
                 <svg
                   className="flex-shrink-0 w-6 h-6 text-gray-500 transition
                 duration-75 :text-gray-400 group-hover:text-gray-900 group-hover:animate-spin
@@ -110,11 +109,11 @@ const Aside = () => {
 
                 <span className="ml-3">Settings</span>
               </div>
-            </Link>
+            </Anchor>
           </li>
           <li>
-            <Link href="/messages">
-              <div className="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg :text-white hover:bg-gray-100 :hover:bg-gray-700 group">
+            <Anchor href="/messages">
+              <div className="flex items-center text-base font-medium text-gray-900 rounded-2xl :text-white hover:bg-gray-100 group p-2 ">
                 <svg
                   aria-hidden="true"
                   className="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 :text-gray-400 group-hover:text-gray-900 group-hover:animate-bounce :group-hover:text-white"
@@ -130,11 +129,11 @@ const Aside = () => {
                   4
                 </span>
               </div>
-            </Link>
+            </Anchor>
           </li>
           <li>
-            <Link href="/notifications">
-              <div className="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg :text-white hover:bg-gray-100 :hover:bg-gray-700 group">
+            <Anchor href="/notifications">
+              <div className="flex items-center text-base font-medium text-gray-900 rounded-2xl  hover:bg-gray-100 group p-2">
                 <svg
                   className="flex-shrink-0 w-6 h-6 text-gray-500 transition
                 duration-75 :text-gray-400 group-hover:text-gray-900 group-hover:animate-pulse
@@ -159,12 +158,12 @@ const Aside = () => {
                   4
                 </span>
               </div>
-            </Link>
+            </Anchor>
           </li>
           <li>
             <button
               type="button"
-              className="flex items-center p-2 w-full text-base font-medium text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 :text-white :hover:bg-gray-700"
+              className="flex items-center w-full text-base font-medium text-gray-900 rounded-2xl transition duration-75 group hover:bg-gray-100 :text-white p-2"
               aria-controls="dropdown-authentication"
               data-collapse-toggle="dropdown-authentication"
             >
@@ -200,17 +199,17 @@ const Aside = () => {
             </button>
             <ul id="dropdown-authentication" className="hidden py-2 space-y-2">
               <li>
-                <a className="flex items-center p-2 pl-11 w-full text-base font-medium text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 :text-white :hover:bg-gray-700">
+                <a className="flex items-center pl-11 w-full text-base font-medium text-gray-900 rounded-2xl transition duration-75 group hover:bg-gray-100 :text-white">
                   Sign In
                 </a>
               </li>
               <li>
-                <a className="flex items-center p-2 pl-11 w-full text-base font-medium text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 :text-white :hover:bg-gray-700">
+                <a className="flex items-center pl-11 w-full text-base font-medium text-gray-900 rounded-2xl transition duration-75 group hover:bg-gray-100 :text-white">
                   Sign Up
                 </a>
               </li>
               <li>
-                <a className="flex items-center p-2 pl-11 w-full text-base font-medium text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 :text-white :hover:bg-gray-700">
+                <a className="flex items-center pl-11 w-full text-base font-medium text-gray-900 rounded-2xl transition duration-75 group hover:bg-gray-100 :text-white">
                   Forgot Password
                 </a>
               </li>
@@ -219,7 +218,7 @@ const Aside = () => {
         </ul>
         <ul className="pt-5 mt-5 space-y-2 border-t border-gray-200 :border-gray-700">
           <li>
-            <a className="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg transition duration-75 hover:bg-gray-100 :hover:bg-gray-700 :text-white group">
+            <a className="flex items-center text-base font-medium text-gray-900 rounded-2xl transition duration-75 hover:bg-gray-100 :text-white group">
               <svg
                 aria-hidden="true"
                 className="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 :text-gray-400 group-hover:text-gray-900 :group-hover:text-white"
@@ -238,7 +237,7 @@ const Aside = () => {
             </a>
           </li>
           <li>
-            <a className="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg transition duration-75 hover:bg-gray-100 :hover:bg-gray-700 :text-white group">
+            <a className="flex items-center text-base font-medium text-gray-900 rounded-2xl transition duration-75 hover:bg-gray-100 :text-white group">
               <svg
                 aria-hidden="true"
                 className="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 :text-gray-400 group-hover:text-gray-900 :group-hover:text-white"
@@ -252,7 +251,7 @@ const Aside = () => {
             </a>
           </li>
           <li>
-            <a className="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg transition duration-75 hover:bg-gray-100 :hover:bg-gray-700 :text-white group">
+            <a className="flex items-center text-base font-medium text-gray-900 rounded-2xl transition duration-75 hover:bg-gray-100 :text-white group">
               <svg
                 aria-hidden="true"
                 className="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 :text-gray-400 group-hover:text-gray-900 :group-hover:text-white"
@@ -272,7 +271,7 @@ const Aside = () => {
         </ul>
       </div>
       <div className="hidden absolute bottom-0 left-0 justify-center p-4 space-x-4 w-full lg:flex bg-white :bg-gray-800 z-20">
-        <a className="inline-flex justify-center p-2 text-gray-500 rounded cursor-pointer :text-gray-400 hover:text-gray-900 :hover:text-white hover:bg-gray-100 :hover:bg-gray-600">
+        <a className="inline-flex justify-center text-gray-500 rounded cursor-pointer :text-gray-400 hover:text-gray-900 :hover:text-white hover:bg-gray-100 :hover:bg-gray-600">
           <svg
             aria-hidden="true"
             className="w-6 h-6"
@@ -285,7 +284,7 @@ const Aside = () => {
         </a>
         <a
           data-tooltip-target="tooltip-settings"
-          className="inline-flex justify-center p-2 text-gray-500 rounded cursor-pointer :text-gray-400 :hover:text-white hover:text-gray-900 hover:bg-gray-100 :hover:bg-gray-600"
+          className="inline-flex justify-center text-gray-500 rounded cursor-pointer :text-gray-400 :hover:text-white hover:text-gray-900 hover:bg-gray-100 :hover:bg-gray-600"
         >
           <svg
             aria-hidden="true"
@@ -304,7 +303,7 @@ const Aside = () => {
         <div
           id="tooltip-settings"
           role="tooltip"
-          className="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 tooltip"
+          className="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-2xl shadow-sm opacity-0 transition-opacity duration-300 tooltip"
         >
           Settings page
           <div className="tooltip-arrow" data-popper-arrow />
@@ -312,7 +311,7 @@ const Aside = () => {
         <button
           type="button"
           data-dropdown-toggle="language-dropdown"
-          className="inline-flex justify-center p-2 text-gray-500 rounded cursor-pointer :hover:text-white :text-gray-400 hover:text-gray-900 hover:bg-gray-100 :hover:bg-gray-600"
+          className="inline-flex justify-center text-gray-500 rounded cursor-pointer :hover:text-white :text-gray-400 hover:text-gray-900 hover:bg-gray-100 :hover:bg-gray-600"
         >
           <svg
             aria-hidden="true"

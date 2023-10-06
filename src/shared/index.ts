@@ -13,6 +13,7 @@ import SettingsLayout from "./Layouts/SettingsLayout/SettingsLayout";
 import ProfileLayout from "./Layouts/ProfileLayout/ProfileLayout";
 import MessagesLayout from "./Layouts/MessagesLayout/MessagesLayout";
 import NotificationsLayout from "./Layouts/NotificationsLayout/NotificationsLayout";
+import Anchor from "./Common/Anchor/Anchor";
 export {
   Aside,
   Card,
@@ -29,5 +30,6 @@ export {
   ProfileLayout,
   NotificationsLayout,
   MessagesLayout,
+  Anchor,
 };
 
