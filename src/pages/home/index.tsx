@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { CarouselControlsInside, Footer, HomeLayout, RootLayout } from "shared";
+import { CarouselControlsInside,CarouselTestimonial, Footer, HomeLayout, RootLayout } from "shared";
 import classnames from "classnames";
 const Home = () => {
   const [showSellOptions, toggleSellOptions] = useState(false);
   return (
     <section className=" p-2">
+      <CarouselTestimonial/>
       {/*  */}
       <blockquote className="relative">
         <svg

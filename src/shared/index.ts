@@ -15,6 +15,7 @@ import MessagesLayout from "./Layouts/MessagesLayout/MessagesLayout";
 import NotificationsLayout from "./Layouts/NotificationsLayout/NotificationsLayout";
 import Anchor from "./Common/Anchor/Anchor";
 import Breadcrumb from "./Common/Breadcrumb/Breadcrumb";
+import CarouselTestimonial from "./Carousels/TestimonialCarousel/TestimonialCarousel";
 export {
   Aside,
   Card,
@@ -33,5 +34,6 @@ export {
   MessagesLayout,
   Anchor,
   Breadcrumb,
+  CarouselTestimonial,
 };
 
