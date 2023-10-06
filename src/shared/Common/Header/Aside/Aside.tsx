@@ -304,10 +304,10 @@ const Aside = () => {
                   <Anchor href="/settings">
                     <span className="mr-5 flex items-center gap-5 py-3 pl-5 transition-all duration-100 ease-in-out  hover:text-rose-600">
                       <svg
-                        className="h-5 w-5"
+                        className="w-5 h-5"
                         fill="none"
                         stroke="currentColor"
-                        strokeWidth="1.5"
+                        strokeWidth={1.5}
                         viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg"
                         aria-hidden="true"
@@ -315,7 +315,7 @@ const Aside = () => {
                         <path
                           strokeLinecap="round"
                           strokeLinejoin="round"
-                          d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z"
+                          d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941"
                         />
                       </svg>
                       Billing
@@ -329,7 +329,7 @@ const Aside = () => {
                         className="w-5 h-5"
                         fill="none"
                         stroke="currentColor"
-                        strokeWidth="1.5"
+                        strokeWidth={1.5}
                         viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg"
                         aria-hidden="true"
@@ -337,32 +337,10 @@ const Aside = () => {
                         <path
                           strokeLinecap="round"
                           strokeLinejoin="round"
-                          d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0M3.124 7.5A8.969 8.969 0 015.292 3m13.416 0a8.969 8.969 0 012.168 4.5"
+                          d="M2.25 6L9 12.75l4.286-4.286a11.948 11.948 0 014.306 6.43l.776 2.898m0 0l3.182-5.511m-3.182 5.51l-5.511-3.181"
                         />
                       </svg>
-                      Notifications
-                    </span>
-                  </Anchor>
-                </li>
-                <li className="flex m-2 cursor-pointer border-l-rose-600 text-sm text-gray-600 ">
-                  <Anchor href="/settings">
-                    <span className="mr-5 flex items-center gap-5 py-3 pl-5 transition-all duration-100 ease-in-out  hover:text-rose-600">
-                      <svg
-                        className="w-5 h-5"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="1.5"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                        aria-hidden="true"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z"
-                        />
-                      </svg>
-                      Account
+                      Refund
                     </span>
                   </Anchor>
                 </li>
@@ -371,6 +349,7 @@ const Aside = () => {
           </li>
         </ul>
       </div>
+      {/* side bar nav */}
       <div className="hidden absolute bottom-0 left-0 justify-center p-4 space-x-4 w-full lg:flex bg-white :bg-gray-800 z-20">
         <a className="inline-flex justify-center  rounded cursor-pointer :text-gray-400 hover:text-gray-900 :hover:text-white hover:bg-gray-100 :hover:bg-gray-600">
           <svg
@@ -605,6 +584,7 @@ const Aside = () => {
           </ul>
         </div>
       </div>
+      {/* side bar nav */}
     </aside>
   );
 };
