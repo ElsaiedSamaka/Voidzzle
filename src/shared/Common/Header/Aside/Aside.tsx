@@ -96,7 +96,7 @@ const Aside = () => {
                 id="menu-1"
                 defaultChecked
               />
-              <button className="group flex peer relative w-full items-center border-l-rose-600 py-3 px-4  outline-none transition-all duration-100 ease-in-out hover:border-l-4 hover:text-rose-600 focus:border-l-4">
+              <button className="group flex peer relative w-full items-center border-l-rose-600 py-3 px-4  outline-none transition-all duration-100 ease-in-out hover:border-l-4 hover:text-rose-600 ">
                 <span className="flex mr-5 w-5">
                   <svg
                     className="w-5 h-5 group-hover:animate-spin "
@@ -157,45 +157,49 @@ const Aside = () => {
                     </span>
                   </Anchor>
                 </li>
-                <li className="flex m-2 cursor-pointer border-l-rose-600 py-3 pl-5 text-sm text-gray-600 transition-all duration-100 ease-in-out hover:border-l-4 hover:text-rose-600">
-                  <span className="mr-5">
-                    <svg
-                      className="w-5 h-5"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                      aria-hidden="true"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0M3.124 7.5A8.969 8.969 0 015.292 3m13.416 0a8.969 8.969 0 012.168 4.5"
-                      />
-                    </svg>
-                  </span>
-                  Notification
+                <li className="flex m-2 cursor-pointer border-l-rose-600 text-sm text-gray-600 ">
+                  <Anchor href="/settings">
+                    <span className="mr-5 flex items-center gap-5 py-3 pl-5 transition-all duration-100 ease-in-out  hover:text-rose-600">
+                      <svg
+                        className="w-5 h-5"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0M3.124 7.5A8.969 8.969 0 015.292 3m13.416 0a8.969 8.969 0 012.168 4.5"
+                        />
+                      </svg>
+                      Notifications
+                    </span>
+                  </Anchor>
                 </li>
-                <li className="flex m-2 cursor-pointer border-l-rose-600 py-3 pl-5 text-sm text-gray-600 transition-all duration-100 ease-in-out hover:border-l-4 hover:text-rose-600">
-                  <span className="mr-5">
-                    <svg
-                      className="w-5 h-5"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                      aria-hidden="true"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z"
-                      />
-                    </svg>
-                  </span>
-                  Account
+                <li className="flex m-2 cursor-pointer border-l-rose-600 text-sm text-gray-600 ">
+                  <Anchor href="/settings">
+                    <span className="mr-5 flex items-center gap-5 py-3 pl-5 transition-all duration-100 ease-in-out  hover:text-rose-600">
+                      <svg
+                        className="w-5 h-5"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z"
+                        />
+                      </svg>
+                      Account
+                    </span>
+                  </Anchor>
                 </li>
               </ul>
             </div>
@@ -205,7 +209,7 @@ const Aside = () => {
               <div className="flex items-center text-base  rounded-l-none rounded-2xl :text-white hover:bg-gray-100 group p-2 ">
                 <svg
                   aria-hidden="true"
-                  className="flex-shrink-0 w-6 h-6  transition duration-75  group-hover:animate-bounce "
+                  className="flex-shrink-0 w-6 h-6  transition duration-300  group-hover:animate-bounce "
                   fill="currentColor"
                   viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"
@@ -250,145 +254,121 @@ const Aside = () => {
             </Anchor>
           </li>
           <li>
-            <button
-              type="button"
-              className="flex items-center w-full text-base  text-gray-900 rounded-2xl transition duration-75 group hover:bg-gray-100 :text-white p-2"
-              aria-controls="dropdown-authentication"
-              data-collapse-toggle="dropdown-authentication"
-            >
+            <div className="relative transition">
+              <input
+                className="peer hidden"
+                type="checkbox"
+                id="menu-2"
+                defaultChecked
+              />
+              <button className="group flex peer relative w-full items-center border-l-rose-600 py-3 px-4  outline-none transition-all duration-100 ease-in-out hover:border-l-4 hover:text-rose-600 ">
+                <span className="flex mr-5 w-5">
+                  <svg
+                    className="w-5 h-6 group-hover:animate-bounce duration-300"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23-.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5"
+                    />
+                  </svg>
+                </span>
+                Analytics
+                <label
+                  htmlFor="menu-2"
+                  className="absolute inset-0 h-full w-full cursor-pointer"
+                />
+              </button>
               <svg
-                aria-hidden="true"
-                className="flex-shrink-0 w-6 h-6  transition duration-75  :text-gray-400 :group-hover:text-white"
-                fill="currentColor"
-                viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg"
+                className="absolute right-0 top-4 ml-auto mr-5 h-4 text-gray-600 transition peer-checked:rotate-180 peer-hover:text-rose-600"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
               >
                 <path
-                  fillRule="evenodd"
-                  d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
-                  clipRule="evenodd"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M19 9l-7 7-7-7"
                 />
               </svg>
-              <span className="flex-1 ml-3 text-left whitespace-nowrap">
-                Authentication
-              </span>
-              <svg
-                aria-hidden="true"
-                className="w-6 h-6"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                  clipRule="evenodd"
-                />
-              </svg>
-            </button>
-            <ul id="dropdown-authentication" className="hidden py-2 space-y-2">
-              <li>
-                <a className="flex items-center pl-11 w-full text-base  text-gray-900 rounded-2xl transition duration-75 group hover:bg-gray-100 :text-white">
-                  Sign In
-                </a>
-              </li>
-              <li>
-                <a className="flex items-center pl-11 w-full text-base  text-gray-900 rounded-2xl transition duration-75 group hover:bg-gray-100 :text-white">
-                  Sign Up
-                </a>
-              </li>
-              <li>
-                <a className="flex items-center pl-11 w-full text-base  text-gray-900 rounded-2xl transition duration-75 group hover:bg-gray-100 :text-white">
-                  Forgot Password
-                </a>
-              </li>
-            </ul>
+              <ul className="duration-400 flex m-2 max-h-0 flex-col overflow-hidden rounded-xl bg-gray-100  transition-all duration-300 peer-checked:max-h-96">
+                <li className="flex m-2 cursor-pointer border-l-rose-600 text-sm text-gray-600 ">
+                  <Anchor href="/settings">
+                    <span className="mr-5 flex items-center gap-5 py-3 pl-5 transition-all duration-100 ease-in-out  hover:text-rose-600">
+                      <svg
+                        className="h-5 w-5"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z"
+                        />
+                      </svg>
+                      Billing
+                    </span>
+                  </Anchor>
+                </li>
+                <li className="flex m-2 cursor-pointer border-l-rose-600 text-sm text-gray-600 ">
+                  <Anchor href="/settings">
+                    <span className="mr-5 flex items-center gap-5 py-3 pl-5 transition-all duration-100 ease-in-out  hover:text-rose-600">
+                      <svg
+                        className="w-5 h-5"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0M3.124 7.5A8.969 8.969 0 015.292 3m13.416 0a8.969 8.969 0 012.168 4.5"
+                        />
+                      </svg>
+                      Notifications
+                    </span>
+                  </Anchor>
+                </li>
+                <li className="flex m-2 cursor-pointer border-l-rose-600 text-sm text-gray-600 ">
+                  <Anchor href="/settings">
+                    <span className="mr-5 flex items-center gap-5 py-3 pl-5 transition-all duration-100 ease-in-out  hover:text-rose-600">
+                      <svg
+                        className="w-5 h-5"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z"
+                        />
+                      </svg>
+                      Account
+                    </span>
+                  </Anchor>
+                </li>
+              </ul>
+            </div>
           </li>
-          <div className="relative transition">
-            <input
-              className="peer hidden"
-              type="checkbox"
-              id="menu-1"
-              defaultChecked
-            />
-            <button className="flex peer relative w-full items-center border-l-rose-600 py-3 px-4 text-sm  text-gray-600 outline-none transition-all duration-100 ease-in-out hover:border-l-4 hover:text-rose-600 focus:border-l-4">
-              <span className="flex mr-5 w-5">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
-                  />
-                </svg>
-              </span>
-              Analytics
-              <label
-                htmlFor="menu-1"
-                className="absolute inset-0 h-full w-full cursor-pointer"
-              />
-            </button>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="absolute right-0 top-4 ml-auto mr-5 h-4 text-gray-600 transition peer-checked:rotate-180 peer-hover:text-rose-600"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M19 9l-7 7-7-7"
-              />
-            </svg>
-            <ul className="duration-400 flex m-2 max-h-0 flex-col overflow-hidden rounded-xl bg-gray-100  transition-all duration-300 peer-checked:max-h-96">
-              <li className="flex m-2 cursor-pointer border-l-rose-600 py-3 pl-5 text-sm text-gray-600 transition-all duration-100 ease-in-out hover:border-l-4 hover:text-rose-600">
-                <span className="mr-5">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
-                    />
-                  </svg>
-                </span>
-                Revenue
-              </li>
-              <li className="flex m-2 cursor-pointer border-l-rose-600 py-3 pl-5 text-sm text-gray-600 transition-all duration-100 ease-in-out hover:border-l-4 hover:text-rose-600">
-                <span className="mr-5">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
-                    />
-                  </svg>
-                </span>
-                Refunds
-              </li>
-            </ul>
-          </div>
         </ul>
         <ul className="pt-5 mt-5 space-y-2 border-t border-gray-200 :border-gray-700">
           <li>
