@@ -113,7 +113,7 @@ const Profile = () => {
                 </span>
               </span>
             </button>
-              <button
+            <button
               type="button"
               className="hs-tab-active:bg-white hs-tab-active:shadow-md hs-tab-active:hover:border-transparent text-left hover:bg-gray-200 p-4 md:p-5 rounded-xl :hs-tab-active:bg-slate-900 :hover:bg-gray-700"
               id="tabs-with-card-item-3"
@@ -122,21 +122,21 @@ const Profile = () => {
               role="tab"
             >
               <span className="flex">
-                  <svg
-                        fill="none"
+                <svg
+                  fill="none"
                   className="flex-shrink-0 mt-2 h-6 w-6 md:w-7 md:h-7 hs-tab-active:text-blue-600 text-gray-800  :hs-tab-active:text-blue-500 :text-gray-200"
-                        stroke="currentColor"
-                        strokeWidth={1.5}
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                        aria-hidden="true"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M8.25 9.75h4.875a2.625 2.625 0 010 5.25H12M8.25 9.75L10.5 7.5M8.25 9.75L10.5 12m9-7.243V21.75l-3.75-1.5-3.75 1.5-3.75-1.5-3.75 1.5V4.757c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0c1.1.128 1.907 1.077 1.907 2.185z"
-                        />
-                      </svg>
+                  stroke="currentColor"
+                  strokeWidth={1.5}
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M8.25 9.75h4.875a2.625 2.625 0 010 5.25H12M8.25 9.75L10.5 7.5M8.25 9.75L10.5 12m9-7.243V21.75l-3.75-1.5-3.75 1.5-3.75-1.5-3.75 1.5V4.757c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0c1.1.128 1.907 1.077 1.907 2.185z"
+                  />
+                </svg>
                 <span className="grow ml-6">
                   <span className="block text-lg font-semibold hs-tab-active:text-blue-600 text-gray-800 :hs-tab-active:text-blue-500 :text-gray-200">
                     Refund requests
@@ -150,6 +150,7 @@ const Profile = () => {
             </button>
           </nav>
           {/* End Tab Navs */}
+          {/* products grid */}
           <div>
             <ul className="grid grid-cols-4 xs:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 pt-3 pb-10 ">
               <Card />
@@ -179,6 +180,7 @@ const Profile = () => {
               </a>
             </div>
           </div>
+          {/* products grid */}
         </div>
       </div>
     </>
