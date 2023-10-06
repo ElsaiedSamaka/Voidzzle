@@ -1,6 +1,6 @@
 import CarouselControlsInside from "./Carousels/CarouselIndicatorsControlsInside/CarouselControlsInside";
 import InfiniteCarousel from "./Carousels/InfinteCarousel/InfinitCarousel";
-import Card from "./Common/Card/Card";
+import ProductCard from "./Common/Card/ProductCard/ProductCard";
 import Footer from "./Common/Footer/Footer";
 import Aside from "./Common/Header/Aside/Aside";
 import Navbar from "./Common/Header/Navbar/Navbar";
@@ -16,9 +16,10 @@ import NotificationsLayout from "./Layouts/NotificationsLayout/NotificationsLayo
 import Anchor from "./Common/Anchor/Anchor";
 import Breadcrumb from "./Common/Breadcrumb/Breadcrumb";
 import CarouselTestimonial from "./Carousels/TestimonialCarousel/TestimonialCarousel";
+import FilterationCard from "./Common/Card/FilterationCard/FilterationCard";
 export {
   Aside,
-  Card,
+  ProductCard as Card,
   CarouselControlsInside,
   Counter,
   DashboardLayout,
@@ -34,6 +35,7 @@ export {
   MessagesLayout,
   Anchor,
   Breadcrumb,
+  FilterationCard,
   CarouselTestimonial,
 };
 

@@ -1,7 +1,7 @@
 import { RootState } from "core/store";
 import { useSelector } from "react-redux";
 
-const Card = () => {
+const ProductCard = () => {
   // const userSlice = useSelector((state: RootState) => state.user);
   return (
     <li>
@@ -66,4 +66,4 @@ const Card = () => {
   );
 };
 
-export default Card;
+export default ProductCard;
