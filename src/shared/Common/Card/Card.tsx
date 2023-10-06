@@ -5,17 +5,13 @@ const Card = () => {
   // const userSlice = useSelector((state: RootState) => state.user);
   return (
     <li>
-      <div className="relative  flex w-full max-w-xs flex-col overflow-hidden rounded-2xl border border-gray-100 ">
+      <div className="relative  flex w-full  flex-col overflow-hidden rounded-2xl border border-gray-100 ">
         <a className="relative mx-2 mt-2 flex h-60 overflow-hidden rounded-2xl">
           <img
-            className="object-cover"
+            className="object-cover w-full"
             src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8c25lYWtlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
             alt="product image"
           />
-          {/* <span className="absolute top-0 left-0 m-2 rounded-full bg-black px-2 text-center text-sm font-medium text-white">
-                    39% OFF
-                    className="absolute top-0 left-0 m-2 rounded-full bg-black px-2 text-center text-sm font-medium text-white"
-                  </span> */}
           <span className="absolute top-0 left-0 m-2 inline-flex justify-center items-center w-[46px] h-[46px] rounded-full border border-gray-200 bg-white text-gray-700 shadow-sm ">
             <svg
               className="w-5 h-5"

@@ -5,9 +5,12 @@ const Profile = () => {
     <>
       <div className="mx-4  sm:mx-8 xl:mx-auto">
         <h1 className="border-b py-6 text-4xl font-semibold">Profile</h1>
-        <div className="grid grid-cols-8 pt-3 pb-10 sm:grid-cols-10">
+        <ul className="grid grid-cols-4 xs:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 pt-3 pb-10 ">
           <Card />
-        </div>
+          <Card />
+          <Card />
+          <Card />
+        </ul>
       </div>
     </>
   );
