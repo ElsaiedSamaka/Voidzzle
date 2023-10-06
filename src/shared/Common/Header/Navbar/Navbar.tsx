@@ -48,7 +48,7 @@ const Navbar = () => {
               alt="Flowbite Logo"
             />
             <span className="self-center text-2xl font-semibold whitespace-nowrap :text-white">
-              Flowbite
+              Voidzzle
             </span>
           </a>
           <form action="#" method="GET" className="hidden md:block md:pl-2">

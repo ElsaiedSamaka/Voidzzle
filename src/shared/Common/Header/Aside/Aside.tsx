@@ -96,10 +96,10 @@ const Aside = () => {
                 id="menu-1"
                 defaultChecked
               />
-              <button className="group flex peer relative w-full items-center border-l-rose-600 py-3 px-4  outline-none transition-all duration-100 ease-in-out hover:border-l-4 hover:text-rose-600 ">
-                <span className="flex mr-6 w-6">
+              <button className="group flex peer relative w-full items-center border-l-rose-600 py-3 px-2  outline-none transition-all duration-100 ease-in-out hover:border-l-4 hover:text-rose-600 ">
+                <span className="flex mr-6 w-6 ">
                   <svg
-                    className="w-6 h-6 group-hover:animate-spin "
+                    className="w-6 h-6 text-gray-500 group-hover:animate-spin "
                     fill="none"
                     stroke="currentColor"
                     strokeWidth="1.5"
@@ -264,7 +264,7 @@ const Aside = () => {
               <button className="group flex peer relative w-full items-center border-l-rose-600 py-3 px-4  outline-none transition-all duration-100 ease-in-out hover:border-l-4 hover:text-rose-600 ">
                 <span className="flex mr-5 w-5">
                   <svg
-                    className="w-5 h-6 group-hover:animate-bounce duration-300"
+                    className="w-6 h-6 text-gray-500 group-hover:animate-bounce duration-300"
                     fill="none"
                     stroke="currentColor"
                     strokeWidth="1.5"
