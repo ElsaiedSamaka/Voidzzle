@@ -16,7 +16,7 @@ const Aside = () => {
           <div className="relative">
             <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
               <svg
-                className="w-5 h-5 text-gray-500 :text-gray-400"
+                className="w-5 h-5  :text-gray-400"
                 fill="currentColor"
                 viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg"
@@ -40,9 +40,9 @@ const Aside = () => {
         <ul className="space-y-2 rounded-2xl">
           <li>
             <Anchor href="/">
-              <div className="p-2 flex items-center  text-base font-medium text-gray-900 rounded-2xl  hover:bg-gray-100  group">
+              <div className="p-2 flex items-center  text-base   rounded-l-none rounded-2xl  hover:bg-gray-100  group">
                 <svg
-                  className="w-6 h-6 text-gray-500 transition duration-75  group-hover:text-gray-900 group-hover:animate-pulse  "
+                  className="w-6 h-6  transition duration-75   group-hover:animate-pulse  "
                   fill="none"
                   stroke="currentColor"
                   strokeWidth="1.5"
@@ -63,26 +63,28 @@ const Aside = () => {
           </li>
           <li>
             <Anchor href="/profile">
-              <div className="p-2 flex items-center text-base font-medium text-gray-900 rounded-2xl :text-white hover:bg-gray-100 group">
-                <svg
-                  className="flex-shrink-0 w-6 h-6 text-gray-500 transition
-                duration-75 :text-gray-400 group-hover:text-gray-900 group-hover:animate-pulse
+              <div className="relative transition">
+                <div className="p-2 flex items-center text-base rounded-l-none rounded-2xl :text-white hover:bg-gray-100 group">
+                  <svg
+                    className="flex-shrink-0 w-6 h-6  transition
+                duration-75 :text-gray-400  group-hover:animate-pulse
                 "
-                  fill="current"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                  aria-hidden="true"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
-                  />
-                </svg>
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
+                    />
+                  </svg>
 
-                <span className="ml-3">Profile</span>
+                  <span className="ml-3">Profile</span>
+                </div>
               </div>
             </Anchor>
           </li>
@@ -95,7 +97,7 @@ const Aside = () => {
                   id="menu-1"
                   defaultChecked
                 />
-                <button className="flex peer relative w-full items-center border-l-rose-600 py-3 px-4 text-sm font-medium text-gray-600 outline-none transition-all duration-100 ease-in-out hover:border-l-4 hover:text-rose-600 focus:border-l-4">
+                <button className="flex peer relative w-full items-center border-l-rose-600 py-3 px-4  outline-none transition-all duration-100 ease-in-out hover:border-l-4 hover:text-rose-600 focus:border-l-4">
                   <span className="flex mr-5 w-5">
                     <svg
                       className="w-5 h-5"
@@ -133,7 +135,7 @@ const Aside = () => {
                     d="M19 9l-7 7-7-7"
                   />
                 </svg>
-                <ul className="duration-400 flex m-2 max-h-0 flex-col overflow-hidden rounded-xl bg-gray-100 font-medium transition-all duration-300 peer-checked:max-h-96">
+                <ul className="duration-400 flex m-2 max-h-0 flex-col overflow-hidden rounded-xl bg-gray-100  transition-all duration-300 peer-checked:max-h-96">
                   <li className="flex m-2 cursor-pointer border-l-rose-600 py-3 pl-5 text-sm text-gray-600 transition-all duration-100 ease-in-out hover:border-l-4 hover:text-rose-600">
                     <span className="mr-5">
                       <svg
@@ -157,17 +159,18 @@ const Aside = () => {
                   <li className="flex m-2 cursor-pointer border-l-rose-600 py-3 pl-5 text-sm text-gray-600 transition-all duration-100 ease-in-out hover:border-l-4 hover:text-rose-600">
                     <span className="mr-5">
                       <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-5 w-5"
+                        className="w-5 h-5"
                         fill="none"
-                        viewBox="0 0 24 24"
                         stroke="currentColor"
-                        strokeWidth={2}
+                        strokeWidth="1.5"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true"
                       >
                         <path
                           strokeLinecap="round"
                           strokeLinejoin="round"
-                          d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+                          d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0M3.124 7.5A8.969 8.969 0 015.292 3m13.416 0a8.969 8.969 0 012.168 4.5"
                         />
                       </svg>
                     </span>
@@ -176,17 +179,18 @@ const Aside = () => {
                   <li className="flex m-2 cursor-pointer border-l-rose-600 py-3 pl-5 text-sm text-gray-600 transition-all duration-100 ease-in-out hover:border-l-4 hover:text-rose-600">
                     <span className="mr-5">
                       <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-5 w-5"
+                        className="w-5 h-5"
                         fill="none"
-                        viewBox="0 0 24 24"
                         stroke="currentColor"
-                        strokeWidth={2}
+                        strokeWidth="1.5"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true"
                       >
                         <path
                           strokeLinecap="round"
                           strokeLinejoin="round"
-                          d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+                          d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z"
                         />
                       </svg>
                     </span>
@@ -198,10 +202,10 @@ const Aside = () => {
           </li>
           <li>
             <Anchor href="/messages">
-              <div className="flex items-center text-base font-medium text-gray-900 rounded-2xl :text-white hover:bg-gray-100 group p-2 ">
+              <div className="flex items-center text-base  rounded-l-none rounded-2xl :text-white hover:bg-gray-100 group p-2 ">
                 <svg
                   aria-hidden="true"
-                  className="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 :text-gray-400 group-hover:text-gray-900 group-hover:animate-bounce :group-hover:text-white"
+                  className="flex-shrink-0 w-6 h-6  transition duration-75  group-hover:animate-bounce "
                   fill="currentColor"
                   viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"
@@ -210,7 +214,7 @@ const Aside = () => {
                   <path d="M3 5a2 2 0 012-2h1a1 1 0 010 2H5v7h2l1 2h4l1-2h2V5h-1a1 1 0 110-2h1a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V5z" />
                 </svg>
                 <span className="flex-1 ml-3 whitespace-nowrap">Messages</span>
-                <span className="inline-flex justify-center items-center w-5 h-5 text-xs font-semibold rounded-full text-primary-800 bg-primary-100 :bg-primary-200 :text-primary-800">
+                <span className="inline-flex justify-center items-center w-5 h-5 text-xs font-semibold rounded-full ">
                   4
                 </span>
               </div>
@@ -218,11 +222,11 @@ const Aside = () => {
           </li>
           <li>
             <Anchor href="/notifications">
-              <div className="flex items-center text-base font-medium text-gray-900 rounded-2xl  hover:bg-gray-100 group p-2">
+              <div className="flex items-center text-base   rounded-l-none rounded-2xl  hover:bg-gray-100 group p-2">
                 <svg
-                  className="flex-shrink-0 w-6 h-6 text-gray-500 transition
-                duration-75 :text-gray-400 group-hover:text-gray-900 group-hover:animate-pulse
-                :group-hover:text-white"
+                  className="flex-shrink-0 w-6 h-6  transition
+                duration-75  group-hover:animate-pulse
+                "
                   fill="none"
                   stroke="currentColor"
                   strokeWidth="1.5"
@@ -248,13 +252,13 @@ const Aside = () => {
           <li>
             <button
               type="button"
-              className="flex items-center w-full text-base font-medium text-gray-900 rounded-2xl transition duration-75 group hover:bg-gray-100 :text-white p-2"
+              className="flex items-center w-full text-base  text-gray-900 rounded-2xl transition duration-75 group hover:bg-gray-100 :text-white p-2"
               aria-controls="dropdown-authentication"
               data-collapse-toggle="dropdown-authentication"
             >
               <svg
                 aria-hidden="true"
-                className="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900 :text-gray-400 :group-hover:text-white"
+                className="flex-shrink-0 w-6 h-6  transition duration-75  :text-gray-400 :group-hover:text-white"
                 fill="currentColor"
                 viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg"
@@ -284,17 +288,17 @@ const Aside = () => {
             </button>
             <ul id="dropdown-authentication" className="hidden py-2 space-y-2">
               <li>
-                <a className="flex items-center pl-11 w-full text-base font-medium text-gray-900 rounded-2xl transition duration-75 group hover:bg-gray-100 :text-white">
+                <a className="flex items-center pl-11 w-full text-base  text-gray-900 rounded-2xl transition duration-75 group hover:bg-gray-100 :text-white">
                   Sign In
                 </a>
               </li>
               <li>
-                <a className="flex items-center pl-11 w-full text-base font-medium text-gray-900 rounded-2xl transition duration-75 group hover:bg-gray-100 :text-white">
+                <a className="flex items-center pl-11 w-full text-base  text-gray-900 rounded-2xl transition duration-75 group hover:bg-gray-100 :text-white">
                   Sign Up
                 </a>
               </li>
               <li>
-                <a className="flex items-center pl-11 w-full text-base font-medium text-gray-900 rounded-2xl transition duration-75 group hover:bg-gray-100 :text-white">
+                <a className="flex items-center pl-11 w-full text-base  text-gray-900 rounded-2xl transition duration-75 group hover:bg-gray-100 :text-white">
                   Forgot Password
                 </a>
               </li>
@@ -307,7 +311,7 @@ const Aside = () => {
               id="menu-1"
               defaultChecked
             />
-            <button className="flex peer relative w-full items-center border-l-rose-600 py-3 px-4 text-sm font-medium text-gray-600 outline-none transition-all duration-100 ease-in-out hover:border-l-4 hover:text-rose-600 focus:border-l-4">
+            <button className="flex peer relative w-full items-center border-l-rose-600 py-3 px-4 text-sm  text-gray-600 outline-none transition-all duration-100 ease-in-out hover:border-l-4 hover:text-rose-600 focus:border-l-4">
               <span className="flex mr-5 w-5">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -344,7 +348,7 @@ const Aside = () => {
                 d="M19 9l-7 7-7-7"
               />
             </svg>
-            <ul className="duration-400 flex m-2 max-h-0 flex-col overflow-hidden rounded-xl bg-gray-100 font-medium transition-all duration-300 peer-checked:max-h-96">
+            <ul className="duration-400 flex m-2 max-h-0 flex-col overflow-hidden rounded-xl bg-gray-100  transition-all duration-300 peer-checked:max-h-96">
               <li className="flex m-2 cursor-pointer border-l-rose-600 py-3 pl-5 text-sm text-gray-600 transition-all duration-100 ease-in-out hover:border-l-4 hover:text-rose-600">
                 <span className="mr-5">
                   <svg
@@ -388,10 +392,10 @@ const Aside = () => {
         </ul>
         <ul className="pt-5 mt-5 space-y-2 border-t border-gray-200 :border-gray-700">
           <li>
-            <a className="flex items-center text-base font-medium text-gray-900 rounded-2xl transition duration-75 hover:bg-gray-100 :text-white group">
+            <a className="flex items-center text-base  text-gray-900 rounded-2xl transition duration-75 hover:bg-gray-100 :text-white group">
               <svg
                 aria-hidden="true"
-                className="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 :text-gray-400 group-hover:text-gray-900 :group-hover:text-white"
+                className="flex-shrink-0 w-6 h-6  transition duration-75 :text-gray-400  :group-hover:text-white"
                 fill="currentColor"
                 viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg"
@@ -407,10 +411,10 @@ const Aside = () => {
             </a>
           </li>
           <li>
-            <a className="flex items-center text-base font-medium text-gray-900 rounded-2xl transition duration-75 hover:bg-gray-100 :text-white group">
+            <a className="flex items-center text-base  text-gray-900 rounded-2xl transition duration-75 hover:bg-gray-100 :text-white group">
               <svg
                 aria-hidden="true"
-                className="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 :text-gray-400 group-hover:text-gray-900 :group-hover:text-white"
+                className="flex-shrink-0 w-6 h-6  transition duration-75 :text-gray-400  :group-hover:text-white"
                 fill="currentColor"
                 viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg"
@@ -421,10 +425,10 @@ const Aside = () => {
             </a>
           </li>
           <li>
-            <a className="flex items-center text-base font-medium text-gray-900 rounded-2xl transition duration-75 hover:bg-gray-100 :text-white group">
+            <a className="flex items-center text-base  text-gray-900 rounded-2xl transition duration-75 hover:bg-gray-100 :text-white group">
               <svg
                 aria-hidden="true"
-                className="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 :text-gray-400 group-hover:text-gray-900 :group-hover:text-white"
+                className="flex-shrink-0 w-6 h-6  transition duration-75 :text-gray-400  :group-hover:text-white"
                 fill="currentColor"
                 viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg"
@@ -441,7 +445,7 @@ const Aside = () => {
         </ul>
       </div>
       <div className="hidden absolute bottom-0 left-0 justify-center p-4 space-x-4 w-full lg:flex bg-white :bg-gray-800 z-20">
-        <a className="inline-flex justify-center text-gray-500 rounded cursor-pointer :text-gray-400 hover:text-gray-900 :hover:text-white hover:bg-gray-100 :hover:bg-gray-600">
+        <a className="inline-flex justify-center  rounded cursor-pointer :text-gray-400 hover:text-gray-900 :hover:text-white hover:bg-gray-100 :hover:bg-gray-600">
           <svg
             aria-hidden="true"
             className="w-6 h-6"
@@ -454,7 +458,7 @@ const Aside = () => {
         </a>
         <a
           data-tooltip-target="tooltip-settings"
-          className="inline-flex justify-center text-gray-500 rounded cursor-pointer :text-gray-400 :hover:text-white hover:text-gray-900 hover:bg-gray-100 :hover:bg-gray-600"
+          className="inline-flex justify-center  rounded cursor-pointer :text-gray-400 :hover:text-white hover:text-gray-900 hover:bg-gray-100 :hover:bg-gray-600"
         >
           <svg
             aria-hidden="true"
@@ -473,7 +477,7 @@ const Aside = () => {
         <div
           id="tooltip-settings"
           role="tooltip"
-          className="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-2xl shadow-sm opacity-0 transition-opacity duration-300 tooltip"
+          className="inline-block absolute invisible z-10 py-2 px-3 text-sm  text-white bg-gray-900 rounded-2xl shadow-sm opacity-0 transition-opacity duration-300 tooltip"
         >
           Settings page
           <div className="tooltip-arrow" data-popper-arrow />
@@ -481,7 +485,7 @@ const Aside = () => {
         <button
           type="button"
           data-dropdown-toggle="language-dropdown"
-          className="inline-flex justify-center text-gray-500 rounded cursor-pointer :hover:text-white :text-gray-400 hover:text-gray-900 hover:bg-gray-100 :hover:bg-gray-600"
+          className="inline-flex justify-center  rounded cursor-pointer :hover:text-white :text-gray-400 hover:text-gray-900 hover:bg-gray-100 :hover:bg-gray-600"
         >
           <svg
             aria-hidden="true"
