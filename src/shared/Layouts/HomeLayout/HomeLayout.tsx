@@ -156,7 +156,7 @@ const HomeLayout = ({ children }) => {
         {/* End Announcement Banner */}
         {/* Home Navbar */}
       </nav>
-      <div className="home-content w-full p-2  mt-20">{children}</div>
+      <div className="home-content w-full p-2  mt-10">{children}</div>
     </section>
   );
 };
