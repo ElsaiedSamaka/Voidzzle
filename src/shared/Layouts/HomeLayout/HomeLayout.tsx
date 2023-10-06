@@ -1,11 +1,11 @@
 const HomeLayout = ({ children }) => {
   return (
     <section className="home-layout p-2  w-full">
-      <nav className="bg-white border-gray-200 :border-gray-600 :bg-gray-900 w-full fixed top-14 right-0 md:left-64 z-10">
+      <nav className="backdrop-blur-xl border-gray-200 :border-gray-600 :bg-gray-900 w-full fixed top-14 right-0 md:left-64 z-10">
         {/* Home Navbar */}
         <div className="flex flex-wrap justify-between items-center  p-4">
           <a href="https://flowbite.com" className="flex items-center ">
-            <span className="self-center text-2xl font-semibold whitespace-nowrap :text-white">
+            <span className="self-center text-2xl font-semibold whitespace-nowrap ">
               Hello Saied
             </span>
           </a>
@@ -38,7 +38,7 @@ const HomeLayout = ({ children }) => {
             id="mega-menu-full"
             className="items-center justify-between font-medium  w-full md:flex "
           >
-            <ul className="flex flex-col w-full p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white :bg-gray-800 md::bg-gray-900 :border-gray-700">
+            <ul className="flex flex-col w-full p-4 md:p-0 mt-4 border-b border-gray-100 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0 ">
               <li>
                 <a
                   className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 :text-white md::hover:text-blue-500 :hover:bg-gray-700 :hover:text-blue-500 md::hover:bg-transparent :border-gray-700"
