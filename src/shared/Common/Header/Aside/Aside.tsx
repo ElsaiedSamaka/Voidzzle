@@ -96,7 +96,7 @@ const Aside = () => {
                 id="menu-1"
                 defaultChecked
               />
-              <button className="group flex peer relative w-full items-center border-l-rose-600 py-3 px-2  outline-none transition-all duration-100 ease-in-out hover:border-l-4 hover:text-rose-600 ">
+              <button className="group flex peer relative w-full items-center border-l-black py-3 px-2  outline-none transition-all duration-100 ease-in-out hover:border-l-4 hover:text-black ">
                 <span className="flex mr-6 w-6 ">
                   <svg
                     className="w-6 h-6 text-gray-500 group-hover:animate-spin "
@@ -122,7 +122,7 @@ const Aside = () => {
               </button>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="absolute right-0 top-4 ml-auto mr-5 h-4 text-gray-600 transition peer-checked:rotate-180 peer-hover:text-rose-600"
+                className="absolute right-0 top-4 ml-auto mr-5 h-4 text-gray-600 transition peer-checked:rotate-180 peer-hover:text-black"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -135,9 +135,9 @@ const Aside = () => {
                 />
               </svg>
               <ul className="duration-400 flex m-2 max-h-0 flex-col overflow-hidden rounded-xl bg-gray-100  transition-all duration-300 peer-checked:max-h-96">
-                <li className="flex m-2 cursor-pointer border-l-rose-600 text-sm text-gray-600 ">
+                <li className="flex m-2 cursor-pointer border-l-black text-sm text-gray-600 ">
                   <Anchor href="/settings/billing">
-                    <span className="mr-5 flex items-center gap-5 py-3 pl-5 transition-all duration-100 ease-in-out  hover:text-rose-600">
+                    <span className="mr-5 flex items-center gap-5 py-3 pl-5 transition-all duration-100 ease-in-out  hover:text-black">
                       <svg
                         className="h-5 w-5"
                         fill="none"
@@ -157,9 +157,9 @@ const Aside = () => {
                     </span>
                   </Anchor>
                 </li>
-                <li className="flex m-2 cursor-pointer border-l-rose-600 text-sm text-gray-600 ">
+                <li className="flex m-2 cursor-pointer border-l-black text-sm text-gray-600 ">
                   <Anchor href="/settings/notifications">
-                    <span className="mr-5 flex items-center gap-5 py-3 pl-5 transition-all duration-100 ease-in-out  hover:text-rose-600">
+                    <span className="mr-5 flex items-center gap-5 py-3 pl-5 transition-all duration-100 ease-in-out  hover:text-black">
                       <svg
                         className="w-5 h-5"
                         fill="none"
@@ -179,9 +179,9 @@ const Aside = () => {
                     </span>
                   </Anchor>
                 </li>
-                <li className="flex m-2 cursor-pointer border-l-rose-600 text-sm text-gray-600 ">
+                <li className="flex m-2 cursor-pointer border-l-black text-sm text-gray-600 ">
                   <Anchor href="/settings/account">
-                    <span className="mr-5 flex items-center gap-5 py-3 pl-5 transition-all duration-100 ease-in-out  hover:text-rose-600">
+                    <span className="mr-5 flex items-center gap-5 py-3 pl-5 transition-all duration-100 ease-in-out  hover:text-black">
                       <svg
                         className="w-5 h-5"
                         fill="none"
@@ -261,7 +261,7 @@ const Aside = () => {
                 id="menu-2"
                 defaultChecked
               />
-              <button className="group flex peer relative w-full items-center border-l-rose-600 py-3 px-4  outline-none transition-all duration-100 ease-in-out hover:border-l-4 hover:text-rose-600 ">
+              <button className="group flex peer relative w-full items-center border-l-black py-3 px-4  outline-none transition-all duration-100 ease-in-out hover:border-l-4 hover:text-black ">
                 <span className="flex mr-5 w-5">
                   <svg
                     className="w-6 h-6 text-gray-500 group-hover:animate-bounce duration-300"
@@ -287,7 +287,7 @@ const Aside = () => {
               </button>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="absolute right-0 top-4 ml-auto mr-5 h-4 text-gray-600 transition peer-checked:rotate-180 peer-hover:text-rose-600"
+                className="absolute right-0 top-4 ml-auto mr-5 h-4 text-gray-600 transition peer-checked:rotate-180 peer-hover:text-black"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -300,9 +300,9 @@ const Aside = () => {
                 />
               </svg>
               <ul className="duration-400 flex m-2 max-h-0 flex-col overflow-hidden rounded-xl bg-gray-100  transition-all duration-300 peer-checked:max-h-96">
-                <li className="flex m-2 cursor-pointer border-l-rose-600 text-sm text-gray-600 ">
+                <li className="flex m-2 cursor-pointer border-l-black text-sm text-gray-600 ">
                   <Anchor href="/settings">
-                    <span className="mr-5 flex items-center gap-5 py-3 pl-5 transition-all duration-100 ease-in-out  hover:text-rose-600">
+                    <span className="mr-5 flex items-center gap-5 py-3 pl-5 transition-all duration-100 ease-in-out  hover:text-black">
                       <svg
                         className="w-5 h-5"
                         fill="none"
@@ -322,9 +322,9 @@ const Aside = () => {
                     </span>
                   </Anchor>
                 </li>
-                <li className="flex m-2 cursor-pointer border-l-rose-600 text-sm text-gray-600 ">
+                <li className="flex m-2 cursor-pointer border-l-black text-sm text-gray-600 ">
                   <Anchor href="/settings">
-                    <span className="mr-5 flex items-center gap-5 py-3 pl-5 transition-all duration-100 ease-in-out  hover:text-rose-600">
+                    <span className="mr-5 flex items-center gap-5 py-3 pl-5 transition-all duration-100 ease-in-out  hover:text-black">
                       <svg
                         fill="none"
                         className="w-5 h-5"
