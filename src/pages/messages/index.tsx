@@ -127,11 +127,7 @@ const Messages = () => {
                               ></path>
                             </svg>
                           </span>
-                          <span>
-                            {"{"}
-                            {"{"}"Remove"|translate{"}"}
-                            {"}"}
-                          </span>
+                          <span>Remove"|translate</span>
                         </a>
                       </li>
                       {/* conversation remove */}
@@ -158,11 +154,7 @@ const Messages = () => {
                               ></path>
                             </svg>
                           </span>
-                          <span>
-                            {"{"}
-                            {"{"}"Report"|translate{"}"}
-                            {"}"}
-                          </span>
+                          <span>Report"|translate</span>
                         </a>
                       </li>
                     </ul>
@@ -171,17 +163,9 @@ const Messages = () => {
               </div>
               <div className="p-2 flex justify-between items-center">
                 <h3 className=" text-lg">
-                  {"{"}
-                  {"{"}conversation.messages[conversation.messages.length -
-                  1].message| slice:0:10{"}"}
-                  {"}"}
+                  conversation.messagesconversation.messages.length -
                 </h3>
-                <em className="text-xs font-thin">
-                  {"{"}
-                  {"{"}conversation.updatedAt | date:"MMM dd, yyyy 'at' hh:mm a"
-                  {"}"}
-                  {"}"}
-                </em>
+                <em className="text-xs font-thin">21 march 2022</em>
               </div>
             </li>
             {/* conversation */}
@@ -190,9 +174,7 @@ const Messages = () => {
                 404
               </div>
               <span className="">
-                {"{"}
                 {"{"}"no conversations found"|translate{"}"}
-                {"}"}
               </span>
             </div>
           </ul>
