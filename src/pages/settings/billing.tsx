@@ -1,4 +1,5 @@
 import React from "react";
+import { RootLayout, SettingsLayout } from "shared";
 
 const BillingSettings = () => {
   return (
@@ -178,6 +179,14 @@ const BillingSettings = () => {
         </div>
       </div>
     </div>
+  );
+};
+
+BillingSettings.getLayout = (page) => {
+  return (
+    <RootLayout>
+      <SettingsLayout>{page}</SettingsLayout>
+    </RootLayout>
   );
 };
 

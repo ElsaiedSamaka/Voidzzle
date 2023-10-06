@@ -1,4 +1,5 @@
 import React from "react";
+import { SettingsLayout ,RootLayout } from "shared";
 
 const NotificationsSettings = () => {
   return (
@@ -197,6 +198,13 @@ const NotificationsSettings = () => {
         </div>
       </div>
     </div>
+  );
+};
+NotificationsSettings.getLayout = (page) => {
+  return (
+    <RootLayout>
+      <SettingsLayout>{page}</SettingsLayout>
+    </RootLayout>
   );
 };
 

@@ -1,4 +1,5 @@
 import React from "react";
+import { RootLayout, SettingsLayout } from "shared";
 
 const AccountSettings = () => {
   return (
@@ -106,5 +107,13 @@ const AccountSettings = () => {
     </div>
   );
 };
+AccountSettings.getLayout = (page) => {
+  return (
+    <RootLayout>
+      <SettingsLayout>{page}</SettingsLayout>
+    </RootLayout>
+  );
+};
+
 
 export default AccountSettings;
