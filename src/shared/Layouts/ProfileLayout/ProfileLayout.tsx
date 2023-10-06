@@ -2,8 +2,14 @@ import React from "react";
 
 const ProfileLayout = ({ children }) => {
   return (
-    <section className="home-layout p-2  w-full">
-      <div className="home-content w-full p-2  mt-20">{children}</div>
+    <section className="profile-layout ">
+      <div className=" max-w-screen-2xl">
+        <div className="grid pt-3 pb-10 grid-cols-10">
+          <div className="col-span-10 overflow-hidden rounded-2xl bg-gray-100 px-8 mx-8 sm:shadow">
+            {children}
+          </div>
+        </div>
+      </div>
     </section>
   );
 };
