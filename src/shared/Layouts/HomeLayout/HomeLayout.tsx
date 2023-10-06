@@ -1,7 +1,7 @@
 const HomeLayout = ({ children }) => {
   return (
     <section className="home-layout p-2  w-full">
-      <nav className="backdrop-blur-xl border-gray-200 :border-gray-600 :bg-gray-900 w-full fixed top-14 right-0 md:left-64 z-10">
+      <nav className="backdrop-blur-xl border-gray-200 :border-gray-600 :bg-gray-900 w-full sticky top-14 right-0 md:left-64 z-10">
         {/* Home Navbar */}
         <div className="flex flex-wrap justify-between items-center  p-4 ml-4">
           <a href="https://flowbite.com" className="flex items-center ">
