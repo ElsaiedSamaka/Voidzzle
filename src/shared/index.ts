@@ -14,6 +14,7 @@ import ProfileLayout from "./Layouts/ProfileLayout/ProfileLayout";
 import MessagesLayout from "./Layouts/MessagesLayout/MessagesLayout";
 import NotificationsLayout from "./Layouts/NotificationsLayout/NotificationsLayout";
 import Anchor from "./Common/Anchor/Anchor";
+import Breadcrumb from "./Common/Breadcrumb/Breadcrumb";
 export {
   Aside,
   Card,
@@ -31,5 +32,6 @@ export {
   NotificationsLayout,
   MessagesLayout,
   Anchor,
+  Breadcrumb,
 };
 
