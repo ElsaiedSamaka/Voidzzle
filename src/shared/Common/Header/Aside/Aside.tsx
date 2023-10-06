@@ -135,7 +135,7 @@ const Aside = () => {
                 />
               </svg>
               <ul className="duration-400 flex m-2 max-h-0 flex-col overflow-hidden rounded-xl bg-gray-100  transition-all duration-300 peer-checked:max-h-96">
-                <li className="flex m-2 cursor-pointer border-l-rose-600 py-3 pl-5 text-sm text-gray-600 transition-all duration-100 ease-in-out hover:border-l-4 hover:text-rose-600">
+                <li className="flex m-2 cursor-pointer border-l-rose-600 py-3 pl-5 text-sm text-gray-600 transition-all duration-100 ease-in-out  hover:text-rose-600">
                   <Anchor href="/settings">
                     <span className="mr-5">
                       <svg
