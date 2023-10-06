@@ -3,15 +3,11 @@ import { Card, ProfileLayout, RootLayout } from "shared";
 const Profile = () => {
   return (
     <>
-      <div className="mx-4  sm:mx-8 xl:mx-auto">
+      <div className="mx-4 ">
         <h1 className="border-b py-6 text-4xl font-semibold">Profile</h1>
         <div className="flex items-center">
           {/* Tab Navs */}
-          <nav
-            className="grid gap-4 mt-5 md:mt-10"
-            aria-label="Tabs"
-            role="tablist"
-          >
+          <nav className="grid gap-4" aria-label="Tabs" role="tablist">
             <button
               type="button"
               className="hs-tab-active:bg-white hs-tab-active:shadow-md hs-tab-active:hover:border-transparent text-left hover:bg-gray-200 p-4 md:p-5 rounded-xl :hs-tab-active:bg-slate-900 :hover:bg-gray-700 active"
@@ -23,18 +19,22 @@ const Profile = () => {
               <span className="flex">
                 <svg
                   className="flex-shrink-0 mt-2 h-6 w-6 md:w-7 md:h-7 hs-tab-active:text-blue-600 text-gray-800 :hs-tab-active:text-blue-500 :text-gray-200"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={1.5}
+                  viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
-                  width={16}
-                  height={16}
-                  fill="currentColor"
-                  viewBox="0 0 16 16"
+                  aria-hidden="true"
                 >
-                  <path d="M5.5 2A3.5 3.5 0 0 0 2 5.5v5A3.5 3.5 0 0 0 5.5 14h5a3.5 3.5 0 0 0 3.5-3.5V8a.5.5 0 0 1 1 0v2.5a4.5 4.5 0 0 1-4.5 4.5h-5A4.5 4.5 0 0 1 1 10.5v-5A4.5 4.5 0 0 1 5.5 1H8a.5.5 0 0 1 0 1H5.5z" />
-                  <path d="M16 3a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"
+                  />
                 </svg>
                 <span className="grow ml-6">
                   <span className="block text-lg font-semibold hs-tab-active:text-blue-600 text-gray-800 :hs-tab-active:text-blue-500 :text-gray-200">
-                    Advanced tools
+                    Wish list
                   </span>
                   <span className="block mt-1 text-gray-800 :hs-tab-active:text-gray-200 :text-gray-200">
                     Use Preline thoroughly thought and automated libraries to
@@ -53,21 +53,23 @@ const Profile = () => {
             >
               <span className="flex">
                 <svg
-                  className="flex-shrink-0 mt-2 h-6 w-6 md:w-7 md:h-7 hs-tab-active:text-blue-600 text-gray-800 :hs-tab-active:text-blue-500 :text-gray-200"
+                  className="flex-shrink-0 mt-2 h-6 w-6 md:w-7 md:h-7 hs-tab-active:text-blue-600 text-gray-800  :hs-tab-active:text-blue-500 :text-gray-200"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={1.5}
+                  viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
-                  width={16}
-                  height={16}
-                  fill="currentColor"
-                  viewBox="0 0 16 16"
+                  aria-hidden="true"
                 >
                   <path
-                    fillRule="evenodd"
-                    d="M0 0h1v15h15v1H0V0Zm14.817 3.113a.5.5 0 0 1 .07.704l-4.5 5.5a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61 4.15-5.073a.5.5 0 0 1 .704-.07Z"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
                   />
                 </svg>
                 <span className="grow ml-6">
                   <span className="block text-lg font-semibold hs-tab-active:text-blue-600 text-gray-800 :hs-tab-active:text-blue-500 :text-gray-200">
-                    Smart dashboards
+                    Orders
                   </span>
                   <span className="block mt-1 text-gray-800 :hs-tab-active:text-gray-200 :text-gray-200">
                     Quickly Preline sample components, copy-paste codes, and
@@ -86,18 +88,58 @@ const Profile = () => {
             >
               <span className="flex">
                 <svg
-                  className="flex-shrink-0 mt-2 h-6 w-6 md:w-7 md:h-7 hs-tab-active:text-blue-600 text-gray-800 :hs-tab-active:text-blue-500 :text-gray-200"
+                  className="flex-shrink-0 mt-2 h-6 w-6 md:w-7 md:h-7 hs-tab-active:text-blue-600 text-gray-800  :hs-tab-active:text-blue-500 :text-gray-200"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={1.5}
+                  viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
-                  width={16}
-                  height={16}
-                  fill="currentColor"
-                  viewBox="0 0 16 16"
+                  aria-hidden="true"
                 >
-                  <path d="M5.52.359A.5.5 0 0 1 6 0h4a.5.5 0 0 1 .474.658L8.694 6H12.5a.5.5 0 0 1 .395.807l-7 9a.5.5 0 0 1-.873-.454L6.823 9.5H3.5a.5.5 0 0 1-.48-.641l2.5-8.5zM6.374 1 4.168 8.5H7.5a.5.5 0 0 1 .478.647L6.78 13.04 11.478 7H8a.5.5 0 0 1-.474-.658L9.306 1H6.374z" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z"
+                  />
                 </svg>
                 <span className="grow ml-6">
                   <span className="block text-lg font-semibold hs-tab-active:text-blue-600 text-gray-800 :hs-tab-active:text-blue-500 :text-gray-200">
-                    Powerful features
+                    Buying requests
+                  </span>
+                  <span className="block mt-1 text-gray-800 :hs-tab-active:text-gray-200 :text-gray-200">
+                    Reduce time and effort on building modern look design with
+                    Preline only.
+                  </span>
+                </span>
+              </span>
+            </button>
+              <button
+              type="button"
+              className="hs-tab-active:bg-white hs-tab-active:shadow-md hs-tab-active:hover:border-transparent text-left hover:bg-gray-200 p-4 md:p-5 rounded-xl :hs-tab-active:bg-slate-900 :hover:bg-gray-700"
+              id="tabs-with-card-item-3"
+              data-hs-tab="#tabs-with-card-3"
+              aria-controls="tabs-with-card-3"
+              role="tab"
+            >
+              <span className="flex">
+                  <svg
+                        fill="none"
+                  className="flex-shrink-0 mt-2 h-6 w-6 md:w-7 md:h-7 hs-tab-active:text-blue-600 text-gray-800  :hs-tab-active:text-blue-500 :text-gray-200"
+                        stroke="currentColor"
+                        strokeWidth={1.5}
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M8.25 9.75h4.875a2.625 2.625 0 010 5.25H12M8.25 9.75L10.5 7.5M8.25 9.75L10.5 12m9-7.243V21.75l-3.75-1.5-3.75 1.5-3.75-1.5-3.75 1.5V4.757c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0c1.1.128 1.907 1.077 1.907 2.185z"
+                        />
+                      </svg>
+                <span className="grow ml-6">
+                  <span className="block text-lg font-semibold hs-tab-active:text-blue-600 text-gray-800 :hs-tab-active:text-blue-500 :text-gray-200">
+                    Refund requests
                   </span>
                   <span className="block mt-1 text-gray-800 :hs-tab-active:text-gray-200 :text-gray-200">
                     Reduce time and effort on building modern look design with
@@ -108,13 +150,35 @@ const Profile = () => {
             </button>
           </nav>
           {/* End Tab Navs */}
-
-          <ul className="grid grid-cols-4 xs:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 pt-3 pb-10 ">
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-          </ul>
+          <div>
+            <ul className="grid grid-cols-4 xs:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 pt-3 pb-10 ">
+              <Card />
+              <Card />
+              <Card />
+              <Card />
+            </ul>
+            <div className="flex justify-center">
+              {/* Previous Button */}
+              <a className="flex items-center justify-center space-x-1 px-3 h-8 mr-3 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:cursor-pointer hover:text-gray-700 :bg-gray-800 :border-gray-700 :text-gray-400 :hover:bg-gray-700 :hover:text-white">
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={1.5}
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"
+                  />
+                </svg>
+                Load more
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </>
@@ -319,7 +383,7 @@ export default Profile;
 //            </td>
 //            <td className="px-6 py-4">
 //              <a
-//                href="#"
+//                
 //                className="font-medium text-red-600 :text-red-500 hover:underline"
 //              >
 //                Remove
@@ -392,7 +456,7 @@ export default Profile;
 //            </td>
 //            <td className="px-6 py-4">
 //              <a
-//                href="#"
+//                
 //                className="font-medium text-red-600 :text-red-500 hover:underline"
 //              >
 //                Remove
@@ -465,7 +529,7 @@ export default Profile;
 //            </td>
 //            <td className="px-6 py-4">
 //              <a
-//                href="#"
+//                
 //                className="font-medium text-red-600 :text-red-500 hover:underline"
 //              >
 //                Remove

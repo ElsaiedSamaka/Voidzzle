@@ -326,8 +326,8 @@ const Aside = () => {
                   <Anchor href="/settings">
                     <span className="mr-5 flex items-center gap-5 py-3 pl-5 transition-all duration-100 ease-in-out  hover:text-rose-600">
                       <svg
-                        className="w-5 h-5"
                         fill="none"
+                        className="w-5 h-5"
                         stroke="currentColor"
                         strokeWidth={1.5}
                         viewBox="0 0 24 24"
@@ -337,7 +337,7 @@ const Aside = () => {
                         <path
                           strokeLinecap="round"
                           strokeLinejoin="round"
-                          d="M2.25 6L9 12.75l4.286-4.286a11.948 11.948 0 014.306 6.43l.776 2.898m0 0l3.182-5.511m-3.182 5.51l-5.511-3.181"
+                          d="M8.25 9.75h4.875a2.625 2.625 0 010 5.25H12M8.25 9.75L10.5 7.5M8.25 9.75L10.5 12m9-7.243V21.75l-3.75-1.5-3.75 1.5-3.75-1.5-3.75 1.5V4.757c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0c1.1.128 1.907 1.077 1.907 2.185z"
                         />
                       </svg>
                       Refund
