@@ -5,9 +5,9 @@ const Messages = () => {
   return (
     <section className="flex h-[94vh] overflow-hidden flex-col gap-2 pt-4 ">
       <div className="grid grid-cols-5 gap-4 h-full">
-        <div className="sm:col-span-2 xs:col-span-full h-full p-2 border rounded-lg rounded-b-none  ">
+        <div className="sm:col-span-2 xs:col-span-full h-full p-2 border rounded-xl rounded-b-none  sm:bg-gray-50 sm:px-8 sm:shadow">
           <div className="flex items-center justify-between border-b">
-            <span className="text-xl font-semibold my-2" />
+            <span className="text-xl font-semibold my-2">conversations</span>
             <span className="relative group">
               {/* settings icon */}
               <svg
@@ -43,12 +43,12 @@ const Messages = () => {
           <input
             type="text"
             placeholder="search over your contacts ..."
-            className="search-contacts  my-1 h-11 w-full items-center gap-2 rounded-full pl-2 pr-3 text-sm text-zinc-500 ring-1 placeholder:text-zinc-400 ring-zinc-900/10 transition hover:ring-zinc-900/20 ui-not-focus-visible:outline-none"
+            className="search-contacts  my-1 h-11 w-full items-center gap-2 rounded-xl pl-2 pr-3 text-sm text-zinc-500 ring-1 placeholder:text-zinc-400 ring-zinc-900/10 transition hover:ring-zinc-900/20 ui-not-focus-visible:outline-none"
           />
           {/* conversations */}
           <ul className="h-[90%] overflow-y-scroll">
             {/* conversation */}
-            <li className=" w-full p-2 my-1 border rounded-lg hover:cursor-pointer ">
+            <li className=" w-full p-2 my-1 border rounded-lg hover:cursor-pointer bg-white">
               <div className="flex justify-between space-x-2">
                 <div className="inline-flex">
                   <div className="p-3 border inline-flex rounded-full">
@@ -95,7 +95,7 @@ const Messages = () => {
                   {/* Dropdown menu */}
                   <div
                     id="dropdownComment1"
-                    className="z-10 absolute rounded divide-y divide-gray-100 shadow "
+                    className="z-10 absolute rounded divide-y divide-gray-100 shadow bg-white"
                   >
                     <ul
                       className="py-1 text-sm  w-full"
@@ -199,7 +199,7 @@ const Messages = () => {
           {/* conversations */}
         </div>
         {/* detailed content */}
-        <div className="sm:col-span-3 xs:hidden sm:inline border rounded-lg rounded-b-none h-full overflow-y-scroll"></div>
+        <div className="sm:col-span-3 xs:hidden sm:inline border rounded-lg rounded-b-none h-full overflow-y-scroll sm:bg-gray-50 sm:px-8 sm:shadow"></div>
         {/* detailed content */}
       </div>
     </section>
