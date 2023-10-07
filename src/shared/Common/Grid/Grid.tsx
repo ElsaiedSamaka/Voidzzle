@@ -1,7 +1,7 @@
 import React from "react";
 import { Card } from "shared";
 
-const Grid = () => {
+const Grid = ({ title }) => {
   return (
     <div>
       <ul className="grid grid-cols-4 xs:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 pt-3 pb-10 ">
