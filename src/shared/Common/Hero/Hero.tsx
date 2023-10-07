@@ -10,7 +10,7 @@ const Hero = () => {
             </div>
             </div>
       <svg
-        className=" w-full rounded-2xl"
+        className="max-w-7xl  rounded-2xl"
         xmlns="http://www.w3.org/2000/svg"
         version="1.1"
         xmlnsXlink="http://www.w3.org/1999/xlink"
