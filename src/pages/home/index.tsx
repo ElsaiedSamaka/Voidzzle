@@ -7,13 +7,14 @@ import {
   Grid,
   Hero,
   HomeLayout,
+  InfiniteCarousel,
   RootLayout,
 } from "shared";
 import classnames from "classnames";
 const Home = () => {
   const [showSellOptions, toggleSellOptions] = useState(false);
   return (
-    <section className=" p-2">
+    <section className="w-full p-2">
       {/* <CarouselTestimonial /> */}
       <div className="my-2">
       {/* hero card */}
@@ -25,12 +26,16 @@ const Home = () => {
       <FilterationCard />
         {/* filteration card */}
       </div>
-      {/* infinite carousel */}
-      {/* <InfiniteCarousel /> */}
-      {/* infinite carousel */}
+      <div className="my-2">
       {/* controls */}
-      {/* <CarouselControlsInside title="Deals of the day" /> */}
-      {/* controls */}
+      <CarouselControlsInside title="Deals of the day" />
+        {/* controls */}
+        </div>
+        <div className="max-w-xl bg-red-900 relative">
+       {/* infinite carousel */}
+      <InfiniteCarousel />
+      {/* infinite carousel */}
+      </div>
       <div className="my-2">
         {/* controls */}
       <CarouselControlsInside title="Villas" />
@@ -68,11 +73,11 @@ const Home = () => {
       </div>
         
       {/* products grid */}
-      <Grid title="Villas For Sale" path="/products" />
+      {/* <Grid title="Villas For Sale" path="/products" /> */}
       {/* products grid */}
       {/* sell */}
       <div>
-        <div data-dial-init className="fixed bottom-6 right-6 group">
+        <div data-dial-init className="fixed bottom-10 right-10 group">
           <div
             id="speed-dial-menu-text-outside-button-square"
             className={classnames(
@@ -151,7 +156,7 @@ const Home = () => {
             data-dial-toggle="speed-dial-menu-text-outside-button-square"
             aria-controls="speed-dial-menu-text-outside-button-square"
             aria-expanded="false"
-            className="flex items-center justify-center text-white bg-blue-700 rounded-full w-14 h-14 hover:bg-blue-800 :bg-blue-600 :hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 focus:outline-none :focus:ring-blue-800"
+            className="flex items-center justify-center text-white bg-red-700 rounded-full w-14 h-14 hover:bg-red-800  focus:ring-4 focus:ring-red-300 focus:outline-none shadow-md"
           >
             <svg
               className="w-5 h-5 transition-transform group-hover:rotate-45"

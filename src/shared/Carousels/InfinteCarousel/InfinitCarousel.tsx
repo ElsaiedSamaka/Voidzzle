@@ -5,22 +5,21 @@ function InfiniteCarousel() {
   useEffect(() => {
     const slider = new Glide(".glide-09", {
       type: "carousel",
-      autoplay: 1,
+      autoplay: 10,
       animationDuration: 4500,
       animationTimingFunc: "linear",
       perView: 3,
       classes: {
         nav: {
-          active: "[&>*]:bg-wuiSlate-700",
+          active: "[&>*]:bg-zinc-700",
         },
       },
       breakpoints: {
         1024: {
-          perView: 2,
+          perView: 1,
         },
         640: {
           perView: 1,
-          gap: 36,
         },
       },
     }).mount();
@@ -33,7 +32,7 @@ function InfiniteCarousel() {
   return (
     <>
       {/*<!-- Component: Testimonial carousel --> */}
-      <div className="glide-09 relative w-96">
+      <div className="glide-09 relative overflow-hidden">
         {/* <!-- Slides --> */}
         <div data-glide-el="track">
           <ul className="whitespace-no-wrap flex-no-wrap [backface-visibility: hidden] [transform-style: preserve-3d] [touch-action: pan-Y] [will-change: transform] relative flex w-full overflow-hidden p-0">

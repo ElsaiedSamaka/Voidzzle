@@ -7,19 +7,16 @@ function CarouselControlsInside({ title }) {
     const slider = new Glide(".glide-01", {
       type: "carousel",
       focusAt: "center",
-      perView: 5,
+      perView: 4,
       autoplay: 9000,
       animationDuration: 900,
       gap: 10,
       classNames: {
         nav: {
-          active: "[&>*]:bg-wuiSlate-700",
+          active: "[&>*]:bg-zinc-700",
         },
       },
       breakpoints: {
-        1500: {
-          perView: 4,
-        },
         1024: {
           perView: 3,
         },
@@ -66,6 +63,8 @@ function CarouselControlsInside({ title }) {
         <div className="overflow-hidden" data-glide-el="track">
           <ul className="whitespace-no-wrap flex-no-wrap [backface-visibility: hidden] [transform-style: preserve-3d] [touch-action: pan-Y] [will-change: transform] relative flex w-full overflow-hidden p-0">
              <Card id={1} />
+             <Card id={2} />
+             <Card id={3} />
           </ul>
         </div>
         {/*    <!-- Controls --> */}
