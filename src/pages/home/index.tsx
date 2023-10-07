@@ -123,7 +123,7 @@ const Home = () => {
       {/* <InfiniteCarousel /> */}
       {/* infinite carousel */}
       {/* products grid */}
-      <Grid />
+      <Grid title="Villas For Sale" path="/products" />
       {/* products grid */}
       {/* sell */}
       <div>

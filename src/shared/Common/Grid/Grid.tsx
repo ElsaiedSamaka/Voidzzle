@@ -1,17 +1,45 @@
+import Link from "next/link";
 import React from "react";
 import { Card } from "shared";
 
-const Grid = ({ title }) => {
+const Grid = ({ title = "", path = "" }) => {
   return (
     <div>
-      <ul className="grid grid-cols-4 xs:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 pt-3 pb-10 ">
+      {/* Grid head */}
+      <div className="flex justify-between items-center my-2 font-semibold">
+        <span className="font-bold text-2xl">{title}</span>
+        <Link href={path}>
+          <span className="group inline-flex items-center font-semibold text-zinc-400 hover:cursor-pointer hover:text-zinc-900 hover:underline">
+            See All
+            <svg
+              className="w-5 h-5 group-hover:translate-x-3 group-hover:animate-ping duration:300"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M8.25 4.5l7.5 7.5-7.5 7.5"
+              ></path>
+            </svg>
+          </span>
+        </Link>
+      </div>
+      {/* Grid head */}
+      {/* Grid content */}
+      <ul className="grid grid-cols-4 xs:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 pt-3 pb-4 ">
         <Card />
         <Card />
         <Card />
         <Card />
       </ul>
+      {/* Grid content */}
+      {/* Loadmore Button */}
       <div className="flex justify-center">
-        {/* Previous Button */}
         <a className="flex items-center justify-center space-x-1 px-3 h-8 mr-3 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:cursor-pointer hover:text-gray-700 :bg-gray-800 :border-gray-700 :text-gray-400 :hover:bg-gray-700 :hover:text-white">
           <svg
             className="w-5 h-5"
@@ -31,6 +59,7 @@ const Grid = ({ title }) => {
           Load more
         </a>
       </div>
+      {/* Loadmore Button */}
     </div>
   );
 };
