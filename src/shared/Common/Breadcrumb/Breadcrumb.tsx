@@ -3,7 +3,7 @@ import React from "react";
 const Breadcrumb = () => {
   return (
     <ol
-      className="flex items-center whitespace-nowrap min-w-0 ml-8"
+      className="flex items-center whitespace-nowrap min-w-0 ml-8 bg-white z-10 w-full fixed backdrop-blur-md"
       aria-label="Breadcrumb"
     >
       <li className="text-sm">

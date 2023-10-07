@@ -6,8 +6,10 @@ const RootLayout = ({ children }) => {
     <section className="">
       <Header />
 
-      <section className=" mt-5 md:ml-64">
-        <Breadcrumb />
+      <section className=" pt-3 md:ml-64">
+        <div className="w-full bg-white">
+          <Breadcrumb />
+        </div>
         {children}
       </section>
     </section>

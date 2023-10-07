@@ -1,8 +1,7 @@
 const HomeLayout = ({ children }) => {
   return (
     <section className="home-layout p-2  w-full">
-      <nav className="backdrop-blur-xl border-gray-200 :border-gray-600 :bg-gray-900 w-full sticky top-14 right-0 md:left-64 z-10">
-        {/* Home Navbar */}
+      {/* <nav className="backdrop-blur-xl border-gray-200 :border-gray-600 :bg-gray-900 w-full sticky top-14 right-0 md:left-64 z-10">
         <div className="flex flex-wrap justify-between items-center  p-4 ml-4">
           <a href="https://flowbite.com" className="flex items-center ">
             <span className="self-center text-2xl font-semibold whitespace-nowrap ">
@@ -33,7 +32,6 @@ const HomeLayout = ({ children }) => {
               />
             </svg>
           </button>
-          {/* submenu */}
           <div
             id="mega-menu-full"
             className="items-center justify-between font-medium  w-full md:flex "
@@ -93,10 +91,9 @@ const HomeLayout = ({ children }) => {
               </li>
             </ul>
           </div>
-          {/* submenu */}
-        </div>
-        {/* Announcement Banner */}
-        {/* <div className="bg-blue-900 backdrop-blur-lg m-2">
+        </div> */}
+      {/* Announcement Banner */}
+      {/* <div className="bg-blue-900 backdrop-blur-lg m-2">
           <div className="max-w-[85rem] px-4 py-2 sm:px-6 lg:px-8 mx-auto">
             <div className="grid justify-center sm:grid-cols-2 sm:items-center gap-4">
               <div className="flex items-center gap-x-3 md:gap-x-5">
@@ -153,10 +150,10 @@ const HomeLayout = ({ children }) => {
             </div>
           </div>
         </div> */}
-        {/* End Announcement Banner */}
-        {/* Home Navbar */}
-      </nav>
-      <div className="home-content w-full p-2  mt-10">{children}</div>
+      {/* End Announcement Banner */}
+      {/* Home Navbar */}
+      {/* </nav> */}
+      <div className="home-content w-full p-2  ">{children}</div>
     </section>
   );
 };
