@@ -32,10 +32,10 @@ const Grid = ({ title = "", path = "" }) => {
       {/* Grid head */}
       {/* Grid content */}
       <ul className="grid grid-cols-4 xs:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 pt-3 pb-4 ">
-        <Card />
-        <Card />
-        <Card />
-        <Card />
+        <Card id={1} />
+        <Card id={2} />
+        <Card id={3} />
+        <Card id={4} />
       </ul>
       {/* Grid content */}
       {/* Loadmore Button */}
