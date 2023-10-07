@@ -1,7 +1,24 @@
+import { useParams, usePathname, useSearchParams } from "next/navigation";
+import { useRouter } from "next/router";
 import React from "react";
 import { RootLayout } from "shared";
 
 const ProductDetails = () => {
+  const router = useRouter();
+  const params = useParams();
+  const pathName = usePathname();
+  const searchParams = useSearchParams();
+  console.log(
+    "router",
+    router,
+    "params",
+    params,
+    "pathName",
+    pathName,
+    "searchParams",
+    searchParams
+  );
+  // router.prefetch(`/products/${params.id}`);
   return (
     <section className="py-12 sm:py-16">
       <div className="container mx-auto px-4">
@@ -9,10 +26,7 @@ const ProductDetails = () => {
           <ol role="list" className="flex items-center">
             <li className="text-left">
               <div className="-m-1">
-                <a
-                  href="#"
-                  className="rounded-md p-1 text-sm font-medium text-gray-600 focus:text-gray-900 focus:shadow hover:text-gray-800"
-                >
+                <a className="rounded-md p-1 text-sm font-medium text-gray-600 focus:text-gray-900 focus:shadow hover:text-gray-800">
                   {"{"}" "{"}"}
                   Home{"{"}" "{"}"}
                 </a>
@@ -22,10 +36,7 @@ const ProductDetails = () => {
               <div className="flex items-center">
                 <span className="mx-2 text-gray-400">/</span>
                 <div className="-m-1">
-                  <a
-                    href="#"
-                    className="rounded-md p-1 text-sm font-medium text-gray-600 focus:text-gray-900 focus:shadow hover:text-gray-800"
-                  >
+                  <a className="rounded-md p-1 text-sm font-medium text-gray-600 focus:text-gray-900 focus:shadow hover:text-gray-800">
                     {"{"}" "{"}"}
                     Products{"{"}" "{"}"}
                   </a>
@@ -37,7 +48,6 @@ const ProductDetails = () => {
                 <span className="mx-2 text-gray-400">/</span>
                 <div className="-m-1">
                   <a
-                    href="#"
                     className="rounded-md p-1 text-sm font-medium text-gray-600 focus:text-gray-900 focus:shadow hover:text-gray-800"
                     aria-current="page"
                   >

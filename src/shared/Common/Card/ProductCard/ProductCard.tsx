@@ -7,7 +7,7 @@ const ProductCard = ({ id = null }) => {
     <li>
       <div className="relative  flex w-full  flex-col overflow-hidden rounded-2xl border border-gray-100 ">
         {/* image */}
-        <Link href={`/products/${id}`}>
+        <Link href={`/products/${encodeURIComponent(id)}`}>
           <div className="relative mx-2 mt-2 flex h-60 overflow-hidden rounded-2xl">
             <img
               className="object-cover w-full"
