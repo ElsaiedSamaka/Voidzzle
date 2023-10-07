@@ -15,6 +15,7 @@ const Home = () => {
   const [showSellOptions, toggleSellOptions] = useState(false);
   return (
     <section className="w-full p-2">
+      <div className=" max-w-7xl py-2">
       {/* <CarouselTestimonial /> */}
       <div className="my-2">
       {/* hero card */}
@@ -74,7 +75,6 @@ const Home = () => {
       <CarouselControlsInside title="Other stuff" />
         {/* controls */}
       </div>
-        
       {/* products grid */}
       {/* <Grid title="Villas For Sale" path="/products" /> */}
       {/* products grid */}
@@ -180,7 +180,7 @@ const Home = () => {
           </button>
         </div>
       </div>
-
+      </div>
       {/* footer */}
       <Footer />
       {/* footer */}

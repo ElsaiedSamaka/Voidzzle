@@ -8,7 +8,7 @@ const RootLayout = ({ children }) => {
       <div className="pt-1.5 md:ml-64">
         <Breadcrumb />
       </div>
-      <section className="md:ml-64">{children}</section>
+      <section className="md:ml-64 ">{children}</section>
     </section>
   );
 };
