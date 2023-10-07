@@ -13,9 +13,7 @@ const Home = () => {
   return (
     <section className=" p-2">
       {/* <CarouselTestimonial /> */}
-      {/* controls */}
-      <CarouselControlsInside title="Deals of the day" />
-      {/* controls */}
+
       {/* filteration card */}
       <div className="flex flex-col mb-2">
         <div className="rounded-2xl border border-gray-100 bg-white p-6 mb-2">
@@ -122,6 +120,9 @@ const Home = () => {
       {/* infinite carousel */}
       {/* <InfiniteCarousel /> */}
       {/* infinite carousel */}
+      {/* controls */}
+      <CarouselControlsInside title="Deals of the day" />
+      {/* controls */}
       {/* products grid */}
       <Grid title="Villas For Sale" path="/products" />
       {/* products grid */}
