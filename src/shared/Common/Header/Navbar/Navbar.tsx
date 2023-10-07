@@ -1,4 +1,4 @@
-
+import logo from "../../../../../public/images/favicon-32x32.png"
 const Navbar = () => {
   return (
     <nav className=" border-b border-gray-200 px-4 py-2 :bg-gray-800 :border-gray-700 fixed left-0 right-0 top-0 z-50 backdrop-blur-md">
@@ -43,8 +43,8 @@ const Navbar = () => {
             className="flex items-center justify-between mr-4"
           >
             <img
-              src="https://flowbite.s3.amazonaws.com/logo.svg"
-              className="mr-3 h-8"
+               src={logo.src}
+              className="mr-3 rounded-full h-8"
               alt="Flowbite Logo"
             />
             <span className="self-center text-2xl font-semibold whitespace-nowrap :text-white">
@@ -122,7 +122,7 @@ const Navbar = () => {
           </button>
           {/* Dropdown menu */}
           <div
-            className="hidden overflow-hidden z-50 my-4 max-w-sm text-base list-none bg-white rounded divide-y divide-gray-100 shadow-lg :divide-gray-600 :bg-gray-700 rounded-xl"
+            className="hidden overflow-hidden z-50 my-4 max-w-sm text-base list-none bg-white divide-y divide-gray-100 shadow-lg :divide-gray-600 :bg-gray-700 rounded-xl"
             id="notification-dropdown"
           >
             <div className="block py-2 px-4 text-base font-medium text-center text-gray-700 bg-gray-50 :bg-gray-600 :text-gray-300">
