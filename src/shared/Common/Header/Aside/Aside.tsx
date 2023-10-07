@@ -94,7 +94,7 @@ const Aside = () => {
                 className="peer hidden"
                 type="checkbox"
                 id="menu-1"
-                defaultChecked
+                defaultChecked={false}
               />
               <button className="group flex peer relative w-full items-center border-l-black py-3 px-2  outline-none transition-all duration-100 ease-in-out hover:border-l-4 hover:text-black ">
                 <span className="flex mr-6 w-6 ">
@@ -259,7 +259,7 @@ const Aside = () => {
                 className="peer hidden"
                 type="checkbox"
                 id="menu-2"
-                defaultChecked
+                defaultChecked = {false}
               />
               <button className="group flex peer relative w-full items-center border-l-black py-3 px-4  outline-none transition-all duration-100 ease-in-out hover:border-l-4 hover:text-black ">
                 <span className="flex mr-5 w-5">
@@ -391,7 +391,7 @@ const Aside = () => {
         <button
           type="button"
           data-dropdown-toggle="language-dropdown"
-          className="inline-flex justify-center  rounded cursor-pointer :hover:text-white :text-gray-400 hover:text-gray-900 hover:bg-gray-100 :hover:bg-gray-600"
+          className="inline-flex justify-center  rounded cursor-pointer  hover:text-gray-900 hover:bg-gray-100 "
         >
           <svg
             aria-hidden="true"
@@ -433,8 +433,9 @@ const Aside = () => {
           </svg>
         </button>
         {/* Dropdown */}
+        {/* bottom of the navbar */}
         <div
-          className="hidden z-50 my-4 text-base list-none bg-white rounded divide-y divide-gray-100 shadow :bg-gray-700"
+          className="hidden z-50 my-4 text-base list-none bg-white rounded divide-y divide-gray-100 shadow "
           id="language-dropdown"
         >
           <ul className="py-1" role="none">
@@ -583,6 +584,7 @@ const Aside = () => {
             </li>
           </ul>
         </div>
+        {/* bottom of the navbar */}
       </div>
       {/* side bar nav */}
     </aside>

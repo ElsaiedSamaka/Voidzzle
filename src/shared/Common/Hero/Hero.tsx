@@ -2,15 +2,15 @@ import React from "react";
 
 const Hero = () => {
   return (
-    <div className="relative rounded-xl bg-blue-700 overflow-hidden">
-        <div className="absolute w-full  top-[33%] left-[36%] text-white">
+    <div className="relative rounded-2xl  overflow-hidden">
+        <div className="absolute w-full  top-[32%] left-[32%] text-white">
             <div className="flex flex-col">
-            <strong className="text-8xl">Voidzzle</strong>
+            <strong className="lg:text-8xl xs:text-xl">Voidzzle</strong>
             <em>The Sky is the limit.</em>
             </div>
             </div>
       <svg
-        className=" w-full"
+        className=" w-full rounded-2xl"
         xmlns="http://www.w3.org/2000/svg"
         version="1.1"
         xmlnsXlink="http://www.w3.org/1999/xlink"
