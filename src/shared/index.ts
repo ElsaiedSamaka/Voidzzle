@@ -18,6 +18,7 @@ import Breadcrumb from "./Common/Breadcrumb/Breadcrumb";
 import CarouselTestimonial from "./Carousels/TestimonialCarousel/TestimonialCarousel";
 import FilterationCard from "./Common/Card/FilterationCard/FilterationCard";
 import Grid from "./Common/Grid/Grid";
+import Hero from "./Common/Hero/Hero";
 export {
   Aside,
   ProductCard as Card,
@@ -39,5 +40,6 @@ export {
   FilterationCard,
   CarouselTestimonial,
   Grid,
+  Hero,
 };
 
