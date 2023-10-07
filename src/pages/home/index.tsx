@@ -21,52 +21,55 @@ const Home = () => {
       <Hero />
       {/* hero card */}
       </div>
-      <div className="my-2">
+      <div className="my-3">
       {/* filteration card */}
       <FilterationCard />
         {/* filteration card */}
       </div>
-      <div className="my-2">
+      <div className="my-3">
       {/* controls */}
       <CarouselControlsInside title="Deals of the day" />
         {/* controls */}
         </div>
-        <div className="max-w-xl bg-red-900 relative">
+      <div className="flex items-center justify-between my-3">
+        <span className="font-bold text-2xl">Trusted By</span>
+        <div className=" max-w-[90%] border rounded-full shadow-inner relative">
        {/* infinite carousel */}
       <InfiniteCarousel />
       {/* infinite carousel */}
       </div>
-      <div className="my-2">
+      </div>
+      <div className="my-3">
         {/* controls */}
       <CarouselControlsInside title="Villas" />
         {/* controls */}
         </div>
-      <div className="my-2">
+      <div className="my-3">
        {/* controls */}
       <CarouselControlsInside title="Mobiles & Tablets" />
       {/* controls */}
         </div>
-      <div className="my-2">
+      <div className="my-3">
        {/* controls */}
       <CarouselControlsInside title="Laps & PC" />
       {/* controls */}
         </div>
-      <div className="my-2">
+      <div className="my-3">
          {/* controls */}
       <CarouselControlsInside title="Vehicles" />
       {/* controls */}
       </div>
-      <div className="my-2">
+      <div className="my-3">
          {/* controls */}
       <CarouselControlsInside title="Pets & animals" />
         {/* controls */}
       </div>
-      <div className="my-2">
+      <div className="my-3">
         {/* controls */}
       <CarouselControlsInside title="Fashion & clothes" />
         {/* controls */}
       </div>
-      <div className="my-2">
+      <div className="my-3">
           {/* controls */}
       <CarouselControlsInside title="Other stuff" />
         {/* controls */}

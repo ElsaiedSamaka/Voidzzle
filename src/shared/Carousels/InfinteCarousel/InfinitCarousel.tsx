@@ -6,7 +6,7 @@ function InfiniteCarousel() {
     const slider = new Glide(".glide-09", {
       type: "carousel",
       autoplay: 10,
-      animationDuration: 4500,
+      animationDuration: 3000,
       animationTimingFunc: "linear",
       perView: 3,
       classes: {
