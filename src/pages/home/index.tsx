@@ -14,10 +14,11 @@ import classnames from "classnames";
 const Home = () => {
   const [showSellOptions, toggleSellOptions] = useState(false);
   return (
-    <section className="w-full p-2">
-      <div className=" max-w-7xl py-2">
+    <section className="w-full">
+      <div className="grid grid-cols-4 gap-4 h-full my-2">
+      <div className=" col-span-3 h-screen overflow-y-scroll">
       {/* <CarouselTestimonial /> */}
-      <div className="my-2">
+      <div className="">
       {/* hero card */}
       <Hero />
       {/* hero card */}
@@ -181,8 +182,10 @@ const Home = () => {
         </div>
       </div>
       </div>
+      <div className="chat-container col-span-1 bg-red-700 w-full my-2 h-[90vh]">asd</div>
+      </div>
       {/* footer */}
-      <Footer />
+      {/* <Footer /> */}
       {/* footer */}
     </section>
   );
