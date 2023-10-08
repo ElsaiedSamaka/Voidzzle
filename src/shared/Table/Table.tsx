@@ -8,7 +8,6 @@ import TableFooter from "./TableFooter/TableFooter";
 
 const Table = ({
   _config = {},
-  title,
   _head = true,
   _body = true,
   _footer = true,
@@ -37,14 +36,7 @@ const Table = ({
     <div className=" mx-auto max-w-screen-2xl my-2">
       <div className="relative overflow-hidden bg-white shadow rounded-md">
         {/* table head */}
-        {_head && (
-          <TableHead
-            title={title}
-            _actions={_actions}
-            _search={_search}
-            _addetion={_addetion}
-          />
-        )}
+        {_head && <TableHead />}
         {/* table head */}
         {/* table body */}
         {_body && <TableBody />}

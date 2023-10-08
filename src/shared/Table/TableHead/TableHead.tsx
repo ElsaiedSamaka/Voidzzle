@@ -1,13 +1,13 @@
 import React from "react";
 
-const TableHead = ({ title, _actions = true, _search = true ,_addetion=true }) => {
+const TableHead = ({ _actions = true, _search = true, _addetion = true }) => {
   return (
     <div className="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
       <div className="w-full md:w-1/2">
         {_search && (
           <form className="flex items-center">
             <label htmlFor="simple-search" className="sr-only">
-              Search over {title}
+              Search over
             </label>
             <div className="relative w-full">
               <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -29,7 +29,7 @@ const TableHead = ({ title, _actions = true, _search = true ,_addetion=true }) =
                 type="text"
                 id="simple-search"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-10 p-2 :bg-gray-700 :border-gray-600 :placeholder-gray-400 :text-white :focus:ring-primary-500 :focus:border-primary-500"
-                placeholder={"Search over " + title}
+                placeholder={"Search over "}
               />
             </div>
           </form>
@@ -55,10 +55,10 @@ const TableHead = ({ title, _actions = true, _search = true ,_addetion=true }) =
                   d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
                 />
               </svg>
-              Add {title}
+              Add
             </button>
           )}
-          
+
           <div className="flex items-center space-x-3 w-full md:w-auto">
             <button
               id="actionsDropdownButton"
