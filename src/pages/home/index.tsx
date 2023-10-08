@@ -192,11 +192,14 @@ const Home = () => {
 </svg>
       </span>
           </div>
-          <div className="h-[40%] overflow-y-scroll bg-green-200 p-2"><ul><li>asd</li>
+          <div className="h-[40%] overflow-y-scroll border-b p-2"><ul><li>asd</li>
             <li>asd</li>
             <li>asd</li><li>asd</li>
             <li>asd</li>
-          <li>asd</li></ul></div>
+            <li>asd</li></ul></div>
+          <div className="bg-gray-400 h-full p-2">
+            ads
+          </div>
       </div>
       </div>
       {/* footer */}
