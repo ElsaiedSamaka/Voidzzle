@@ -10,7 +10,7 @@ const InnvoaPage = () => {
       </div>
       {/* page head */}
       {/* taps */}
-       <Tabs />
+      <Tabs items={["Products", "Users", "Tasks", "Sales", "Ads"]} />
       {/* taps */}
       {/* data table */}
       <div className=" mx-auto max-w-screen-2xl my-2">
