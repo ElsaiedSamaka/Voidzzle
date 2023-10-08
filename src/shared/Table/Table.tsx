@@ -10,9 +10,15 @@ import { title } from "process";
 const Table = ({
   _config = {
     title: "",
-    _head: true,
-    _body: true,
-    _footer: true,
+    _head: {
+      isTrue:true
+    },
+    _body: {
+      isTrue:true
+    },
+    _footer: {
+      isTrue:true
+    },
     _perPage: 5,
   },
 }) => {
@@ -37,15 +43,15 @@ const Table = ({
     <div className=" mx-auto max-w-screen-2xl my-2">
       <div className="relative overflow-hidden bg-white shadow rounded-md">
         {/* table head */}
-        {_config._head && <TableHead _config={{ title: _config.title }} />}
+        {_config._head.isTrue && <TableHead _config={{ title: _config.title }} />}
         {/* table head */}
         {/* table body */}
-        {_config._body && (
+        {_config._body.isTrue && (
           <TableBody _config={{ _perPage: _config._perPage }} />
         )}
         {/* table body */}
         {/* table footer */}
-        {_config._footer && <TableFooter _config={{}} />}
+        {_config._footer.isTrue && <TableFooter _config={{}} />}
         {/* table footer */}
       </div>
     </div>

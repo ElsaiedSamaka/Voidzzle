@@ -11,10 +11,10 @@ const Content = () => {
         <Table
           _config={{
             title: "Products",
-            _head: true,
-            _body: true,
-            _perPage: 10,
-            _footer: true,
+            _head: { isTrue: true },
+            _body: { isTrue: true },
+            _perPage: 7,
+            _footer: { isTrue: true },
           }}
         />
       )}
@@ -22,10 +22,10 @@ const Content = () => {
         <Table
           _config={{
             title: "Users",
-            _head: true,
-            _body: true,
-            _perPage: 10,
-            _footer: true,
+            _head: { isTrue: true },
+            _body: { isTrue: true },
+            _perPage: 7,
+            _footer: { isTrue: true },
           }}
         />
       )}
@@ -33,10 +33,10 @@ const Content = () => {
         <Table
           _config={{
             title: "Products",
-            _head: false,
-            _body: true,
-            _perPage: 10,
-            _footer: true,
+            _head: { isTrue: true },
+            _body: { isTrue: true },
+            _perPage: 7,
+            _footer: { isTrue: true },
           }}
         />
       )}
@@ -44,10 +44,10 @@ const Content = () => {
         <Table
           _config={{
             title: "Sales",
-            _head: true,
-            _body: false,
+            _head: { isTrue: true },
+            _body: { isTrue: true },
             _perPage: 7,
-            _footer: true,
+            _footer: { isTrue: true },
           }}
         />
       )}
@@ -55,10 +55,10 @@ const Content = () => {
         <Table
           _config={{
             title: "Ads",
-            _head: true,
-            _body: true,
-            _perPage: 10,
-            _footer: false,
+            _head: { isTrue: true },
+            _body: { isTrue: true },
+            _perPage: 7,
+            _footer: { isTrue: true },
           }}
         />
       )}
