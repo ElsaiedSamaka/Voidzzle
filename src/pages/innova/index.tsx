@@ -17,7 +17,7 @@ const InnvoaPage = () => {
             { label: "Products", id: 0 },
             { label: "Users", id: 1 },
             { label: "Tasks", id: 2 },
-            { label: "Users", id: 3 },
+            { label: "Sales", id: 3 },
             { label: "Ads", id: 4 },
           ]}
         />

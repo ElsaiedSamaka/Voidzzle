@@ -4,7 +4,6 @@ import React, { useContext } from "react";
 const Content = () => {
   const { state } = useContext(TabContext);
   const { selectedTabIndex } = state;
-  console.log("selectedTabIndex [Content component]", selectedTabIndex);
   return (
     <div>
       {selectedTabIndex === 0 && <div>products</div>}
