@@ -3,7 +3,6 @@ import { InnovaLayout, RootLayout, Table, Tabs } from "shared";
 import { TabContext, TabProvider } from "core/context/TabContext";
 import Content from "views/Innova.views/Content";
 const InnvoaPage = () => {
- 
   return (
     <TabProvider>
       <section className="min-h-screen  p-4">
@@ -13,14 +12,17 @@ const InnvoaPage = () => {
         </div>
         {/* page head */}
         {/* taps */}
-        <Tabs items={["Products", "Users", "Tasks", "Sales", "Ads"]} />
+        <Tabs
+          items={[
+            { label: "Products", id: 0 },
+            { label: "Users", id: 1 },
+            { label: "Tasks", id: 2 },
+            { label: "Users", id: 3 },
+            { label: "Ads", id: 4 },
+          ]}
+        />
         {/* taps */}
         {/* data table */}
-        {/* {selectedTabIndex === 0 && <div>products</div>}
-        {selectedTabIndex === 1 && <div>users</div>}
-        {selectedTabIndex === 2 && <div>tasks</div>}
-        {selectedTabIndex === 3 && <div>sales</div>}
-        {selectedTabIndex === 4 && <div>ads</div>} */}
         <Content />
         {/* data table */}
       </section>

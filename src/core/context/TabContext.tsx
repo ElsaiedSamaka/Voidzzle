@@ -8,8 +8,8 @@ const initialState = {
 const tabReducer = (state, action) => {
   switch (action.type) {
     case "SELECT_TAB":
-      console.log("action.payload", action.payload);
       return {
+        ...state,
         selectedTabIndex: action.payload,
       };
     default:

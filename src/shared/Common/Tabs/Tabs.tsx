@@ -16,14 +16,14 @@ const Tabs = ({ items }) => {
             return (
               <a
                 key={i}
-                onClick={() => handleTabClick(i)}
+                onClick={() => handleTabClick(item.id)}
                 className={`whitespace-nowrap inline-flex rounded-md py-2 px-4 items-center text-sm ${
-                  i === selectedTabIndex
-                    ? "text-gray-700 bg-gray-200"
+                  item.id === selectedTabIndex
+                    ? "text-gray-700 bg-white shadow"
                     : "text-gray-400 bg-gray-100"
                 } transition-all duration-200 hover:cursor-pointer ease-in-out hover:text-gray-700 hover:shadow`}
               >
-                {item}
+                {item.label}
               </a>
             );
           })}
