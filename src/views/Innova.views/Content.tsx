@@ -7,7 +7,7 @@ const Content = () => {
   const { selectedTabIndex } = state;
   return (
     <div>
-      {selectedTabIndex === 0 && <Table title="Products" _action={false} />}
+      {selectedTabIndex === 0 && <Table title="Products" _actions={false} />}
       {selectedTabIndex === 1 && <Table title="Users" _head={false} />}
       {selectedTabIndex === 2 && <Table title="Tasks" _body={false} />}
       {selectedTabIndex === 3 && (

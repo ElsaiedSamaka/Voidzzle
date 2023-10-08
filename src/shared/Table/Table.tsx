@@ -11,7 +11,7 @@ const Table = ({
   _head = true,
   _body = true,
   _footer = true,
-  _action = true,
+  _actions = true,
   _search = true,
 }) => {
   // const dispatch = useDispatch();
@@ -36,7 +36,7 @@ const Table = ({
       <div className="relative overflow-hidden bg-white shadow rounded-md">
         {/* table head */}
         {_head && (
-          <TableHead title={title} _action={_action} _search={_search} />
+          <TableHead title={title} _actions={_actions} _search={_search} />
         )}
         {/* table head */}
         {/* table body */}
