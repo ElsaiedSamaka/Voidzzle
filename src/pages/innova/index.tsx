@@ -1,10 +1,9 @@
 import React, { useContext } from "react";
 import { InnovaLayout, RootLayout, Table, Tabs } from "shared";
 import { TabContext, TabProvider } from "core/context/TabContext";
+import Content from "views/Innova.views/Content";
 const InnvoaPage = () => {
-  const { state } = useContext(TabContext);
-  const { selectedTabIndex } = state;
-  console.log("selectedTabIndex [InnvoaPage]", selectedTabIndex);
+ 
   return (
     <TabProvider>
       <section className="min-h-screen  p-4">
@@ -17,11 +16,12 @@ const InnvoaPage = () => {
         <Tabs items={["Products", "Users", "Tasks", "Sales", "Ads"]} />
         {/* taps */}
         {/* data table */}
-        {selectedTabIndex === 0 && <div>products</div>}
+        {/* {selectedTabIndex === 0 && <div>products</div>}
         {selectedTabIndex === 1 && <div>users</div>}
         {selectedTabIndex === 2 && <div>tasks</div>}
         {selectedTabIndex === 3 && <div>sales</div>}
-        {selectedTabIndex === 4 && <div>ads</div>}
+        {selectedTabIndex === 4 && <div>ads</div>} */}
+        <Content />
         {/* data table */}
       </section>
     </TabProvider>
