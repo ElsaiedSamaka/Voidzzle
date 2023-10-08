@@ -14,9 +14,9 @@ import classnames from "classnames";
 const Home = () => {
   const [showSellOptions, toggleSellOptions] = useState(false);
   return (
-    <section className="w-full h-[89vh] overflow-hidden bg-blue-200">
+    <section className="w-full h-[89vh] overflow-hidden">
       <div className="grid grid-cols-4 gap-4 h-full my-2">
-      <div className=" col-span-3 h-screen overflow-y-scroll">
+      <div className="lg:col-span-3  h-screen overflow-y-scroll xs:col-span-full">
       {/* <CarouselTestimonial /> */}
       <div className="">
       {/* hero card */}
@@ -182,7 +182,7 @@ const Home = () => {
         </div>
       </div>
       </div>
-      <div className="chat-container col-span-1 bg-red-700 w-full my-2 ">asd</div>
+      <div className="chat-container  bg-red-700 rounded-2xl w-full xs:hidden lg:inline-block">asd</div>
       </div>
       {/* footer */}
       {/* <Footer /> */}
