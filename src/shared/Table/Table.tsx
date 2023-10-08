@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import TableHead from "./TableHead/TableHead";
 import TableBody from "./TableBody/TableBody";
 import TableFooter from "./TableFooter/TableFooter";
+import { title } from "process";
 
 const Table = ({
   _config = {
@@ -36,7 +37,7 @@ const Table = ({
       {_config.title}
       <div className="relative overflow-hidden bg-white shadow rounded-md">
         {/* table head */}
-        {_head && <TableHead />}
+        {_head && <TableHead _config={{title:title}} />}
         {/* table head */}
         {/* table body */}
         {_body && <TableBody />}
