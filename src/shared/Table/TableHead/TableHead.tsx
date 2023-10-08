@@ -6,7 +6,7 @@ const TableHead = ({ title }) => {
       <div className="w-full md:w-1/2">
         <form className="flex items-center">
           <label htmlFor="simple-search" className="sr-only">
-            Search
+            Search over {title}
           </label>
           <div className="relative w-full">
             <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -28,7 +28,7 @@ const TableHead = ({ title }) => {
               type="text"
               id="simple-search"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-10 p-2 :bg-gray-700 :border-gray-600 :placeholder-gray-400 :text-white :focus:ring-primary-500 :focus:border-primary-500"
-              placeholder="Search"
+              placeholder={"Search over " + title}
             />
           </div>
         </form>
