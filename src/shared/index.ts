@@ -22,6 +22,7 @@ import Hero from "./Common/Hero/Hero";
 import AnalyticsLayout from "./Layouts/AnalyticsLayout/AnalyticsLayout"
 import InnovaLayout from "./Layouts/InnovaLayout/InnovaLayout"
 import Tabs from "./Common/Tabs/Tabs";
+import Table from "./Table/Table";
 export {
   Aside,
   ProductCard as Card,
@@ -47,5 +48,6 @@ export {
   AnalyticsLayout,
   InnovaLayout,
   Tabs,
+  Table,
 };
 
