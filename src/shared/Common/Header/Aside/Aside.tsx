@@ -301,7 +301,7 @@ const Aside = () => {
               </svg>
               <ul className="duration-400 flex m-2 max-h-0 flex-col overflow-hidden rounded-xl bg-gray-100  transition-all duration-300 peer-checked:max-h-96">
                 <li className="flex m-2 cursor-pointer border-l-black text-sm text-gray-600 ">
-                  <Anchor href="/settings">
+                  <Anchor href="/analytics/billing">
                     <span className="mr-5 flex items-center gap-5 py-3 pl-5 transition-all duration-100 ease-in-out  hover:text-black">
                       <svg
                         className="w-5 h-5"
@@ -323,7 +323,7 @@ const Aside = () => {
                   </Anchor>
                 </li>
                 <li className="flex m-2 cursor-pointer border-l-black text-sm text-gray-600 ">
-                  <Anchor href="/settings">
+                  <Anchor href="/analytics/refund">
                     <span className="mr-5 flex items-center gap-5 py-3 pl-5 transition-all duration-100 ease-in-out  hover:text-black">
                       <svg
                         fill="none"
