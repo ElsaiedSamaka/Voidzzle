@@ -1,18 +1,19 @@
 import React from "react";
 
 const TableHead = ({
-  _config = {},
+  _config,
   _actions = true,
   _search = true,
   _addetion = true,
 }) => {
+  console.log("table head", _config.title);
   return (
     <div className="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
       <div className="w-full md:w-1/2">
         {_search && (
           <form className="flex items-center">
             <label htmlFor="simple-search" className="sr-only">
-              Search over
+              Search over {_config.title}
             </label>
             <div className="relative w-full">
               <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -60,7 +61,7 @@ const TableHead = ({
                   d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
                 />
               </svg>
-              Add
+              Add {_config.title}
             </button>
           )}
 

@@ -37,7 +37,7 @@ const Table = ({
       {_config.title}
       <div className="relative overflow-hidden bg-white shadow rounded-md">
         {/* table head */}
-        {_head && <TableHead _config={{title:title}} />}
+        {_head && <TableHead _config={{ title: _config.title }} />}
         {/* table head */}
         {/* table body */}
         {_body && <TableBody />}
