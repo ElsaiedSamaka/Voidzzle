@@ -34,7 +34,7 @@ const Table = ({
     <div className=" mx-auto max-w-screen-2xl my-2">
       <div className="relative overflow-hidden bg-white shadow rounded-md">
         {/* table head */}
-        {_head && <TableHead title={title} _action={false} />}
+        {_head && <TableHead title={title} _action={_action} />}
         {/* table head */}
         {/* table body */}
         {_body && <TableBody />}
