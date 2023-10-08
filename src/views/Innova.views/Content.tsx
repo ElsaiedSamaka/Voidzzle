@@ -58,7 +58,7 @@ const Content = () => {
             _head: true,
             _body: true,
             _perPage: 10,
-            _footer: true,
+            _footer: false,
           }}
         />
       )}
