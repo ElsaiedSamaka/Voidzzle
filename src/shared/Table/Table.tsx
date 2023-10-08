@@ -13,6 +13,7 @@ const Table = ({
   _footer = true,
   _actions = true,
   _search = true,
+  _addetion = true,
 }) => {
   // const dispatch = useDispatch();
   // const todosSlice = useSelector((state: RootState) => state.todos);
@@ -36,7 +37,12 @@ const Table = ({
       <div className="relative overflow-hidden bg-white shadow rounded-md">
         {/* table head */}
         {_head && (
-          <TableHead title={title} _actions={_actions} _search={_search} />
+          <TableHead
+            title={title}
+            _actions={_actions}
+            _search={_search}
+            _addetion={_addetion}
+          />
         )}
         {/* table head */}
         {/* table body */}
