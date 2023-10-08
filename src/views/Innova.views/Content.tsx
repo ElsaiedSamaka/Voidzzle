@@ -1,9 +1,9 @@
-import { TabContext } from "core/context/TabContext";
+import { TabContext, useTabContext } from "core/context/TabContext";
 import React, { useContext } from "react";
 import { Table } from "shared";
 
 const Content = () => {
-  const { state } = useContext(TabContext);
+  const { state } = useTabContext();
   const { selectedTabIndex } = state;
   return (
     <div>
