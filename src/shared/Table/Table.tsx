@@ -7,6 +7,7 @@ import TableBody from "./TableBody/TableBody";
 import TableFooter from "./TableFooter/TableFooter";
 
 const Table = ({
+  _config = {},
   title,
   _head = true,
   _body = true,
