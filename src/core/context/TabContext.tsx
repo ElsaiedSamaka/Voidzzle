@@ -1,4 +1,4 @@
-import { createContext, useContext, useReducer } from "react";
+import { createContext, useContext, useEffect, useReducer } from "react";
 
 // initial state
 const initialState = {
@@ -29,7 +29,19 @@ export const TabProvider = ({ children }) => {
   const selectTab = (index) => {
     dispatch({ type: "SELECT_TAB", payload: index });
   };
+  useEffect(() => {
+    const storedTabIndex = window.sessionStorage.getItem("selectedTabIndex");
+    if (storedTabIndex !== null) {
+      selectTab(parseInt(storedTabIndex, 10));
+    }
+  }, []);
 
+  useEffect(() => {
+    window.sessionStorage.setItem(
+      "selectedTabIndex",
+      state.selectedTabIndex.toString()
+    );
+  }, [state.selectedTabIndex]);
   return (
     <TabContext.Provider value={{ state, selectTab }}>
       {children}
