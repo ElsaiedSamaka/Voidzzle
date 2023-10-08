@@ -182,8 +182,8 @@ const Home = () => {
         </div>
       </div>
       </div>
-        <div className="chat-container  bg-red-700 rounded-2xl w-full xs:hidden lg:inline-block border">
-          <div className="bg-blue-300 rounded-t-md px-3 py-3 font-semibold inline-flex w-full justify-between border-b">
+        <div className="chat-container  rounded-2xl w-full xs:hidden lg:inline-block border">
+          <div className=" rounded-t-md px-3 py-3 font-semibold inline-flex w-full justify-between border-b">
             <span className="text-xl">Conversations</span>
             <span>
       <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -192,6 +192,7 @@ const Home = () => {
 </svg>
       </span>
           </div>
+          <div className="h-[40%] overflow-y-scroll bg-green-200">asd</div>
       </div>
       </div>
       {/* footer */}
