@@ -17,7 +17,7 @@ const InnvoaPage = () => {
       <a  className="whitespace-nowrap inline-flex rounded-lg py-1 px-3 items-center  text-sm  text-gray-400 transition-all duration-200 ease-in-out hover:cursor-pointer  hover:text-gray-900"> Users </a>
       <a  className="whitespace-nowrap inline-flex rounded-lg bg-1hite  items-center py-1 px-3 text-sm  text-black shadow-md font-semibold transition-all duration-200 hover:cursor-pointer ease-in-out"> Tasks </a>
       <a  className="whitespace-nowrap inline-flex rounded-lg py-1 px-3 items-center  text-sm  text-gray-400 transition-all duration-200 ease-in-out hover:cursor-pointer  hover:text-gray-900"> Sales </a>
-      <a  className="whitespace-nowrap inline-flex rounded-lg py-1 px-3 items-center  text-sm  text-gray-400 transition-all duration-200 ease-in-out hover:cursor-pointer  hover:text-gray-900"> Suppliers </a>
+      <a  className="whitespace-nowrap inline-flex rounded-lg py-1 px-3 items-center  text-sm  text-gray-400 transition-all duration-200 ease-in-out hover:cursor-pointer  hover:text-gray-900"> Ads </a>
     </nav>
   </div>
 </div>
