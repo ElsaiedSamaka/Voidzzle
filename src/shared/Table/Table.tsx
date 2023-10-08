@@ -12,6 +12,7 @@ const Table = ({
   _body = true,
   _footer = true,
   _action = true,
+  _search = true,
 }) => {
   // const dispatch = useDispatch();
   // const todosSlice = useSelector((state: RootState) => state.todos);
@@ -34,7 +35,9 @@ const Table = ({
     <div className=" mx-auto max-w-screen-2xl my-2">
       <div className="relative overflow-hidden bg-white shadow rounded-md">
         {/* table head */}
-        {_head && <TableHead title={title} _action={_action} />}
+        {_head && (
+          <TableHead title={title} _action={_action} _search={_search} />
+        )}
         {/* table head */}
         {/* table body */}
         {_body && <TableBody />}

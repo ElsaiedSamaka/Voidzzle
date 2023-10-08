@@ -10,7 +10,9 @@ const Content = () => {
       {selectedTabIndex === 0 && <Table title="Products" _action={false} />}
       {selectedTabIndex === 1 && <Table title="Users" _head={false} />}
       {selectedTabIndex === 2 && <Table title="Tasks" _body={false} />}
-      {selectedTabIndex === 3 && <Table title="Sales" _footer={false} />}
+      {selectedTabIndex === 3 && (
+        <Table title="Sales" _footer={false} _search={false} />
+      )}
       {selectedTabIndex === 4 && <Table title="Ads" />}
     </div>
   );
