@@ -10,21 +10,21 @@ const InnvoaPage = () => {
       </div>
       {/* page head */}
 {/* taps */}
-    <div className="w-fit my-2 shadow-md rounded-md">
+    <div className="w-fit my-2 shadow rounded-md">
   <div className="rounded-md bg-white p-1">
     <nav className="flex flex-wrap gap-2  font-semibold">
-      <a  className="whitespace-nowrap inline-flex rounded-md py-1 px-3 items-center  text-sm  text-gray-400 bg-gray-100  transition-all duration-200 hover:cursor-pointer ease-in-out  hover:text-gray-900"> Products </a>
-      <a  className="whitespace-nowrap inline-flex rounded-md py-1 px-3 items-center  text-sm  text-gray-400 bg-gray-100 transition-all duration-200 ease-in-out hover:cursor-pointer  hover:text-gray-900"> Users </a>
-      <a  className="whitespace-nowrap inline-flex rounded-md items-center py-1 px-3 text-sm  text-black bg-white shadow-md font-semibold transition-all duration-200 hover:cursor-pointer ease-in-out"> Tasks </a>
-      <a  className="whitespace-nowrap inline-flex rounded-md py-1 px-3 items-center  text-sm  text-gray-400 bg-gray-100 transition-all duration-200 ease-in-out hover:cursor-pointer  hover:text-gray-900"> Sales </a>
-      <a  className="whitespace-nowrap inline-flex rounded-md py-1 px-3 items-center  text-sm  text-gray-400 bg-gray-100 transition-all duration-200 ease-in-out hover:cursor-pointer  hover:text-gray-900"> Ads </a>
+      <a  className="whitespace-nowrap inline-flex rounded-md py-1 px-3 items-center  text-sm  text-gray-400 bg-gray-100  transition-all duration-200 hover:cursor-pointer ease-in-out  hover:text-gray-700 hover:shadow"> Products </a>
+      <a  className="whitespace-nowrap inline-flex rounded-md py-1 px-3 items-center  text-sm  text-gray-400 bg-gray-100 transition-all duration-200 ease-in-out hover:cursor-pointer  hover:text-gray-700 hover:shadow"> Users </a>
+      <a  className="whitespace-nowrap inline-flex rounded-md items-center py-1 px-3 text-sm  text-black bg-white shadow font-semibold transition-all duration-200 hover:cursor-pointer ease-in-out"> Tasks </a>
+      <a  className="whitespace-nowrap inline-flex rounded-md py-1 px-3 items-center  text-sm  text-gray-400 bg-gray-100 transition-all duration-200 ease-in-out hover:cursor-pointer  hover:text-gray-700 hover:shadow"> Sales </a>
+      <a  className="whitespace-nowrap inline-flex rounded-md py-1 px-3 items-center  text-sm  text-gray-400 bg-gray-100 transition-all duration-200 ease-in-out hover:cursor-pointer  hover:text-gray-700 hover:shadow"> Ads </a>
     </nav>
   </div>
 </div>
       {/* taps */}
       {/* data table */}
   <div className=" mx-auto max-w-screen-2xl my-2">
-    <div className="relative overflow-hidden bg-white shadow-md  sm:rounded-lg">
+    <div className="relative overflow-hidden bg-white shadow rounded-md">
       <div className="flex flex-col px-4 py-3 space-y-3 lg:flex-row lg:items-center lg:justify-between lg:space-y-0 lg:space-x-4">
         <div className="flex items-center flex-1 space-x-4">
           <h5>
