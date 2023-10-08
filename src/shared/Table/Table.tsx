@@ -10,10 +10,10 @@ import { title } from "process";
 const Table = ({
   _config = {
     title: "",
+    _head: true,
+    _body:true,
+    _footer:true
   },
-  _head = true,
-  _body = true,
-  _footer = true,
 }) => {
   // const dispatch = useDispatch();
   // const todosSlice = useSelector((state: RootState) => state.todos);
@@ -36,13 +36,13 @@ const Table = ({
     <div className=" mx-auto max-w-screen-2xl my-2">
       <div className="relative overflow-hidden bg-white shadow rounded-md">
         {/* table head */}
-        {_head && <TableHead _config={{ title: _config.title }} />}
+        {_config._head && <TableHead _config={{ title: _config.title }} />}
         {/* table head */}
         {/* table body */}
-        {_body && <TableBody _config={{}}/>}
+        {_config._body && <TableBody _config={{}} />}
         {/* table body */}
         {/* table footer */}
-        {_footer && <TableFooter _config={{}}/>}
+        {_config._footer && <TableFooter _config={{}} />}
         {/* table footer */}
       </div>
     </div>

@@ -7,16 +7,12 @@ const Content = () => {
   const { selectedTabIndex } = state;
   return (
     <div>
-      {selectedTabIndex === 0 && <Table _config={{ title: "Products" }} />}
+      {selectedTabIndex === 0 && <Table _config={{ title: "Products" ,_head:true,_body:true,_footer:true}} />}
       {selectedTabIndex === 1 && (
-        <Table _config={{ title: "Users" }} _head={false} />
+        <Table _config={{ title: "Users", _head: false }} />
       )}
-      {selectedTabIndex === 2 && (
-        <Table _config={{ title: "Products" }} _body={false} />
-      )}
-      {selectedTabIndex === 3 && (
-        <Table _config={{ title: "Sales" }} _footer={false} />
-      )}
+      {selectedTabIndex === 2 && <Table _config={{ title: "Products" }} />}
+      {selectedTabIndex === 3 && <Table _config={{ title: "Sales" }} />}
       {selectedTabIndex === 4 && <Table _config={{ title: "Ads" }} />}
     </div>
   );
