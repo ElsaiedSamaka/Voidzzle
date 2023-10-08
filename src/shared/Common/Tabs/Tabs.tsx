@@ -4,8 +4,8 @@ import React, { useContext } from "react";
 const Tabs = ({ items }) => {
   const { state, selectTab } = useTabContext();
   const { selectedTabIndex } = state;
-  const handleTabClick = (index) => {
-    selectTab(index);
+  const handleTabClick = (id) => {
+    selectTab(id);
   };
   return (
     <div className="w-fit my-2 shadow rounded-md">
