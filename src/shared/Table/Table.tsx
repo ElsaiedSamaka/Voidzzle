@@ -34,16 +34,15 @@ const Table = ({
     //   </ul> */}
     // </div>
     <div className=" mx-auto max-w-screen-2xl my-2">
-      {_config.title}
       <div className="relative overflow-hidden bg-white shadow rounded-md">
         {/* table head */}
         {_head && <TableHead _config={{ title: _config.title }} />}
         {/* table head */}
         {/* table body */}
-        {_body && <TableBody />}
+        {_body && <TableBody _config={{}}/>}
         {/* table body */}
         {/* table footer */}
-        {_footer && <TableFooter />}
+        {_footer && <TableFooter _config={{}}/>}
         {/* table footer */}
       </div>
     </div>

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const TableFooter = () => {
+const TableFooter = ({_config}) => {
   return (
     <nav
       className="flex flex-col items-start justify-between p-4 space-y-3 md:flex-row md:items-center md:space-y-0"
