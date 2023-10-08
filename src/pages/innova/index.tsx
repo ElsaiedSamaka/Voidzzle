@@ -1,5 +1,5 @@
 import React from 'react'
-import { RootLayout } from 'shared'
+import { InnovaLayout, RootLayout } from 'shared'
 
 const InnvoaPage = () => {
   return (
@@ -8,8 +8,10 @@ const InnvoaPage = () => {
 }
 InnvoaPage.getLayout = (page) => {
     return (
-        <RootLayout>
-            {page}
+      <RootLayout>
+        <InnovaLayout>
+          {page}
+          </InnovaLayout>
         </RootLayout>
     )
 }

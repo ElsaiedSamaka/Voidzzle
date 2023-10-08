@@ -20,6 +20,7 @@ import FilterationCard from "./Common/Card/FilterationCard/FilterationCard";
 import Grid from "./Common/Grid/Grid";
 import Hero from "./Common/Hero/Hero";
 import AnalyticsLayout from "./Layouts/AnalyticsLayout/AnalyticsLayout"
+import InnovaLayout from "./Layouts/InnovaLayout/InnovaLayout"
 export {
   Aside,
   ProductCard as Card,
@@ -42,6 +43,7 @@ export {
   CarouselTestimonial,
   Grid,
   Hero,
-  AnalyticsLayout
+  AnalyticsLayout,
+  InnovaLayout
 };
 
