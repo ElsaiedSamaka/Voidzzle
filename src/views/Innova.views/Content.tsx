@@ -33,7 +33,7 @@ const Content = () => {
         <Table
           _config={{
             title: "Products",
-            _head: true,
+            _head: false,
             _body: true,
             _perPage: 10,
             _footer: true,
@@ -45,8 +45,8 @@ const Content = () => {
           _config={{
             title: "Sales",
             _head: true,
-            _body: true,
-            _perPage: 10,
+            _body: false,
+            _perPage: 7,
             _footer: true,
           }}
         />
