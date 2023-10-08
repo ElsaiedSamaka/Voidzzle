@@ -11,7 +11,15 @@ const Content = () => {
         <Table
           _config={{
             title: "Products",
-            _head: { isTrue: true },
+            _head: {
+              show: true,
+              _actions: {
+                show: true,
+                addtions: true,
+                actions: true,
+                filteration: true,
+              },
+            },
             _body: { isTrue: true, perPage: 7 },
             _footer: { isTrue: true },
           }}
@@ -21,7 +29,15 @@ const Content = () => {
         <Table
           _config={{
             title: "Users",
-            _head: { isTrue: true },
+            _head: {
+              show: true,
+              _actions: {
+                show: true,
+                addtions: true,
+                actions: true,
+                filteration: true,
+              },
+            },
             _body: { isTrue: true, perPage: 7 },
             _footer: { isTrue: true },
           }}
@@ -31,7 +47,15 @@ const Content = () => {
         <Table
           _config={{
             title: "Products",
-            _head: { isTrue: true },
+            _head: {
+              show: true,
+              _actions: {
+                show: true,
+                addtions: true,
+                actions: true,
+                filteration: true,
+              },
+            },
             _body: { isTrue: true, perPage: 7 },
             _footer: { isTrue: true },
           }}
@@ -41,7 +65,15 @@ const Content = () => {
         <Table
           _config={{
             title: "Sales",
-            _head: { isTrue: true },
+            _head: {
+              show: true,
+              _actions: {
+                show: true,
+                addtions: true,
+                actions: true,
+                filteration: true,
+              },
+            },
             _body: { isTrue: true, perPage: 7 },
             _footer: { isTrue: true },
           }}
@@ -51,7 +83,15 @@ const Content = () => {
         <Table
           _config={{
             title: "Ads",
-            _head: { isTrue: true },
+            _head: {
+              show: true,
+              _actions: {
+                show: true,
+                addtions: true,
+                actions: true,
+                filteration: true,
+              },
+            },
             _body: { isTrue: true, perPage: 7 },
             _footer: { isTrue: true },
           }}

@@ -2,7 +2,6 @@ import React from "react";
 
 const TableHead = ({
   _config,
-  _actions = true,
   _search = true,
   _addetion = true,
 }) => {
@@ -40,9 +39,9 @@ const TableHead = ({
           </form>
         )}
       </div>
-      {_actions && (
+      {_config.addtion && (
         <div className="w-full md:w-auto flex flex-col md:flex-row space-y-2 md:space-y-0 items-stretch md:items-center justify-end md:space-x-3 flex-shrink-0">
-          {_addetion && (
+          {_config.addtion && (
             <button
               type="button"
               className="flex items-center justify-center text-white  bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-md text-sm px-4 py-2 focus:outline-none "

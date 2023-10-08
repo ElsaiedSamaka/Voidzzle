@@ -11,7 +11,13 @@ const Table = ({
   _config = {
     title: "",
     _head: {
-      isTrue: true,
+      show: true,
+      _actions: {
+        show: true,
+        addtions: true,
+        actions: true,
+        filteration: true,
+      },
     },
     _body: {
       perPage: 5,
@@ -43,8 +49,16 @@ const Table = ({
     <div className=" mx-auto max-w-screen-2xl my-2">
       <div className="relative overflow-hidden bg-white shadow rounded-md">
         {/* table head */}
-        {_config._head.isTrue && (
-          <TableHead _config={{ title: _config.title }} />
+        {_config._head.show && (
+          <TableHead
+            _config={{
+              title: _config.title,
+              _actions: _config._head._actions.show,
+              addtion: _config._head._actions.addtions,
+              actions: _config._head._actions,
+              filteration: _config._head._actions.filteration,
+            }}
+          />
         )}
         {/* table head */}
         {/* table body */}
