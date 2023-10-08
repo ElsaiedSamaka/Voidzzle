@@ -10,14 +10,14 @@ const InnvoaPage = () => {
       </div>
       {/* page head */}
 {/* taps */}
-    <div className="w-fit my-2 shadow-md ">
-  <div className="rounded-lg border border-gray-300 bg-white py-1 px-1">
-    <nav className="flex flex-wrap gap-2 bg-gray-100 font-semibold">
-      <a  className="whitespace-nowrap inline-flex rounded-lg py-1 px-3 items-center  text-sm  text-gray-400  transition-all duration-200 hover:cursor-pointer ease-in-out  hover:text-gray-900"> Products </a>
-      <a  className="whitespace-nowrap inline-flex rounded-lg py-1 px-3 items-center  text-sm  text-gray-400 transition-all duration-200 ease-in-out hover:cursor-pointer  hover:text-gray-900"> Users </a>
-      <a  className="whitespace-nowrap inline-flex rounded-lg bg-1hite  items-center py-1 px-3 text-sm  text-black shadow-md font-semibold transition-all duration-200 hover:cursor-pointer ease-in-out"> Tasks </a>
-      <a  className="whitespace-nowrap inline-flex rounded-lg py-1 px-3 items-center  text-sm  text-gray-400 transition-all duration-200 ease-in-out hover:cursor-pointer  hover:text-gray-900"> Sales </a>
-      <a  className="whitespace-nowrap inline-flex rounded-lg py-1 px-3 items-center  text-sm  text-gray-400 transition-all duration-200 ease-in-out hover:cursor-pointer  hover:text-gray-900"> Ads </a>
+    <div className="w-fit my-2 shadow-md rounded-md">
+  <div className="rounded-md bg-white p-1">
+    <nav className="flex flex-wrap gap-2  font-semibold">
+      <a  className="whitespace-nowrap inline-flex rounded-md py-1 px-3 items-center  text-sm  text-gray-400 bg-gray-100  transition-all duration-200 hover:cursor-pointer ease-in-out  hover:text-gray-900"> Products </a>
+      <a  className="whitespace-nowrap inline-flex rounded-md py-1 px-3 items-center  text-sm  text-gray-400 bg-gray-100 transition-all duration-200 ease-in-out hover:cursor-pointer  hover:text-gray-900"> Users </a>
+      <a  className="whitespace-nowrap inline-flex rounded-md items-center py-1 px-3 text-sm  text-black bg-white shadow-md font-semibold transition-all duration-200 hover:cursor-pointer ease-in-out"> Tasks </a>
+      <a  className="whitespace-nowrap inline-flex rounded-md py-1 px-3 items-center  text-sm  text-gray-400 bg-gray-100 transition-all duration-200 ease-in-out hover:cursor-pointer  hover:text-gray-900"> Sales </a>
+      <a  className="whitespace-nowrap inline-flex rounded-md py-1 px-3 items-center  text-sm  text-gray-400 bg-gray-100 transition-all duration-200 ease-in-out hover:cursor-pointer  hover:text-gray-900"> Ads </a>
     </nav>
   </div>
 </div>
