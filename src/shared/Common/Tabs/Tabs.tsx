@@ -1,12 +1,11 @@
-import { TabContext } from "core/context/TabContext";
+import { TabContext, useTabContext } from "core/context/TabContext";
 import React, { useContext } from "react";
 
 const Tabs = ({ items }) => {
-  const { state, selectTab } = useContext(TabContext);
+  const { state, selectTab } = useTabContext();
   const { selectedTabIndex } = state;
   const handleTabClick = (index) => {
     selectTab(index);
-    console.log("selectedTabIndex [tabs component]", selectedTabIndex);
   };
   return (
     <div className="w-fit my-2 shadow rounded-md">
