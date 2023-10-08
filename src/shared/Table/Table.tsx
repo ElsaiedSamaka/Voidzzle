@@ -7,13 +7,12 @@ import TableBody from "./TableBody/TableBody";
 import TableFooter from "./TableFooter/TableFooter";
 
 const Table = ({
-  _config = {},
+  _config = {
+    title: "",
+  },
   _head = true,
   _body = true,
   _footer = true,
-  _actions = true,
-  _search = true,
-  _addetion = true,
 }) => {
   // const dispatch = useDispatch();
   // const todosSlice = useSelector((state: RootState) => state.todos);
@@ -34,6 +33,7 @@ const Table = ({
     //   </ul> */}
     // </div>
     <div className=" mx-auto max-w-screen-2xl my-2">
+      {_config.title}
       <div className="relative overflow-hidden bg-white shadow rounded-md">
         {/* table head */}
         {_head && <TableHead />}
