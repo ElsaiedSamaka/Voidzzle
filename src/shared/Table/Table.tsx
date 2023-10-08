@@ -11,8 +11,9 @@ const Table = ({
   _config = {
     title: "",
     _head: true,
-    _body:true,
-    _footer:true
+    _body: true,
+    _footer: true,
+    _perPage: 5,
   },
 }) => {
   // const dispatch = useDispatch();
@@ -39,7 +40,9 @@ const Table = ({
         {_config._head && <TableHead _config={{ title: _config.title }} />}
         {/* table head */}
         {/* table body */}
-        {_config._body && <TableBody _config={{}} />}
+        {_config._body && (
+          <TableBody _config={{ _perPage: _config._perPage }} />
+        )}
         {/* table body */}
         {/* table footer */}
         {_config._footer && <TableFooter _config={{}} />}

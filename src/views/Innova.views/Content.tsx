@@ -13,13 +13,20 @@ const Content = () => {
             title: "Products",
             _head: true,
             _body: true,
+            _perPage: 10,
             _footer: true,
           }}
         />
       )}
       {selectedTabIndex === 1 && (
         <Table
-          _config={{ title: "Users", _head: true, _body: true, _footer: true }}
+          _config={{
+            title: "Users",
+            _head: true,
+            _body: true,
+            _perPage: 10,
+            _footer: true,
+          }}
         />
       )}
       {selectedTabIndex === 2 && (
@@ -28,18 +35,31 @@ const Content = () => {
             title: "Products",
             _head: true,
             _body: true,
+            _perPage: 10,
             _footer: true,
           }}
         />
       )}
       {selectedTabIndex === 3 && (
         <Table
-          _config={{ title: "Sales", _head: true, _body: true, _footer: true }}
+          _config={{
+            title: "Sales",
+            _head: true,
+            _body: true,
+            _perPage: 10,
+            _footer: true,
+          }}
         />
       )}
       {selectedTabIndex === 4 && (
         <Table
-          _config={{ title: "Ads", _head: true, _body: true, _footer: true }}
+          _config={{
+            title: "Ads",
+            _head: true,
+            _body: true,
+            _perPage: 10,
+            _footer: true,
+          }}
         />
       )}
     </div>
