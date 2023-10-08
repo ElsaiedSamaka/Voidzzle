@@ -12,8 +12,7 @@ const Content = () => {
           _config={{
             title: "Products",
             _head: { isTrue: true },
-            _body: { isTrue: true },
-            _perPage: 7,
+            _body: { isTrue: true, perPage: 7 },
             _footer: { isTrue: true },
           }}
         />
@@ -23,8 +22,7 @@ const Content = () => {
           _config={{
             title: "Users",
             _head: { isTrue: true },
-            _body: { isTrue: true },
-            _perPage: 7,
+            _body: { isTrue: true, perPage: 7 },
             _footer: { isTrue: true },
           }}
         />
@@ -34,8 +32,7 @@ const Content = () => {
           _config={{
             title: "Products",
             _head: { isTrue: true },
-            _body: { isTrue: true },
-            _perPage: 7,
+            _body: { isTrue: true, perPage: 7 },
             _footer: { isTrue: true },
           }}
         />
@@ -45,8 +42,7 @@ const Content = () => {
           _config={{
             title: "Sales",
             _head: { isTrue: true },
-            _body: { isTrue: true },
-            _perPage: 7,
+            _body: { isTrue: true, perPage: 7 },
             _footer: { isTrue: true },
           }}
         />
@@ -56,8 +52,7 @@ const Content = () => {
           _config={{
             title: "Ads",
             _head: { isTrue: true },
-            _body: { isTrue: true },
-            _perPage: 7,
+            _body: { isTrue: true, perPage: 7 },
             _footer: { isTrue: true },
           }}
         />
