@@ -8,9 +8,9 @@ const Content = () => {
   return (
     <div>
       {selectedTabIndex === 0 && <Table title="Products" />}
-      {selectedTabIndex === 1 && <Table title="Users" />}
-      {selectedTabIndex === 2 && <Table title="Tasks" />}
-      {selectedTabIndex === 3 && <Table title="Sales" />}
+      {selectedTabIndex === 1 && <Table title="Users" _head={false} />}
+      {selectedTabIndex === 2 && <Table title="Tasks" _body={false} />}
+      {selectedTabIndex === 3 && <Table title="Sales" _footer={false} />}
       {selectedTabIndex === 4 && <Table title="Ads" />}
     </div>
   );

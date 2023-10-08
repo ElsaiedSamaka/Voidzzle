@@ -6,7 +6,7 @@ import TableHead from "./TableHead/TableHead";
 import TableBody from "./TableBody/TableBody";
 import TableFooter from "./TableFooter/TableFooter";
 
-const Table = ({ title }) => {
+const Table = ({ title, _head = true, _body = true, _footer = true }) => {
   // const dispatch = useDispatch();
   // const todosSlice = useSelector((state: RootState) => state.todos);
   // get todos from api just when component is mounted
@@ -28,13 +28,13 @@ const Table = ({ title }) => {
     <div className=" mx-auto max-w-screen-2xl my-2">
       <div className="relative overflow-hidden bg-white shadow rounded-md">
         {/* table head */}
-        <TableHead title={title} />
+        {_head && <TableHead title={title} />}
         {/* table head */}
         {/* table body */}
-        <TableBody />
+        {_body && <TableBody />}
         {/* table body */}
         {/* table footer */}
-        <TableFooter />
+        {_footer && <TableFooter />}
         {/* table footer */}
       </div>
     </div>
