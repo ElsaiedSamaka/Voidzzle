@@ -48,7 +48,7 @@ const TableBody = ({_config}) => {
           </tr>
         </thead>
         <tbody>
-          {Array.of(3).map((item, i) => {
+          {[...Array(_config.perPage)].map((item, i) => {
             return (
               <tr
                 key={i}
