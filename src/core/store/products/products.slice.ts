@@ -8,13 +8,13 @@ import {
 } from "./products.thunk";
 
 interface ProductsState {
-  products: Product[];
+  items: Product[];
   loading: boolean;
   error: string | null;
 }
 
 const initialState: ProductsState = {
-  products: [],
+  items: [],
   loading: false,
   error: null,
 };
@@ -42,7 +42,7 @@ export const productsSlice = createSlice({
       })
       .addCase(getProductsThunk.fulfilled, (state, action) => {
         // getting todos from api action payload is the response of getTodos service
-        state.products = action.payload;
+        state.items = action.payload;
         state.loading = false;
         state.error = null;
       });
@@ -51,7 +51,7 @@ export const productsSlice = createSlice({
       .addCase(createProductThunk.fulfilled, (state, action) => {
         console.log("[1;32m", action.payload);
         // appending new todo to the todos array
-        state.products.push(action.payload);
+        state.items.push(action.payload);
         // unshift new todo to the todos array
         // state.todos.unshift(action.payload);
         state.loading = false;
@@ -70,11 +70,11 @@ export const productsSlice = createSlice({
       .addCase(updateProductThunk.fulfilled, (state, action) => {
         state.loading = false;
         state.error = null;
-        state.products = state.products.map((todo) => {
-          if (todo.id === action.payload.id) {
+        state.items = state.items.map((item) => {
+          if (item.id === action.payload.id) {
             return action.payload;
           }
-          return todo;
+          return item;
         });
       })
       .addCase(updateProductThunk.rejected, (state, action) => {
@@ -90,9 +90,7 @@ export const productsSlice = createSlice({
       .addCase(deleteProductThunk.fulfilled, (state, action) => {
         state.loading = false;
         state.error = null;
-        state.products = state.products.filter(
-          (todo) => todo.id !== action.payload
-        );
+        state.items = state.items.filter((item) => item.id !== action.payload);
       })
       .addCase(deleteProductThunk.rejected, (state, action) => {
         state.loading = false;

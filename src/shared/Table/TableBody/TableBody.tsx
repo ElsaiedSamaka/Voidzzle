@@ -51,7 +51,7 @@ const TableBody = ({ _config, data }) => {
         <tbody>
           {data.Loading && <tr>Loading...</tr>}
           {data.error && <tr>Error</tr>}
-          {data.products.map((item, i) => {
+          {data.items.map((item, i) => {
             return (
               <tr
                 key={i}
