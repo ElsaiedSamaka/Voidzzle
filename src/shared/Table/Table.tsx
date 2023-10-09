@@ -24,6 +24,7 @@ const Table = ({
     _body: {
       perPage: 5,
       isTrue: true,
+      _th: [],
     },
     _footer: {
       isTrue: true,
@@ -70,8 +71,14 @@ const Table = ({
         {/* table head */}
         {/* table body */}
         {_config._body.isTrue && (
-            
-          <TableBody _config={{ perPage: _config._body.perPage,  _multiSelect: _config._multiSelect, }} data={data} />
+          <TableBody
+            _config={{
+              perPage: _config._body.perPage,
+              multiSelect: _config._multiSelect,
+              th: _config._body._th,
+            }}
+            data={data}
+          />
         )}
         {/* table body */}
         {/* table footer */}

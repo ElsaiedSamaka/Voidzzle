@@ -28,7 +28,21 @@ const Products = () => {
             show: true,
           },
         },
-        _body: { isTrue: true, perPage: 7 },
+        _body: {
+          isTrue: true,
+          perPage: 7,
+          _th: [
+            { label: "Product" },
+            { label: "Category" },
+            { label: "Stock" },
+            { label: "Sales/Day" },
+            { label: "Sales/Month" },
+            { label: "Rating" },
+            { label: "Sales" },
+            { label: "Revenue" },
+            { label: "Last update" },
+          ],
+        },
         _footer: { isTrue: true },
         _multiSelect: false,
       }}

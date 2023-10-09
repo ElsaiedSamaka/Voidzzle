@@ -21,34 +21,13 @@ const TableBody = ({ _config, data }) => {
                 </div>
               </th>
             )}
-
-            <th scope="col" className="px-4 py-3">
-              Product
-            </th>
-            <th scope="col" className="px-4 py-3">
-              Category
-            </th>
-            <th scope="col" className="px-4 py-3">
-              Stock
-            </th>
-            <th scope="col" className="px-4 py-3">
-              Sales/Day
-            </th>
-            <th scope="col" className="px-4 py-3">
-              Sales/Month
-            </th>
-            <th scope="col" className="px-4 py-3">
-              Rating
-            </th>
-            <th scope="col" className="px-4 py-3">
-              Sales
-            </th>
-            <th scope="col" className="px-4 py-3">
-              Revenue
-            </th>
-            <th scope="col" className="px-4 py-3">
-              Last Update
-            </th>
+            {_config.th.map((col, i) => {
+              return (
+                <th key={i} scope="col" className="px-4 py-3">
+                  {col.label}
+                </th>
+              );
+            })}
           </tr>
         </thead>
         <tbody>
