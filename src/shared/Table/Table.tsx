@@ -29,8 +29,9 @@ const Table = ({
       isTrue: true,
     },
   },
-  data=[]
+  data,
 }) => {
+  console.log("data", data);
   // const dispatch = useDispatch();
   // const todosSlice = useSelector((state: RootState) => state.todos);
   // get todos from api just when component is mounted
@@ -62,16 +63,17 @@ const Table = ({
               filteration: _config._head._actions.filteration,
               _search: _config._head._search.show,
             }}
+            data={data}
           />
         )}
         {/* table head */}
         {/* table body */}
         {_config._body.isTrue && (
-          <TableBody _config={{ perPage: _config._body.perPage }} />
+          <TableBody _config={{ perPage: _config._body.perPage }} data={data } />
         )}
         {/* table body */}
         {/* table footer */}
-        {_config._footer.isTrue && <TableFooter _config={{}} />}
+        {_config._footer.isTrue && <TableFooter _config={{}} data={data} />}
         {/* table footer */}
       </div>
     </div>

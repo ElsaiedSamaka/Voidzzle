@@ -1,6 +1,6 @@
 import React from 'react'
 
-const TableBody = ({_config}) => {
+const TableBody = ({ _config, data }) => {
   return (
     <div className="overflow-x-auto">
       <table className="w-full text-sm text-left text-gray-500 :text-gray-400">
@@ -174,6 +174,6 @@ const TableBody = ({_config}) => {
       </table>
     </div>
   );
-}
+};
 
 export default TableBody

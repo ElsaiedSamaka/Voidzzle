@@ -8,7 +8,6 @@ import { Table } from "shared";
 const Products = () => {
   const dispatch = useDispatch();
   const productsSlice = useSelector((state: RootState) => state.products);
-  console.log("productsSlice", productsSlice);
   // get todos from api just when component is mounted
   useEffect(() => {
     dispatch(getProductsThunk());
@@ -32,7 +31,7 @@ const Products = () => {
         _body: { isTrue: true, perPage: 7 },
         _footer: { isTrue: true },
       }}
-      data={[]}
+      data={productsSlice}
     />
   );
 };
