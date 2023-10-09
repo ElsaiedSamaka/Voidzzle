@@ -65,7 +65,7 @@ const TableBody = ({ _config, data }) => {
                     alt="iMac Front Image"
                     className="w-auto h-8 mr-3"
                   />
-                  Apple iMac 27"
+                  {item.name}
                 </th>
                 <td className="px-4 py-2">
                   <span className="bg-primary-100 text-primary-800 text-xs font-medium px-2 py-0.5 rounded :bg-primary-900 :text-primary-300">
@@ -75,11 +75,11 @@ const TableBody = ({ _config, data }) => {
                 <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap :text-white">
                   <div className="flex items-center">
                     <div className="inline-block w-4 h-4 mr-2 bg-red-700 rounded-full" />
-                    95
+                    {item.stock}
                   </div>
                 </td>
                 <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap :text-white">
-                  1.47
+                 {item.salesPerDay}
                 </td>
                 <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap :text-white">
                   0.47
