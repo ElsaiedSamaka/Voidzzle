@@ -26,5 +26,33 @@
             "salesPerDay": 1.4,
             "rating": 4
         }
+    ],
+    "users": [
+        {
+            "id": 1,
+            "phonenumber": "string",
+            "email": "string",
+            "birthdate": "number",
+            "address": 12,
+            "password": true,
+            "user_img": "string",
+            "passwordConfirmation": "string",
+            "firstname": 2,
+            "lastname": 1.4,
+            "socketId": 4
+        },
+        {
+            "id": 2,
+            "phonenumber": "string",
+            "email": "string",
+            "birthdate": "number",
+            "address": 12,
+            "password": true,
+            "user_img": "string",
+            "passwordConfirmation": "string",
+            "firstname": 2,
+            "lastname": 1.4,
+            "socketId": 4
+        }
     ]
 }
