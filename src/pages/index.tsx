@@ -2,7 +2,6 @@ import Head from "next/head";
 import { Provider } from "react-redux";
 import { HomeLayout } from "shared";
 import RootLayout from "shared/Layouts/RootLayout/RootLayout";
-import { store } from "../core/store";
 import Home from "./home";
 const IndexPage = () => {
   return (
@@ -14,14 +13,12 @@ const IndexPage = () => {
           content="Next.js + SWR codebase containing realworld examples (CRUD, auth, advanced patterns, etc) that adheres to the realworld spec and API"
         />
       </Head>
-      <Provider store={store}>
-        <main className=" p-2">
-          {/* <Dashboard /> */}
-          <Home />
-          {/* <NewLetter /> */}
-          {/* <Settings /> */}
-        </main>
-      </Provider>
+      <main className=" p-2">
+        {/* <Dashboard /> */}
+        <Home />
+        {/* <NewLetter /> */}
+        {/* <Settings /> */}
+      </main>
     </>
   );
 };

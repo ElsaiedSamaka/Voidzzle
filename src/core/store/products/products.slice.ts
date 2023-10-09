@@ -18,7 +18,7 @@ const initialState: ProductsState = {
   loading: false,
   error: null,
 };
-export const todosSlice = createSlice({
+export const productsSlice = createSlice({
   name: "todos",
   initialState,
   reducers: {
@@ -105,5 +105,5 @@ export const todosSlice = createSlice({
   },
 });
 
-export const { setLoading, setError } = todosSlice.actions;
-export default todosSlice.reducer;
+export const { setLoading, setError } = productsSlice.actions;
+export default productsSlice.reducer;
