@@ -1,7 +1,11 @@
-import React from 'react'
-import { Table } from 'shared';
+import { RootState } from "core/store";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Table } from "shared";
 
 const Users = () => {
+  const dispatch = useDispatch();
+  const usersSlice = useSelector((state: RootState) => state.users);
   return (
     <Table
       _config={{
@@ -22,9 +26,9 @@ const Users = () => {
         _footer: { isTrue: true },
         _multiSelect: false,
       }}
-      data={[]}
+      data={usersSlice}
     />
   );
-}
+};
 
-export default Users
+export default Users;
