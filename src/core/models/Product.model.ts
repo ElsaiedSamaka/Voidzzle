@@ -8,4 +8,5 @@ export type Product = {
   product_img: string;
   cloudinary_id?: string;
   categoryId?: number;
+  salesPerDay: number;
 };

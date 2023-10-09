@@ -1,7 +1,16 @@
 {
     "products": [
         {
-            "id": 1
+            "id": 1,
+            "name": "string",
+            "description": "string",
+            "price": "number",
+            "stock": 12,
+            "availablity": true,
+            "product_img": "string",
+            "cloudinary_id": "string",
+            "categoryId": 2,
+            "salesPerDay": 1.4
         }
     ]
 }
