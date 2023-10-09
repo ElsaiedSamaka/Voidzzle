@@ -10,7 +10,9 @@ const TableFooter = ({_config,data}) => {
         Showing
         <span className="font-semibold text-gray-900 :text-white">1-10</span>
         of
-        <span className="font-semibold text-gray-900 :text-white">1000</span>
+        <span className="font-semibold text-gray-900 :text-white">
+          {data.items.length}
+        </span>
       </span>
       <ul className="inline-flex items-stretch -space-x-px">
         <li>
