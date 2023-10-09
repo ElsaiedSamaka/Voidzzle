@@ -26,6 +26,7 @@ const Content = () => {
             _body: { isTrue: true, perPage: 7 },
             _footer: { isTrue: true },
           }}
+          data={[]}
         />
       )}
       {selectedTabIndex === 1 && (
@@ -47,6 +48,7 @@ const Content = () => {
             _body: { isTrue: true, perPage: 7 },
             _footer: { isTrue: true },
           }}
+          data={[]}
         />
       )}
       {selectedTabIndex === 2 && (
@@ -68,6 +70,7 @@ const Content = () => {
             _body: { isTrue: true, perPage: 7 },
             _footer: { isTrue: true },
           }}
+          data={[]}
         />
       )}
       {selectedTabIndex === 3 && (
@@ -89,6 +92,7 @@ const Content = () => {
             _body: { isTrue: true, perPage: 7 },
             _footer: { isTrue: true },
           }}
+          data={[]}
         />
       )}
       {selectedTabIndex === 4 && (
@@ -110,6 +114,7 @@ const Content = () => {
             _body: { isTrue: true, perPage: 7 },
             _footer: { isTrue: true },
           }}
+          data={[]}
         />
       )}
     </div>

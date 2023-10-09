@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from "react-redux";
 import TableHead from "./TableHead/TableHead";
 import TableBody from "./TableBody/TableBody";
 import TableFooter from "./TableFooter/TableFooter";
-import { title } from "process";
 
 const Table = ({
   _config = {
@@ -30,6 +29,7 @@ const Table = ({
       isTrue: true,
     },
   },
+  data=[]
 }) => {
   // const dispatch = useDispatch();
   // const todosSlice = useSelector((state: RootState) => state.todos);
