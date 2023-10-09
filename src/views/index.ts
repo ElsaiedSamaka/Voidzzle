@@ -4,7 +4,6 @@ import Products from "./Innova.views/products.innova/Products";
 import Tasks from "./Innova.views/tasks.innova/Tasks";
 import Ads from "./Innova.views/ads.innova/Ads";
 import Sales from "./Innova.views/sales.innova/Sales";
-// exports.Content = Content;
 export {
     Content,
     Users,

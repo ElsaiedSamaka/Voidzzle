@@ -33,7 +33,6 @@ const Table = ({
   },
   data,
 }) => {
-  console.log("data", data);
   // const dispatch = useDispatch();
   // const todosSlice = useSelector((state: RootState) => state.todos);
   // get todos from api just when component is mounted

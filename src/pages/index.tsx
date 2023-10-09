@@ -7,7 +7,7 @@ const IndexPage = () => {
   return (
     <>
       <Head>
-        <title>qTech Task | Next12</title>
+        <title>Voidzzle | Next12</title>
         <meta
           name="description"
           content="Next.js + SWR codebase containing realworld examples (CRUD, auth, advanced patterns, etc) that adheres to the realworld spec and API"
