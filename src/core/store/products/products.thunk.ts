@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import productsService from "core/services/products.service";
 
-export const getTodosThunk = createAsyncThunk(
+export const getProductsThunk = createAsyncThunk(
   "products/get",
   async (_, thunkAPI) => {
     try {
@@ -13,7 +13,7 @@ export const getTodosThunk = createAsyncThunk(
   }
 );
 
-export const deleteTodoThunk = createAsyncThunk(
+export const deleteProductThunk = createAsyncThunk(
   "products/delete",
   async (id: any, thunkAPI) => {
     try {
@@ -25,7 +25,7 @@ export const deleteTodoThunk = createAsyncThunk(
   }
 );
 
-export const updateTodoThunk = createAsyncThunk(
+export const updateProductThunk = createAsyncThunk(
   "products/update",
   async (params: any, thunkAPI) => {
     try {
@@ -37,7 +37,7 @@ export const updateTodoThunk = createAsyncThunk(
   }
 );
 
-export const createTodoThunk = createAsyncThunk(
+export const createProductThunk = createAsyncThunk(
   "products/post",
   async (params: any, thunkAPI) => {
     try {
