@@ -28,6 +28,7 @@ const Table = ({
     _footer: {
       isTrue: true,
     },
+    _multiSelect: false,
   },
   data,
 }) => {
@@ -69,7 +70,8 @@ const Table = ({
         {/* table head */}
         {/* table body */}
         {_config._body.isTrue && (
-          <TableBody _config={{ perPage: _config._body.perPage }} data={data } />
+            
+          <TableBody _config={{ perPage: _config._body.perPage,  _multiSelect: _config._multiSelect, }} data={data} />
         )}
         {/* table body */}
         {/* table footer */}

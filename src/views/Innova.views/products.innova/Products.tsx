@@ -30,6 +30,7 @@ const Products = () => {
         },
         _body: { isTrue: true, perPage: 7 },
         _footer: { isTrue: true },
+        _multiSelect: false,
       }}
       data={productsSlice}
     />
