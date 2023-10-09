@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { Product, Todo } from "core/models";
+import { Product } from "core/models";
 import {
   createProductThunk,
   deleteProductThunk,
