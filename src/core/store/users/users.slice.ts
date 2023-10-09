@@ -1,25 +1,25 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { Product } from "core/models";
+import { Todo, User } from "core/models";
 import {
-  createProductThunk,
-  deleteProductThunk,
-  getProductsThunk,
-  updateProductThunk,
-} from "./products.thunk";
+  createTodoThunk,
+  deleteTodoThunk,
+  getTodosThunk,
+  updateTodoThunk,
+} from "./users.thunk";
 
-interface ProductsState {
-  items: Product[];
+interface UsersState {
+  items: User[];
   loading: boolean;
   error: string | null;
 }
 
-const initialState: ProductsState = {
+const initialState: UsersState = {
   items: [],
   loading: false,
   error: null,
 };
-export const productsSlice = createSlice({
-  name: "products",
+export const usersSlice = createSlice({
+  name: "users",
   initialState,
   reducers: {
     setLoading: (state, action) => {
@@ -30,44 +30,43 @@ export const productsSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    // getProducts
+    // getUsers
     builder
-      .addCase(getProductsThunk.pending, (state, action) => {
+      .addCase(getTodosThunk.pending, (state, action) => {
         state.loading = true;
         state.error = null;
       })
-      .addCase(getProductsThunk.rejected, (state, action) => {
+      .addCase(getTodosThunk.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message;
       })
-      .addCase(getProductsThunk.fulfilled, (state, action) => {
+      .addCase(getTodosThunk.fulfilled, (state, action) => {
         // getting todos from api action payload is the response of getTodos service
         state.items = action.payload;
         state.loading = false;
         state.error = null;
       });
-    // createProduct
+    // createUser
     builder
-      .addCase(createProductThunk.fulfilled, (state, action) => {
-        console.log("[1;32m", action.payload);
-        // appending new todo to the todos array
+      .addCase(createTodoThunk.fulfilled, (state, action) => {
+        // appending new user to the users array
         state.items.push(action.payload);
-        // unshift new todo to the todos array
-        // state.todos.unshift(action.payload);
+        // unshift new user to the users array
+        // state.items.unshift(action.payload);
         state.loading = false;
         state.error = null;
       })
-      .addCase(createProductThunk.rejected, (state, action) => {
+      .addCase(createTodoThunk.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message;
       })
-      .addCase(createProductThunk.pending, (state, action) => {
+      .addCase(createTodoThunk.pending, (state, action) => {
         state.loading = true;
         state.error = null;
       });
-    // updateProduct
+    // updateUser
     builder
-      .addCase(updateProductThunk.fulfilled, (state, action) => {
+      .addCase(updateTodoThunk.fulfilled, (state, action) => {
         state.loading = false;
         state.error = null;
         state.items = state.items.map((item) => {
@@ -77,31 +76,31 @@ export const productsSlice = createSlice({
           return item;
         });
       })
-      .addCase(updateProductThunk.rejected, (state, action) => {
+      .addCase(updateTodoThunk.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message;
       })
-      .addCase(updateProductThunk.pending, (state, action) => {
+      .addCase(updateTodoThunk.pending, (state, action) => {
         state.loading = true;
         state.error = null;
       });
-    // deleteProduct
+    // deleteUser
     builder
-      .addCase(deleteProductThunk.fulfilled, (state, action) => {
+      .addCase(deleteTodoThunk.fulfilled, (state, action) => {
         state.loading = false;
         state.error = null;
         state.items = state.items.filter((item) => item.id !== action.payload);
       })
-      .addCase(deleteProductThunk.rejected, (state, action) => {
+      .addCase(deleteTodoThunk.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message;
       })
-      .addCase(deleteProductThunk.pending, (state, action) => {
+      .addCase(deleteTodoThunk.pending, (state, action) => {
         state.loading = true;
         state.error = null;
       });
   },
 });
 
-export const { setLoading, setError } = productsSlice.actions;
-export default productsSlice.reducer;
+export const { setLoading, setError } = usersSlice.actions;
+export default usersSlice.reducer;
