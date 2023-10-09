@@ -18,8 +18,9 @@ const Users = () => {
             show: true,
           },
         },
-        _body: { isTrue: true, perPage: 7 },
+        _body: { isTrue: true, perPage: 7, _th: [] },
         _footer: { isTrue: true },
+        _multiSelect: false,
       }}
       data={[]}
     />

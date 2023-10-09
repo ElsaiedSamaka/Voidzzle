@@ -2,11 +2,13 @@ import { configureStore } from "@reduxjs/toolkit";
 import todosReducer from "./todos/todos.slice";
 import userReducer from "./user/user.slice";
 import productsReducer from "./products/products.slice";
+import usersReducer from "./users/users.slice";
 export const store = configureStore({
   reducer: {
     user: userReducer,
     todos: todosReducer,
     products: productsReducer,
+    users: usersReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({ serializableCheck: false }),
