@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { InnovaLayout, RootLayout, Table, Tabs } from "shared";
 import { TabContext, TabProvider } from "core/context/TabContext";
-import Content from "views/Innova.views/Content";
+import Content from "views/Innova.views/content.innova/Content";
 const InnvoaPage = () => {
   return (
     <TabProvider>
