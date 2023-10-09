@@ -12,6 +12,19 @@
             "categoryId": 2,
             "salesPerDay": 1.4,
             "rating": 4
+        },
+        {
+            "id": 2,
+            "name": "string",
+            "description": "string",
+            "price": "number",
+            "stock": 12,
+            "availablity": true,
+            "product_img": "string",
+            "cloudinary_id": "string",
+            "categoryId": 2,
+            "salesPerDay": 1.4,
+            "rating": 4
         }
     ]
 }
