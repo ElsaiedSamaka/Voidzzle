@@ -19,6 +19,9 @@ const Content = () => {
                 actions: true,
                 filteration: true,
               },
+              _search: {
+                show: true,
+              },
             },
             _body: { isTrue: true, perPage: 7 },
             _footer: { isTrue: true },
@@ -36,6 +39,9 @@ const Content = () => {
                 addtions: true,
                 actions: true,
                 filteration: true,
+              },
+              _search: {
+                show: true,
               },
             },
             _body: { isTrue: true, perPage: 7 },
@@ -55,6 +61,9 @@ const Content = () => {
                 actions: true,
                 filteration: true,
               },
+              _search: {
+                show: true,
+              },
             },
             _body: { isTrue: true, perPage: 7 },
             _footer: { isTrue: true },
@@ -73,6 +82,9 @@ const Content = () => {
                 actions: true,
                 filteration: true,
               },
+              _search: {
+                show: true,
+              },
             },
             _body: { isTrue: true, perPage: 7 },
             _footer: { isTrue: true },
@@ -90,6 +102,9 @@ const Content = () => {
                 addtions: true,
                 actions: true,
                 filteration: true,
+              },
+              _search: {
+                show: true,
               },
             },
             _body: { isTrue: true, perPage: 7 },

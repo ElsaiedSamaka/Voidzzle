@@ -18,6 +18,9 @@ const Table = ({
         actions: true,
         filteration: true,
       },
+      _search: {
+        show: true,
+      },
     },
     _body: {
       perPage: 5,
@@ -57,6 +60,7 @@ const Table = ({
               addtion: _config._head._actions.addtions,
               actions: _config._head._actions,
               filteration: _config._head._actions.filteration,
+              _search: _config._head._search.show,
             }}
           />
         )}
