@@ -1,11 +1,11 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import todossService from "core/services/todos.service";
+import productsService from "core/services/products.service";
 
 export const getTodosThunk = createAsyncThunk(
-  "todos/get",
+  "products/get",
   async (_, thunkAPI) => {
     try {
-      const response = await todossService.get();
+      const response = await productsService.get();
       return thunkAPI.fulfillWithValue(response);
     } catch (error) {
       thunkAPI.rejectWithValue(error);
@@ -14,10 +14,10 @@ export const getTodosThunk = createAsyncThunk(
 );
 
 export const deleteTodoThunk = createAsyncThunk(
-  "todos/delete",
+  "products/delete",
   async (id: any, thunkAPI) => {
     try {
-      const response = await todossService.remove(id);
+      const response = await productsService.remove(id);
       return thunkAPI.fulfillWithValue(response);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
@@ -26,10 +26,10 @@ export const deleteTodoThunk = createAsyncThunk(
 );
 
 export const updateTodoThunk = createAsyncThunk(
-  "todos/update",
+  "products/update",
   async (params: any, thunkAPI) => {
     try {
-      const response = await todossService.put(params.id, params.body);
+      const response = await productsService.put(params.id, params.body);
       return thunkAPI.fulfillWithValue(response);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
@@ -38,10 +38,10 @@ export const updateTodoThunk = createAsyncThunk(
 );
 
 export const createTodoThunk = createAsyncThunk(
-  "todos/post",
+  "products/post",
   async (params: any, thunkAPI) => {
     try {
-      const response = await todossService.post(params);
+      const response = await productsService.post(params);
       return thunkAPI.fulfillWithValue(response);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);

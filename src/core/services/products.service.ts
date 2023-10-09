@@ -1,8 +1,6 @@
 import apiservice from "./api.service";
-import { axiosClient, axiosConfig } from "./axios.client";
 
-
-const productsservice = {
+const productsService = {
   post: async (body: any) => {
     try {
       const response = await apiservice.post("products", body);
@@ -11,17 +9,17 @@ const productsservice = {
       throw error;
     }
   },
-//   post2: async (body: any) => {
-//     try {
-//       const response = await axiosClient.post(`${base_url}/products`, body, {
-//         headers: { "Content-Type": "multipart/form-data" },
-//         ...axiosConfig,
-//       });
-//       return response.data;
-//     } catch (error) {
-//       throw error;
-//     }
-//   },
+  //   post2: async (body: any) => {
+  //     try {
+  //       const response = await axiosClient.post(`${base_url}/products`, body, {
+  //         headers: { "Content-Type": "multipart/form-data" },
+  //         ...axiosConfig,
+  //       });
+  //       return response.data;
+  //     } catch (error) {
+  //       throw error;
+  //     }
+  //   },
 
   get: async () => {
     try {
@@ -67,4 +65,4 @@ const productsservice = {
   },
 };
 
-export default productsservice;
+export default productsService;

@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { Todo } from "core/models";
+import { Product, Todo } from "core/models";
 import {
   createTodoThunk,
   deleteTodoThunk,
@@ -8,13 +8,13 @@ import {
 } from "./products.thunk";
 
 interface ProductsState {
-  todos: Todo[];
+  products: Product[];
   loading: boolean;
   error: string | null;
 }
 
 const initialState: ProductsState = {
-  todos: [],
+  products: [],
   loading: false,
   error: null,
 };
@@ -22,31 +22,6 @@ export const todosSlice = createSlice({
   name: "todos",
   initialState,
   reducers: {
-    // getTodos: (state, action) => {
-    //   state.todos = action.payload;
-    // },
-    // addTodo: (state, action) => {
-    //   state.todos.push(action.payload);
-    // },
-    // updateTodo: (state, action) => {
-    //   state.todos = state.todos.map((todo) => {
-    //     if (todo.id === action.payload.id) {
-    //       return action.payload;
-    //     }
-    //     return todo;
-    //   });
-    // },
-    // deleteTodo: (state, action) => {
-    //   state.todos = state.todos.filter((todo) => todo.id !== action.payload);
-    // },
-    // toggleTodo: (state, action) => {
-    //   state.todos = state.todos.map((todo) => {
-    //     if (todo.id === action.payload) {
-    //       return { ...todo, completed: !todo.completed };
-    //     }
-    //     return todo;
-    //   });
-    // },
     setLoading: (state, action) => {
       state.loading = action.payload;
     },
@@ -55,7 +30,7 @@ export const todosSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    // getTodos
+    // getProducts
     builder
       .addCase(getTodosThunk.pending, (state, action) => {
         state.loading = true;
@@ -67,16 +42,16 @@ export const todosSlice = createSlice({
       })
       .addCase(getTodosThunk.fulfilled, (state, action) => {
         // getting todos from api action payload is the response of getTodos service
-        state.todos = action.payload;
+        state.products = action.payload;
         state.loading = false;
         state.error = null;
       });
-    // createTodo
+    // createProduct
     builder
       .addCase(createTodoThunk.fulfilled, (state, action) => {
         console.log("[1;32m", action.payload);
         // appending new todo to the todos array
-        state.todos.push(action.payload);
+        state.products.push(action.payload);
         // unshift new todo to the todos array
         // state.todos.unshift(action.payload);
         state.loading = false;
@@ -90,12 +65,12 @@ export const todosSlice = createSlice({
         state.loading = true;
         state.error = null;
       });
-    // updateTodo
+    // updateProduct
     builder
       .addCase(updateTodoThunk.fulfilled, (state, action) => {
         state.loading = false;
         state.error = null;
-        state.todos = state.todos.map((todo) => {
+        state.products = state.products.map((todo) => {
           if (todo.id === action.payload.id) {
             return action.payload;
           }
@@ -110,12 +85,14 @@ export const todosSlice = createSlice({
         state.loading = true;
         state.error = null;
       });
-    // deleteTodo
+    // deleteProduct
     builder
       .addCase(deleteTodoThunk.fulfilled, (state, action) => {
         state.loading = false;
         state.error = null;
-        state.todos = state.todos.filter((todo) => todo.id !== action.payload);
+        state.products = state.products.filter(
+          (todo) => todo.id !== action.payload
+        );
       })
       .addCase(deleteTodoThunk.rejected, (state, action) => {
         state.loading = false;
