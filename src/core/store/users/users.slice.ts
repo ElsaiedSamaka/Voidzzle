@@ -1,10 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { Todo, User } from "core/models";
 import {
-  createTodoThunk,
-  deleteTodoThunk,
-  getTodosThunk,
-  updateTodoThunk,
+  createUserThunk,
+  deleteUserThunk,
+  getUsersThunk,
+  updateUserThunk,
 } from "./users.thunk";
 
 interface UsersState {
@@ -32,15 +32,15 @@ export const usersSlice = createSlice({
   extraReducers: (builder) => {
     // getUsers
     builder
-      .addCase(getTodosThunk.pending, (state, action) => {
+      .addCase(getUsersThunk.pending, (state, action) => {
         state.loading = true;
         state.error = null;
       })
-      .addCase(getTodosThunk.rejected, (state, action) => {
+      .addCase(getUsersThunk.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message;
       })
-      .addCase(getTodosThunk.fulfilled, (state, action) => {
+      .addCase(getUsersThunk.fulfilled, (state, action) => {
         // getting todos from api action payload is the response of getTodos service
         state.items = action.payload;
         state.loading = false;
@@ -48,7 +48,7 @@ export const usersSlice = createSlice({
       });
     // createUser
     builder
-      .addCase(createTodoThunk.fulfilled, (state, action) => {
+      .addCase(createUserThunk.fulfilled, (state, action) => {
         // appending new user to the users array
         state.items.push(action.payload);
         // unshift new user to the users array
@@ -56,17 +56,17 @@ export const usersSlice = createSlice({
         state.loading = false;
         state.error = null;
       })
-      .addCase(createTodoThunk.rejected, (state, action) => {
+      .addCase(createUserThunk.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message;
       })
-      .addCase(createTodoThunk.pending, (state, action) => {
+      .addCase(createUserThunk.pending, (state, action) => {
         state.loading = true;
         state.error = null;
       });
     // updateUser
     builder
-      .addCase(updateTodoThunk.fulfilled, (state, action) => {
+      .addCase(updateUserThunk.fulfilled, (state, action) => {
         state.loading = false;
         state.error = null;
         state.items = state.items.map((item) => {
@@ -76,26 +76,26 @@ export const usersSlice = createSlice({
           return item;
         });
       })
-      .addCase(updateTodoThunk.rejected, (state, action) => {
+      .addCase(updateUserThunk.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message;
       })
-      .addCase(updateTodoThunk.pending, (state, action) => {
+      .addCase(updateUserThunk.pending, (state, action) => {
         state.loading = true;
         state.error = null;
       });
     // deleteUser
     builder
-      .addCase(deleteTodoThunk.fulfilled, (state, action) => {
+      .addCase(deleteUserThunk.fulfilled, (state, action) => {
         state.loading = false;
         state.error = null;
         state.items = state.items.filter((item) => item.id !== action.payload);
       })
-      .addCase(deleteTodoThunk.rejected, (state, action) => {
+      .addCase(deleteUserThunk.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message;
       })
-      .addCase(deleteTodoThunk.pending, (state, action) => {
+      .addCase(deleteUserThunk.pending, (state, action) => {
         state.loading = true;
         state.error = null;
       });
