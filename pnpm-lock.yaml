@@ -26,6 +26,9 @@ dependencies:
   nprogress:
     specifier: ^0.2.0
     version: 0.2.0
+  prop-types:
+    specifier: ^15.8.1
+    version: 15.8.1
   qTech-Nextjs-Task:
     specifier: 'link:'
     version: 'link:'
