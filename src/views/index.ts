@@ -8,7 +8,7 @@ import Sales from "./Innova.views/sales.innova/Sales";
 export {
     Content,
     Users,
-    Products
+    Products,
     Tasks,
     Ads,
     Sales
