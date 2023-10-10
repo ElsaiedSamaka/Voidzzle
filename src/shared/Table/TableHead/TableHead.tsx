@@ -250,7 +250,7 @@ const TableHead = ({ _config, data }) => {
 };
 const DailogHeader = ({ handleAddtionModalToggle }) => {
   return (
-    <div className="flex justify-between items-center">
+    <div className="dailog-header flex justify-between items-center">
       <h3 className=" text-xl font-bold text-gray-900 ">Add new product</h3>
       <div
         onClick={handleAddtionModalToggle}
@@ -278,82 +278,106 @@ const DailogHeader = ({ handleAddtionModalToggle }) => {
 
 const DailogBody = () => {
   return (
-    <div>
-      <form className="space-y-6">
+    <form>
+      <div className="grid gap-4 mb-4 sm:grid-cols-2">
         <div>
           <label
-            htmlFor="email"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            htmlFor="name"
+            className="block mb-2 text-sm font-medium text-gray-900 :text-white"
           >
-            Your email
+            Name
           </label>
           <input
-            type="email"
-            name="email"
-            id="email"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-            placeholder="name@company.com"
-            required
+            type="text"
+            name="name"
+            id="name"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 :bg-gray-700 :border-gray-600 :placeholder-gray-400 :text-white :focus:ring-primary-500 :focus:border-primary-500"
+            placeholder="Type product name"
           />
         </div>
         <div>
           <label
-            htmlFor="password"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            htmlFor="brand"
+            className="block mb-2 text-sm font-medium text-gray-900 :text-white"
           >
-            Your password
+            Brand
           </label>
           <input
-            type="password"
-            name="password"
-            id="password"
-            placeholder="••••••••"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-            required
+            type="text"
+            name="brand"
+            id="brand"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 :bg-gray-700 :border-gray-600 :placeholder-gray-400 :text-white :focus:ring-primary-500 :focus:border-primary-500"
+            placeholder="Product brand"
           />
         </div>
-        <div className="flex justify-between">
-          <div className="flex items-start">
-            <div className="flex items-center h-5">
-              <input
-                id="remember"
-                type="checkbox"
-                defaultValue=""
-                className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-600 dark:border-gray-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
-                required
-              />
-            </div>
-            <label
-              htmlFor="remember"
-              className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-            >
-              Remember me
-            </label>
-          </div>
-          <a
-            href="#"
-            className="text-sm text-blue-700 hover:underline dark:text-blue-500"
+        <div>
+          <label
+            htmlFor="price"
+            className="block mb-2 text-sm font-medium text-gray-900 :text-white"
           >
-            Lost Password?
-          </a>
+            Price
+          </label>
+          <input
+            type="number"
+            name="price"
+            id="price"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 :bg-gray-700 :border-gray-600 :placeholder-gray-400 :text-white :focus:ring-primary-500 :focus:border-primary-500"
+            placeholder="$2999"
+          />
         </div>
-        <button
-          type="submit"
-          className="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        <div>
+          <label
+            htmlFor="category"
+            className="block mb-2 text-sm font-medium text-gray-900 :text-white"
+          >
+            Category
+          </label>
+          <select
+            id="category"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 :bg-gray-700 :border-gray-600 :placeholder-gray-400 :text-white :focus:ring-primary-500 :focus:border-primary-500"
+          >
+            <option>Select category</option>
+            <option value="TV">TV/Monitors</option>
+            <option value="PC">PC</option>
+            <option value="GA">Gaming/Console</option>
+            <option value="PH">Phones</option>
+          </select>
+        </div>
+        <div className="sm:col-span-2">
+          <label
+            htmlFor="description"
+            className="block mb-2 text-sm font-medium text-gray-900 :text-white"
+          >
+            Description
+          </label>
+          <textarea
+            id="description"
+            rows={4}
+            className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 :bg-gray-700 :border-gray-600 :placeholder-gray-400 :text-white :focus:ring-primary-500 :focus:border-primary-500"
+            placeholder="Write product description here"
+            defaultValue={""}
+          />
+        </div>
+      </div>
+      <button
+        type="submit"
+        className="text-white inline-flex items-center bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center :bg-primary-600 :hover:bg-primary-700 :focus:ring-primary-800"
+      >
+        <svg
+          className="mr-1 -ml-1 w-6 h-6"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          Login to your account
-        </button>
-        <div className="text-sm font-medium text-gray-500 dark:text-gray-300">
-          Not registered?{" "}
-          <a
-            href="#"
-            className="text-blue-700 hover:underline dark:text-blue-500"
-          >
-            Create account
-          </a>
-        </div>
-      </form>
-    </div>
+          <path
+            fillRule="evenodd"
+            d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
+            clipRule="evenodd"
+          />
+        </svg>
+        Add new product
+      </button>
+    </form>
   );
 };
 export default TableHead;
