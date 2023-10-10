@@ -8,6 +8,17 @@ import { Table } from "shared";
 const Products = () => {
   const dispatch = useDispatch();
   const productsSlice = useSelector((state: RootState) => state.products);
+  const th = [
+    { label: "Product" },
+    { label: "Category" },
+    { label: "Stock" },
+    { label: "Sales/Day" },
+    { label: "Sales/Month" },
+    { label: "Rating" },
+    { label: "Sales" },
+    { label: "Revenue" },
+    { label: "Last update" },
+  ];
   // get todos from api just when component is mounted
   useEffect(() => {
     dispatch(getProductsThunk());
@@ -31,17 +42,7 @@ const Products = () => {
         _body: {
           isTrue: true,
           perPage: 7,
-          _th: [
-            { label: "Product" },
-            { label: "Category" },
-            { label: "Stock" },
-            { label: "Sales/Day" },
-            { label: "Sales/Month" },
-            { label: "Rating" },
-            { label: "Sales" },
-            { label: "Revenue" },
-            { label: "Last update" },
-          ],
+          _th: th,
         },
         _footer: { isTrue: true },
         _multiSelect: false,

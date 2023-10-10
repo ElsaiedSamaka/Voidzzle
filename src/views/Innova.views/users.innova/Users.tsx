@@ -7,9 +7,18 @@ import { Table } from "shared";
 const Users = () => {
   const dispatch = useDispatch();
   const usersSlice = useSelector((state: RootState) => state.users);
+  const th = [
+    { label: "Email" },
+    { label: "phonenumber" },
+    { label: "birthdate" },
+    { label: "address" },
+    { label: "firstname" },
+    { label: "lastname" },
+  ];
   useEffect(() => {
     dispatch(getUsersThunk());
   }, [dispatch]);
+  
   return (
     <Table
       _config={{
@@ -29,14 +38,7 @@ const Users = () => {
         _body: {
           isTrue: true,
           perPage: 7,
-          _th: [
-            { label: "Email" },
-            { label: "phonenumber" },
-            { label: "birthdate" },
-            { label: "address" },
-            { label: "firstname" },
-            { label: "lastname" },
-          ],
+          _th: th,
         },
         _footer: { isTrue: true },
         _multiSelect: false,
