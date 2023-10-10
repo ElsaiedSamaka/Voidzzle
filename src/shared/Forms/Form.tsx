@@ -10,6 +10,11 @@ const Form = () => {
       price: 1,
       category: "",
       description: "",
+      test: {
+        temp1: "",
+        temp2: "",
+      },
+      array: ["", ""],
     },
   });
   const { errors, isValid, isLoading, isDirty, isSubmitted, isSubmitting } =
@@ -73,6 +78,62 @@ const Form = () => {
             />
             {errors.brand && (
               <p className="text-red-900">{errors.brand.message}</p>
+            )}
+          </div>
+          <div>
+            <label
+              htmlFor="temp1"
+              className="block mb-2 text-sm font-medium text-gray-900 :text-white"
+            >
+              Temp1
+            </label>
+            <input
+              type="text"
+              id="temp1"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 :bg-gray-700 :border-gray-600 :placeholder-gray-400 :text-white :focus:ring-primary-500 :focus:border-primary-500"
+              placeholder="Type product name"
+              {...register("test.temp1", {
+                required: {
+                  value: true,
+                  message: "temp1 is required",
+                },
+                validate: (val) => {
+                  if (val == "name") {
+                    return "Enter different product name";
+                  }
+                },
+              })}
+            />
+            {errors.test && (
+              <p className="text-red-900">{errors.test.temp1.message}</p>
+            )}
+          </div>
+          <div>
+            <label
+              htmlFor="temp2"
+              className="block mb-2 text-sm font-medium text-gray-900 :text-white"
+            >
+              Temp2
+            </label>
+            <input
+              type="text"
+              id="temp2"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 :bg-gray-700 :border-gray-600 :placeholder-gray-400 :text-white :focus:ring-primary-500 :focus:border-primary-500"
+              placeholder="Type product name"
+              {...register("test.temp2", {
+                required: {
+                  value: true,
+                  message: "temp2 is required",
+                },
+                validate: (val) => {
+                  if (val == "name") {
+                    return "Enter different product name";
+                  }
+                },
+              })}
+            />
+            {errors.test && (
+              <p className="text-red-900">{errors.test.temp2.message}</p>
             )}
           </div>
           <div>
