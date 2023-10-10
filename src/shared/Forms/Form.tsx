@@ -18,7 +18,7 @@ const Form = () => {
     },
   });
   const { errors, isValid, isLoading, isDirty, isSubmitted } = formState;
-  const { fields, append } = useFieldArray({
+  const { fields, append, remove } = useFieldArray({
     name: "array",
     control,
   });
@@ -238,10 +238,17 @@ const Form = () => {
                     },
                   })}
                 />
+                {i > 0 && (
+                  <button type="button" onClick={() => remove(i)}>
+                    remove
+                  </button>
+                )}
               </div>
             );
           })}
-          <button type="button" onClick={() => append({ field: null })}>add</button>
+          <button type="button" onClick={() => append({ field: null })}>
+            add
+          </button>
           {/* dynamic fields */}
         </div>
         <button
