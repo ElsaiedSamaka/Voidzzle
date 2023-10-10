@@ -8,6 +8,7 @@ const Form = () => {
       name: "product name",
       brand: "",
       price: 1,
+      date: null,
       category: "",
       description: "",
       test: {
@@ -168,6 +169,32 @@ const Form = () => {
           </div>
           <div>
             <label
+              htmlFor="date"
+              className="block mb-2 text-sm font-medium text-gray-900 :text-white"
+            >
+              Date
+            </label>
+            <input
+              type="date"
+              id="date"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 :bg-gray-700 :border-gray-600 :placeholder-gray-400 :text-white :focus:ring-primary-500 :focus:border-primary-500"
+              {...register("date", {
+                required: {
+                  value: true,
+                  message: "data is required",
+                },
+                // validate: {
+                //   notZero: (val) => {
+                //     if (val == 0) {
+                //       return "price cannot be zero";
+                //     }
+                //   },
+                // },
+              })}
+            />
+          </div>
+          <div>
+            <label
               htmlFor="category"
               className="block mb-2 text-sm font-medium text-gray-900 :text-white"
             >
@@ -225,6 +252,7 @@ const Form = () => {
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 :bg-gray-700 :border-gray-600 :placeholder-gray-400 :text-white :focus:ring-primary-500 :focus:border-primary-500"
                   placeholder="$2999"
                   {...register(`array.${i}.field`, {
+                    valueAsNumber: true,
                     required: {
                       value: true,
                       message: "price is required",
