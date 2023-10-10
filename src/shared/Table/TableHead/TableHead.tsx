@@ -237,7 +237,13 @@ const TableHead = ({ _config, data }) => {
           </div>
         )}
       </div>
-      {showAddModal && <Dailog />}
+      {showAddModal && (
+        <Dailog
+          header={<div>Header</div>}
+          body={<div>Body</div>}
+          footer={<div>Footer</div>}
+        />
+      )}
     </>
   );
 };

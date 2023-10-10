@@ -1,4 +1,4 @@
-const Dailog = () => {
+const Dailog = ({ header, body, footer }) => {
   return (
     <>
       {/* Main modal */}
@@ -10,11 +10,11 @@ const Dailog = () => {
         <div className="flex flex-col w-full">
           {/* Modal content */}
           {/* Modal header */}
-          <div className="modal-header border-b">modal header</div>
+          <div className="modal-header border-b">{header}</div>
           {/* Modal body */}
-          <div className="modal-body overflow-scroll ">modal body</div>
+          <div className="modal-body overflow-scroll">{body}</div>
           {/* Modal footer */}
-          <div className="modal-footer border-t">modal footer</div>
+          <div className="modal-footer border-t">{footer}</div>
         </div>
       </div>
     </>

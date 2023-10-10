@@ -22,7 +22,7 @@ const TableBody = ({ _config, data }) => {
             )}
             {_config.th.map((col, i) => {
               return (
-                <th key={i} scope="col" className="px-4 py-3">
+                <th key={col.label} scope="col" className="px-4 py-3">
                   {col.label}
                 </th>
               );
