@@ -35,6 +35,9 @@ const Form = () => {
                 },
               })}
             />
+            {errors.name && (
+              <p className="text-red-900">{errors.name.message}</p>
+            )}
           </div>
           <div>
             <label
@@ -55,6 +58,7 @@ const Form = () => {
                 },
               })}
             />
+            <p className="text-red-500">{errors.brand?.message}</p>
           </div>
           <div>
             <label
@@ -93,7 +97,7 @@ const Form = () => {
                 },
               })}
             >
-              <option value="select">Select category</option>
+              <option value="">Select category</option>
               <option value="TV">TV/Monitors</option>
               <option value="PC">PC</option>
               <option value="GA">Gaming/Console</option>
