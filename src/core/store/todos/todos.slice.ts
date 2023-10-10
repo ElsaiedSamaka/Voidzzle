@@ -74,7 +74,6 @@ export const todosSlice = createSlice({
     // createTodo
     builder
       .addCase(createTodoThunk.fulfilled, (state, action) => {
-        console.log("[1;32m", action.payload);
         // appending new todo to the todos array
         state.todos.push(action.payload);
         // unshift new todo to the todos array
