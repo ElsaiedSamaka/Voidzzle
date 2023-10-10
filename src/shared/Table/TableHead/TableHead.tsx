@@ -239,7 +239,13 @@ const TableHead = ({ _config, data }) => {
       </div>
       {showAddModal && (
         <Dailog
-          header={<div>Header</div>}
+          header={
+            <div>
+              <h3 className="mb-4 text-xl font-medium text-gray-900 dark:text-white">
+                Sign in to our platform
+              </h3>
+            </div>
+          }
           body={<div>Body</div>}
           footer={<div>Footer</div>}
         />

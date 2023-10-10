@@ -22,7 +22,7 @@ const TableBody = ({ _config, data }) => {
             )}
             {_config.th.map((col, i) => {
               return (
-                <th key={col.label} scope="col" className="px-4 py-3">
+                <th key={col.id} scope="col" className="px-4 py-3">
                   {col.label}
                 </th>
               );
@@ -35,7 +35,7 @@ const TableBody = ({ _config, data }) => {
           {data.items.map((item, i) => {
             return (
               <>
-                <tr className="border-b" key={item.id}>
+                <tr className="border-b" key={i}>
                   {_config._multiSelect && (
                     <td className="w-4 px-4 py-3">
                       <div className="flex items-center">
