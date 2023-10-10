@@ -14,11 +14,11 @@ const Form = () => {
         temp1: "",
         temp2: "",
       },
-      array: [{ field: "" }],
+      array: [{ field: null }],
     },
   });
   const { errors, isValid, isLoading, isDirty, isSubmitted } = formState;
-  const { fields } = useFieldArray({
+  const { fields, append } = useFieldArray({
     name: "array",
     control,
   });
@@ -214,6 +214,7 @@ const Form = () => {
               })}
             />
           </div>
+          {/* dynamic fields */}
           {fields.map((field, i) => {
             return (
               <div key={field.id}>
@@ -223,7 +224,7 @@ const Form = () => {
                   id="price"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 :bg-gray-700 :border-gray-600 :placeholder-gray-400 :text-white :focus:ring-primary-500 :focus:border-primary-500"
                   placeholder="$2999"
-                  {...register("price", {
+                  {...register(`array.${i}.field`, {
                     required: {
                       value: true,
                       message: "price is required",
@@ -240,6 +241,8 @@ const Form = () => {
               </div>
             );
           })}
+          <button type="button" onClick={() => append({ field: null })}>add</button>
+          {/* dynamic fields */}
         </div>
         <button
           type="submit"
