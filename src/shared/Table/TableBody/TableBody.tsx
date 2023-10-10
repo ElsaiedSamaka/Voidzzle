@@ -1,7 +1,6 @@
 import React from 'react'
 
 const TableBody = ({ _config, data }) => {
-  console.log("table body [data]", data);
   return (
     <div className="overflow-x-auto">
       <table className="w-full text-sm text-left text-gray-500 :text-gray-400">
@@ -79,7 +78,7 @@ const TableBody = ({ _config, data }) => {
                   </div>
                 </td>
                 <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap :text-white">
-                 {item.salesPerDay}
+                  {item.salesPerDay}
                 </td>
                 <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap :text-white">
                   0.47

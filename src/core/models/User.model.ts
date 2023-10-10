@@ -9,5 +9,5 @@ export type User = {
   passwordConfirmation: string;
   firstname: string;
   lastname: string;
-  socketId?: number;
+  socketId?: string;
 };

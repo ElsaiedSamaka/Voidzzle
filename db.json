@@ -30,29 +30,29 @@
     "users": [
         {
             "id": 1,
-            "phonenumber": "string",
-            "email": "string",
-            "birthdate": "number",
-            "address": 12,
-            "password": true,
-            "user_img": "string",
-            "passwordConfirmation": "string",
-            "firstname": 2,
-            "lastname": 1.4,
-            "socketId": 4
+            "phonenumber": "01150567130",
+            "email": "loremiipsum99@gmail.com",
+            "birthdate": "21/3/1997",
+            "address": "mansourah",
+            "password": "zxczxxc",
+            "user_img": "https://unsplash.com/photos/sP5ZW-JDIfI",
+            "passwordConfirmation": "zxczxxc",
+            "firstname": "saied",
+            "lastname": "samaka",
+            "socketId": "axcxwe2"
         },
         {
-            "id": 2,
-            "phonenumber": "string",
-            "email": "string",
-            "birthdate": "number",
-            "address": 12,
-            "password": true,
-            "user_img": "string",
-            "passwordConfirmation": "string",
-            "firstname": 2,
-            "lastname": 1.4,
-            "socketId": 4
+            "id": 1,
+            "phonenumber": "01150567130",
+            "email": "loremiipsum99@gmail.com",
+            "birthdate": "21/3/1997",
+            "address": "mansourah",
+            "password": "zxczxxc",
+            "user_img": "https://unsplash.com/photos/sP5ZW-JDIfI",
+            "passwordConfirmation": "zxczxxc",
+            "firstname": "saied",
+            "lastname": "samaka",
+            "socketId": "axcxwe2"
         }
     ]
 }
