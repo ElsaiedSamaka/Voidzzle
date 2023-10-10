@@ -9,15 +9,15 @@ const Products = () => {
   const dispatch = useDispatch();
   const productsSlice = useSelector((state: RootState) => state.products);
   const th = [
-    { label: "Product" },
-    { label: "Category" },
-    { label: "Stock" },
-    { label: "Sales/Day" },
-    { label: "Sales/Month" },
-    { label: "Rating" },
-    { label: "Sales" },
-    { label: "Revenue" },
-    { label: "Last update" },
+    { label: "name", id: 1 },
+    { label: "category", id: 2 },
+    { label: "stock", id: 3 },
+    { label: "salesPerDay", id: 4 },
+    { label: "Sales/Month", id: 5 },
+    { label: "rating", id: 6 },
+    { label: "Sales", id: 7 },
+    { label: "Revenue", id: 8 },
+    { label: "Last update", id: 9 },
   ];
   // get todos from api just when component is mounted
   useEffect(() => {

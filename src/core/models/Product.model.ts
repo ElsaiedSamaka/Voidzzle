@@ -1,13 +1,14 @@
 export type Product = {
-  id?: number;
+  readonly id?: number;
   name: string;
   description: string;
   price: number;
   stock: number;
   availablity: boolean;
   product_img: string;
-  cloudinary_id?: string;
+  readonly cloudinary_id?: string;
   categoryId?: number;
-  salesPerDay?: number;
+  readonly salesPerDay?: number;
   rating?: number;
+  readonly sales: number;
 };

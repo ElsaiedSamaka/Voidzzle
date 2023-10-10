@@ -8,17 +8,17 @@ const Users = () => {
   const dispatch = useDispatch();
   const usersSlice = useSelector((state: RootState) => state.users);
   const th = [
-    { label: "Email" },
-    { label: "phonenumber" },
-    { label: "birthdate" },
-    { label: "address" },
-    { label: "firstname" },
-    { label: "lastname" },
+    { label: "email", id: 1 },
+    { label: "phonenumber", id: 2 },
+    { label: "birthdate", id: 3 },
+    { label: "address", id: 4 },
+    { label: "firstname", id: 5 },
+    { label: "lastname", id: 6 },
   ];
   useEffect(() => {
     dispatch(getUsersThunk());
   }, [dispatch]);
-  
+
   return (
     <Table
       _config={{
