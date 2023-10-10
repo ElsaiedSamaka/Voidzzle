@@ -250,10 +250,8 @@ const TableHead = ({ _config, data }) => {
 };
 const DailogHeader = ({ handleAddtionModalToggle }) => {
   return (
-    <div className="flex justify-between">
-      <h3 className="mb-4 text-xl font-medium text-gray-900 ">
-        Sign in to our platform
-      </h3>
+    <div className="flex justify-between items-center">
+      <h3 className=" text-xl font-bold text-gray-900 ">Add new product</h3>
       <div
         onClick={handleAddtionModalToggle}
         className="p-1 w-fit h-fit rounded-full text-gray-700 bg-gray-50 hover:bg-gray-100 hover:cursor-pointer hover:text-gray-900"
