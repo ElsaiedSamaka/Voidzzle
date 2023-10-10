@@ -3,7 +3,15 @@ import { useForm } from "react-hook-form";
 import { DevTool } from "@hookform/devtools";
 import { useDispatch } from "react-redux";
 const Form = () => {
-  const { register, handleSubmit, formState, control } = useForm();
+  const { register, handleSubmit, formState, control } = useForm({
+    defaultValues: {
+      name: "product name",
+      brand: "",
+      price: 1,
+      category: "",
+      description: "",
+    },
+  });
   const { errors, isValid, isLoading, isDirty, isSubmitted, isSubmitting } =
     formState;
   const dispatch = useDispatch();
@@ -63,7 +71,9 @@ const Form = () => {
                 },
               })}
             />
-            <p className="text-red-500">{errors.brand?.message}</p>
+            {errors.brand && (
+              <p className="text-red-900">{errors.brand.message}</p>
+            )}
           </div>
           <div>
             <label
@@ -81,6 +91,13 @@ const Form = () => {
                 required: {
                   value: true,
                   message: "price is required",
+                },
+                validate: {
+                  notZero: (val) => {
+                    if (val == 0) {
+                      return "price cannot be zero";
+                    }
+                  },
                 },
               })}
             />
