@@ -3,7 +3,9 @@ import { useForm } from "react-hook-form";
 import { DevTool } from "@hookform/devtools";
 import { useDispatch } from "react-redux";
 const Form = () => {
-  const { register, handleSubmit, control } = useForm();
+  const { register, handleSubmit, formState, control } = useForm();
+  const { errors, isValid, isLoading, isDirty, isSubmitted, isSubmitting } =
+    formState;
   const dispatch = useDispatch();
   function submit(formData: any) {
     console.log("formData", formData);
@@ -26,7 +28,12 @@ const Form = () => {
               id="name"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 :bg-gray-700 :border-gray-600 :placeholder-gray-400 :text-white :focus:ring-primary-500 :focus:border-primary-500"
               placeholder="Type product name"
-              {...register("name")}
+              {...register("name", {
+                required: {
+                  value: true,
+                  message: "name is required",
+                },
+              })}
             />
           </div>
           <div>
@@ -41,7 +48,12 @@ const Form = () => {
               id="brand"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 :bg-gray-700 :border-gray-600 :placeholder-gray-400 :text-white :focus:ring-primary-500 :focus:border-primary-500"
               placeholder="Product brand"
-              {...register("brand")}
+              {...register("brand", {
+                required: {
+                  value: true,
+                  message: "brand is required",
+                },
+              })}
             />
           </div>
           <div>
@@ -56,7 +68,12 @@ const Form = () => {
               id="price"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 :bg-gray-700 :border-gray-600 :placeholder-gray-400 :text-white :focus:ring-primary-500 :focus:border-primary-500"
               placeholder="$2999"
-              {...register("price")}
+              {...register("price", {
+                required: {
+                  value: true,
+                  message: "price is required",
+                },
+              })}
             />
           </div>
           <div>
@@ -69,7 +86,12 @@ const Form = () => {
             <select
               id="category"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 :bg-gray-700 :border-gray-600 :placeholder-gray-400 :text-white :focus:ring-primary-500 :focus:border-primary-500"
-              {...register("category")}
+              {...register("category", {
+                required: {
+                  value: true,
+                  message: "category is required",
+                },
+              })}
             >
               <option value="select">Select category</option>
               <option value="TV">TV/Monitors</option>
@@ -90,8 +112,16 @@ const Form = () => {
               rows={4}
               className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 :bg-gray-700 :border-gray-600 :placeholder-gray-400 :text-white :focus:ring-primary-500 :focus:border-primary-500"
               placeholder="Write product description here"
-              defaultValue={""}
-              {...register("description")}
+              {...register("description", {
+                minLength: {
+                  value: 12,
+                  message: "min length is 12",
+                },
+                maxLength: {
+                  value: 20,
+                  message: "max length is 20",
+                },
+              })}
             />
           </div>
         </div>
