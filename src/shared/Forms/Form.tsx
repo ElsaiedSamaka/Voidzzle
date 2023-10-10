@@ -5,7 +5,7 @@ const Form = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isValid },
   } = useForm();
   const dispatch = useDispatch();
   function submit(formData: any) {
