@@ -1,5 +1,5 @@
 import { createTodoThunk } from "core/store/todos/todos.thunk";
-import { useForm } from "react-hook-form";
+import { useForm, useFieldArray } from "react-hook-form";
 import { DevTool } from "@hookform/devtools";
 import { useDispatch } from "react-redux";
 const Form = () => {
@@ -14,11 +14,14 @@ const Form = () => {
         temp1: "",
         temp2: "",
       },
-      array: ["", ""],
+      array: [{ field: "" }],
     },
   });
-  const { errors, isValid, isLoading, isDirty, isSubmitted, isSubmitting } =
-    formState;
+  const { errors, isValid, isLoading, isDirty, isSubmitted } = formState;
+  const { fields } = useFieldArray({
+    name: "array",
+    control,
+  });
   const dispatch = useDispatch();
   function submit(formData: any) {
     console.log("formData", formData);
@@ -211,6 +214,32 @@ const Form = () => {
               })}
             />
           </div>
+          {fields.map((field, i) => {
+            return (
+              <div key={field.id}>
+                {" "}
+                <input
+                  type="number"
+                  id="price"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 :bg-gray-700 :border-gray-600 :placeholder-gray-400 :text-white :focus:ring-primary-500 :focus:border-primary-500"
+                  placeholder="$2999"
+                  {...register("price", {
+                    required: {
+                      value: true,
+                      message: "price is required",
+                    },
+                    validate: {
+                      notZero: (val) => {
+                        if (val == 0) {
+                          return "price cannot be zero";
+                        }
+                      },
+                    },
+                  })}
+                />
+              </div>
+            );
+          })}
         </div>
         <button
           type="submit"
