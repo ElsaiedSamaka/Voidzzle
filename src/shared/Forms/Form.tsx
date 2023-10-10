@@ -33,6 +33,11 @@ const Form = () => {
                   value: true,
                   message: "name is required",
                 },
+                validate: (val) => {
+                  if (val == "name") {
+                    return "Enter different product name";
+                  }
+                },
               })}
             />
             {errors.name && (
