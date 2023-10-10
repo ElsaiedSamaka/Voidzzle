@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import Dailog from "shared/Modals/Dailog/Dailog";
 
 const TableHead = ({ _config, data }) => {
+  const [showAddModal, toggleShowModal] = useState(false);
   function handleAddtion() {
-    console.log("called");
+    toggleShowModal(!showAddModal);
   }
   return (
     <>
@@ -236,7 +237,7 @@ const TableHead = ({ _config, data }) => {
           </div>
         )}
       </div>
-      <Dailog />
+      {showAddModal && <Dailog />}
     </>
   );
 };
