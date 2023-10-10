@@ -33,24 +33,7 @@ const Table = ({
   },
   data,
 }) => {
-  // const dispatch = useDispatch();
-  // const todosSlice = useSelector((state: RootState) => state.todos);
-  // get todos from api just when component is mounted
-  // useEffect(() => {
-  //   dispatch(getTodosThunk());
-  // }, [dispatch]);
   return (
-    // <div>
-    //   Table
-    //   {/* <button onClick={() => dispatch(getTodosThunk())}>click me</button>
-    //   <ul>
-    //     {todosSlice.loading && <li>loading...</li>}
-    //     {todosSlice.error && <li>error...</li>}
-    //     {todosSlice.todos.map((todo) => (
-    //       <li key={todo.id}>{todo.title}</li>
-    //     ))}
-    //   </ul> */}
-    // </div>
     <div className=" mx-auto max-w-screen-2xl my-2">
       <div className="relative overflow-hidden bg-white shadow rounded-md">
         {/* table head */}
