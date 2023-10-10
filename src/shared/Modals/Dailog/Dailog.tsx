@@ -12,7 +12,7 @@ const Dailog = ({ header, body, footer }) => {
         <div className="flex flex-col w-full">
           {/* Modal content */}
           {/* Modal header */}
-          <div className="modal-header ">{header}</div>
+          <div className="modal-header">{header}</div>
           {/* Modal body */}
           <div className="modal-body overflow-scroll">{body}</div>
           {/* Modal footer */}
