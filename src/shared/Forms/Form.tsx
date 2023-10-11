@@ -3,7 +3,7 @@ import { useForm, useFieldArray } from "react-hook-form";
 import { DevTool } from "@hookform/devtools";
 import { useDispatch } from "react-redux";
 const Form = () => {
-  const { register, handleSubmit, formState, control, watch, setValue } =
+  const { register, handleSubmit, formState, control, watch, setValue, reset } =
     useForm({
       defaultValues: {
         name: "product name",
@@ -20,14 +20,8 @@ const Form = () => {
       },
       mode: "onBlur",
     });
-  const {
-    errors,
-    isValid,
-    isLoading,
-    isDirty,
-    isSubmitted,
-    isSubmitSuccessful,
-  } = formState;
+  const { errors, isValid, isLoading, isDirty, isSubmitted, isSubmitting } =
+    formState;
   const { fields, append, remove } = useFieldArray({
     name: "array",
     control,
@@ -38,6 +32,21 @@ const Form = () => {
     setValue("name", "test", {
       shouldValidate: true,
       shouldDirty: true,
+    });
+  };
+  const handleReset = () => {
+    reset({
+      name: "product name",
+      brand: "",
+      price: 1,
+      date: null,
+      category: "",
+      description: "",
+      test: {
+        temp1: "",
+        temp2: "",
+      },
+      array: [{ field: null }],
     });
   };
   function submit(formData: any) {
@@ -305,11 +314,15 @@ const Form = () => {
           </button>
           {/* dynamic fields */}
         </div>
+        <button type="button" onClick={handleReset}>
+          reset
+        </button>
+        <br />
         <button type="button" onClick={handleSetName}>
           setName
         </button>
         <button
-          disabled={!isValid || !isDirty || !isSubmitted}
+          disabled={!isValid || !isDirty || !isSubmitting}
           type="submit"
           className="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
         >
