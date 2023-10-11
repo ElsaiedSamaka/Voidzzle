@@ -60,16 +60,10 @@ const Form = () => {
         <div>watchBrand:{watchBrand}</div>
         <div className="grid gap-4 mb-4 sm:grid-cols-2">
           <div>
-            <label
-              htmlFor="name"
-              className="block mb-2 text-sm font-medium text-gray-900 :text-white"
-            >
-              Name
-            </label>
+            <label htmlFor="name">Name</label>
             <input
               type="text"
               id="name"
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 :bg-gray-700 :border-gray-600 :placeholder-gray-400 :text-white :focus:ring-primary-500 :focus:border-primary-500"
               placeholder="Type product name"
               {...register("name", {
                 required: {
@@ -88,16 +82,10 @@ const Form = () => {
             )}
           </div>
           <div>
-            <label
-              htmlFor="brand"
-              className="block mb-2 text-sm font-medium text-gray-900 :text-white"
-            >
-              Brand
-            </label>
+            <label htmlFor="brand">Brand</label>
             <input
               type="text"
               id="brand"
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 disabled:bg-gray-300"
               placeholder="Product brand"
               {...register("brand", {
                 required: {
@@ -119,16 +107,10 @@ const Form = () => {
             )}
           </div>
           <div>
-            <label
-              htmlFor="temp1"
-              className="block mb-2 text-sm font-medium text-gray-900 :text-white"
-            >
-              Temp1
-            </label>
+            <label htmlFor="temp1">Temp1</label>
             <input
               type="text"
               id="temp1"
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 :bg-gray-700 :border-gray-600 :placeholder-gray-400 :text-white :focus:ring-primary-500 :focus:border-primary-500"
               placeholder="Type product name"
               {...register("test.temp1", {
                 required: {
@@ -147,16 +129,10 @@ const Form = () => {
             )}
           </div>
           <div>
-            <label
-              htmlFor="temp2"
-              className="block mb-2 text-sm font-medium text-gray-900 :text-white"
-            >
-              Temp2
-            </label>
+            <label htmlFor="temp2">Temp2</label>
             <input
               type="text"
               id="temp2"
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 :bg-gray-700 :border-gray-600 :placeholder-gray-400 :text-white :focus:ring-primary-500 :focus:border-primary-500"
               placeholder="Type product name"
               {...register("test.temp2", {
                 required: {
@@ -175,16 +151,10 @@ const Form = () => {
             )}
           </div>
           <div>
-            <label
-              htmlFor="price"
-              className="block mb-2 text-sm font-medium text-gray-900 :text-white"
-            >
-              Price
-            </label>
+            <label htmlFor="price">Price</label>
             <input
               type="number"
               id="price"
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 :bg-gray-700 :border-gray-600 :placeholder-gray-400 :text-white :focus:ring-primary-500 :focus:border-primary-500"
               placeholder="$2999"
               {...register("price", {
                 required: {
@@ -202,16 +172,10 @@ const Form = () => {
             />
           </div>
           <div>
-            <label
-              htmlFor="date"
-              className="block mb-2 text-sm font-medium text-gray-900 :text-white"
-            >
-              Date
-            </label>
+            <label htmlFor="date">Date</label>
             <input
               type="date"
               id="date"
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 :bg-gray-700 :border-gray-600 :placeholder-gray-400 :text-white :focus:ring-primary-500 :focus:border-primary-500"
               {...register("date", {
                 valueAsDate: true,
                 required: {
@@ -229,12 +193,7 @@ const Form = () => {
             />
           </div>
           <div>
-            <label
-              htmlFor="category"
-              className="block mb-2 text-sm font-medium text-gray-900 :text-white"
-            >
-              Category
-            </label>
+            <label htmlFor="category">Category</label>
             <select
               id="category"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 :bg-gray-700 :border-gray-600 :placeholder-gray-400 :text-white :focus:ring-primary-500 :focus:border-primary-500"
@@ -253,16 +212,10 @@ const Form = () => {
             </select>
           </div>
           <div className="sm:col-span-2">
-            <label
-              htmlFor="description"
-              className="block mb-2 text-sm font-medium text-gray-900 :text-white"
-            >
-              Description
-            </label>
+            <label htmlFor="description">Description</label>
             <textarea
               id="description"
               rows={4}
-              className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 :bg-gray-700 :border-gray-600 :placeholder-gray-400 :text-white :focus:ring-primary-500 :focus:border-primary-500"
               placeholder="Write product description here"
               {...register("description", {
                 minLength: {
@@ -284,7 +237,6 @@ const Form = () => {
                 <input
                   type="number"
                   id="price"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 :bg-gray-700 :border-gray-600 :placeholder-gray-400 :text-white :focus:ring-primary-500 :focus:border-primary-500"
                   placeholder="$2999"
                   {...register(`array.${i}.field`, {
                     valueAsNumber: true,
@@ -321,13 +273,8 @@ const Form = () => {
         <button type="button" onClick={handleSetName}>
           setName
         </button>
-        <button
-          disabled={!isValid || !isDirty || !isSubmitting}
-          type="submit"
-          className="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
-        >
+        <button disabled={!isValid || !isDirty || !isSubmitting} type="submit">
           <svg
-            className="mr-1 -ml-1 w-6 h-6"
             fill="currentColor"
             viewBox="0 0 20 20"
             xmlns="http://www.w3.org/2000/svg"
