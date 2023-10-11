@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ReusableForm from "shared/Forms/Form";
 import Form from "shared/Forms/Form";
 import Dailog from "shared/Modals/Dailog/Dailog";
 
@@ -278,6 +279,24 @@ const DailogHeader = ({ handleAddtionModalToggle }) => {
 };
 
 const DailogBody = () => {
-  return <Form />;
+  const defaultValues = {
+    name: "product name",
+    brand: "",
+    price: 1,
+    date: null,
+    category: "",
+    description: "",
+    test: {
+      temp1: "",
+      temp2: "",
+    },
+    array: [{ field: null }],
+  };
+  const handleSubmit = (formData) => {
+    console.log("formData", formData);
+    // dispatch(createTodoThunk(formData));
+  };
+
+  return <ReusableForm defaultValues={defaultValues} onSubmit={handleSubmit} />;
 };
 export default TableHead;
