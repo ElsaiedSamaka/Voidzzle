@@ -3,7 +3,7 @@ import { useForm, useFieldArray } from "react-hook-form";
 import { DevTool } from "@hookform/devtools";
 import { useDispatch } from "react-redux";
 const Form = () => {
-  const { register, handleSubmit, formState, control } = useForm({
+  const { register, handleSubmit, formState, control, watch } = useForm({
     defaultValues: {
       name: "product name",
       brand: "",
@@ -17,6 +17,7 @@ const Form = () => {
       },
       array: [{ field: null }],
     },
+    mode: "onBlur",
   });
   const { errors, isValid, isLoading, isDirty, isSubmitted } = formState;
   const { fields, append, remove } = useFieldArray({
@@ -24,6 +25,7 @@ const Form = () => {
     control,
   });
   const dispatch = useDispatch();
+  const watchBrand = watch("brand");
   function submit(formData: any) {
     console.log("formData", formData);
     // dispatch(createTodoThunk(formData));
@@ -32,6 +34,7 @@ const Form = () => {
   return (
     <>
       <form onSubmit={handleSubmit(submit)}>
+        <div>watchBrand:{watchBrand}</div>
         <div className="grid gap-4 mb-4 sm:grid-cols-2">
           <div>
             <label
@@ -71,13 +74,14 @@ const Form = () => {
             <input
               type="text"
               id="brand"
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 :bg-gray-700 :border-gray-600 :placeholder-gray-400 :text-white :focus:ring-primary-500 :focus:border-primary-500"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 disabled:bg-gray-300"
               placeholder="Product brand"
               {...register("brand", {
                 required: {
                   value: true,
                   message: "brand is required",
                 },
+                disabled: true,
               })}
             />
             {errors.brand && (
@@ -109,7 +113,7 @@ const Form = () => {
               })}
             />
             {errors.test && (
-              <p className="text-red-900">{errors.test.temp1.message}</p>
+              <p className="text-red-900">{errors.test["temp1"]?.message}</p>
             )}
           </div>
           <div>
@@ -137,7 +141,7 @@ const Form = () => {
               })}
             />
             {errors.test && (
-              <p className="text-red-900">{errors.test.temp2.message}</p>
+              <p className="text-red-900">{errors.test["temp2"]?.message}</p>
             )}
           </div>
           <div>
@@ -179,6 +183,7 @@ const Form = () => {
               id="date"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 :bg-gray-700 :border-gray-600 :placeholder-gray-400 :text-white :focus:ring-primary-500 :focus:border-primary-500"
               {...register("date", {
+                valueAsDate: true,
                 required: {
                   value: true,
                   message: "data is required",
