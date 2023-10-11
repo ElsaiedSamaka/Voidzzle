@@ -35,7 +35,10 @@ const Form = () => {
   const dispatch = useDispatch();
   const watchBrand = watch("brand");
   const handleSetName = () => {
-    setValue("name", "test");
+    setValue("name", "test", {
+      shouldValidate: true,
+      shouldDirty: true,
+    });
   };
   function submit(formData: any) {
     console.log("formData", formData);
@@ -93,6 +96,13 @@ const Form = () => {
                   message: "brand is required",
                 },
                 disabled: true,
+                validate: {
+                  asyncValidate: (val) => {
+                    if (val == "brand") {
+                      return "Enter different product brand";
+                    }
+                  },
+                },
               })}
             />
             {errors.brand && (
@@ -295,6 +305,9 @@ const Form = () => {
           </button>
           {/* dynamic fields */}
         </div>
+        <button type="button" onClick={handleSetName}>
+          setName
+        </button>
         <button
           disabled={!isValid || !isDirty || !isSubmitted}
           type="submit"
