@@ -3,29 +3,40 @@ import { useForm, useFieldArray } from "react-hook-form";
 import { DevTool } from "@hookform/devtools";
 import { useDispatch } from "react-redux";
 const Form = () => {
-  const { register, handleSubmit, formState, control, watch } = useForm({
-    defaultValues: {
-      name: "product name",
-      brand: "",
-      price: 1,
-      date: null,
-      category: "",
-      description: "",
-      test: {
-        temp1: "",
-        temp2: "",
+  const { register, handleSubmit, formState, control, watch, setValue } =
+    useForm({
+      defaultValues: {
+        name: "product name",
+        brand: "",
+        price: 1,
+        date: null,
+        category: "",
+        description: "",
+        test: {
+          temp1: "",
+          temp2: "",
+        },
+        array: [{ field: null }],
       },
-      array: [{ field: null }],
-    },
-    mode: "onBlur",
-  });
-  const { errors, isValid, isLoading, isDirty, isSubmitted } = formState;
+      mode: "onBlur",
+    });
+  const {
+    errors,
+    isValid,
+    isLoading,
+    isDirty,
+    isSubmitted,
+    isSubmitSuccessful,
+  } = formState;
   const { fields, append, remove } = useFieldArray({
     name: "array",
     control,
   });
   const dispatch = useDispatch();
   const watchBrand = watch("brand");
+  const handleSetName = () => {
+    setValue("name", "test");
+  };
   function submit(formData: any) {
     console.log("formData", formData);
     // dispatch(createTodoThunk(formData));
@@ -285,6 +296,7 @@ const Form = () => {
           {/* dynamic fields */}
         </div>
         <button
+          disabled={!isValid || !isDirty || !isSubmitted}
           type="submit"
           className="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
         >
