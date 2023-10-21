@@ -1,133 +1,547 @@
 import { useForm, useFieldArray } from "react-hook-form";
 import { DevTool } from "@hookform/devtools";
-import { useDispatch } from "react-redux";
-
-const ReusableForm = ({ defaultValues, onSubmit }) => {
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "core/store";
+import { createProductThunk } from "core/store/products/products.thunk";
+import styles from "./Form.module.css"
+const Form = ({ formActions: {
+  handleModalToggle,
+  handleDispatch
+}, defaultValues, formFields }) => {
   const {
     register,
     handleSubmit,
     formState: { errors, isValid, isDirty, isSubmitting },
     control,
-    watch,
-    setValue,
     reset,
+    watch,
   } = useForm({
     defaultValues,
-    mode: "onBlur",
+    // mode: "onBlur",
   });
-
-  const { fields, append, remove } = useFieldArray({
-    name: "array",
-    control,
-  });
-
-  const dispatch = useDispatch();
-  const watchBrand = watch("brand");
-
-  const handleSetName = () => {
-    setValue("name", "test", {
-      shouldValidate: true,
-      shouldDirty: true,
-    });
+  const dispatch = useDispatch()
+  const submit = (formData) => {
+    dispatch(createProductThunk(formData))
+    handleModalToggle()
+    // dispatch(createTodoThunk(formData));
   };
-
   const handleReset = () => {
     reset(defaultValues);
   };
-
+  const watchForm = watch();
+  console.log("errors", errors);
   return (
     <>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div>watchBrand: {watchBrand}</div>
+      <form
+        onSubmit={handleSubmit(submit)}
+        className="mt-2 flex flex-col w-fit h-fit"
+      >
         {/* Form fields */}
         <div className="grid gap-4 mb-4 sm:grid-cols-2">
-          <div>
-            <label htmlFor="name">Name</label>
-            <input
-              type="text"
-              id="name"
-              placeholder="Type product name"
-              {...register("name", {
-                required: {
-                  value: true,
-                  message: "name is required",
-                },
-                validate: (val) => {
-                  if (val === "name") {
-                    return "Enter a different product name";
-                  }
-                },
-              })}
-            />
-            {errors.name && (
-              <p className="text-red-900">{errors.name.message}</p>
-            )}
-          </div>
-          {/* Add other form fields here */}
+          {formFields.map((field, i) => {
+            return (
+              <>
+                {field.type == "text" && (
+                  <div className="input flex flex-col w-full font-semibold group">
+                    {field.label && (
+                      <label className="capitalize" htmlFor={field.name}>
+                        {field.label}
+                      </label>
+                    )}
+                    <input
+                      className={`p-2 rounded-md border ${
+                        errors[field.name] ? "border-red-500" : ""
+                      } font-normal`}
+                      name={field.name}
+                      id={field.id}
+                      type={field.type}
+                      {...register(field.name, {
+                        required: {
+                          value: field.required,
+                          message: "this is a required field",
+                        },
+                        pattern: field.pattern,
+                        maxLength: field.maxLength,
+                        minLength: field.minLength,
+                        validate: field.validation?.reduce((acc, validator) => {
+                          return {
+                            ...acc,
+                            ...validator,
+                          };
+                        }, {}),
+                      })}
+                    />
+                    {errors[field.name] && (
+                      <span className="opacity-0 group-hover:opacity-100 transition-all duration-300 text-red-500 px-1 rounded-full text-center w-fit absolute left-[12%] bg-white border border-red-500">
+                        {errors[field.name].message}
+                      </span>
+                    )}
+                  </div>
+                )}
+                {field.type == "date" && (
+                  <div className="input flex flex-col w-full font-semibold group">
+                    {field.label && (
+                      <label className="capitalize" htmlFor={field.name}>
+                        {field.label}
+                      </label>
+                    )}
+                    <input
+                      className={`p-2 rounded-md border ${
+                        errors[field.name] ? "border-red-500" : ""
+                      } font-normal`}
+                      name={field.name}
+                      id={field.id}
+                      type={field.type}
+                      {...register(field.name, {
+                        required: {
+                          value: field.required,
+                          message: "this is a required field",
+                        },
+                        pattern: field.pattern,
+                        maxLength: field.maxLength,
+                        minLength: field.minLength,
+                        validate: field.validation?.reduce((acc, validator) => {
+                          return {
+                            ...acc,
+                            ...validator,
+                          };
+                        }, {}),
+                      })}
+                    />
+                    {errors[field.name] && (
+                      <span className="opacity-0 group-hover:opacity-100 transition-all duration-300 text-red-500 px-1 rounded-full text-center w-fit absolute left-[12%] bg-white border border-red-500">
+                        {errors[field.name].message}
+                      </span>
+                    )}
+                  </div>
+                )}
+                {field.type == "checkbox" && (
+                  <div className="input flex flex-col w-full font-semibold group">
+                    <label className={styles.checkboxbtn}>
+                      <label htmlFor={field.label}>{field.label}</label>
+                      <input id={field.id} type={field.type} />
+                      <span className={styles.checkmark}></span>
+                    </label>
+                    {errors[field.name] && (
+                      <span className="opacity-0 group-hover:opacity-100 transition-all duration-300 text-red-500 px-1 rounded-full text-center w-fit absolute left-[12%] bg-white border border-red-500">
+                        {errors[field.name].message}
+                      </span>
+                    )}
+                  </div>
+                )}
+                {field.type == "select" && (
+                  <div className="input flex flex-col w-full font-semibold group">
+                    {field.label && (
+                      <label className="capitalize" htmlFor={field.name}>
+                        {field.label}
+                      </label>
+                    )}
+                    {/* className=
+                    {`p-2 rounded-md border ${
+                      errors[field.name] ? "border-red-500" : ""
+                    } font-normal`} */}
+                    <select
+                      className={`p-2 rounded-md border ${
+                        errors[field.name] ? "border-red-500" : ""
+                      } font-normal`}
+                      name={field.name}
+                      id={field.id}
+                      {...register(field.name, {
+                        required: {
+                          value: field.required,
+                          message: "this is a required field",
+                        },
+                        pattern: field.pattern,
+                        maxLength: field.maxLength,
+                        minLength: field.minLength,
+                        validate: field.validation?.reduce((acc, validator) => {
+                          return {
+                            ...acc,
+                            ...validator,
+                          };
+                        }, {}),
+                      })}
+                    >
+                      <option value="volvo">Volvo</option>
+                      <option value="saab">Saab</option>
+                      <option value="mercedes">Mercedes</option>
+                      <option value="audi">Audi</option>
+                    </select>
+                    {errors[field.name] && (
+                      <span className="opacity-0 group-hover:opacity-100 transition-all duration-300 text-red-500 px-1 rounded-full text-center w-fit absolute left-[12%] bg-white border border-red-500">
+                        {errors[field.name].message}
+                      </span>
+                    )}
+                  </div>
+                )}
+                {field.type == "text-area" && (
+                  <div className="input flex flex-col w-full font-semibold group">
+                    {field.label && (
+                      <label className="capitalize" htmlFor={field.name}>
+                        {field.label}
+                      </label>
+                    )}
+
+                    <textarea
+                      className={`p-2 rounded-md border ${
+                        errors[field.name] ? "border-red-500" : ""
+                      } font-normal`}
+                      name={field.name}
+                      id={field.id}
+                    ></textarea>
+                    {errors[field.name] && (
+                      <span className="opacity-0 group-hover:opacity-100 transition-all duration-300 text-red-500 px-1 rounded-full text-center w-fit absolute left-[12%] bg-white border border-red-500">
+                        {errors[field.name].message}
+                      </span>
+                    )}
+                  </div>
+                )}
+                {field.type == "password" && (
+                  <div className="input flex flex-col w-full font-semibold group">
+                    {field.label && (
+                      <label className="capitalize" htmlFor={field.name}>
+                        {field.label}
+                      </label>
+                    )}
+                    <input
+                      className={`p-2 rounded-md border ${
+                        errors[field.name] ? "border-red-500" : ""
+                      } font-normal`}
+                      name={field.name}
+                      id={field.id}
+                      type={field.type}
+                      {...register(field.name, {
+                        required: {
+                          value: field.required,
+                          message: "this is a required field",
+                        },
+                        pattern: field.pattern,
+                        maxLength: field.maxLength,
+                        minLength: field.minLength,
+                        validate: field.validation?.reduce((acc, validator) => {
+                          return {
+                            ...acc,
+                            ...validator,
+                          };
+                        }, {}),
+                      })}
+                    />
+                    {errors[field.name] && (
+                      <span className="opacity-0 group-hover:opacity-100 transition-all duration-300 text-red-500 px-1 rounded-full text-center w-fit absolute left-[12%] bg-white border border-red-500">
+                        {errors[field.name].message}
+                      </span>
+                    )}
+                  </div>
+                )}
+                {field.type == "file" && (
+                  <div className="input flex flex-col w-full font-semibold group">
+                    {field.label && (
+                      <label className="capitalize" htmlFor={field.name}>
+                        {field.label}
+                      </label>
+                    )}
+                    <input
+                      className={`p-2 rounded-md border ${
+                        errors[field.name] ? "border-red-500" : ""
+                      } font-normal`}
+                      name={field.name}
+                      id={field.id}
+                      type={field.type}
+                      {...register(field.name, {
+                        required: {
+                          value: field.required,
+                          message: "this is a required field",
+                        },
+                        pattern: field.pattern,
+                        maxLength: field.maxLength,
+                        minLength: field.minLength,
+                        validate: field.validation?.reduce((acc, validator) => {
+                          return {
+                            ...acc,
+                            ...validator,
+                          };
+                        }, {}),
+                      })}
+                    />
+                    {errors[field.name] && (
+                      <span className="opacity-0 group-hover:opacity-100 transition-all duration-300 text-red-500 px-1 rounded-full text-center w-fit absolute left-[12%] bg-white border border-red-500">
+                        {errors[field.name].message}
+                      </span>
+                    )}
+                  </div>
+                )}
+                {field.type == "radio" && (
+                  <div className="input flex flex-col w-full font-semibold group">
+                    {field.label && (
+                      <label className="capitalize" htmlFor={field.name}>
+                        {field.label}
+                      </label>
+                    )}
+                    <input
+                      className={`p-2 rounded-md border ${
+                        errors[field.name] ? "border-red-500" : ""
+                      } font-normal`}
+                      name={field.name}
+                      id={field.id}
+                      type={field.type}
+                      {...register(field.name, {
+                        required: {
+                          value: field.required,
+                          message: "this is a required field",
+                        },
+                        pattern: field.pattern,
+                        maxLength: field.maxLength,
+                        minLength: field.minLength,
+                        validate: field.validation?.reduce((acc, validator) => {
+                          return {
+                            ...acc,
+                            ...validator,
+                          };
+                        }, {}),
+                      })}
+                    />
+                    {errors[field.name] && (
+                      <span className="opacity-0 group-hover:opacity-100 transition-all duration-300 text-red-500 px-1 rounded-full text-center w-fit absolute left-[12%] bg-white border border-red-500">
+                        {errors[field.name].message}
+                      </span>
+                    )}
+                  </div>
+                )}
+                {field.type == "tel" && (
+                  <div className="input flex flex-col w-full font-semibold group">
+                    {field.label && (
+                      <label className="capitalize" htmlFor={field.name}>
+                        {field.label}
+                      </label>
+                    )}
+                    <input
+                      className={`p-2 rounded-md border ${
+                        errors[field.name] ? "border-red-500" : ""
+                      } font-normal`}
+                      name={field.name}
+                      id={field.id}
+                      type={field.type}
+                      {...register(field.name, {
+                        required: {
+                          value: field.required,
+                          message: "this is a required field",
+                        },
+                        pattern: field.pattern,
+                        maxLength: field.maxLength,
+                        minLength: field.minLength,
+                        validate: field.validation?.reduce((acc, validator) => {
+                          return {
+                            ...acc,
+                            ...validator,
+                          };
+                        }, {}),
+                      })}
+                    />
+                    {errors[field.name] && (
+                      <span className="opacity-0 group-hover:opacity-100 transition-all duration-300 text-red-500 px-1 rounded-full text-center w-fit absolute left-[12%] bg-white border border-red-500">
+                        {errors[field.name].message}
+                      </span>
+                    )}
+                  </div>
+                )}
+                {field.type == "range" && (
+                  <div className="input flex flex-col w-full font-semibold group">
+                    {field.label && (
+                      <label className="capitalize" htmlFor={field.name}>
+                        {field.label}
+                      </label>
+                    )}
+                    <input
+                      className={`p-2 rounded-md border ${
+                        errors[field.name] ? "border-red-500" : ""
+                      } font-normal`}
+                      name={field.name}
+                      id={field.id}
+                      type={field.type}
+                      {...register(field.name, {
+                        required: {
+                          value: field.required,
+                          message: "this is a required field",
+                        },
+                        pattern: field.pattern,
+                        maxLength: field.maxLength,
+                        minLength: field.minLength,
+                        validate: field.validation?.reduce((acc, validator) => {
+                          return {
+                            ...acc,
+                            ...validator,
+                          };
+                        }, {}),
+                      })}
+                    />
+                    {errors[field.name] && (
+                      <span className="opacity-0 group-hover:opacity-100 transition-all duration-300 text-red-500 px-1 rounded-full text-center w-fit absolute left-[12%] bg-white border border-red-500">
+                        {errors[field.name].message}
+                      </span>
+                    )}
+                  </div>
+                )}
+                {field.type == "email" && (
+                  <div className="input flex flex-col w-full font-semibold group">
+                    {field.label && (
+                      <label className="capitalize" htmlFor={field.name}>
+                        {field.label}
+                      </label>
+                    )}
+                    <input
+                      className={`p-2 rounded-md border ${
+                        errors[field.name] ? "border-red-500" : ""
+                      } font-normal`}
+                      name={field.name}
+                      id={field.id}
+                      type={field.type}
+                      placeholder={field.placholder}
+                      {...register(field.name, {
+                        required: {
+                          value: field.required,
+                          message: "this is a required field",
+                        },
+                        pattern: field.pattern,
+                        maxLength: field.maxLength,
+                        minLength: field.minLength,
+                        validate: field.validation?.reduce((acc, validator) => {
+                          return {
+                            ...acc,
+                            ...validator,
+                          };
+                        }, {}),
+                      })}
+                    />
+                    {errors[field.name] && (
+                      <span className="opacity-0 group-hover:opacity-100 transition-all duration-300 text-red-500 px-1 rounded-full text-center w-fit absolute left-[12%] bg-white border border-red-500">
+                        {errors[field.name].message}
+                      </span>
+                    )}
+                  </div>
+                )}
+                {field.type == "number" && (
+                  <div className="input flex flex-col w-full font-semibold group">
+                    {field.label && (
+                      <label className="capitalize" htmlFor={field.name}>
+                        {field.label}
+                      </label>
+                    )}
+                    <input
+                      className={`p-2 rounded-md border ${
+                        errors[field.name] ? "border-red-500" : ""
+                      } font-normal`}
+                      name={field.name}
+                      id={field.id}
+                      type={field.type}
+                      placeholder={field.placholder}
+                      {...register(field.name, {
+                        required: {
+                          value: field.required,
+                          message: "this is a required field",
+                        },
+                        pattern: field.pattern,
+                        maxLength: field.maxLength,
+                        minLength: field.minLength,
+                        validate: field.validation?.reduce((acc, validator) => {
+                          return {
+                            ...acc,
+                            ...validator,
+                          };
+                        }, {}),
+                      })}
+                    />
+                    {errors[field.name] && (
+                      <span className="opacity-0 group-hover:opacity-100 transition-all duration-300 text-red-500 px-1 rounded-full text-center w-fit absolute left-[12%] bg-white border border-red-500">
+                        {errors[field.name].message}
+                      </span>
+                    )}
+                  </div>
+                )}
+              </>
+            );
+          })}
         </div>
         {/* Form fields */}
 
-        {/* Dynamic fields */}
-        {fields.map((field, i) => (
-          <div key={field.id}>
-            <input
-              type="number"
-              id={`price_${i}`}
-              placeholder="$2999"
-              {...register(`array.${i}.field`, {
-                valueAsNumber: true,
-                required: {
-                  value: true,
-                  message: "price is required",
-                },
-                validate: {
-                  notZero: (val) => {
-                    if (val === 0) {
-                      return "price cannot be zero";
-                    }
-                  },
-                },
-              })}
-            />
-            {i > 0 && (
-              <button type="button" onClick={() => remove(i)}>
-                remove
-              </button>
-            )}
-          </div>
-        ))}
-        <button type="button" onClick={() => append({ field: null })}>
-          add
-        </button>
-        {/* Dynamic fields */}
-
         {/* Buttons */}
-        <button type="button" onClick={handleReset}>
-          reset
-        </button>
-        <br />
-        <button type="button" onClick={handleSetName}>
-          setName
-        </button>
-        <button disabled={!isValid || !isDirty || !isSubmitting} type="submit">
-          <svg
-            fill="currentColor"
-            viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg"
+        <div className="flex ml-auto gap-x-2">
+          <button
+            onClick={handleModalToggle}
+            className="bg-red-300 w-fit ml-auto p-2 rounded-md"
           >
-            <path
-              fillRule="evenodd"
-              d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
-              clipRule="evenodd"
-            />
-          </svg>
-          Add new product
-        </button>
+            cancel
+          </button>
+          <button
+            className="bg-blue-300 w-fit ml-auto p-2 rounded-md"
+            disabled={!isValid || !isDirty || !isSubmitting}
+            type="submit"
+          >
+            Add new product
+          </button>
+        </div>
         {/* Buttons */}
       </form>
-      <DevTool control={control} />
+      {/* <DevTool control={control} /> */}
     </>
   );
 };
 
-export default ReusableForm;
+export default Form;
+
+  // const handleSetName = () => {
+  //   setValue("name", "test", {
+  //     shouldValidate: true,
+  //     shouldDirty: true,
+  //   });
+  // };
+
+
+  //  <button type="button" onClick={handleReset}>
+  //    reset
+  //  </button>;
+
+
+  // const { fields, append, remove } = useFieldArray({
+  //   name: "array",
+  //   control,
+  // });
+
+  //  {
+  //    /* Dynamic fields */
+  //  }
+  //  {
+  //    fields.map((field, i) => (
+  //      <div key={field.id}>
+  //        <input
+  //          type="number"
+  //          id={`price_${i}`}
+  //          placeholder="$2999"
+  //          {...register(`array.${i}.field`, {
+  //            valueAsNumber: true,
+  //            required: {
+  //              value: true,
+  //              message: "price is required",
+  //            },
+  //            validate: {
+  //              notZero: (val) => {
+  //                if (val === 0) {
+  //                  return "price cannot be zero";
+  //                }
+  //              },
+  //            },
+  //          })}
+  //        />
+  //        {i > 0 && (
+  //          <button type="button" onClick={() => remove(i)}>
+  //            remove
+  //          </button>
+  //        )}
+  //      </div>
+  //    ));
+  //  }
+  //  <button type="button" onClick={() => append({ field: null })}>
+  //    add
+  //  </button>;
+  //  {
+  //    /* Dynamic fields */
+  //  }

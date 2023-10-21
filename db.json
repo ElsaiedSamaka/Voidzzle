@@ -1,58 +1,131 @@
 {
-    "products": [
+  "products": [
+    {
+      "id": 1,
+      "name": "string",
+      "description": "string",
+      "price": "number",
+      "stock": 12,
+      "availablity": true,
+      "product_img": "string",
+      "cloudinary_id": "string",
+      "categoryId": 2,
+      "salesPerDay": 1.4,
+      "rating": 4
+    },
+    {
+      "id": 2,
+      "name": "string",
+      "description": "string",
+      "price": "number",
+      "stock": 12,
+      "availablity": true,
+      "product_img": "string",
+      "cloudinary_id": "string",
+      "categoryId": 2,
+      "salesPerDay": 1.4,
+      "rating": 4
+    },
+    {
+      "name": "product name",
+      "brand": "",
+      "price": 1,
+      "date": null,
+      "category": "",
+      "description": "",
+      "test": {
+        "temp1": "",
+        "temp2": ""
+      },
+      "array": [
         {
-            "id": 1,
-            "name": "string",
-            "description": "string",
-            "price": "number",
-            "stock": 12,
-            "availablity": true,
-            "product_img": "string",
-            "cloudinary_id": "string",
-            "categoryId": 2,
-            "salesPerDay": 1.4,
-            "rating": 4
-        },
-        {
-            "id": 2,
-            "name": "string",
-            "description": "string",
-            "price": "number",
-            "stock": 12,
-            "availablity": true,
-            "product_img": "string",
-            "cloudinary_id": "string",
-            "categoryId": 2,
-            "salesPerDay": 1.4,
-            "rating": 4
+          "field": null
         }
-    ],
-    "users": [
+      ],
+      "stock": "",
+      "availablity": false,
+      "product_img": {},
+      "id": 3
+    },
+    {
+      "name": "product name 2",
+      "brand": "",
+      "price": 1,
+      "date": null,
+      "category": "",
+      "description": "",
+      "test": {
+        "temp1": "",
+        "temp2": ""
+      },
+      "array": [
         {
-            "id": 1,
-            "phonenumber": "01150567130",
-            "email": "loremiipsum99@gmail.com",
-            "birthdate": "21/3/1997",
-            "address": "mansourah",
-            "password": "zxczxxc",
-            "user_img": "https://unsplash.com/photos/sP5ZW-JDIfI",
-            "passwordConfirmation": "zxczxxc",
-            "firstname": "saied",
-            "lastname": "samaka",
-            "socketId": "axcxwe2"
-        },
-        {
-            "id": 1,
-            "phonenumber": "01150567130",
-            "email": "loremiipsum99@gmail.com",
-            "birthdate": "21/3/1997",
-            "address": "mansourah",
-            "password": "zxczxxc",
-            "user_img": "https://unsplash.com/photos/sP5ZW-JDIfI",
-            "passwordConfirmation": "zxczxxc",
-            "firstname": "saied",
-            "lastname": "samaka",
-            "socketId": "axcxwe2"
+          "field": null
         }
-    ]
+      ],
+      "stock": "",
+      "availablity": false,
+      "product_img": {},
+      "id": 4
+    },
+    {
+      "name": "product name",
+      "brand": "",
+      "price": 1,
+      "date": null,
+      "category": "",
+      "description": "12",
+      "test": {
+        "temp1": "",
+        "temp2": ""
+      },
+      "array": [
+        {
+          "field": null
+        }
+      ],
+      "stock": "",
+      "availablity": false,
+      "product_img": {},
+      "id": 5
+    },
+    {
+      "name": "",
+      "brand": "",
+      "price": 0,
+      "category": "",
+      "description": "",
+      "product_img": {},
+      "stock": "",
+      "id": 6
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "phonenumber": "01150567130",
+      "email": "loremiipsum99@gmail.com",
+      "birthdate": "21/3/1997",
+      "address": "mansourah",
+      "password": "zxczxxc",
+      "user_img": "https://unsplash.com/photos/sP5ZW-JDIfI",
+      "passwordConfirmation": "zxczxxc",
+      "firstname": "saied",
+      "lastname": "samaka",
+      "socketId": "axcxwe2"
+    },
+    {
+      "id": 1,
+      "phonenumber": "01150567130",
+      "email": "loremiipsum99@gmail.com",
+      "birthdate": "21/3/1997",
+      "address": "mansourah",
+      "password": "zxczxxc",
+      "user_img": "https://unsplash.com/photos/sP5ZW-JDIfI",
+      "passwordConfirmation": "zxczxxc",
+      "firstname": "saied",
+      "lastname": "samaka",
+      "socketId": "axcxwe2"
+    }
+  ]
 }

@@ -17,8 +17,84 @@ const Users = () => {
   ];
   useEffect(() => {
     dispatch(getUsersThunk());
-  }, [dispatch]);
-
+  }, []);
+  const formFields = [
+    {
+      name: "name",
+      label: "name",
+      id: "name",
+      type: "text",
+      // required: true,
+      // maxLength: 20,
+      // minLength: 10,
+      // validation: [
+      //   {
+      //     isName: (val) => {
+      //       if (val === "name") {
+      //         return "Enter a different product name";
+      //       }
+      //     },
+      //   },
+      // ],
+    },
+    {
+      name: "description",
+      label: "description",
+      id: "description",
+      type: "text-area",
+      // required: true,
+      // maxLength: 20,
+      // minLength: 10,
+      // validation: [],
+    },
+    {
+      name: "price",
+      label: "price",
+      id: "price",
+      type: "number",
+      // required: true,
+      // maxLength: 20,
+      // minLength: 10,
+      // validation: [],
+    },
+    {
+      name: "stock",
+      label: "stock",
+      id: "stock",
+      type: "number",
+      // required: true,
+      // maxLength: 20,
+      // minLength: 10,
+      // validation: [],
+    },
+    {
+      name: "availablity",
+      label: "availablity",
+      id: "availablity",
+      type: "checkbox",
+      // required: true,
+      // validation: [],
+    },
+    {
+      name: "product_img",
+      id: "product_img",
+      type: "file",
+      required: false,
+    },
+  ];
+  const defaultValues = {
+    name: "product name",
+    brand: "",
+    price: 1,
+    date: null,
+    category: "",
+    description: "",
+    test: {
+      temp1: "",
+      temp2: "",
+    },
+    array: [{ field: null }],
+  };
   return (
     <Table
       _config={{
@@ -42,8 +118,11 @@ const Users = () => {
         },
         _footer: { isTrue: true },
         _multiSelect: false,
+        _extenstions: { actionsColumns: true },
       }}
       data={usersSlice}
+      defaultValues={defaultValues}
+      formFields={formFields}
     />
   );
 };

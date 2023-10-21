@@ -29,9 +29,14 @@ const Table = ({
     _footer: {
       isTrue: true,
     },
-    _multiSelect: false,
+    _multiSelect: true,
+    _extenstions: {
+      actionsColumns: true,
+    },
   },
   data,
+  defaultValues,
+  formFields,
 }) => {
   return (
     <div className=" mx-auto max-w-screen-2xl my-2">
@@ -46,8 +51,11 @@ const Table = ({
               actions: _config._head._actions,
               filteration: _config._head._actions.filteration,
               _search: _config._head._search.show,
+              _exentions: _config._extenstions.actionsColumns,
             }}
             data={data}
+            defaultValues={defaultValues}
+            formFields={formFields}
           />
         )}
         {/* table head */}
@@ -58,6 +66,7 @@ const Table = ({
               perPage: _config._body.perPage,
               multiSelect: _config._multiSelect,
               th: _config._body._th,
+              _exentions: _config._extenstions.actionsColumns,
             }}
             data={data}
           />

@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import ReusableForm from "shared/Forms/Form";
 import Form from "shared/Forms/Form";
 import Dailog from "shared/Modals/Dailog/Dailog";
 
-const TableHead = ({ _config, data }) => {
+const TableHead = ({ _config, data, defaultValues, formFields }) => {
   const [showAddModal, toggleAddetionModal] = useState(false);
-  function handleAddtionModalToggle() {
+  function handleModalToggle() {
     toggleAddetionModal(!showAddModal);
   }
   return (
@@ -47,7 +46,7 @@ const TableHead = ({ _config, data }) => {
           <div className="w-full md:w-auto flex flex-col md:flex-row space-y-2 md:space-y-0 items-stretch md:items-center justify-end md:space-x-3 flex-shrink-0">
             {_config.addtion && (
               <button
-                onClick={handleAddtionModalToggle}
+                onClick={handleModalToggle}
                 type="button"
                 className="flex items-center justify-center text-white  bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-md text-sm px-4 py-2 focus:outline-none "
               >
@@ -241,21 +240,25 @@ const TableHead = ({ _config, data }) => {
       </div>
       {showAddModal && (
         <Dailog
-          header={
-            <DailogHeader handleAddtionModalToggle={handleAddtionModalToggle} />
+          header={<DailogHeader handleModalToggle={handleModalToggle} />}
+          body={
+            <DailogBody
+              handleModalToggle={handleModalToggle}
+              defaultValues={defaultValues}
+              formFields={formFields}
+            />
           }
-          body={<DailogBody />}
         />
       )}
     </>
   );
 };
-const DailogHeader = ({ handleAddtionModalToggle }) => {
+const DailogHeader = ({ handleModalToggle }) => {
   return (
     <div className="dailog-header flex justify-between items-center">
       <h3 className=" text-xl font-bold text-gray-900 ">Add new product</h3>
       <div
-        onClick={handleAddtionModalToggle}
+        onClick={handleModalToggle}
         className="p-1 w-fit h-fit rounded-full text-gray-700 bg-gray-50 hover:bg-gray-100 hover:cursor-pointer hover:text-gray-900"
       >
         <svg
@@ -278,25 +281,16 @@ const DailogHeader = ({ handleAddtionModalToggle }) => {
   );
 };
 
-const DailogBody = () => {
-  const defaultValues = {
-    name: "product name",
-    brand: "",
-    price: 1,
-    date: null,
-    category: "",
-    description: "",
-    test: {
-      temp1: "",
-      temp2: "",
-    },
-    array: [{ field: null }],
-  };
-  const handleSubmit = (formData) => {
-    console.log("formData", formData);
-    // dispatch(createTodoThunk(formData));
-  };
-
-  return <ReusableForm defaultValues={defaultValues} onSubmit={handleSubmit} />;
+const DailogBody = ({ handleModalToggle, defaultValues, formFields }) => {
+  return (
+    <Form
+      formActions={{
+        handleModalToggle: handleModalToggle,
+        handleDispatch: (): void => {},
+      }}
+      formFields={formFields}
+      defaultValues={defaultValues}
+    />
+  );
 };
 export default TableHead;

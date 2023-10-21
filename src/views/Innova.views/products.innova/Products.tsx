@@ -23,6 +23,89 @@ const Products = () => {
   useEffect(() => {
     dispatch(getProductsThunk());
   }, [dispatch]);
+  const formFields = [
+    {
+      name: "name",
+      label: "name",
+      id: "name",
+      type: "text",
+      // required: true,
+      // maxLength: 20,
+      // minLength: 10,
+      // validation: [
+      //   {
+      //     isName: (val) => {
+      //       if (val === "name") {
+      //         return "Enter a different product name";
+      //       }
+      //     },
+      //   },
+      // ],
+    },
+    {
+      name: "category",
+      label: "category",
+      id: "category",
+      type: "select",
+      // required: true,
+      // maxLength: 20,
+      // minLength: 10,
+      // validation: [],
+    },
+    {
+      name: "price",
+      label: "price",
+      id: "price",
+      type: "number",
+      // required: true,
+      // maxLength: 20,
+      // minLength: 10,
+      // validation: [],
+    },
+
+    {
+      name: "stock",
+      label: "stock",
+      id: "stock",
+      type: "number",
+      // required: true,
+      // maxLength: 20,
+      // minLength: 10,
+      // validation: [],
+    },
+    {
+      name: "description",
+      label: "description",
+      id: "description",
+      type: "text-area",
+      // required: true,
+      // maxLength: 20,
+      // minLength: 10,
+      // validation: [],
+    },
+    {
+      name: "product_img",
+      label: "product imgs",
+      id: "product_img",
+      type: "file",
+      required: false,
+    },
+    {
+      name: "availablity",
+      label: "availablity",
+      id: "availablity",
+      type: "checkbox",
+      // required: true,
+      // validation: [],
+    },
+  ];
+  const defaultValues = {
+    name: "",
+    brand: "",
+    price: 0,
+    category: "",
+    description: "",
+  };
   return (
     <Table
       _config={{
@@ -45,9 +128,12 @@ const Products = () => {
           _th: th,
         },
         _footer: { isTrue: true },
-        _multiSelect: false,
+        _multiSelect: true,
+        _extenstions: { actionsColumns: true },
       }}
       data={productsSlice}
+      defaultValues={defaultValues}
+      formFields={formFields}
     />
   );
 };

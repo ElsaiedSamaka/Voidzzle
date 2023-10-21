@@ -1,12 +1,13 @@
 import React from 'react'
 
 const TableBody = ({ _config, data }) => {
+  console.log("_config._exentions.actionsColumns" && _config._exentions);
   return (
     <div className="overflow-x-auto">
       <table className="w-full text-sm text-left text-gray-500 :text-gray-400">
         <thead className="text-xs text-gray-700 uppercase bg-gray-50 :bg-gray-700 :text-gray-400">
           <tr>
-            {_config._multiSelect && (
+            {_config.multiSelect && (
               <th scope="col" className="p-4">
                 <div className="flex items-center">
                   <input
@@ -27,6 +28,11 @@ const TableBody = ({ _config, data }) => {
                 </th>
               );
             })}
+            {_config._exentions && (
+              <th scope="col" className="p-4">
+                asd
+              </th>
+            )}
           </tr>
         </thead>
         <tbody>
@@ -35,8 +41,8 @@ const TableBody = ({ _config, data }) => {
           {data.items.map((item, i) => {
             return (
               <>
-                <tr className="border-b" key={i}>
-                  {_config._multiSelect && (
+                <tr className="border-b" key={item.id}>
+                  {_config.multiSelect && (
                     <td className="w-4 px-4 py-3">
                       <div className="flex items-center">
                         <input
