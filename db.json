@@ -7,6 +7,16 @@
       "price": "123",
       "stock": "",
       "product_img": {}
+    },
+    {
+      "name": "AuthBackend",
+      "brand": "",
+      "price": "123123",
+      "category": "volvo",
+      "description": "",
+      "stock": "123",
+      "product_img": {},
+      "id": 2
     }
   ],
   "users": [

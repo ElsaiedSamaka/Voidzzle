@@ -15,6 +15,7 @@ const TableBody = ({
   const [showActionsPopover, setShowActionsPopover] = useState(false);
   const [rowIndex, setRowIndex] = useState(null);
   const [showEditModal, toggleEditModal] = useState(false);
+  const [showPreviewModal, togglePreviewModal] = useState(false);
   const dispatch = useDispatch();
   function toggleActionsPopover(index: any) {
     if (rowIndex == index) {
@@ -28,7 +29,11 @@ const TableBody = ({
     dispatch(deleteProductThunk(id));
     toggleActionsPopover(null);
   }
-  function handleModalToggle(item: any) {
+  function handleEditModalToggle(item: any) {
+    toggleActionsPopover(null);
+    toggleEditModal(!showEditModal);
+  }
+  function handlePreviewModalToggle(item: any) {
     toggleActionsPopover(null);
     toggleEditModal(!showEditModal);
   }
@@ -136,7 +141,7 @@ const TableBody = ({
                                       <li>
                                         <a
                                           onClick={() =>
-                                            handleModalToggle(item)
+                                            handleEditModalToggle(item)
                                           }
                                           className="block py-2 px-4 hover:bg-gray-100 hover:cursor-pointer"
                                         >
@@ -164,14 +169,30 @@ const TableBody = ({
                   {showEditModal && (
                     <Dailog
                       header={
-                        <DailogHeader handleModalToggle={handleModalToggle} />
+                        <EditDailogHeader
+                          handleModalToggle={handleEditModalToggle}
+                        />
                       }
                       body={
-                        <DailogBody
-                          handleModalToggle={handleModalToggle}
+                        <EditDailogBody
+                          handleModalToggle={handleEditModalToggle}
                           defaultValues={item}
                           formFields={formFields}
                           handleDispatch={handleUpdateDispatch}
+                        />
+                      }
+                    />
+                  )}
+                  {showPreviewModal && (
+                    <Dailog
+                      header={
+                        <PreviewDailogHeader
+                          handleModalToggle={handlePreviewModalToggle}
+                        />
+                      }
+                      body={
+                        <PreviewDailogBody
+                          handleModalToggle={handlePreviewModalToggle}
                         />
                       }
                     />
@@ -185,7 +206,7 @@ const TableBody = ({
     </>
   );
 };
-const DailogHeader = ({ handleModalToggle }) => {
+const EditDailogHeader = ({ handleModalToggle }) => {
   return (
     <div className="dailog-header flex justify-between items-center">
       <h3 className=" text-xl font-bold text-gray-900 ">Edit product</h3>
@@ -212,7 +233,7 @@ const DailogHeader = ({ handleModalToggle }) => {
     </div>
   );
 };
-const DailogBody = ({
+const EditDailogBody = ({
   handleModalToggle,
   handleDispatch,
   defaultValues,
@@ -228,5 +249,35 @@ const DailogBody = ({
       defaultValues={defaultValues}
     />
   );
+};
+const PreviewDailogHeader = ({ handleModalToggle }) => {
+  return (
+    <div className="dailog-header flex justify-between items-center">
+      <h3 className=" text-xl font-bold text-gray-900 ">product details</h3>
+      <div
+        onClick={handleModalToggle}
+        className="p-1 w-fit h-fit rounded-full text-gray-700 bg-gray-50 hover:bg-gray-100 hover:cursor-pointer hover:text-gray-900"
+      >
+        <svg
+          className="w-5 h-5"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M6 18L18 6M6 6l12 12"
+          ></path>
+        </svg>
+      </div>
+    </div>
+  );
+};
+const PreviewDailogBody = ({ handleModalToggle }) => {
+  return <div></div>;
 };
 export default TableBody;
