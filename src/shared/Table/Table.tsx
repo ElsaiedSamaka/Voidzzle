@@ -37,6 +37,7 @@ const Table = ({
   data,
   defaultValues,
   formFields,
+  handleDispatch,
 }) => {
   return (
     <div className=" mx-auto max-w-screen-2xl my-2">
@@ -56,6 +57,7 @@ const Table = ({
             data={data}
             defaultValues={defaultValues}
             formFields={formFields}
+            handleDispatch={handleDispatch}
           />
         )}
         {/* table head */}

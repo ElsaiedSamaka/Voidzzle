@@ -4,10 +4,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "core/store";
 import { createProductThunk } from "core/store/products/products.thunk";
 import styles from "./Form.module.css"
-const Form = ({ formActions: {
-  handleModalToggle,
-  handleDispatch
-}, defaultValues, formFields }) => {
+const Form = ({
+  formActions: { handleModalToggle, handleDispatch },
+  defaultValues,
+  formFields,
+}) => {
   const {
     register,
     handleSubmit,
@@ -19,11 +20,10 @@ const Form = ({ formActions: {
     defaultValues,
     // mode: "onBlur",
   });
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const submit = (formData) => {
-    dispatch(createProductThunk(formData))
-    handleModalToggle()
-    // dispatch(createTodoThunk(formData));
+    handleDispatch(formData);
+    handleModalToggle();
   };
   const handleReset = () => {
     reset(defaultValues);
@@ -472,8 +472,8 @@ const Form = ({ formActions: {
             cancel
           </button>
           <button
-            className="bg-blue-300 w-fit ml-auto p-2 rounded-md"
-            disabled={!isValid || !isDirty || !isSubmitting}
+            className="bg-blue-300 w-fit ml-auto p-2 rounded-md disabled:bg-gray-400"
+            // disabled={!isValid || !isDirty || !isSubmitting}
             type="submit"
           >
             Add new product

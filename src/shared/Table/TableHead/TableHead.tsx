@@ -2,7 +2,13 @@ import React, { useState } from "react";
 import Form from "shared/Forms/Form";
 import Dailog from "shared/Modals/Dailog/Dailog";
 
-const TableHead = ({ _config, data, defaultValues, formFields }) => {
+const TableHead = ({
+  _config,
+  data,
+  defaultValues,
+  formFields,
+  handleDispatch,
+}) => {
   const [showAddModal, toggleAddetionModal] = useState(false);
   function handleModalToggle() {
     toggleAddetionModal(!showAddModal);
@@ -246,6 +252,7 @@ const TableHead = ({ _config, data, defaultValues, formFields }) => {
               handleModalToggle={handleModalToggle}
               defaultValues={defaultValues}
               formFields={formFields}
+              handleDispatch={handleDispatch}
             />
           }
         />
@@ -281,12 +288,17 @@ const DailogHeader = ({ handleModalToggle }) => {
   );
 };
 
-const DailogBody = ({ handleModalToggle, defaultValues, formFields }) => {
+const DailogBody = ({
+  handleModalToggle,
+  handleDispatch,
+  defaultValues,
+  formFields,
+}) => {
   return (
     <Form
       formActions={{
         handleModalToggle: handleModalToggle,
-        handleDispatch: (): void => {},
+        handleDispatch: handleDispatch,
       }}
       formFields={formFields}
       defaultValues={defaultValues}

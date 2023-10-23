@@ -3,7 +3,7 @@ import productsService from "core/services/products.service";
 
 export const getProductsThunk = createAsyncThunk(
   "products/get",
-  async (_, thunkAPI) => {
+  async (data: any, thunkAPI) => {
     try {
       const response = await productsService.get();
       return thunkAPI.fulfillWithValue(response);
@@ -17,8 +17,11 @@ export const deleteProductThunk = createAsyncThunk(
   "products/delete",
   async (id: any, thunkAPI) => {
     try {
+      // ideally the resualt of delete request should be deleted product id of the deleted product
+      // but since this is a dummy project, we are just returning the id
       const response = await productsService.remove(id);
-      return thunkAPI.fulfillWithValue(response);
+      // return thunkAPI.fulfillWithValue(response);
+      return thunkAPI.fulfillWithValue(id);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
     }

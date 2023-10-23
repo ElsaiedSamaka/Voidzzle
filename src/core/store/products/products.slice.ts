@@ -50,9 +50,9 @@ export const productsSlice = createSlice({
     builder
       .addCase(createProductThunk.fulfilled, (state, action) => {
         // appending new todo to the todos array
-        state.items.push(action.payload);
+        // state.items.push(action.payload);
         // unshift new todo to the todos array
-        // state.todos.unshift(action.payload);
+        state.items.unshift(action.payload);
         state.loading = false;
         state.error = null;
       })

@@ -1,13 +1,19 @@
 import { RootState } from "core/store";
-import { getProductsThunk } from "core/store/products/products.thunk";
+import {
+  createProductThunk,
+  getProductsThunk,
+} from "core/store/products/products.thunk";
 import { getTodosThunk } from "core/store/todos/todos.thunk";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Table } from "shared";
 
 const Products = () => {
-  const dispatch = useDispatch();
   const productsSlice = useSelector((state: RootState) => state.products);
+  const dispatch = useDispatch();
+  const handleDispatch = (data: any) => {
+    dispatch(createProductThunk(data));
+  };
   const th = [
     { label: "name", id: 1 },
     { label: "category", id: 2 },
@@ -21,7 +27,7 @@ const Products = () => {
   ];
   // get todos from api just when component is mounted
   useEffect(() => {
-    dispatch(getProductsThunk());
+    dispatch(getProductsThunk([]));
   }, [dispatch]);
   const formFields = [
     {
@@ -134,6 +140,7 @@ const Products = () => {
       data={productsSlice}
       defaultValues={defaultValues}
       formFields={formFields}
+      handleDispatch={handleDispatch}
     />
   );
 };

@@ -1,12 +1,15 @@
 import { RootState } from "core/store";
-import { getUsersThunk } from "core/store/users/users.thunk";
+import { createUserThunk, getUsersThunk } from "core/store/users/users.thunk";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Table } from "shared";
 
 const Users = () => {
-  const dispatch = useDispatch();
   const usersSlice = useSelector((state: RootState) => state.users);
+  const dispatch = useDispatch();
+  const handleDispatch = (data: any) => {
+    dispatch(createUserThunk(data));
+  };
   const th = [
     { label: "email", id: 1 },
     { label: "phonenumber", id: 2 },
@@ -123,6 +126,7 @@ const Users = () => {
       data={usersSlice}
       defaultValues={defaultValues}
       formFields={formFields}
+      handleDispatch={handleDispatch}
     />
   );
 };
