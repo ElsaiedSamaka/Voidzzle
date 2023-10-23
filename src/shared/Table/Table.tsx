@@ -37,7 +37,8 @@ const Table = ({
   data,
   defaultValues,
   formFields,
-  handleDispatch,
+  handleAddetionDispatch,
+  handleUpdateDispatch
 }) => {
   return (
     <div className=" mx-auto max-w-screen-2xl my-2">
@@ -57,7 +58,7 @@ const Table = ({
             data={data}
             defaultValues={defaultValues}
             formFields={formFields}
-            handleDispatch={handleDispatch}
+            handleAddetionDispatch={handleAddetionDispatch}
           />
         )}
         {/* table head */}
@@ -71,6 +72,9 @@ const Table = ({
               _exentions: _config._extenstions.actionsColumns,
             }}
             data={data}
+            defaultValues={defaultValues}
+            formFields={formFields}
+            handleUpdateDispatch={handleUpdateDispatch}
           />
         )}
         {/* table body */}

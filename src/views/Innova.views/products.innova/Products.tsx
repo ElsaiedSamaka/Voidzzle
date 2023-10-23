@@ -2,6 +2,7 @@ import { RootState } from "core/store";
 import {
   createProductThunk,
   getProductsThunk,
+  updateProductThunk,
 } from "core/store/products/products.thunk";
 import { getTodosThunk } from "core/store/todos/todos.thunk";
 import React, { useEffect } from "react";
@@ -11,8 +12,11 @@ import { Table } from "shared";
 const Products = () => {
   const productsSlice = useSelector((state: RootState) => state.products);
   const dispatch = useDispatch();
-  const handleDispatch = (data: any) => {
+  const handleAddetionDispatch = (data: any) => {
     dispatch(createProductThunk(data));
+  };
+  const handleUpdateDispatch = (data) => {
+    dispatch(updateProductThunk(data));
   };
   const th = [
     { label: "name", id: 1 },
@@ -27,7 +31,7 @@ const Products = () => {
   ];
   // get todos from api just when component is mounted
   useEffect(() => {
-    dispatch(getProductsThunk([]));
+    dispatch(getProductsThunk());
   }, [dispatch]);
   const formFields = [
     {
@@ -140,7 +144,8 @@ const Products = () => {
       data={productsSlice}
       defaultValues={defaultValues}
       formFields={formFields}
-      handleDispatch={handleDispatch}
+      handleAddetionDispatch={handleAddetionDispatch}
+      handleUpdateDispatch={handleUpdateDispatch}
     />
   );
 };

@@ -3,7 +3,7 @@ import { DevTool } from "@hookform/devtools";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "core/store";
 import { createProductThunk } from "core/store/products/products.thunk";
-import styles from "./Form.module.css"
+import styles from "./Form.module.css";
 const Form = ({
   formActions: { handleModalToggle, handleDispatch },
   defaultValues,
@@ -22,6 +22,7 @@ const Form = ({
   });
   const dispatch = useDispatch();
   const submit = (formData) => {
+    console.log("formData",formData)
     handleDispatch(formData);
     handleModalToggle();
   };
@@ -476,7 +477,7 @@ const Form = ({
             // disabled={!isValid || !isDirty || !isSubmitting}
             type="submit"
           >
-            Add new product
+            Save
           </button>
         </div>
         {/* Buttons */}
@@ -488,60 +489,58 @@ const Form = ({
 
 export default Form;
 
-  // const handleSetName = () => {
-  //   setValue("name", "test", {
-  //     shouldValidate: true,
-  //     shouldDirty: true,
-  //   });
-  // };
+// const handleSetName = () => {
+//   setValue("name", "test", {
+//     shouldValidate: true,
+//     shouldDirty: true,
+//   });
+// };
 
+//  <button type="button" onClick={handleReset}>
+//    reset
+//  </button>;
 
-  //  <button type="button" onClick={handleReset}>
-  //    reset
-  //  </button>;
+// const { fields, append, remove } = useFieldArray({
+//   name: "array",
+//   control,
+// });
 
-
-  // const { fields, append, remove } = useFieldArray({
-  //   name: "array",
-  //   control,
-  // });
-
-  //  {
-  //    /* Dynamic fields */
-  //  }
-  //  {
-  //    fields.map((field, i) => (
-  //      <div key={field.id}>
-  //        <input
-  //          type="number"
-  //          id={`price_${i}`}
-  //          placeholder="$2999"
-  //          {...register(`array.${i}.field`, {
-  //            valueAsNumber: true,
-  //            required: {
-  //              value: true,
-  //              message: "price is required",
-  //            },
-  //            validate: {
-  //              notZero: (val) => {
-  //                if (val === 0) {
-  //                  return "price cannot be zero";
-  //                }
-  //              },
-  //            },
-  //          })}
-  //        />
-  //        {i > 0 && (
-  //          <button type="button" onClick={() => remove(i)}>
-  //            remove
-  //          </button>
-  //        )}
-  //      </div>
-  //    ));
-  //  }
-  //  <button type="button" onClick={() => append({ field: null })}>
-  //    add
-  //  </button>;
-  //  {
-  //    /* Dynamic fields */
-  //  }
+//  {
+//    /* Dynamic fields */
+//  }
+//  {
+//    fields.map((field, i) => (
+//      <div key={field.id}>
+//        <input
+//          type="number"
+//          id={`price_${i}`}
+//          placeholder="$2999"
+//          {...register(`array.${i}.field`, {
+//            valueAsNumber: true,
+//            required: {
+//              value: true,
+//              message: "price is required",
+//            },
+//            validate: {
+//              notZero: (val) => {
+//                if (val === 0) {
+//                  return "price cannot be zero";
+//                }
+//              },
+//            },
+//          })}
+//        />
+//        {i > 0 && (
+//          <button type="button" onClick={() => remove(i)}>
+//            remove
+//          </button>
+//        )}
+//      </div>
+//    ));
+//  }
+//  <button type="button" onClick={() => append({ field: null })}>
+//    add
+//  </button>;
+//  {
+//    /* Dynamic fields */
+//  }

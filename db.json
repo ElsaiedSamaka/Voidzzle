@@ -1,14 +1,12 @@
 {
   "products": [
     {
-      "name": "AuthBackend",
-      "brand": "",
-      "price": "1",
+      "id": 1,
+      "name": "asdas",
       "category": "volvo",
-      "description": "",
-      "stock": "1",
-      "product_img": {},
-      "id": 1
+      "price": "123",
+      "stock": "",
+      "product_img": {}
     }
   ],
   "users": [

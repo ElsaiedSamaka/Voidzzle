@@ -3,7 +3,7 @@ import productsService from "core/services/products.service";
 
 export const getProductsThunk = createAsyncThunk(
   "products/get",
-  async (data: any, thunkAPI) => {
+  async (_, thunkAPI) => {
     try {
       const response = await productsService.get();
       return thunkAPI.fulfillWithValue(response);
@@ -30,9 +30,9 @@ export const deleteProductThunk = createAsyncThunk(
 
 export const updateProductThunk = createAsyncThunk(
   "products/update",
-  async (params: any, thunkAPI) => {
+  async (body: any, thunkAPI) => {
     try {
-      const response = await productsService.put(params.id, params.body);
+      const response = await productsService.put(body.id, body);
       return thunkAPI.fulfillWithValue(response);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
@@ -42,9 +42,9 @@ export const updateProductThunk = createAsyncThunk(
 
 export const createProductThunk = createAsyncThunk(
   "products/post",
-  async (params: any, thunkAPI) => {
+  async (body: any, thunkAPI) => {
     try {
-      const response = await productsService.post(params);
+      const response = await productsService.post(body);
       return thunkAPI.fulfillWithValue(response);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);

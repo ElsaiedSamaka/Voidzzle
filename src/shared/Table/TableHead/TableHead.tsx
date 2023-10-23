@@ -7,7 +7,7 @@ const TableHead = ({
   data,
   defaultValues,
   formFields,
-  handleDispatch,
+  handleAddetionDispatch,
 }) => {
   const [showAddModal, toggleAddetionModal] = useState(false);
   function handleModalToggle() {
@@ -252,7 +252,7 @@ const TableHead = ({
               handleModalToggle={handleModalToggle}
               defaultValues={defaultValues}
               formFields={formFields}
-              handleDispatch={handleDispatch}
+              handleAddetionDispatch={handleAddetionDispatch}
             />
           }
         />
@@ -290,7 +290,7 @@ const DailogHeader = ({ handleModalToggle }) => {
 
 const DailogBody = ({
   handleModalToggle,
-  handleDispatch,
+  handleAddetionDispatch,
   defaultValues,
   formFields,
 }) => {
@@ -298,7 +298,7 @@ const DailogBody = ({
     <Form
       formActions={{
         handleModalToggle: handleModalToggle,
-        handleDispatch: handleDispatch,
+        handleDispatch: handleAddetionDispatch,
       }}
       formFields={formFields}
       defaultValues={defaultValues}
