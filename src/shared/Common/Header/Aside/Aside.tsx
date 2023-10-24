@@ -4,7 +4,7 @@ import Anchor from "shared/Common/Anchor/Anchor";
 const Aside = () => {
   return (
     <aside
-      className="fixed top-0 left-0 z-40 w-64 h-screen pt-14 transition-transform -translate-x-full bg-white border-r border-gray-200 md:translate-x-0 :bg-gray-800 :border-gray-700"
+      className="fixed top-0 left-0 z-20 w-64 h-screen pt-14 transition-transform -translate-x-full bg-white border-r border-gray-200 md:translate-x-0 :bg-gray-800 :border-gray-700"
       aria-label="Sidenav"
       id="drawer-navigation"
     >

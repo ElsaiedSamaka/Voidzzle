@@ -35,7 +35,7 @@ const TableBody = ({
   }
   function handlePreviewModalToggle(item: any) {
     toggleActionsPopover(null);
-    toggleEditModal(!showEditModal);
+    togglePreviewModal(!showPreviewModal);
   }
   return (
     <>
@@ -134,7 +134,12 @@ const TableBody = ({
                                       aria-labelledby="apple-imac-20-dropdown-button"
                                     >
                                       <li>
-                                        <a className="block py-2 px-4 hover:bg-gray-100 hover:cursor-pointer">
+                                        <a
+                                          onClick={() =>
+                                            handlePreviewModalToggle(item)
+                                          }
+                                          className="block py-2 px-4 hover:bg-gray-100 hover:cursor-pointer"
+                                        >
                                           Show
                                         </a>
                                       </li>
@@ -192,6 +197,7 @@ const TableBody = ({
                       }
                       body={
                         <PreviewDailogBody
+                          item={item}
                           handleModalToggle={handlePreviewModalToggle}
                         />
                       }
@@ -252,7 +258,7 @@ const EditDailogBody = ({
 };
 const PreviewDailogHeader = ({ handleModalToggle }) => {
   return (
-    <div className="dailog-header flex justify-between items-center">
+    <div className="dailog-header flex justify-between items-center border-b">
       <h3 className=" text-xl font-bold text-gray-900 ">product details</h3>
       <div
         onClick={handleModalToggle}
@@ -277,7 +283,106 @@ const PreviewDailogHeader = ({ handleModalToggle }) => {
     </div>
   );
 };
-const PreviewDailogBody = ({ handleModalToggle }) => {
-  return <div></div>;
+const PreviewDailogBody = ({ item, handleModalToggle }) => {
+  return (
+    <div
+      id="readProductModal"
+      tabIndex={-1}
+      aria-hidden="true"
+      className="justify-center items-center w-full md:inset-0 "
+    >
+      <div className="relative   ">
+        <div className="w-full sm:my-4">
+          <div className="flex items-center justify-between text-lg text-gray-900 md:text-xl ">
+            <h4 className="font-medium ">Apple iMac 27”</h4>
+            <p className="font-medium">$2999</p>
+          </div>
+        </div>
+        <dl>
+          <dt className="mb-2 font-semibold leading-none text-gray-900 :text-white">
+            Details
+          </dt>
+          <dd className="mb-4 font-light text-gray-500 sm:mb-5 :text-gray-400">
+            Standard glass ,3.8GHz 8-core 10th-generation Intel Core i7
+            processor, Turbo Boost up to 5.0GHz, 16GB 2666MHz DDR4 memory,
+            Radeon Pro 5500 XT with 8GB of GDDR6 memory, 256GB SSD storage,
+            Gigabit Ethernet, Magic Mouse 2, Magic Keyboard - US.
+          </dd>
+          <dt className="mb-2 font-semibold leading-none text-gray-900 :text-white">
+            Colors
+          </dt>
+          <dd className="mb-4 font-light text-gray-500 sm:mb-5 :text-gray-400">
+            <span className="w-5 h-5 bg-red-500 rounded-full">
+              <div>
+                <input
+                  id="red"
+                  type="checkbox"
+                  className="appearance-none inline-block w-5 h-5 mr-2 bg-red-700 rounded-full hover:cursor-pointer"
+                />
+                <label htmlFor="red" className="sr-only">
+                  checkbox
+                </label>
+              </div>
+            </span>
+          </dd>
+          <dt className="mb-2 font-semibold leading-none text-gray-900 :text-white">
+            Category
+          </dt>
+          <dd className="mb-4 font-light text-gray-500 sm:mb-5 :text-gray-400">
+            Electronics/PC
+          </dd>
+        </dl>
+        <div>
+          <dl className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+            <dd className="bg-gray-100 p-2 rounded">
+              <dt className="font-semibold text-lg">Sold by</dt>
+              lorem
+            </dd>
+            <dd className="bg-gray-100 p-2 rounded">
+              <dt className="font-semibold text-lg">Sold by</dt>
+              lorem
+            </dd>
+            <dd className="bg-gray-100 p-2 rounded">
+              <dt className="font-semibold text-lg">Sold by</dt>
+              lorem
+            </dd>
+            <dd className="bg-gray-100 p-2 rounded">
+              <dt className="font-semibold text-lg">Sold by</dt>
+              lorem
+            </dd>
+            <dd className="bg-gray-100 p-2 rounded">
+              <dt className="font-semibold text-lg">Sold by</dt>
+              lorem
+            </dd>
+            <dd className="bg-gray-100 p-2 rounded">
+              <dt className="font-semibold text-lg">Sold by</dt>
+              lorem
+            </dd>
+          </dl>
+        </div>
+        <div className="flex justify-end my-2">
+          <button
+            type="button"
+            className="inline-flex items-center text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center :bg-red-500 :hover:bg-red-600 :focus:ring-red-900"
+          >
+            <svg
+              aria-hidden="true"
+              className="w-5 h-5 mr-1.5 -ml-1"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fillRule="evenodd"
+                d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                clipRule="evenodd"
+              />
+            </svg>
+            Delete
+          </button>
+        </div>
+      </div>
+    </div>
+  );
 };
 export default TableBody;
