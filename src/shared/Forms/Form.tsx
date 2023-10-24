@@ -18,7 +18,7 @@ const Form = ({
     watch,
   } = useForm({
     defaultValues,
-    // mode: "onBlur",
+    mode: "onBlur",
   });
   const dispatch = useDispatch();
   const submit = (formData) => {
@@ -37,7 +37,7 @@ const Form = ({
         className="mt-2 flex flex-col w-fit h-fit"
       >
         {/* Form fields */}
-        <div className="grid gap-4 mb-4 sm:grid-cols-1 md:grid-cols-4">
+        <div className="grid gap-4 mb-4 grid-cols-1 md:grid-cols-4">
           {formFields.map((field, i) => {
             return (
               <>
@@ -54,7 +54,7 @@ const Form = ({
                     <input
                       className={`p-2 rounded-md border ${
                         errors[field.name] ? "border-red-500" : ""
-                      } font-normal`}
+                      } font-normal bg-gray-50 hover:bg-gray-100`}
                       name={field.name}
                       id={field.id}
                       type={field.type}
@@ -82,10 +82,10 @@ const Form = ({
                   </div>
                 )}
                 {field.type == "date" && (
-                  <div className="input flex flex-col w-full font-semibold group">
+                  <div className="input flex flex-col w-full font-semibold group col-span-2">
                     {field.label && (
                       <label
-                        className="capitalize text-gray-900 text-gray-900"
+                        className="capitalize text-gray-900"
                         htmlFor={field.name}
                       >
                         {field.label}
@@ -94,7 +94,7 @@ const Form = ({
                     <input
                       className={`p-2 rounded-md border ${
                         errors[field.name] ? "border-red-500" : ""
-                      } font-normal`}
+                      } font-normal bg-gray-50 hover:bg-gray-100`}
                       name={field.name}
                       id={field.id}
                       type={field.type}
@@ -148,7 +148,7 @@ const Form = ({
                     <select
                       className={`p-2 rounded-md border ${
                         errors[field.name] ? "border-red-500" : ""
-                      } font-normal`}
+                      } font-normal bg-gray-50 hover:bg-gray-100`}
                       name={field.name}
                       id={field.id}
                       {...register(field.name, {
@@ -167,7 +167,7 @@ const Form = ({
                         }, {}),
                       })}
                     >
-                      <option value="volvo">Volvo</option>
+                      <option selected>Select</option>
                       <option value="saab">Saab</option>
                       <option value="mercedes">Mercedes</option>
                       <option value="audi">Audi</option>
@@ -180,7 +180,7 @@ const Form = ({
                   </div>
                 )}
                 {field.type == "text-area" && (
-                  <div className="input flex flex-col w-full font-semibold group col-span-full">
+                  <div className="input flex flex-col w-full font-semibold group col-span-2">
                     {field.label && (
                       <label
                         className="capitalize text-gray-900"
@@ -191,9 +191,9 @@ const Form = ({
                     )}
 
                     <textarea
-                      className={`p-2 rounded-md border ${
+                      className={`p-2 w-full rounded-md border ${
                         errors[field.name] ? "border-red-500" : ""
-                      } font-normal`}
+                      } font-normal bg-gray-50 hover:bg-gray-100 h-32`}
                       name={field.name}
                       id={field.id}
                     ></textarea>
@@ -217,7 +217,7 @@ const Form = ({
                     <input
                       className={`p-2 rounded-md border ${
                         errors[field.name] ? "border-red-500" : ""
-                      } font-normal`}
+                      } font-normal bg-gray-50 hover:bg-gray-100`}
                       name={field.name}
                       id={field.id}
                       type={field.type}
@@ -245,7 +245,7 @@ const Form = ({
                   </div>
                 )}
                 {field.type == "file" && (
-                  <div className="flex flex-col items-start justify-center w-full col-span-full">
+                  <div className="flex flex-col items-start justify-center w-full col-span-2">
                     <label className="capitalize text-gray-900 font-semibold">
                       {field.label}
                     </label>
@@ -338,7 +338,7 @@ const Form = ({
                     <input
                       className={`p-2 rounded-md border ${
                         errors[field.name] ? "border-red-500" : ""
-                      } font-normal`}
+                      } font-normal bg-gray-50 hover:bg-gray-100`}
                       name={field.name}
                       id={field.id}
                       type={field.type}
@@ -418,7 +418,7 @@ const Form = ({
                     <input
                       className={`p-2 rounded-md border ${
                         errors[field.name] ? "border-red-500" : ""
-                      } font-normal`}
+                      } font-normal bg-gray-50 hover:bg-gray-100`}
                       name={field.name}
                       id={field.id}
                       type={field.type}
@@ -459,7 +459,7 @@ const Form = ({
                     <input
                       className={`p-2 rounded-md border ${
                         errors[field.name] ? "border-red-500" : ""
-                      } font-normal`}
+                      } font-normal bg-gray-50 hover:bg-gray-100`}
                       name={field.name}
                       id={field.id}
                       type={field.type}

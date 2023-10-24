@@ -5,6 +5,7 @@ import {
   updateProductThunk,
 } from "core/store/products/products.thunk";
 import { getTodosThunk } from "core/store/todos/todos.thunk";
+import Validators from "core/validators";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Table } from "shared";
@@ -39,88 +40,116 @@ const Products = () => {
       label: "name",
       id: "name",
       type: "text",
-      // required: true,
-      // maxLength: 20,
-      // minLength: 10,
-      // validation: [
-      //   {
-      //     isName: (val) => {
-      //       if (val === "name") {
-      //         return "Enter a different product name";
-      //       }
-      //     },
-      //   },
-      // ],
+      required: true,
+      maxLength: 20,
+      minLength: 10,
+      validation: [
+        {
+          isName: (val) => {
+            if (val === "name") {
+              return "Enter a different product name";
+            }
+          },
+        },
+      ],
     },
     {
       name: "category",
       label: "category",
       id: "category",
       type: "select",
-      // required: true,
-      // maxLength: 20,
-      // minLength: 10,
-      // validation: [],
+      required: true,
+      validation: [],
     },
     {
       name: "brand",
       label: "brand",
       id: "brand",
       type: "text",
-      // required: true,
-      // maxLength: 20,
-      // minLength: 10,
-      // validation: [],
+      required: true,
+      validation: [],
     },
     {
       name: "price",
       label: "price",
       id: "price",
       type: "number",
-      // required: true,
-      // maxLength: 20,
-      // minLength: 10,
-      // validation: [],
+      required: true,
+      validation: [
+        {
+          isNotZero: (val: number) => {
+             Validators.isNotZero(val, "product");
+          },
+          isNotNegative: (val: number) => {
+          Validators.isNotNegative(val, "product");
+          },
+        },
+      ],
     },
     {
       name: "stock",
       label: "stock",
       id: "stock",
       type: "number",
-      // required: true,
-      // maxLength: 20,
-      // minLength: 10,
-      // validation: [],
+      required: true,
+      validation: [
+        {
+          isNotZero: (val: number) => {
+            Validators.isNotZero(val, "product");
+          },
+          isNotNegative: (val: number) => {
+            Validators.isNotNegative(val, "product");
+          },
+        },
+      ],
     },
     {
       name: "weight",
-      label: "weight",
+      label: "weight (Kg)",
       id: "weight",
       type: "number",
-      // required: true,
-      // maxLength: 20,
-      // minLength: 10,
-      // validation: [],
+      validation: [
+        {
+          isNotZero: (val: number) => {
+            Validators.isNotZero(val, "product");
+          },
+          isNotNegative: (val: number) => {
+            Validators.isNotNegative(val, "product");
+          },
+        },
+      ],
     },
     {
       name: "length",
       label: "Length (cm)",
       id: "length",
       type: "number",
-      // required: true,
-      // maxLength: 20,
-      // minLength: 10,
-      // validation: [],
+      validation: [
+        {
+          isNotZero: (val: number) => {
+            Validators.isNotZero(val, "product");
+          },
+          isNotNegative: (val: number) => {
+            Validators.isNotNegative(val, "product");
+          },
+        },
+      ],
     },
     {
       name: "breadth",
       label: "Breadth (cm)",
       id: "breadth",
       type: "number",
-      // required: true,
-      // maxLength: 20,
-      // minLength: 10,
-      // validation: [],
+      validation: [
+        {
+          isNotZero: (val: number) => {
+            Validators.isNotZero(val, "product");
+          },
+          isNotNegative: (val: number) => {
+            Validators.isNotNegative(val, "product");
+          },
+        },
+      ],
     },
     {
       name: "width",
@@ -137,26 +166,20 @@ const Products = () => {
       label: "description",
       id: "description",
       type: "text-area",
-      // required: true,
-      // maxLength: 20,
-      // minLength: 10,
-      // validation: [],
+      required: true,
+      maxLength: 2000,
+      minLength: 10,
+      validation: [],
     },
     {
-      name: "product_img",
-      label: "product imgs",
-      id: "product_img",
+      name: "product_imgs",
+      label: "product images",
+      id: "product_imgs",
       type: "file",
       required: false,
     },
   ];
-  const defaultValues = {
-    name: "",
-    brand: "",
-    price: 0,
-    category: "",
-    description: "",
-  };
+  const defaultValues = {};
   return (
     <Table
       _config={{

@@ -4,18 +4,27 @@
       "id": 1,
       "name": "asdas",
       "category": "volvo",
+      "brand": "test",
       "price": "123",
       "stock": "",
-      "product_img": {}
+      "weight": 20,
+      "length": 123,
+      "width": 123,
+      "breadth": 123,
+      "product_imgs": []
     },
     {
       "name": "AuthBackend",
-      "brand": "",
+          "brand": "test",
       "price": "123123",
       "category": "volvo",
       "description": "",
+      "weight": 20,
+      "length": 123,
+      "width": 123,
+      "breadth": 123,
       "stock": "123",
-      "product_img": {},
+            "product_imgs": [],
       "id": 2
     }
   ],

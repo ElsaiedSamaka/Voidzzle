@@ -4,11 +4,9 @@ export type Product = {
   description: string;
   price: number;
   stock: number;
-  availablity: boolean;
-  product_img: string;
-  readonly cloudinary_id?: string;
-  categoryId?: number;
-  readonly salesPerDay?: number;
+  product_imgs: any[];
+  weight: number;
+  length: number;
+  breadth: number;
   rating?: number;
-  readonly sales: number;
 };
