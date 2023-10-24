@@ -262,7 +262,7 @@ const TableHead = ({
 };
 const DailogHeader = ({ handleModalToggle }) => {
   return (
-    <div className="dailog-header flex justify-between items-center">
+    <div className="dailog-header flex justify-between items-center border-b py-2">
       <h3 className=" text-xl font-bold text-gray-900 ">Add new product</h3>
       <div
         onClick={handleModalToggle}

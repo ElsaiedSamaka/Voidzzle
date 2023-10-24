@@ -289,13 +289,13 @@ const PreviewDailogBody = ({ item, handleModalToggle }) => {
       id="readProductModal"
       tabIndex={-1}
       aria-hidden="true"
-      className="justify-center items-center w-full md:inset-0 "
+      className="justify-center items-center w-full"
     >
       <div className="relative   ">
         <div className="w-full sm:my-4">
           <div className="flex items-center justify-between text-lg text-gray-900 md:text-xl ">
-            <h4 className="font-medium ">Apple iMac 27”</h4>
-            <p className="font-medium">$2999</p>
+            <h4 className="font-medium ">{item.name}”</h4>
+            <p className="font-medium">${item.price}</p>
           </div>
         </div>
         <dl>
@@ -303,10 +303,7 @@ const PreviewDailogBody = ({ item, handleModalToggle }) => {
             Details
           </dt>
           <dd className="mb-4 font-light text-gray-500 sm:mb-5 :text-gray-400">
-            Standard glass ,3.8GHz 8-core 10th-generation Intel Core i7
-            processor, Turbo Boost up to 5.0GHz, 16GB 2666MHz DDR4 memory,
-            Radeon Pro 5500 XT with 8GB of GDDR6 memory, 256GB SSD storage,
-            Gigabit Ethernet, Magic Mouse 2, Magic Keyboard - US.
+            {item.description ? item.description : "N/A"}
           </dd>
           <dt className="mb-2 font-semibold leading-none text-gray-900 :text-white">
             Colors
@@ -329,7 +326,7 @@ const PreviewDailogBody = ({ item, handleModalToggle }) => {
             Category
           </dt>
           <dd className="mb-4 font-light text-gray-500 sm:mb-5 :text-gray-400">
-            Electronics/PC
+            {item.categroy ? item.categroy : "N/A"}
           </dd>
         </dl>
         <div>
@@ -339,46 +336,33 @@ const PreviewDailogBody = ({ item, handleModalToggle }) => {
               lorem
             </dd>
             <dd className="bg-gray-100 p-2 rounded">
-              <dt className="font-semibold text-lg">Sold by</dt>
+              <dt className="font-semibold text-lg">Ships from</dt>
               lorem
             </dd>
             <dd className="bg-gray-100 p-2 rounded">
-              <dt className="font-semibold text-lg">Sold by</dt>
+              <dt className="font-semibold text-lg">Product State</dt>
               lorem
             </dd>
             <dd className="bg-gray-100 p-2 rounded">
-              <dt className="font-semibold text-lg">Sold by</dt>
+              <dt className="font-semibold text-lg">Shipping</dt>
               lorem
             </dd>
             <dd className="bg-gray-100 p-2 rounded">
-              <dt className="font-semibold text-lg">Sold by</dt>
+              <dt className="font-semibold text-lg">Dimensions (cm)</dt>
               lorem
             </dd>
             <dd className="bg-gray-100 p-2 rounded">
-              <dt className="font-semibold text-lg">Sold by</dt>
+              <dt className="font-semibold text-lg">Item weight</dt>
               lorem
             </dd>
           </dl>
         </div>
-        <div className="flex justify-end my-2">
+        <div className="flex justify-start mt-2">
           <button
             type="button"
-            className="inline-flex items-center text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center :bg-red-500 :hover:bg-red-600 :focus:ring-red-900"
+            className="inline-flex items-center text-gray-500 border bg-transparent hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
           >
-            <svg
-              aria-hidden="true"
-              className="w-5 h-5 mr-1.5 -ml-1"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fillRule="evenodd"
-                d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
-                clipRule="evenodd"
-              />
-            </svg>
-            Delete
+            Cancel
           </button>
         </div>
       </div>

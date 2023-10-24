@@ -22,7 +22,6 @@ const Form = ({
   });
   const dispatch = useDispatch();
   const submit = (formData) => {
-    console.log("formData",formData)
     handleDispatch(formData);
     handleModalToggle();
   };
@@ -38,14 +37,17 @@ const Form = ({
         className="mt-2 flex flex-col w-fit h-fit"
       >
         {/* Form fields */}
-        <div className="grid gap-4 mb-4 sm:grid-cols-2">
+        <div className="grid gap-4 mb-4 sm:grid-cols-1 md:grid-cols-4">
           {formFields.map((field, i) => {
             return (
               <>
                 {field.type == "text" && (
-                  <div className="input flex flex-col w-full font-semibold group">
+                  <div className="input flex flex-col w-full font-semibold group col-span-2">
                     {field.label && (
-                      <label className="capitalize" htmlFor={field.name}>
+                      <label
+                        className="capitalize  text-gray-900"
+                        htmlFor={field.name}
+                      >
                         {field.label}
                       </label>
                     )}
@@ -82,7 +84,10 @@ const Form = ({
                 {field.type == "date" && (
                   <div className="input flex flex-col w-full font-semibold group">
                     {field.label && (
-                      <label className="capitalize" htmlFor={field.name}>
+                      <label
+                        className="capitalize text-gray-900 text-gray-900"
+                        htmlFor={field.name}
+                      >
                         {field.label}
                       </label>
                     )}
@@ -131,16 +136,15 @@ const Form = ({
                   </div>
                 )}
                 {field.type == "select" && (
-                  <div className="input flex flex-col w-full font-semibold group">
+                  <div className="input flex flex-col w-full font-semibold group col-span-2">
                     {field.label && (
-                      <label className="capitalize" htmlFor={field.name}>
+                      <label
+                        className="capitalize text-gray-900"
+                        htmlFor={field.name}
+                      >
                         {field.label}
                       </label>
                     )}
-                    {/* className=
-                    {`p-2 rounded-md border ${
-                      errors[field.name] ? "border-red-500" : ""
-                    } font-normal`} */}
                     <select
                       className={`p-2 rounded-md border ${
                         errors[field.name] ? "border-red-500" : ""
@@ -176,9 +180,12 @@ const Form = ({
                   </div>
                 )}
                 {field.type == "text-area" && (
-                  <div className="input flex flex-col w-full font-semibold group">
+                  <div className="input flex flex-col w-full font-semibold group col-span-full">
                     {field.label && (
-                      <label className="capitalize" htmlFor={field.name}>
+                      <label
+                        className="capitalize text-gray-900"
+                        htmlFor={field.name}
+                      >
                         {field.label}
                       </label>
                     )}
@@ -200,7 +207,10 @@ const Form = ({
                 {field.type == "password" && (
                   <div className="input flex flex-col w-full font-semibold group">
                     {field.label && (
-                      <label className="capitalize" htmlFor={field.name}>
+                      <label
+                        className="capitalize text-gray-900"
+                        htmlFor={field.name}
+                      >
                         {field.label}
                       </label>
                     )}
@@ -235,46 +245,53 @@ const Form = ({
                   </div>
                 )}
                 {field.type == "file" && (
-                  <div className="input flex flex-col w-full font-semibold group">
-                    {field.label && (
-                      <label className="capitalize" htmlFor={field.name}>
-                        {field.label}
-                      </label>
-                    )}
-                    <input
-                      className={`p-2 rounded-md border ${
-                        errors[field.name] ? "border-red-500" : ""
-                      } font-normal`}
-                      name={field.name}
-                      id={field.id}
-                      type={field.type}
-                      {...register(field.name, {
-                        required: {
-                          value: field.required,
-                          message: "this is a required field",
-                        },
-                        pattern: field.pattern,
-                        maxLength: field.maxLength,
-                        minLength: field.minLength,
-                        validate: field.validation?.reduce((acc, validator) => {
-                          return {
-                            ...acc,
-                            ...validator,
-                          };
-                        }, {}),
-                      })}
-                    />
-                    {errors[field.name] && (
-                      <span className="opacity-0 group-hover:opacity-100 transition-all duration-300 text-red-500 px-1 rounded-full text-center w-fit absolute left-[12%] bg-white border border-red-500">
-                        {errors[field.name].message}
-                      </span>
-                    )}
+                  <div className="flex flex-col items-start justify-center w-full col-span-full">
+                    <label className="capitalize text-gray-900 font-semibold">
+                      {field.label}
+                    </label>
+                    <label
+                      htmlFor="dropzone-file"
+                      className="flex flex-col items-center justify-center w-full h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100 "
+                    >
+                      <div className="flex flex-col items-center justify-center pt-5 pb-6">
+                        <svg
+                          className="w-8 h-8 mb-4 text-gray-500 :text-gray-400"
+                          aria-hidden="true"
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 20 16"
+                        >
+                          <path
+                            stroke="currentColor"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"
+                          />
+                        </svg>
+                        <p className="mb-2 text-sm text-gray-500 :text-gray-400">
+                          <span className="font-semibold">Click to upload</span>{" "}
+                          or drag and drop
+                        </p>
+                        <p className="text-xs text-gray-500 :text-gray-400">
+                          SVG, PNG, JPG or GIF (MAX. 800x400px)
+                        </p>
+                      </div>
+                      <input
+                        id="dropzone-file"
+                        type="file"
+                        className="hidden"
+                      />
+                    </label>
                   </div>
                 )}
                 {field.type == "radio" && (
                   <div className="input flex flex-col w-full font-semibold group">
                     {field.label && (
-                      <label className="capitalize" htmlFor={field.name}>
+                      <label
+                        className="capitalize text-gray-900"
+                        htmlFor={field.name}
+                      >
                         {field.label}
                       </label>
                     )}
@@ -311,7 +328,10 @@ const Form = ({
                 {field.type == "tel" && (
                   <div className="input flex flex-col w-full font-semibold group">
                     {field.label && (
-                      <label className="capitalize" htmlFor={field.name}>
+                      <label
+                        className="capitalize text-gray-900"
+                        htmlFor={field.name}
+                      >
                         {field.label}
                       </label>
                     )}
@@ -348,7 +368,10 @@ const Form = ({
                 {field.type == "range" && (
                   <div className="input flex flex-col w-full font-semibold group">
                     {field.label && (
-                      <label className="capitalize" htmlFor={field.name}>
+                      <label
+                        className="capitalize text-gray-900"
+                        htmlFor={field.name}
+                      >
                         {field.label}
                       </label>
                     )}
@@ -385,7 +408,10 @@ const Form = ({
                 {field.type == "email" && (
                   <div className="input flex flex-col w-full font-semibold group">
                     {field.label && (
-                      <label className="capitalize" htmlFor={field.name}>
+                      <label
+                        className="capitalize text-gray-900"
+                        htmlFor={field.name}
+                      >
                         {field.label}
                       </label>
                     )}
@@ -423,7 +449,10 @@ const Form = ({
                 {field.type == "number" && (
                   <div className="input flex flex-col w-full font-semibold group">
                     {field.label && (
-                      <label className="capitalize" htmlFor={field.name}>
+                      <label
+                        className="capitalize text-gray-900"
+                        htmlFor={field.name}
+                      >
                         {field.label}
                       </label>
                     )}
@@ -465,19 +494,20 @@ const Form = ({
         {/* Form fields */}
 
         {/* Buttons */}
-        <div className="flex ml-auto gap-x-2">
+        <div className="flex mr-auto gap-x-2">
           <button
-            onClick={handleModalToggle}
-            className="bg-red-300 w-fit ml-auto p-2 rounded-md"
-          >
-            cancel
-          </button>
-          <button
-            className="bg-blue-300 w-fit ml-auto p-2 rounded-md disabled:bg-gray-400"
+            className="inline-flex items-center text-white border bg-black hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
             // disabled={!isValid || !isDirty || !isSubmitting}
             type="submit"
           >
             Save
+          </button>
+          <button
+            onClick={handleModalToggle}
+            type="button"
+            className="inline-flex items-center text-gray-500 border bg-transparent hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+          >
+            Cancel
           </button>
         </div>
         {/* Buttons */}
