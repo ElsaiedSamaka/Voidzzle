@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Aside from "./Aside/Aside";
 import Navbar from "./Navbar/Navbar";
+import { useDrawerContext } from "core/context/DrawerContext";
 
 const ActiveMenuLink = ({ children, href }) => {
   const pathname = usePathname();
@@ -31,18 +32,11 @@ const menuItems = [
 ];
 
 const Header = () => {
+  const { state, toggleDrawer } = useDrawerContext();
+  const { showDrawer } = state;
   return (
     <header className="">
       <div className="py-2 flex items-center">
-        <Link href="/">
-          <Image
-            width={36}
-            height={36}
-            src="/favicon.ico"
-            className=""
-            alt="logo"
-          />
-        </Link>
         {/* <nav className="ml-8">
           <ul className="flex flex-wrap gap-x-8 text-gray-900">
             {menuItems.map(({ url, label }, index) => (

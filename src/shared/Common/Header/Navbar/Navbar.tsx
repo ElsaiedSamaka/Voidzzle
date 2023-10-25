@@ -1,10 +1,13 @@
-import logo from "../../../../../public/images/favicon-32x32.png"
+import { useDrawerContext } from "core/context/DrawerContext";
+import logo from "../../../../../public/images/favicon-32x32.png";
 const Navbar = () => {
+  const { state, toggleDrawer } = useDrawerContext();
   return (
     <nav className=" border-b border-gray-200 px-4 py-2 :bg-gray-800 :border-gray-700 fixed left-0 right-0 top-0 z-30 backdrop-blur-md">
       <div className="flex flex-wrap justify-between items-center">
         <div className="flex justify-start items-center">
           <button
+            onClick={() => toggleDrawer(!state.showDrawer)}
             data-drawer-target="drawer-navigation"
             data-drawer-toggle="drawer-navigation"
             aria-controls="drawer-navigation"
@@ -51,11 +54,11 @@ const Navbar = () => {
               Voidzzle
             </span>
           </a>
-          <form action="#" method="GET" className="hidden md:block md:pl-2">
+          <form className="hidden md:block md:pl-2">
             <label htmlFor="topbar-search" className="sr-only">
               Search
             </label>
-            <div className="relative md:w-64 md:w-96">
+            <div className="relative md:w-96">
               <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
                 <svg
                   className="w-5 h-5 text-gray-500 :text-gray-400"
@@ -629,8 +632,6 @@ const Navbar = () => {
       </div>
     </nav>
   );
-}
+};
 
-export default Navbar
-
-     
+export default Navbar;

@@ -1,14 +1,20 @@
+import { useDrawerContext } from "core/context/DrawerContext";
 import Link from "next/link";
 import Anchor from "shared/Common/Anchor/Anchor";
 
 const Aside = () => {
+  const { state, toggleDrawer } = useDrawerContext();
+  const { showDrawer } = state;
   return (
     <aside
-      className="fixed top-0 left-0 z-20 w-64 h-screen pt-14 transition-transform -translate-x-full bg-white border-r border-gray-200 md:translate-x-0 :bg-gray-800 :border-gray-700"
+      className={`fixed top-0 left-0 z-20 w-64 h-screen pt-14 transition-transform -translate-x-full bg-white border-r border-gray-200 md:translate-x-0 ${
+        showDrawer ? "translate-x-10" : "-translate-x-full"
+      }`}
       aria-label="Sidenav"
       id="drawer-navigation"
     >
-      <div className="overflow-y-auto py-5 px-3 h-full bg-white :bg-gray-800">
+      {/* top side bar nav */}
+      <div className="overflow-y-auto py-5 px-3 h-full bg-white">
         <form className="md:hidden mb-2">
           <label htmlFor="sidebar-search" className="sr-only">
             Search
@@ -376,8 +382,9 @@ const Aside = () => {
           </li>
         </ul>
       </div>
-      {/* side bar nav */}
-      <div className="hidden absolute bottom-0 left-0 justify-center p-4 space-x-4 w-full lg:flex bg-white :bg-gray-800 z-20">
+      {/* top side bar nav */}
+      {/* bottom side bar nav */}
+      <div className=" absolute bottom-0 left-0 justify-center p-4 space-x-4 w-full lg:flex bg-white z-20">
         <a className="inline-flex justify-center  rounded cursor-pointer :text-gray-400 hover:text-gray-900 :hover:text-white hover:bg-gray-100 :hover:bg-gray-600">
           <svg
             aria-hidden="true"
@@ -613,7 +620,7 @@ const Aside = () => {
         </div>
         {/* bottom of the navbar */}
       </div>
-      {/* side bar nav */}
+      {/* bottom side bar nav */}
     </aside>
   );
 };
