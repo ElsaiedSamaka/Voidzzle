@@ -12,7 +12,6 @@ const initialState = {
 const drawerReducer = (state: DrawerState, action: any) => {
   switch (action.type) {
     case "TOGGLE_DRAWER":
-      console.log("called");
       return {
         ...state,
         showDrawer: !state.showDrawer,

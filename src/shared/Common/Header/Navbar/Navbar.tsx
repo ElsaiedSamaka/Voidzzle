@@ -350,7 +350,7 @@ const Navbar = () => {
           </button>
           {/* Dropdown menu */}
           <div
-            className="hidden overflow-hidden z-50 my-4 max-w-sm text-base list-none bg-white rounded divide-y divide-gray-100 shadow-lg :bg-gray-700 :divide-gray-600 rounded-xl"
+            className="hidden overflow-hidden z-50 my-4 max-w-sm text-base list-none bg-white divide-y divide-gray-100 shadow-lg rounded-xl"
             id="apps-dropdown"
           >
             <div className="block py-2 px-4 text-base font-medium text-center text-gray-700 bg-gray-50 :bg-gray-600 :text-gray-300">
@@ -523,7 +523,7 @@ const Navbar = () => {
           </button>
           {/* Dropdown menu */}
           <div
-            className="hidden z-50 my-4 w-56 text-base list-none bg-white rounded divide-y divide-gray-100 shadow :bg-gray-700 :divide-gray-600 rounded-xl"
+            className="hidden z-50 my-4 w-56 text-base list-none bg-white  divide-y divide-gray-100 shadow rounded-xl"
             id="dropdown"
           >
             <div className="py-3 px-4">
