@@ -79,12 +79,12 @@ const TableBody = ({
                 <>
                   <tr className="border-b" key={item.id}>
                     {_config.multiSelect && (
-                      <td className="w-4 px-4 py-3">
+                      <td className="w-4 px-4 py-2">
                         <div className="flex items-center">
                           <input
                             id="checkbox-table-search-1"
                             type="checkbox"
-                            className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 :focus:ring-primary-600 :ring-offset-gray-800 focus:ring-2 :bg-gray-700 :border-gray-600"
+                            className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 focus:ring-2"
                           />
                           <label
                             htmlFor="checkbox-table-search-1"
@@ -96,14 +96,14 @@ const TableBody = ({
                       </td>
                     )}
                     {_config.th.map((column, i) => (
-                      <td className="px-4 py-2" key={column.id}>
+                      <td className="px-4 py-1" key={column.id}>
                         <div className="flex items-center">
                           {item[column.label]}
                         </div>
                       </td>
                     ))}
                     {_config._exentions && (
-                      <td className="p-4">
+                      <td className="p-2">
                         <div className="relative">
                           <button
                             onClick={() => {
@@ -206,6 +206,88 @@ const TableBody = ({
                 </>
               );
             })}
+            {data.items.length < 10 &&
+              Array.from({ length: 10 - data.items.length }).map((_, i) => (
+                <tr className="border-b" key={`placeholder-${i}`}>
+                  {/* Placeholder row */}
+                  {_config.multiSelect && (
+                    <td className="w-4 px-4 py-2">
+                      <div className="flex items-center">
+                        <input
+                          disabled
+                          id="checkbox-table-search-1"
+                          type="checkbox"
+                          className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 :focus:ring-primary-600 :ring-offset-gray-800 focus:ring-2 :bg-gray-700 :border-gray-600"
+                        />
+                        <label
+                          htmlFor="checkbox-table-search-1"
+                          className="sr-only"
+                        >
+                          checkbox
+                        </label>
+                      </div>
+                    </td>
+                  )}
+                  {_config.th.map((column, i) => (
+                    <td className="px-4 py-2" key={column.id}>
+                      <div className="flex items-center"></div>
+                    </td>
+                  ))}
+                  {_config._exentions && (
+                    <td className="p-2">
+                      <div className="relative">
+                        <button
+                          disabled
+                          id="apple-imac-20-dropdown-button"
+                          data-dropdown-toggle="apple-imac-20-dropdown"
+                          className="inline-flex items-center p-0.5 text-sm font-medium text-center text-gray-500  rounded-lg focus:outline-none disabled:cursor-not-allowed"
+                          type="button"
+                        >
+                          <svg
+                            className="w-5 h-5"
+                            aria-hidden="true"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z" />
+                          </svg>
+                        </button>
+                        {showActionsPopover && rowIndex == i && (
+                          <Popover
+                            content={
+                              <>
+                                <div>
+                                  <ul
+                                    className="py-1 text-sm text-gray-700"
+                                    aria-labelledby="apple-imac-20-dropdown-button"
+                                  >
+                                    <li>
+                                      <a className="block py-2 px-4 hover:bg-gray-100 hover:cursor-pointer">
+                                        Show
+                                      </a>
+                                    </li>
+                                    <li>
+                                      <a className="block py-2 px-4 hover:bg-gray-100 hover:cursor-pointer">
+                                        Edit
+                                      </a>
+                                    </li>
+                                  </ul>
+                                  <div className="py-1">
+                                    <a className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 hover:cursor-pointer">
+                                      Delete
+                                    </a>
+                                  </div>
+                                </div>
+                              </>
+                            }
+                          />
+                        )}
+                      </div>
+                    </td>
+                  )}
+                </tr>
+              ))}
           </tbody>
         </table>
       </div>
