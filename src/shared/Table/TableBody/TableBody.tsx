@@ -253,36 +253,6 @@ const TableBody = ({
                             <path d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z" />
                           </svg>
                         </button>
-                        {showActionsPopover && rowIndex == i && (
-                          <Popover
-                            content={
-                              <>
-                                <div>
-                                  <ul
-                                    className="py-1 text-sm text-gray-700"
-                                    aria-labelledby="apple-imac-20-dropdown-button"
-                                  >
-                                    <li>
-                                      <a className="block py-2 px-4 hover:bg-gray-100 hover:cursor-pointer">
-                                        Show
-                                      </a>
-                                    </li>
-                                    <li>
-                                      <a className="block py-2 px-4 hover:bg-gray-100 hover:cursor-pointer">
-                                        Edit
-                                      </a>
-                                    </li>
-                                  </ul>
-                                  <div className="py-1">
-                                    <a className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 hover:cursor-pointer">
-                                      Delete
-                                    </a>
-                                  </div>
-                                </div>
-                              </>
-                            }
-                          />
-                        )}
                       </div>
                     </td>
                   )}

@@ -15,7 +15,7 @@
     },
     {
       "name": "AuthBackend",
-          "brand": "test",
+      "brand": "test",
       "price": "123123",
       "category": "volvo",
       "description": "",
@@ -24,8 +24,20 @@
       "width": 123,
       "breadth": 123,
       "stock": "123",
-            "product_imgs": [],
+      "product_imgs": [],
       "id": 2
+    },
+    {
+      "name": "test product",
+      "category": "saab",
+      "brand": "lenovo",
+      "price": "123",
+      "stock": "123",
+      "weight": "32",
+      "length": "11",
+      "breadth": "123",
+      "width": "12",
+      "id": 3
     }
   ],
   "users": [
