@@ -62,13 +62,19 @@ const TableBody = ({
       });
     }
   }
-  function handleSelectAll() {
-    if (items.length > 0) {
-      dispatchSelectedItems({ type: "reset" });
-    } else {
-      dispatchSelectedItems({ type: "add", payload: data.items });
-    }
+/**
+ * Handles the select all functionality.
+ */
+function handleSelectAll() {
+  // If there are items in the list
+  if (items.length > 0) {
+    // Reset the selected items
+    dispatchSelectedItems({ type: "reset" });
+  } else {
+    // Add all items to the selected items list
+    dispatchSelectedItems({ type: "add", payload: data.items });
   }
+}
   return (
     <>
       <div className="overflow-x-auto">

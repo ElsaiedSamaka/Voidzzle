@@ -4,6 +4,7 @@ import Dailog from "shared/Modals/Dailog/Dailog";
 import classNames from "classnames";
 import { useDispatch } from "react-redux";
 import { deleteAllProductsThunk } from "core/store/products/products.thunk";
+import { useSelectedItems } from "../shared/context/SelectedItemsContext";
 const TableHead = ({
   _config,
   data,
@@ -13,6 +14,8 @@ const TableHead = ({
 }) => {
   const [showAddModal, toggleAddetionModal] = useState(false);
   const [showActionsPopover, setShowActionsPopover] = useState(false);
+  const { state, dispatch: dispatchSelectedItems } = useSelectedItems();
+  const { items } = state;
   const dispatch = useDispatch();
   function handleModalToggle() {
     toggleAddetionModal(!showAddModal);
@@ -21,7 +24,11 @@ const TableHead = ({
     setShowActionsPopover(!showActionsPopover);
   }
   function handleDeleteAll() {
-    dispatch(deleteAllProductsThunk([]));
+    const ids = items.map((item) => item.id);
+    dispatch(deleteAllProductsThunk(ids));
+    dispatchSelectedItems({
+      type: "reset",
+    });
   }
   return (
     <>
