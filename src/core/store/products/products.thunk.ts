@@ -28,6 +28,17 @@ export const deleteProductThunk = createAsyncThunk(
   }
 );
 
+export const deleteAllProductsThunk = createAsyncThunk(
+  "products/deleteAll",
+  async (ids: any[], thunkAPI) => {
+    try {
+      const response = await productsService.removeAll(ids);
+      return thunkAPI.fulfillWithValue(response);
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+    }
+  }
+);
 export const updateProductThunk = createAsyncThunk(
   "products/update",
   async (body: any, thunkAPI) => {

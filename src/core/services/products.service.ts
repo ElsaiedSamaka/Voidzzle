@@ -55,6 +55,15 @@ const productsService = {
     }
   },
 
+  removeAll: async (ids: any[]) => {
+    try {
+      const response = await apiservice.post("products/remove-all", ids);
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  },
+
   patch: async (id: string, body: any) => {
     try {
       const response = await apiservice.put(`products/${id}`, body);

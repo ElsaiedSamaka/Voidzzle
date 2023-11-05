@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { Product } from "core/models";
 import {
   createProductThunk,
+  deleteAllProductsThunk,
   deleteProductThunk,
   getProductsThunk,
   updateProductThunk,
@@ -96,6 +97,21 @@ export const productsSlice = createSlice({
         state.error = action.error.message;
       })
       .addCase(deleteProductThunk.pending, (state, action) => {
+        state.loading = true;
+        state.error = null;
+      });
+    // deleteAllProducts
+    builder
+      .addCase(deleteAllProductsThunk.fulfilled, (state, action) => {
+        state.loading = false;
+        state.error = null;
+        state.items = [];
+      })
+      .addCase(deleteAllProductsThunk.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message;
+      })
+      .addCase(deleteAllProductsThunk.pending, (state, action) => {
         state.loading = true;
         state.error = null;
       });

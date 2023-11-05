@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import Form from "shared/Forms/Form";
 import Dailog from "shared/Modals/Dailog/Dailog";
 import Popover from "shared/Modals/Popover/Popover";
+import { useSelectedItems } from "../shared/context/SelectedItemsContext";
 
 const TableBody = ({
   _config,
@@ -16,8 +17,9 @@ const TableBody = ({
   const [rowIndex, setRowIndex] = useState(null);
   const [showEditModal, toggleEditModal] = useState(false);
   const [showPreviewModal, togglePreviewModal] = useState(false);
-  const [selectedItems, setSelectedItems] = useState([]);
-  const dispatch = useDispatch();
+  const { state, dispatch } = useSelectedItems();
+  const { items } = state;
+  // const dispatch = useDispatch();
   function toggleActionsPopover(index: any) {
     if (rowIndex == index) {
       setShowActionsPopover(!showActionsPopover);
@@ -27,7 +29,7 @@ const TableBody = ({
     }
   }
   function deleteItem(id: any) {
-    dispatch(deleteProductThunk(id));
+    // dispatch(deleteProductThunk(id));
     toggleActionsPopover(null);
   }
   function handleEditModalToggle(item: any) {
@@ -45,36 +47,31 @@ const TableBody = ({
    * @returns {Array} - The updated list of selected items.
    */
   function handleItemSelect(item) {
-    setSelectedItems((prevState) => {
-      // Check if the item is already selected
-      const itemIndex = prevState.findIndex(
-        (selectedItem) => selectedItem.id === item.id
-      );
-      // Item is already selected, remove it from selectedItems
-      if (itemIndex !== -1) {
-        const updatedItems = [...prevState];
-        updatedItems.splice(itemIndex, 1);
-        return updatedItems;
-      }
-      // Item is not selected, add it to selectedItems
-      else {
-        const updatedItems = [...prevState];
-        updatedItems.push(item);
-        return updatedItems;
-      }
+    const itemIndex = items.findIndex((selectedItem) => {
+      return selectedItem.id === item.id;
     });
+    if (itemIndex !== -1) {
+      dispatch({
+        type: "remove",
+        payload: item.id,
+      });
+    } else {
+      dispatch({
+        type: "add",
+        payload: [item],
+      });
+    }
   }
   function handleSelectAll() {
-    if (selectedItems.length > 0) {
-      setSelectedItems([]);
+    if (items.length > 0) {
+      dispatch({ type: "reset" });
     } else {
-      setSelectedItems((prevState) => {
-        return [...data.items];
-      });
+      dispatch({ type: "add", payload: data.items });
     }
   }
   return (
     <>
+      <pre>{JSON.stringify(state, null, 2)}</pre>
       <div className="overflow-x-auto">
         <table className="w-full text-sm text-left text-gray-500 :text-gray-400">
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 :bg-gray-700 :text-gray-400">
@@ -83,7 +80,7 @@ const TableBody = ({
                 <th scope="col" className="p-4">
                   <div className="flex items-center">
                     <input
-                      checked={selectedItems.length === data.items.length}
+                      checked={items.length == data.items.length}
                       onChange={handleSelectAll}
                       id="checkbox-all"
                       type="checkbox"
@@ -121,8 +118,8 @@ const TableBody = ({
                         <div className="flex items-center">
                           <input
                             value={item.id}
-                            checked={selectedItems.some(
-                              (selectedItem) => selectedItem.id === item.id
+                            checked={items.some(
+                              (selectedItem) => selectedItem.id == item.id
                             )}
                             onChange={() => {
                               handleItemSelect(item);

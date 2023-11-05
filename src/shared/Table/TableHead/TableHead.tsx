@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import Form from "shared/Forms/Form";
 import Dailog from "shared/Modals/Dailog/Dailog";
 import classNames from "classnames";
+import { useDispatch } from "react-redux";
+import { deleteAllProductsThunk } from "core/store/products/products.thunk";
 const TableHead = ({
   _config,
   data,
@@ -11,11 +13,15 @@ const TableHead = ({
 }) => {
   const [showAddModal, toggleAddetionModal] = useState(false);
   const [showActionsPopover, setShowActionsPopover] = useState(false);
+  const dispatch = useDispatch();
   function handleModalToggle() {
     toggleAddetionModal(!showAddModal);
   }
   function handleActionToggle() {
     setShowActionsPopover(!showActionsPopover);
+  }
+  function handleDeleteAll() {
+    dispatch(deleteAllProductsThunk([]));
   }
   return (
     <>
@@ -111,7 +117,10 @@ const TableHead = ({
                       id="actionsDropdown"
                     >
                       <div className="py-1">
-                        <a className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 :hover:bg-gray-600 :text-gray-200 :hover:text-white">
+                        <a
+                          onClick={handleDeleteAll}
+                          className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 hover:text-red-600 hover:cursor-pointer"
+                        >
                           Delete all
                         </a>
                       </div>
