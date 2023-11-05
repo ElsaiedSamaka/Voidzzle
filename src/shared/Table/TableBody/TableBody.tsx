@@ -38,23 +38,40 @@ const TableBody = ({
     toggleActionsPopover(null);
     togglePreviewModal(!showPreviewModal);
   }
+  /**
+   * Handles the selection of an item.
+   *
+   * @param {Object} item - The item to be selected.
+   * @returns {Array} - The updated list of selected items.
+   */
   function handleItemSelect(item) {
     setSelectedItems((prevState) => {
+      // Check if the item is already selected
       const itemIndex = prevState.findIndex(
         (selectedItem) => selectedItem.id === item.id
       );
+      // Item is already selected, remove it from selectedItems
       if (itemIndex !== -1) {
-        // Item is already selected, remove it from selectedItems
         const updatedItems = [...prevState];
         updatedItems.splice(itemIndex, 1);
         return updatedItems;
-      } else {
-        // Item is not selected, add it to selectedItems
+      }
+      // Item is not selected, add it to selectedItems
+      else {
         const updatedItems = [...prevState];
         updatedItems.push(item);
         return updatedItems;
       }
     });
+  }
+  function handleSelectAll() {
+    if (selectedItems.length > 0) {
+      setSelectedItems([]);
+    } else {
+      setSelectedItems((prevState) => {
+        return [...data.items];
+      });
+    }
   }
   return (
     <>
@@ -66,6 +83,8 @@ const TableBody = ({
                 <th scope="col" className="p-4">
                   <div className="flex items-center">
                     <input
+                      checked={selectedItems.length === data.items.length}
+                      onChange={handleSelectAll}
                       id="checkbox-all"
                       type="checkbox"
                       className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 :focus:ring-primary-600 :ring-offset-gray-800 focus:ring-2 :bg-gray-700 :border-gray-600"
