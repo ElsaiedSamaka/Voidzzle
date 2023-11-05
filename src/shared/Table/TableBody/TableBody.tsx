@@ -17,9 +17,9 @@ const TableBody = ({
   const [rowIndex, setRowIndex] = useState(null);
   const [showEditModal, toggleEditModal] = useState(false);
   const [showPreviewModal, togglePreviewModal] = useState(false);
-  const { state, dispatch } = useSelectedItems();
+  const { state, dispatch: dispatchSelectedItems } = useSelectedItems();
   const { items } = state;
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   function toggleActionsPopover(index: any) {
     if (rowIndex == index) {
       setShowActionsPopover(!showActionsPopover);
@@ -29,7 +29,7 @@ const TableBody = ({
     }
   }
   function deleteItem(id: any) {
-    // dispatch(deleteProductThunk(id));
+    dispatch(deleteProductThunk(id));
     toggleActionsPopover(null);
   }
   function handleEditModalToggle(item: any) {
@@ -51,12 +51,12 @@ const TableBody = ({
       return selectedItem.id === item.id;
     });
     if (itemIndex !== -1) {
-      dispatch({
+      dispatchSelectedItems({
         type: "remove",
         payload: item.id,
       });
     } else {
-      dispatch({
+      dispatchSelectedItems({
         type: "add",
         payload: [item],
       });
@@ -64,14 +64,13 @@ const TableBody = ({
   }
   function handleSelectAll() {
     if (items.length > 0) {
-      dispatch({ type: "reset" });
+      dispatchSelectedItems({ type: "reset" });
     } else {
-      dispatch({ type: "add", payload: data.items });
+      dispatchSelectedItems({ type: "add", payload: data.items });
     }
   }
   return (
     <>
-      <pre>{JSON.stringify(state, null, 2)}</pre>
       <div className="overflow-x-auto">
         <table className="w-full text-sm text-left text-gray-500 :text-gray-400">
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 :bg-gray-700 :text-gray-400">
