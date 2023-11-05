@@ -1,6 +1,7 @@
 import { RootState } from "core/store";
 import {
   createProductThunk,
+  deleteAllProductsThunk,
   getProductsThunk,
   updateProductThunk,
 } from "core/store/products/products.thunk";
@@ -9,9 +10,12 @@ import Validators from "core/validators";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Table } from "shared";
+import { useSelectedItems } from "shared/Table/shared/context/SelectedItemsContext";
 
 const Products = () => {
   const productsSlice = useSelector((state: RootState) => state.products);
+  const { state, dispatch: dispatchSelectedItems } = useSelectedItems();
+  const { items } = state;
   const dispatch = useDispatch();
   const handleAddetionDispatch = (data: any) => {
     dispatch(createProductThunk(data));
@@ -19,6 +23,13 @@ const Products = () => {
   const handleUpdateDispatch = (data) => {
     dispatch(updateProductThunk(data));
   };
+  function handleDeleteAll() {
+    const ids = items.map((item) => item.id);
+    dispatch(deleteAllProductsThunk(ids));
+    dispatchSelectedItems({
+      type: "reset",
+    });
+  }
   const th = [
     { label: "name", id: 1 },
     { label: "category", id: 2 },
@@ -210,6 +221,7 @@ const Products = () => {
       formFields={formFields}
       handleAddetionDispatch={handleAddetionDispatch}
       handleUpdateDispatch={handleUpdateDispatch}
+      handleDeleteAllDispatch={handleDeleteAll}
     />
   );
 };

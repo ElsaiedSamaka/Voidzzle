@@ -39,10 +39,10 @@ const Table = ({
   defaultValues,
   formFields,
   handleAddetionDispatch,
+  handleDeleteAllDispatch,
   handleUpdateDispatch,
 }) => {
   return (
-    <SelectedItemsProvider>
       <div className=" mx-auto max-w-screen-2xl my-2">
         <div className="relative overflow-hidden bg-white shadow rounded-md">
           {/* table head */}
@@ -61,6 +61,7 @@ const Table = ({
               defaultValues={defaultValues}
               formFields={formFields}
               handleAddetionDispatch={handleAddetionDispatch}
+              handleDeleteAllDispatch={handleDeleteAllDispatch}
             />
           )}
           {/* table head */}
@@ -85,7 +86,6 @@ const Table = ({
           {/* table footer */}
         </div>
       </div>
-    </SelectedItemsProvider>
   );
 };
 

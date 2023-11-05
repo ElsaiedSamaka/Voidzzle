@@ -11,6 +11,7 @@ const TableHead = ({
   defaultValues,
   formFields,
   handleAddetionDispatch,
+  handleDeleteAllDispatch
 }) => {
   const [showAddModal, toggleAddetionModal] = useState(false);
   const [showActionsPopover, setShowActionsPopover] = useState(false);
