@@ -23,14 +23,14 @@ const Products = () => {
     { label: "name", id: 1 },
     { label: "category", id: 2 },
     { label: "stock", id: 3 },
-    { label: "salesPerDay", id: 4 },
+    { label: "brand", id: 4 },
     { label: "Sales/Month", id: 5 },
     { label: "rating", id: 6 },
-    { label: "Sales", id: 7 },
-    { label: "Revenue", id: 8 },
-    { label: "Last update", id: 9 },
+    { label: "sales", id: 7 },
+    { label: "price", id: 8 },
+    { label: "updatedAt", id: 9 },
   ];
-  // get todos from api just when component is mounted
+  // get products from api just when component is mounted
   useEffect(() => {
     dispatch(getProductsThunk());
   }, [dispatch]);
@@ -78,10 +78,10 @@ const Products = () => {
       validation: [
         {
           isNotZero: (val: number) => {
-             Validators.isNotZero(val, "product");
+            Validators.isNotZero(val, "product");
           },
           isNotNegative: (val: number) => {
-          Validators.isNotNegative(val, "product");
+            Validators.isNotNegative(val, "product");
           },
         },
       ],

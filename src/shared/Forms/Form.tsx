@@ -34,7 +34,7 @@ const Form = ({
     <>
       <form
         onSubmit={handleSubmit(submit)}
-        className="mt-2 flex flex-col w-fit h-fit"
+        className="mt-2 flex flex-col w-full h-fit"
       >
         {/* Form fields */}
         <div className="grid gap-4 mb-4 grid-cols-1 md:grid-cols-4">
