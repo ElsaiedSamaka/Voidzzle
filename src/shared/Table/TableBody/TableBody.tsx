@@ -16,6 +16,7 @@ const TableBody = ({
   const [rowIndex, setRowIndex] = useState(null);
   const [showEditModal, toggleEditModal] = useState(false);
   const [showPreviewModal, togglePreviewModal] = useState(false);
+  const [selectedItems, setSelectedItems] = useState([]);
   const dispatch = useDispatch();
   function toggleActionsPopover(index: any) {
     if (rowIndex == index) {
@@ -36,6 +37,24 @@ const TableBody = ({
   function handlePreviewModalToggle(item: any) {
     toggleActionsPopover(null);
     togglePreviewModal(!showPreviewModal);
+  }
+  function handleItemSelect(item) {
+    setSelectedItems((prevState) => {
+      const itemIndex = prevState.findIndex(
+        (selectedItem) => selectedItem.id === item.id
+      );
+      if (itemIndex !== -1) {
+        // Item is already selected, remove it from selectedItems
+        const updatedItems = [...prevState];
+        updatedItems.splice(itemIndex, 1);
+        return updatedItems;
+      } else {
+        // Item is not selected, add it to selectedItems
+        const updatedItems = [...prevState];
+        updatedItems.push(item);
+        return updatedItems;
+      }
+    });
   }
   return (
     <>
@@ -79,9 +98,16 @@ const TableBody = ({
                 <>
                   <tr className="border-b" key={item.id}>
                     {_config.multiSelect && (
-                      <td className="w-4 px-4 py-2">
+                      <td className="w-4 px-4 py-2 ">
                         <div className="flex items-center">
                           <input
+                            value={item.id}
+                            checked={selectedItems.some(
+                              (selectedItem) => selectedItem.id === item.id
+                            )}
+                            onChange={() => {
+                              handleItemSelect(item);
+                            }}
                             id="checkbox-table-search-1"
                             type="checkbox"
                             className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 focus:ring-2"
