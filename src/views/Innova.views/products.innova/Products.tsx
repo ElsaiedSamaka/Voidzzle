@@ -3,6 +3,7 @@ import {
   createProductThunk,
   deleteAllProductsThunk,
   getProductsThunk,
+  searchProductsThunk,
   updateProductThunk,
 } from "core/store/products/products.thunk";
 import { getTodosThunk } from "core/store/todos/todos.thunk";
@@ -23,12 +24,15 @@ const Products = () => {
   const handleUpdateDispatch = (data) => {
     dispatch(updateProductThunk(data));
   };
-  function handleDeleteAll() {
+  const handleDeleteAll = ()=> {
     const ids = items.map((item) => item.id);
     dispatch(deleteAllProductsThunk(ids));
     dispatchSelectedItems({
       type: "reset",
     });
+  }
+  const handleProductsSearch = (query:string) => {
+    dispatch(searchProductsThunk(query));
   }
   const th = [
     { label: "name", id: 1 },
@@ -222,6 +226,7 @@ const Products = () => {
       handleAddetionDispatch={handleAddetionDispatch}
       handleUpdateDispatch={handleUpdateDispatch}
       handleDeleteAllDispatch={handleDeleteAll}
+      handleSearchDispatch={handleProductsSearch}
     />
   );
 };

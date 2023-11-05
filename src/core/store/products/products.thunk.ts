@@ -62,3 +62,15 @@ export const createProductThunk = createAsyncThunk(
     }
   }
 );
+
+export const searchProductsThunk = createAsyncThunk(
+  "products/search",
+  async (query: string, thunkAPI) => {
+    try {
+      const response = await productsService.search(query);
+      return thunkAPI.fulfillWithValue(response);
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+    }
+  }
+)

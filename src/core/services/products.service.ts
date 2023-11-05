@@ -72,6 +72,15 @@ const productsService = {
       throw error;
     }
   },
+
+  search: async(query: string) => {
+    try {
+      const response = await apiservice.get(`products/search/${query}`);
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  }
 };
 
 export default productsService;

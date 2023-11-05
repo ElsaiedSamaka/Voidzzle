@@ -5,6 +5,7 @@ import {
   deleteAllProductsThunk,
   deleteProductThunk,
   getProductsThunk,
+  searchProductsThunk,
   updateProductThunk,
 } from "./products.thunk";
 
@@ -115,6 +116,18 @@ export const productsSlice = createSlice({
         state.loading = true;
         state.error = null;
       });
+    // searchProducts
+    builder.addCase(searchProductsThunk.fulfilled, (state, action) => {
+      state.items = action.payload;
+      state.loading = false;
+      state.error = null;
+    }).addCase(searchProductsThunk.rejected, (state, action) => {
+      state.loading = false;
+      state.error = action.error.message;
+    }).addCase(searchProductsThunk.pending, (state, action) => {
+      state.loading = true;
+      state.error = null;
+    })
   },
 });
 
