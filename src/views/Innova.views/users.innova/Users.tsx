@@ -11,9 +11,10 @@ import { useSelectedItems } from "shared/Table/shared/context/SelectedItemsConte
 
 const Users = () => {
   const usersSlice = useSelector((state: RootState) => state.users);
-  const dispatch = useDispatch();
+  // const brandsSlice = useSelector((state: RootState) => state.brands);
   const { state, dispatch: dispatchSelectedItems } = useSelectedItems();
   const { items } = state;
+  const dispatch = useDispatch();
   const handleAddetionDispatch = (data: any) => {
     dispatch(createUserThunk(data));
   };
@@ -29,6 +30,9 @@ const Users = () => {
   };
   const handleItemsSearch = (query: string) => {
     //  dispatch(searchProductsThunk(query));
+  };
+  const handleGetBrandsDispatch = () => {
+    //  dispatch(getBrandsThunk());
   };
   const th = [
     { label: "email", id: 1 },
@@ -144,12 +148,14 @@ const Users = () => {
         _extenstions: { actionsColumns: true },
       }}
       data={usersSlice}
+      filterData={true}
       defaultValues={defaultValues}
       formFields={formFields}
       handleAddetionDispatch={handleAddetionDispatch}
       handleUpdateDispatch={handleUpdateDispatch}
       handleDeleteAllDispatch={handleDeleteAll}
       handleSearchDispatch={handleItemsSearch}
+      handleGetFilterationDispatch={handleGetBrandsDispatch}
     />
   );
 };
