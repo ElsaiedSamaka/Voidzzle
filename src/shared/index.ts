@@ -23,6 +23,7 @@ import AnalyticsLayout from "./Layouts/AnalyticsLayout/AnalyticsLayout"
 import InnovaLayout from "./Layouts/InnovaLayout/InnovaLayout"
 import Tabs from "./Common/Tabs/Tabs";
 import Table from "./Table/Table";
+import LanguageSwitcher from "./Common/LanguageSwitcher/LanguageSwitcher";
 export {
   Aside,
   ProductCard as Card,
@@ -49,5 +50,7 @@ export {
   InnovaLayout,
   Tabs,
   Table,
+  LanguageSwitcher,
+  
 };
 
