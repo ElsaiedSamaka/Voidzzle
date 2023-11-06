@@ -189,7 +189,7 @@ const TableHead = ({
                     <div
                       id="filterDropdown"
                       className={classNames(
-                        "absolute opacity-0 translate-y-0 transition-all duration-300 top-10 z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow",
+                        "absolute opacity-0 translate-y-0 transition-all duration-300 top-10 z-10 w-44 h-36 overflow-clip  bg-white rounded divide-y divide-gray-100 p-1 shadow-md",
                         { "opacity-100 translate-y-1": showFilterPopOver }
                       )}
                     >
@@ -197,7 +197,7 @@ const TableHead = ({
                         Choose brand
                       </h6>
                       <ul
-                        className="space-y-2 text-sm"
+                        className="space-y-2 text-sm bg-white h-full overflow-scroll"
                         aria-labelledby="filterDropdownButton"
                       >
                         <li className="flex items-center">
