@@ -3,7 +3,7 @@ import logo from "../../../../../public/images/favicon-32x32.png";
 const Navbar = () => {
   const { state, toggleDrawer } = useDrawerContext();
   return (
-    <nav className=" border-b border-gray-200 px-4 py-2 :bg-gray-800 :border-gray-700 fixed left-0 right-0 top-0 z-30 backdrop-blur-md">
+    <nav className=" border-b border-gray-200 px-4 py-1 z-30 w-full backdrop-blur-md">
       <div className="flex flex-wrap justify-between items-center">
         <div className="flex justify-start items-center">
           <button

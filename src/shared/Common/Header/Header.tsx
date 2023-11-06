@@ -36,8 +36,8 @@ const Header = () => {
   const { state, toggleDrawer } = useDrawerContext();
   const { showDrawer } = state;
   return (
-    <header className="">
-      <div className="py-2 flex items-center">
+    <header className="header">
+      <div className="flex items-center">
         {/* <nav className="ml-8">
           <ul className="flex flex-wrap gap-x-8 text-gray-900">
             {menuItems.map(({ url, label }, index) => (

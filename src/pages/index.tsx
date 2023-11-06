@@ -18,10 +18,7 @@ const IndexPage = () => {
         />
       </Head>
       <main className=" p-2">
-        {/* <Dashboard /> */}
         <Home />
-        {/* <NewLetter /> */}
-        {/* <Settings /> */}
       </main>
     </>
   );
