@@ -1,5 +1,6 @@
 import { useDebounce } from "core/hooks";
 import { RootState } from "core/store";
+import { getBrandsThunk } from "core/store/brands/brands.thunk";
 import {
   createProductThunk,
   deleteAllProductsThunk,
@@ -16,6 +17,7 @@ import { useSelectedItems } from "shared/Table/shared/context/SelectedItemsConte
 
 const Products = () => {
   const productsSlice = useSelector((state: RootState) => state.products);
+  const brandsSlice = useSelector((state: RootState) => state.brands);
   const { state, dispatch: dispatchSelectedItems } = useSelectedItems();
   const { items } = state;
   const dispatch = useDispatch();
@@ -25,16 +27,19 @@ const Products = () => {
   const handleUpdateDispatch = (data) => {
     dispatch(updateProductThunk(data));
   };
-  const handleDeleteAll = ()=> {
+  const handleDeleteAll = () => {
     const ids = items.map((item) => item.id);
     dispatch(deleteAllProductsThunk(ids));
     dispatchSelectedItems({
       type: "reset",
     });
-  }
-  const handleItemsSearch = (query:string) => {
+  };
+  const handleItemsSearch = (query: string) => {
     dispatch(searchProductsThunk(query));
-  }
+  };
+  const handleGetBrandsDispatch = () => {
+    dispatch(getBrandsThunk());
+  };
   const th = [
     { label: "name", id: 1 },
     { label: "category", id: 2 },
@@ -222,12 +227,14 @@ const Products = () => {
         _extenstions: { actionsColumns: true },
       }}
       data={productsSlice}
+      filterData={brandsSlice}
       defaultValues={defaultValues}
       formFields={formFields}
       handleAddetionDispatch={handleAddetionDispatch}
       handleUpdateDispatch={handleUpdateDispatch}
       handleDeleteAllDispatch={handleDeleteAll}
       handleSearchDispatch={handleItemsSearch}
+      handleGetFilterationDispatch={handleGetBrandsDispatch}
     />
   );
 };

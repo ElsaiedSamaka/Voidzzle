@@ -9,11 +9,13 @@ import { useDebounce } from "core/hooks";
 const TableHead = ({
   _config,
   data,
+  filterData,
   defaultValues,
   formFields,
   handleAddetionDispatch,
   handleDeleteAllDispatch,
   handleSearchDispatch,
+  handleGetFilterationDispatch,
 }) => {
   const [searchInput, setSearchInput] = useState("");
   const [showAddModal, toggleAddetionModal] = useState(false);
@@ -33,6 +35,7 @@ const TableHead = ({
   }
   function handleFilterToggle() {
     setShowFilterPopOver(!showFilterPopOver);
+    !showFilterPopOver && handleGetFilterationDispatch();
   }
   // const value = useDebounce(searchInput, 3000);
   function handleItemsSearch(query: string) {
@@ -196,6 +199,7 @@ const TableHead = ({
                       <h6 className="mb-3 text-sm font-medium text-gray-900 :text-white">
                         Choose brand
                       </h6>
+                      {/* filterData.items.map() */}
                       <ul
                         className="space-y-2 text-sm bg-white h-full overflow-scroll"
                         aria-labelledby="filterDropdownButton"

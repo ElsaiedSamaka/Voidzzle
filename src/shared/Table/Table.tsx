@@ -35,12 +35,14 @@ const Table = ({
     },
   },
   data,
+  filterData,
   defaultValues,
   formFields,
   handleAddetionDispatch,
   handleDeleteAllDispatch,
   handleUpdateDispatch,
   handleSearchDispatch,
+  handleGetFilterationDispatch,
 }) => {
   return (
     <div className=" mx-auto max-w-screen-2xl my-2">
@@ -58,11 +60,13 @@ const Table = ({
               _exentions: _config._extenstions.actionsColumns,
             }}
             data={data}
+            filterData={filterData}
             defaultValues={defaultValues}
             formFields={formFields}
             handleAddetionDispatch={handleAddetionDispatch}
             handleDeleteAllDispatch={handleDeleteAllDispatch}
             handleSearchDispatch={handleSearchDispatch}
+            handleGetFilterationDispatch={handleGetFilterationDispatch}
           />
         )}
         {/* table head */}
