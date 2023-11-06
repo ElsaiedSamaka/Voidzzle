@@ -5,6 +5,7 @@ import classNames from "classnames";
 import { useDispatch } from "react-redux";
 import { deleteAllProductsThunk } from "core/store/products/products.thunk";
 import { useSelectedItems } from "../shared/context/SelectedItemsContext";
+import { useDebounce } from "core/hooks";
 const TableHead = ({
   _config,
   data,
@@ -29,6 +30,8 @@ const TableHead = ({
   function handleDeleteAll() {
     handleDeleteAllDispatch();
   }
+
+  // const value = useDebounce(searchInput, 3000);
   function handleItemsSearch(query: string) {
     setSearchInput(query);
     handleSearchDispatch(query);

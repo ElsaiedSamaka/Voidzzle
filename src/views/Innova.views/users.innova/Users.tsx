@@ -1,14 +1,34 @@
 import { RootState } from "core/store";
-import { createUserThunk, getUsersThunk } from "core/store/users/users.thunk";
+import {
+  createUserThunk,
+  getUsersThunk,
+  updateUserThunk,
+} from "core/store/users/users.thunk";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Table } from "shared";
+import { useSelectedItems } from "shared/Table/shared/context/SelectedItemsContext";
 
 const Users = () => {
   const usersSlice = useSelector((state: RootState) => state.users);
   const dispatch = useDispatch();
-  const handleDispatch = (data: any) => {
+  const { state, dispatch: dispatchSelectedItems } = useSelectedItems();
+  const { items } = state;
+  const handleAddetionDispatch = (data: any) => {
     dispatch(createUserThunk(data));
+  };
+  const handleUpdateDispatch = (data) => {
+    dispatch(updateUserThunk(data));
+  };
+  const handleDeleteAll = () => {
+    const ids = items.map((item) => item.id);
+    // dispatch(deleteAllProductsThunk(ids));
+    dispatchSelectedItems({
+      type: "reset",
+    });
+  };
+  const handleItemsSearch = (query: string) => {
+    //  dispatch(searchProductsThunk(query));
   };
   const th = [
     { label: "email", id: 1 },
@@ -126,7 +146,10 @@ const Users = () => {
       data={usersSlice}
       defaultValues={defaultValues}
       formFields={formFields}
-      handleDispatch={handleDispatch}
+      handleAddetionDispatch={handleAddetionDispatch}
+      handleUpdateDispatch={handleUpdateDispatch}
+      handleDeleteAllDispatch={handleDeleteAll}
+      handleSearchDispatch={handleItemsSearch}
     />
   );
 };

@@ -1,3 +1,4 @@
+import { useDebounce } from "core/hooks";
 import { RootState } from "core/store";
 import {
   createProductThunk,
@@ -31,7 +32,7 @@ const Products = () => {
       type: "reset",
     });
   }
-  const handleProductsSearch = (query:string) => {
+  const handleItemsSearch = (query:string) => {
     dispatch(searchProductsThunk(query));
   }
   const th = [
@@ -226,7 +227,7 @@ const Products = () => {
       handleAddetionDispatch={handleAddetionDispatch}
       handleUpdateDispatch={handleUpdateDispatch}
       handleDeleteAllDispatch={handleDeleteAll}
-      handleSearchDispatch={handleProductsSearch}
+      handleSearchDispatch={handleItemsSearch}
     />
   );
 };
