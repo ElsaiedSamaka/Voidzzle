@@ -15,7 +15,6 @@ const LanguageSwitcher = () => {
       onClick={handleClick}
     >
       <span className="sr-only">Change Lang</span>
-
       <svg
         className="w-6 h-6"
         fill="none"

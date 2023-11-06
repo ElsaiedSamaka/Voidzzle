@@ -27,13 +27,8 @@ module.exports = {
       screens: {
         xs: "300px",
       },
-      direction: {
-        rtl: "rtl", // Right-to-left
-      },
     },
   },
 
-  plugins: [
-    
-  ],
+  plugins: [],
 };
