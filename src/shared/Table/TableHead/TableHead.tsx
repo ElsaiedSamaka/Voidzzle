@@ -37,7 +37,6 @@ const TableHead = ({
     setShowFilterPopOver(!showFilterPopOver);
     !showFilterPopOver && handleGetFilterationDispatch();
   }
-  // const value = useDebounce(searchInput, 3000);
   function handleItemsSearch(query: string) {
     setSearchInput(query);
     handleSearchDispatch(query);
