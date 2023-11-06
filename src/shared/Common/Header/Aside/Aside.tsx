@@ -8,7 +8,7 @@ const Aside = () => {
   const { showDrawer } = state;
   return (
     <aside
-      className={`fixed top-0 left-0 z-20 w-64 h-screen pt-14 transition-transform -translate-x-full bg-white border-r border-gray-200 md:translate-x-0 ${
+      className={`fixed top-0 ltr:left-0 rtl:right-0 z-20 w-64 h-screen pt-14 transition-transform -translate-x-full bg-white border-r border-gray-200 md:translate-x-0 ${
         showDrawer ? "translate-x-10" : "-translate-x-full"
       }`}
       aria-label="Sidenav"
