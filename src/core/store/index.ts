@@ -3,12 +3,14 @@ import todosReducer from "./todos/todos.slice";
 import userReducer from "./user/user.slice";
 import productsReducer from "./products/products.slice";
 import usersReducer from "./users/users.slice";
+import brandsReducer from "./brands/brands.slice";
 export const store = configureStore({
   reducer: {
     user: userReducer,
     todos: todosReducer,
     products: productsReducer,
     users: usersReducer,
+    brands: brandsReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({ serializableCheck: false }),
