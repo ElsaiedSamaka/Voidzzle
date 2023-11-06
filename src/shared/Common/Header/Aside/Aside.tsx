@@ -8,8 +8,8 @@ const Aside = () => {
   const { showDrawer } = state;
   return (
     <aside
-      className={`fixed top-0 ltr:left-0 rtl:right-0 z-20 w-64 h-screen pt-14 transition-transform -translate-x-full bg-white border-r border-gray-200 md:translate-x-0 ${
-        showDrawer ? "translate-x-10" : "-translate-x-full"
+      className={`fixed top-0 ltr:left-0 rtl:right-0 z-20 w-64 h-screen pt-14 transition-transform -translate-x-full bg-white ltr:border-r rtl:border-l border-gray-200 md:translate-x-0 ${
+        showDrawer ? "translate-x-0" : "-translate-x-full"
       }`}
       aria-label="Sidenav"
       id="drawer-navigation"
@@ -39,7 +39,7 @@ const Aside = () => {
               type="text"
               name="search"
               id="sidebar-search"
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-2xl focus:ring-primary-500 focus:border-primary-500 block w-full pl-10 :bg-gray-700 :border-gray-600 :placeholder-gray-400 :text-white :focus:ring-primary-500 :focus:border-primary-500"
+              className="bg-gray-50 p-2 border border-gray-300 text-gray-900  rounded-2xl focus:ring-primary-500 focus:border-primary-500 block w-full pl-10 "
               placeholder="Search"
             />
           </div>
