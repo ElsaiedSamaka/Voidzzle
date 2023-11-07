@@ -1,11 +1,12 @@
 import classNames from "classnames";
 import { useThemeContext } from "core/context/ThemeContext";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const ThemeSwitcher = () => {
   const { theme, dispatch } = useThemeContext();
   const { mode } = theme;
-  
+  const [showThemPopOver, toggleThemePopOver] = useState<boolean>(false);
+
   function setDarkTheme() {
     dispatch({ type: "DARK" });
   }
@@ -15,15 +16,15 @@ const ThemeSwitcher = () => {
   function setSystemTheme() {
     dispatch({ type: "SYSTEM" });
   }
+  function handleThemePopOver() {
+    toggleThemePopOver(!showThemPopOver);
+  }
   return (
     <div className={classNames("relative")}>
       <button
-        id="user-settings-dropdown"
+        onClick={handleThemePopOver}
         className="flex items-center justify-center h-7 w-7 text-foreground"
         type="button"
-        aria-haspopup="menu"
-        aria-expanded="false"
-        data-state="closed"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -61,11 +62,13 @@ const ThemeSwitcher = () => {
         </svg>
         <span className="sr-only">Toggle theme</span>
       </button>
+
       <div
         className={classNames(
-          "absolute -top-24 ",
+          "absolute rounded-md -top-24 opacity-0 transition-all duration-900",
           { "bg-light-bgSecondary": mode === "light" },
-          { "bg-dark-bgSecondary": mode === "dark" }
+          { "bg-dark-bgSecondary": mode === "dark" },
+          { "opacity-100": showThemPopOver }
         )}
       >
         <div
@@ -80,7 +83,7 @@ const ThemeSwitcher = () => {
             <div
               onClick={setSystemTheme}
               role="menuitemradio"
-              className="relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-xs outline-none transition-colors focus:bg-overlay-hover focus:text-strong data-[disabled]:pointer-events-none data-[disabled]:opacity-50 hover:cursor-pointer hover:bg-gray-200"
+              className="relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-xs outline-none transition-colors focus:bg-overlay-hover focus:text-strong  hover:cursor-pointer hover:bg-white/10"
             >
               <span className="absolute left-2 flex h-3.5 w-3.5 items-center justify-center" />
               System
@@ -88,7 +91,7 @@ const ThemeSwitcher = () => {
             <div
               onClick={setDarkTheme}
               role="menuitemradio"
-              className="relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-xs outline-none transition-colors focus:bg-overlay-hover focus:text-strong data-[disabled]:pointer-events-none data-[disabled]:opacity-50 hover:cursor-pointer hover:bg-gray-200"
+              className="relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-xs outline-none transition-colors focus:bg-overlay-hover focus:text-strong hover:cursor-pointer  hover:bg-white/10"
             >
               <span className="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">
                 <span>
@@ -113,7 +116,7 @@ const ThemeSwitcher = () => {
             <div
               onClick={setLightTheme}
               role="menuitemradio"
-              className="relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-xs outline-none transition-colors focus:bg-overlay-hover focus:text-strong data-[disabled]:pointer-events-none data-[disabled]:opacity-50 hover:cursor-pointer hover:bg-gray-200"
+              className="relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-xs outline-none transition-colors focus:bg-overlay-hover focus:text-strong hover:cursor-pointer hover:bg-white/10"
             >
               <span className="absolute left-2 flex h-3.5 w-3.5 items-center justify-center" />
               Light
