@@ -9,12 +9,15 @@ const ThemeSwitcher = () => {
 
   function setDarkTheme() {
     dispatch({ type: "DARK" });
+    handleThemePopOver();
   }
   function setLightTheme() {
     dispatch({ type: "LIGHT" });
+    handleThemePopOver();
   }
   function setSystemTheme() {
     dispatch({ type: "SYSTEM" });
+    handleThemePopOver();
   }
   function handleThemePopOver() {
     toggleThemePopOver(!showThemPopOver);
