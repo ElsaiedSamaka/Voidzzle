@@ -62,7 +62,7 @@ const Aside = () => {
         <ul className="space-y-2 rounded-2xl">
           <li>
             <Anchor href="/">
-              <div className="p-2 flex items-center  text-base   rounded-l-none rounded-2xl  hover:bg-white/40  group">
+              <div className="p-2 flex items-center  text-base   rounded-l-none rounded-2xl  hover:bg-white/20  group">
                 <svg
                   className="w-6 h-6  transition duration-75   group-hover:animate-pulse  "
                   fill="none"
@@ -86,7 +86,7 @@ const Aside = () => {
           <li>
             <Anchor href="/profile">
               <div className="relative transition">
-                <div className="p-2 flex items-center text-base rounded-l-none rounded-2xl :text-white hover:bg-white/40 group">
+                <div className="p-2 flex items-center text-base rounded-l-none rounded-2xl hover:bg-white/20 group">
                   <svg
                     className="flex-shrink-0 w-6 h-6  transition
                 duration-75  group-hover:animate-pulse
@@ -118,7 +118,7 @@ const Aside = () => {
                 id="menu-1"
                 defaultChecked={false}
               />
-              <button className="group flex peer relative w-full items-center border-l-black py-3 px-2  outline-none transition-all duration-100 ease-in-out hover:border-l-4 hover:text-black ">
+              <button className="group flex peer relative w-full items-center border-l-black py-3 px-2  outline-none transition-all duration-100 ease-in-out hover:border-l-4 ">
                 <span className="flex mr-6 w-6 ">
                   <svg
                     className="w-6 h-6 group-hover:animate-spin "
@@ -240,7 +240,7 @@ const Aside = () => {
           </li>
           <li>
             <Anchor href="/messages">
-              <div className="flex items-center text-base  rounded-l-none rounded-2xl :text-white hover:bg-white/40 group p-2 ">
+              <div className="flex items-center text-base  rounded-l-none rounded-2xl hover:bg-white/20 group p-2 ">
                 <svg
                   aria-hidden="true"
                   className="flex-shrink-0 w-6 h-6  transition duration-300  group-hover:animate-bounce "
@@ -260,7 +260,7 @@ const Aside = () => {
           </li>
           <li>
             <Anchor href="/notifications">
-              <div className="flex items-center text-base   rounded-l-none rounded-2xl  hover:bg-white/40 group p-2">
+              <div className="flex items-center text-base   rounded-l-none rounded-2xl  hover:bg-white/20 group p-2">
                 <svg
                   className="flex-shrink-0 w-6 h-6  transition
                 duration-75  group-hover:animate-pulse
@@ -295,10 +295,10 @@ const Aside = () => {
                 id="menu-2"
                 defaultChecked={false}
               />
-              <button className="group flex peer relative w-full items-center border-l-black py-3 px-4  outline-none transition-all duration-100 ease-in-out hover:border-l-4 hover:text-black ">
+              <button className="group flex peer relative w-full items-center border-l-black py-3 px-4  outline-none transition-all duration-100 ease-in-out hover:border-l-4 ">
                 <span className="flex mr-5 w-5">
                   <svg
-                    className="w-6 h-6 text-gray-500 group-hover:animate-bounce duration-300"
+                    className="w-6 h-6 group-hover:animate-bounce duration-300"
                     fill="none"
                     stroke="currentColor"
                     strokeWidth="1.5"
@@ -391,12 +391,12 @@ const Aside = () => {
                   </Anchor>
                 </li>
               </ul>
-              <hr className="h-2 text-gray-900 " />
+              <hr className="h-2" />
               <ul>
                 <li>
                   <Anchor href="/innova">
                     <div className="relative transition">
-                      <div className="p-2 flex items-center text-base rounded-l-none rounded-2xl :text-white hover:bg-white/40 group">
+                      <div className="p-2 flex items-center text-base rounded-l-none rounded-2xl :text-white hover:bg-white/20 group">
                         <svg
                           className="flex-shrink-0 w-6 h-6  transition duration-75 :text-gray-400  group-hover:animate-pulse"
                           fill="none"
