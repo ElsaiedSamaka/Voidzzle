@@ -16,11 +16,7 @@ const ThemeSwitcher = () => {
     dispatch({ type: "SYSTEM" });
   }
   return (
-    <div
-      className={classNames(
-        "relative"
-      )}
-    >
+    <div className={classNames("relative")}>
       <button
         id="user-settings-dropdown"
         className="flex items-center justify-center h-7 w-7 text-foreground"
@@ -68,13 +64,17 @@ const ThemeSwitcher = () => {
       <div
         className={classNames(
           "absolute -top-24 ",
-          { "bg-light-bgPrimary": mode === "light" },
-          { "bg-dark-bgPrimary": mode === "dark" }
+          { "bg-light-bgSecondary": mode === "light" },
+          { "bg-dark-bgSecondary": mode === "dark" }
         )}
       >
         <div
           role="menu"
-          className="z-50 min-w-[8rem] overflow-hidden rounded-md border bg-overlay p-1 text-foreground-light shadow-md data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 w-60"
+          className={classNames(
+            "z-50 min-w-[8rem]  rounded-md border p-1 text-foreground-light shadow-md max-w-60",
+            { "border-light-border": mode === "light" },
+            { "border-dark-border": mode === "dark" }
+          )}
         >
           <div role="group">
             <div
