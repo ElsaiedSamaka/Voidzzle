@@ -333,7 +333,19 @@ const Aside = () => {
                   d="M19 9l-7 7-7-7"
                 />
               </svg>
-              <ul className="duration-400 flex m-2 max-h-0 flex-col overflow-hidden rounded-xl bg-gray-100  transition-all duration-300 peer-checked:max-h-96">
+              <ul
+                className={classnames(
+                  "duration-400 flex m-2 max-h-0 flex-col overflow-hidden rounded-xl   transition-all duration-300 peer-checked:max-h-96",
+                  {
+                    "bg-light-bgSecondary text-light-textSecondary":
+                      mode == "light",
+                  },
+                  {
+                    "bg-dark-bgSecondary text-dark-textSecondary":
+                      mode === "dark",
+                  }
+                )}
+              >
                 <li className="flex m-2 cursor-pointer border-l-black text-sm ">
                   <Anchor href="/analytics/billing">
                     <span className="mr-5 flex items-center gap-5 py-3 pl-5 transition-all duration-100 ease-in-out  hover:text-black">
