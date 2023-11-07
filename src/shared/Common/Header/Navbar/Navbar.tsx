@@ -1,9 +1,17 @@
 import { useDrawerContext } from "core/context/DrawerContext";
 import logo from "../../../../../public/images/favicon-32x32.png";
+import classNames from "classnames";
+import { useThemeContext } from "core/context/ThemeContext";
 const Navbar = () => {
   const { state, toggleDrawer } = useDrawerContext();
+  const { theme } = useThemeContext();
+  const { mode } = theme;
   return (
-    <nav className=" border-b border-gray-200 px-4 py-1 z-30 w-full backdrop-blur-md">
+    <nav
+      className={classNames("border-b px-4 py-1 z-30 w-full backdrop-blur-md", {
+        "border-dark-border": mode === "dark",
+      })}
+    >
       <div className="flex flex-wrap justify-between items-center">
         <div className="flex justify-start items-center">
           <button
