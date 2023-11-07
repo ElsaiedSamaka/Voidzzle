@@ -62,7 +62,7 @@ const Aside = () => {
         <ul className="space-y-2 rounded-2xl">
           <li>
             <Anchor href="/">
-              <div className="p-2 flex items-center  text-base   rounded-l-none rounded-2xl  hover:bg-gray-100  group">
+              <div className="p-2 flex items-center  text-base   rounded-l-none rounded-2xl  hover:bg-white/40  group">
                 <svg
                   className="w-6 h-6  transition duration-75   group-hover:animate-pulse  "
                   fill="none"
@@ -86,7 +86,7 @@ const Aside = () => {
           <li>
             <Anchor href="/profile">
               <div className="relative transition">
-                <div className="p-2 flex items-center text-base rounded-l-none rounded-2xl :text-white hover:bg-gray-100 group">
+                <div className="p-2 flex items-center text-base rounded-l-none rounded-2xl :text-white hover:bg-white/40 group">
                   <svg
                     className="flex-shrink-0 w-6 h-6  transition
                 duration-75  group-hover:animate-pulse
@@ -240,7 +240,7 @@ const Aside = () => {
           </li>
           <li>
             <Anchor href="/messages">
-              <div className="flex items-center text-base  rounded-l-none rounded-2xl :text-white hover:bg-gray-100 group p-2 ">
+              <div className="flex items-center text-base  rounded-l-none rounded-2xl :text-white hover:bg-white/40 group p-2 ">
                 <svg
                   aria-hidden="true"
                   className="flex-shrink-0 w-6 h-6  transition duration-300  group-hover:animate-bounce "
@@ -260,7 +260,7 @@ const Aside = () => {
           </li>
           <li>
             <Anchor href="/notifications">
-              <div className="flex items-center text-base   rounded-l-none rounded-2xl  hover:bg-gray-100 group p-2">
+              <div className="flex items-center text-base   rounded-l-none rounded-2xl  hover:bg-white/40 group p-2">
                 <svg
                   className="flex-shrink-0 w-6 h-6  transition
                 duration-75  group-hover:animate-pulse
@@ -396,7 +396,7 @@ const Aside = () => {
                 <li>
                   <Anchor href="/innova">
                     <div className="relative transition">
-                      <div className="p-2 flex items-center text-base rounded-l-none rounded-2xl :text-white hover:bg-gray-100 group">
+                      <div className="p-2 flex items-center text-base rounded-l-none rounded-2xl :text-white hover:bg-white/40 group">
                         <svg
                           className="flex-shrink-0 w-6 h-6  transition duration-75 :text-gray-400  group-hover:animate-pulse"
                           fill="none"
@@ -425,7 +425,7 @@ const Aside = () => {
       {/* top side bar nav */}
       {/* bottom side bar nav */}
       <div className=" absolute bottom-0 left-0 justify-center items-center p-4 space-x-4 w-full lg:flex z-20">
-        <a className="inline-flex justify-center  rounded cursor-pointer :text-gray-400 hover:text-gray-900 :hover:text-white hover:bg-gray-100 :hover:bg-gray-600">
+        <a className="inline-flex justify-center  rounded cursor-pointer :text-gray-400 hover:text-gray-900 :hover:text-white hover:bg-white/40 :hover:bg-gray-600">
           <svg
             aria-hidden="true"
             className="w-6 h-6"
@@ -438,7 +438,7 @@ const Aside = () => {
         </a>
         <a
           data-tooltip-target="tooltip-settings"
-          className="inline-flex justify-center  rounded cursor-pointer :text-gray-400 :hover:text-white hover:text-gray-900 hover:bg-gray-100 :hover:bg-gray-600"
+          className="inline-flex justify-center  rounded cursor-pointer :text-gray-400 :hover:text-white hover:text-gray-900 hover:bg-white/40 :hover:bg-gray-600"
         >
           <svg
             aria-hidden="true"
