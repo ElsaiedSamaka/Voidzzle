@@ -1,6 +1,9 @@
 import { createContext, useReducer, useEffect, useContext } from "react";
 
-export const ThemeContext = createContext({});
+const theme = {
+  mode: "",
+};
+export const ThemeContext = createContext({ theme, dispatch: null });
 
 ThemeContext.displayName = "ThemeContext";
 

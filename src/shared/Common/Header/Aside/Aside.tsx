@@ -1,21 +1,36 @@
 import { useDrawerContext } from "core/context/DrawerContext";
-import Link from "next/link";
+import { useThemeContext } from "core/context/ThemeContext";
+import { useEffect } from "react";
 import Anchor from "shared/Common/Anchor/Anchor";
 import LanguageSwitcher from "shared/Common/LanguageSwitcher/LanguageSwitcher";
-
+import classnames from "classnames";
+import ThemeSwitcher from "shared/Common/ThemeSwitcher/ThemeSwitcher";
 const Aside = () => {
   const { state, toggleDrawer } = useDrawerContext();
   const { showDrawer } = state;
+  const { theme } = useThemeContext();
+  const { mode } = theme;
+
   return (
     <aside
-      className={`fixed top-0 ltr:left-0 rtl:right-0 z-20 w-64 h-screen pt-14 transition-transform -translate-x-full bg-white ltr:border-r rtl:border-l border-gray-200 md:translate-x-0 ${
-        showDrawer ? "translate-x-0" : "-translate-x-full"
-      }`}
+      className={classnames(
+        "fixed top-0 ltr:left-0 rtl:right-0 z-20 w-64 h-screen pt-14 transition-transform -translate-x-full  ltr:border-r rtl:border-l border-gray-200 md:translate-x-0 ",
+        { "translate-x-0": showDrawer },
+        { "-translate-x-full": !showDrawer },
+        { "bg-light-bgPrimary": mode === "light" },
+        { "bg-dark-bgPrimary": mode === "dark" }
+      )}
       aria-label="Sidenav"
       id="drawer-navigation"
     >
       {/* top side bar nav */}
-      <div className="overflow-y-auto py-5 px-3 h-full bg-white">
+      <div
+        className={classnames(
+          "overflow-y-auto py-5 px-3 h-full",
+          { "bg-light-bgPrimary": mode === "light" },
+          { "bg-dark-bgPrimary": mode === "dark" }
+        )}
+      >
         <form className="md:hidden mb-2">
           <label htmlFor="sidebar-search" className="sr-only">
             Search
@@ -424,6 +439,7 @@ const Aside = () => {
           <div className="tooltip-arrow" data-popper-arrow />
         </div>
         <LanguageSwitcher />
+        <ThemeSwitcher />
       </div>
       {/* bottom side bar nav */}
     </aside>

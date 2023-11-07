@@ -24,6 +24,7 @@ import InnovaLayout from "./Layouts/InnovaLayout/InnovaLayout"
 import Tabs from "./Common/Tabs/Tabs";
 import Table from "./Table/Table";
 import LanguageSwitcher from "./Common/LanguageSwitcher/LanguageSwitcher";
+import ThemeSwitcher from "./Common/ThemeSwitcher/ThemeSwitcher";
 export {
   Aside,
   ProductCard as Card,
@@ -51,6 +52,6 @@ export {
   Tabs,
   Table,
   LanguageSwitcher,
-  
+  ThemeSwitcher,
 };
 

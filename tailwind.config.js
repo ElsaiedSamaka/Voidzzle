@@ -12,16 +12,22 @@ module.exports = {
     extend: {
       colors: {
         dark: {
-          primary: "#194638",
-          secondary: "#c3beb6",
+          bgPrimary: "#000",
+          bgSecondary: "#18181a",
+          textPrimary: "#fff",
+          textSecondary: "#a1a1aa",
+          bgDisabled: "#818182",
+          primary: "#4e0000",
           accent: "#181a1b",
-          white: "#fff",
         },
         light: {
-          primary: "#c9ecde",
-          secondary: "#2d3748",
-          accent: "#009f60",
-          black: "#000",
+          bgPrimary: "#FFFFFF",
+          bgSecondary: "#F5F5F5",
+          textPrimary: "#212429",
+          textSecondary: "#868D94",
+          bgDisabled: "#C9CCCF",
+          primary: "#FA254C",
+          accent: "#181a1b",
         },
       },
       screens: {
