@@ -17,8 +17,8 @@ const Aside = () => {
         "fixed top-0 ltr:left-0 rtl:right-0 z-20 w-64 h-screen pt-14 transition-transform -translate-x-full  ltr:border-r rtl:border-l border-gray-200 md:translate-x-0 ",
         { "translate-x-0": showDrawer },
         { "-translate-x-full": !showDrawer },
-        { "bg-light-bgPrimary": mode === "light" },
-        { "bg-dark-bgPrimary": mode === "dark" }
+        { "bg-light-bgPrimary text-light-textPrimary": mode === "light" },
+        { "bg-dark-bgPrimary text-dark-textPrimary": mode === "dark" }
       )}
       aria-label="Sidenav"
       id="drawer-navigation"
@@ -38,7 +38,7 @@ const Aside = () => {
           <div className="relative">
             <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
               <svg
-                className="w-5 h-5  :text-gray-400"
+                className="w-5 h-5  "
                 fill="currentColor"
                 viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg"
@@ -89,7 +89,7 @@ const Aside = () => {
                 <div className="p-2 flex items-center text-base rounded-l-none rounded-2xl :text-white hover:bg-gray-100 group">
                   <svg
                     className="flex-shrink-0 w-6 h-6  transition
-                duration-75 :text-gray-400  group-hover:animate-pulse
+                duration-75  group-hover:animate-pulse
                 "
                     fill="none"
                     stroke="currentColor"
@@ -121,7 +121,7 @@ const Aside = () => {
               <button className="group flex peer relative w-full items-center border-l-black py-3 px-2  outline-none transition-all duration-100 ease-in-out hover:border-l-4 hover:text-black ">
                 <span className="flex mr-6 w-6 ">
                   <svg
-                    className="w-6 h-6 text-gray-500 group-hover:animate-spin "
+                    className="w-6 h-6 group-hover:animate-spin "
                     fill="none"
                     stroke="currentColor"
                     strokeWidth="1.5"
@@ -144,7 +144,7 @@ const Aside = () => {
               </button>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="absolute right-0 top-4 ml-auto mr-5 h-4 text-gray-600 transition peer-checked:rotate-180 peer-hover:text-black"
+                className="absolute right-0 top-4 ml-auto mr-5 h-4  transition peer-checked:rotate-180 peer-hover:text-black"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -156,8 +156,20 @@ const Aside = () => {
                   d="M19 9l-7 7-7-7"
                 />
               </svg>
-              <ul className="duration-400 flex m-2 max-h-0 flex-col overflow-hidden rounded-xl bg-gray-100  transition-all duration-300 peer-checked:max-h-96">
-                <li className="flex m-2 cursor-pointer border-l-black text-sm text-gray-600 ">
+              <ul
+                className={classnames(
+                  "duration-400 flex m-2 max-h-0 flex-col overflow-hidden rounded-xl   transition-all duration-300 peer-checked:max-h-96",
+                  {
+                    "bg-light-bgSecondary text-light-textSecondary":
+                      mode == "light",
+                  },
+                  {
+                    "bg-dark-bgSecondary text-dark-textSecondary":
+                      mode === "dark",
+                  }
+                )}
+              >
+                <li className="flex m-2 cursor-pointer border-l-black text-sm ">
                   <Anchor href="/settings/billing">
                     <span className="mr-5 flex items-center gap-5 py-3 pl-5 transition-all duration-100 ease-in-out  hover:text-black">
                       <svg
@@ -179,7 +191,7 @@ const Aside = () => {
                     </span>
                   </Anchor>
                 </li>
-                <li className="flex m-2 cursor-pointer border-l-black text-sm text-gray-600 ">
+                <li className="flex m-2 cursor-pointer border-l-black text-sm ">
                   <Anchor href="/settings/notifications">
                     <span className="mr-5 flex items-center gap-5 py-3 pl-5 transition-all duration-100 ease-in-out  hover:text-black">
                       <svg
@@ -201,7 +213,7 @@ const Aside = () => {
                     </span>
                   </Anchor>
                 </li>
-                <li className="flex m-2 cursor-pointer border-l-black text-sm text-gray-600 ">
+                <li className="flex m-2 cursor-pointer border-l-black text-sm ">
                   <Anchor href="/settings/account">
                     <span className="mr-5 flex items-center gap-5 py-3 pl-5 transition-all duration-100 ease-in-out  hover:text-black">
                       <svg
@@ -269,7 +281,7 @@ const Aside = () => {
                 <span className="flex-1 ml-3 whitespace-nowrap">
                   Notifications
                 </span>
-                <span className="inline-flex justify-center items-center w-5 h-5 text-xs font-semibold rounded-full text-primary-800 bg-primary-100 :bg-primary-200 :text-primary-800">
+                <span className="inline-flex justify-center items-center w-5 h-5 text-xs font-semibold rounded-full text-primary-800 bg-primary-100">
                   4
                 </span>
               </div>
@@ -309,7 +321,7 @@ const Aside = () => {
               </button>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="absolute right-0 top-4 ml-auto mr-5 h-4 text-gray-600 transition peer-checked:rotate-180 peer-hover:text-black"
+                className="absolute right-0 top-4 ml-auto mr-5 h-4 transition peer-checked:rotate-180 peer-hover:text-black"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -322,7 +334,7 @@ const Aside = () => {
                 />
               </svg>
               <ul className="duration-400 flex m-2 max-h-0 flex-col overflow-hidden rounded-xl bg-gray-100  transition-all duration-300 peer-checked:max-h-96">
-                <li className="flex m-2 cursor-pointer border-l-black text-sm text-gray-600 ">
+                <li className="flex m-2 cursor-pointer border-l-black text-sm ">
                   <Anchor href="/analytics/billing">
                     <span className="mr-5 flex items-center gap-5 py-3 pl-5 transition-all duration-100 ease-in-out  hover:text-black">
                       <svg
@@ -344,7 +356,7 @@ const Aside = () => {
                     </span>
                   </Anchor>
                 </li>
-                <li className="flex m-2 cursor-pointer border-l-black text-sm text-gray-600 ">
+                <li className="flex m-2 cursor-pointer border-l-black text-sm ">
                   <Anchor href="/analytics/refund">
                     <span className="mr-5 flex items-center gap-5 py-3 pl-5 transition-all duration-100 ease-in-out  hover:text-black">
                       <svg
@@ -400,7 +412,7 @@ const Aside = () => {
       </div>
       {/* top side bar nav */}
       {/* bottom side bar nav */}
-      <div className=" absolute bottom-0 left-0 justify-center items-center p-4 space-x-4 w-full lg:flex bg-white z-20">
+      <div className=" absolute bottom-0 left-0 justify-center items-center p-4 space-x-4 w-full lg:flex z-20">
         <a className="inline-flex justify-center  rounded cursor-pointer :text-gray-400 hover:text-gray-900 :hover:text-white hover:bg-gray-100 :hover:bg-gray-600">
           <svg
             aria-hidden="true"

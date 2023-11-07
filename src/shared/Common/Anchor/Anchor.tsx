@@ -9,8 +9,8 @@ const Anchor = ({ children, href }) => {
       href={href}
       className={`rounded-l-none hover:border-l-4 outline-none transition-all duration-100 ease-in-out rounded-2xl block text-sm ${
         active
-          ? " border-l-4 border-l-black text-black transition-all duration-100 ease-in-out  font-bold"
-          : "text-gray-500"
+          ? " border-l-4 border-l-black  transition-all duration-100 ease-in-out  font-bold"
+          : ""
       }`}
     >
       {children}
