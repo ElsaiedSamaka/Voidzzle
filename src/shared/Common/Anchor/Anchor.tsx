@@ -12,16 +12,17 @@ const Anchor = ({ children, href }) => {
     <Link
       href={href}
       className={classNames(
-        "rounded-l-none hover:border-l-4 outline-none transition-all duration-100 ease-in-out rounded-2xl block text-sm",
+        "ltr:rounded-l-none rtl:rounded-r-none ltr:hover:border-l-4 rtl:hover:border-r-4 outline-none transition-all duration-100 ease-in-out rounded-2xl block text-sm",
         {
-          "border-l-4  transition-all duration-100 ease-in-out  font-bold":
-            active,
+          "ltr:border-l-4 rtl:border-r-4 font-bold": active,
         },
         {
-          "border-l-light-primary": mode === "light",
+          "ltr:border-l-light-primary rtl:border-r-light-primary":
+            mode === "light",
         },
         {
-          "border-l-dark-primary": mode === "dark",
+          "ltr:border-l-dark-primary rtl:border-r-dark-primary":
+            mode === "dark",
         }
       )}
     >

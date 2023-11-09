@@ -66,7 +66,7 @@ const Aside = () => {
         <ul className="space-y-2 rounded-2xl">
           <li>
             <Anchor href="/">
-              <div className="p-2 flex items-center  text-base   rounded-l-none rounded-2xl  hover:bg-white/20  group">
+              <div className="p-2 flex items-center  text-base ltr:rounded-l-none rtl:rounded-r-none rounded-2xl  hover:bg-white/20  group">
                 <svg
                   className="w-6 h-6  transition duration-75   group-hover:animate-pulse  "
                   fill="none"
@@ -90,7 +90,7 @@ const Aside = () => {
           <li>
             <Anchor href="/profile">
               <div className="relative transition">
-                <div className="p-2 flex items-center text-base rounded-l-none rounded-2xl hover:bg-white/20 group">
+                <div className="p-2 flex items-center text-base ltr:rounded-l-none rtl:rounded-r-none rounded-2xl hover:bg-white/20 group">
                   <svg
                     className="flex-shrink-0 w-6 h-6  transition
                 duration-75  group-hover:animate-pulse
@@ -246,7 +246,7 @@ const Aside = () => {
           </li>
           <li>
             <Anchor href="/messages">
-              <div className="flex items-center text-base  rounded-l-none rounded-2xl hover:bg-white/20 group p-2 ">
+              <div className="flex items-center text-base ltr:rounded-l-none rtl:rounded-r-none rounded-2xl hover:bg-white/20 group p-2 ">
                 <svg
                   aria-hidden="true"
                   className="flex-shrink-0 w-6 h-6  transition duration-300  group-hover:animate-bounce "
@@ -268,7 +268,7 @@ const Aside = () => {
           </li>
           <li>
             <Anchor href="/notifications">
-              <div className="flex items-center text-base   rounded-l-none rounded-2xl  hover:bg-white/20 group p-2">
+              <div className="flex items-center text-base  ltr:rounded-l-none rtl:rounded-r-none rounded-2xl  hover:bg-white/20 group p-2">
                 <svg
                   className="flex-shrink-0 w-6 h-6  transition
                 duration-75  group-hover:animate-pulse
@@ -413,7 +413,7 @@ const Aside = () => {
           <li>
             <Anchor href="/innova">
               <div className="relative transition">
-                <div className="p-2 flex items-center text-base rounded-l-none rounded-2xl :text-white hover:bg-white/20 group">
+                <div className="p-2 flex items-center text-base ltr:rounded-l-none rtl:rounded-r-none rounded-2xl :text-white hover:bg-white/20 group">
                   <svg
                     className="flex-shrink-0 w-6 h-6  transition duration-75 :text-gray-400  group-hover:animate-pulse"
                     fill="none"
