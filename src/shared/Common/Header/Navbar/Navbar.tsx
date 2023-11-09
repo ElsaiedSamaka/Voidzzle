@@ -24,7 +24,7 @@ const Navbar = () => {
             data-drawer-target="drawer-navigation"
             data-drawer-toggle="drawer-navigation"
             aria-controls="drawer-navigation"
-            className="p-2 mr-2 text-gray-600 rounded-lg cursor-pointer md:hidden hover:text-gray-900 hover:bg-gray-100 focus:bg-gray-100 :focus:bg-gray-700 focus:ring-2 focus:ring-gray-100 :focus:ring-gray-700 :text-gray-400 :hover:bg-gray-700 :hover:text-white"
+            className="p-2 mr-2 rounded-lg cursor-pointer md:hidden  focus:bg-gray-100 :focus:bg-gray-700 focus:ring-2 focus:ring-gray-100 "
           >
             <svg
               aria-hidden="true"
@@ -74,7 +74,7 @@ const Navbar = () => {
             <div className="relative md:w-96">
               <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
                 <svg
-                  className="w-5 h-5 text-gray-500 :text-gray-400"
+                  className="w-5 h-5 "
                   fill="currentColor"
                   viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"
@@ -90,7 +90,15 @@ const Navbar = () => {
                 type="text"
                 name="email"
                 id="topbar-search"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-10 p-2.5 :bg-gray-700 :border-gray-600 :placeholder-gray-400 :text-white :focus:ring-primary-500 :focus:border-primary-500"
+                className={classNames(
+                  "border rounded-full  block w-full pl-10 p-2",
+                  {
+                    "bg-dark-bgSecondary border-dark-border text-dark-textSecondary ":
+                      mode === "dark",
+                    "bg-light-bgSecondary border-light-border text-light-textPrimary":
+                      mode === "light",
+                  }
+                )}
                 placeholder="Search"
               />
             </div>
