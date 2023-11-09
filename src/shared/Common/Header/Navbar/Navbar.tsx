@@ -9,8 +9,8 @@ const Navbar = () => {
   return (
     <nav
       className={classNames("border-b px-4 py-1 z-30 w-full backdrop-blur-md", {
-        "border-dark-border": mode === "dark",
-        "border-light-border": mode === "light",
+        "bg-dark-bgPrimary border-dark-border": mode === "dark",
+        "bg-light-bgPrimary border-light-border": mode === "light",
       })}
     >
       <div
