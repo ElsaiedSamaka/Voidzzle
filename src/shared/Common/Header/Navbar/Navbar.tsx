@@ -5,10 +5,16 @@ import { useThemeContext } from "core/context/ThemeContext";
 import Dailog from "shared/Modals/Dailog/Dailog";
 import FilterationCard from "shared/Common/Card/FilterationCard/FilterationCard";
 import Icon from "shared/Common/Icon/Icon";
+import { useState } from "react";
 const Navbar = () => {
   const { state, toggleDrawer } = useDrawerContext();
   const { theme } = useThemeContext();
   const { mode } = theme;
+  const [showFilterationDailog, toggleFilterationDailog] =
+    useState<boolean>(false);
+  function handleFilterDailgoToggle(): void {
+    toggleFilterationDailog(!showFilterationDailog);
+  }
   return (
     <>
       <nav
@@ -109,10 +115,13 @@ const Navbar = () => {
                   )}
                   placeholder="Search"
                 />
-                <div className="absolute inset-y-0 ltr:right-0 rtl:left-0">
+                <div
+                  onClick={handleFilterDailgoToggle}
+                  className="absolute inset-y-0 ltr:right-0 rtl:left-0"
+                >
                   <Icon>
                     <svg
-                      className="w-6 h-6"
+                      className="w-6 h-6 "
                       aria-hidden="true"
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
@@ -687,7 +696,7 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
-      {false && (
+      {showFilterationDailog && (
         <Dailog
           header={
             <div className="flex items-center justify-between">
@@ -696,6 +705,7 @@ const Navbar = () => {
               </span>
               <Icon>
                 <svg
+                  onClick={handleFilterDailgoToggle}
                   className="w-5 h-5 "
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"

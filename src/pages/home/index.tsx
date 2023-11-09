@@ -76,7 +76,7 @@ const Home = () => {
           {/* products grid */}
           {/* sell */}
           <div>
-            <div data-dial-init className="fixed bottom-10 right-10 group">
+            <div className="fixed bottom-10 right-10 group">
               <div
                 id="speed-dial-menu-text-outside-button-square"
                 className={classnames(
@@ -158,18 +158,18 @@ const Home = () => {
                 className="flex items-center justify-center text-white bg-red-700 rounded-full w-14 h-14 hover:bg-red-800  focus:ring-4 focus:ring-red-300 focus:outline-none shadow-md"
               >
                 <svg
-                  className="w-5 h-5 transition-transform group-hover:rotate-45"
+                  className="w-6 h-6 group-hover:animate-bounce"
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
-                  viewBox="0 0 18 18"
+                  viewBox="0 0 18 20"
                 >
                   <path
                     stroke="currentColor"
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 1v16M1 9h16"
+                    strokeWidth="1.5"
+                    d="M6 15a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm0 0h8m-8 0-1-4m9 4a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-9-4h10l2-7H3m2 7L3 4m0 0-.792-3H1"
                   />
                 </svg>
                 <span className="sr-only">Open actions menu</span>
