@@ -16,7 +16,7 @@ const Home = () => {
   return (
     <section className="w-full h-[89vh] overflow-hidden">
       <div className="grid grid-cols-4 gap-4 h-full my-2">
-        <div className="lg:col-span-3 bg-gradient-to-t from-red-900/10 via-white/50 to-white rounded-md h-screen overflow-y-scroll xs:col-span-full">
+        <div className="lg:col-span-3 rounded-lg h-screen overflow-y-scroll xs:col-span-full">
           {/* <CarouselTestimonial /> */}
           <div className="">
             {/* hero card */}
