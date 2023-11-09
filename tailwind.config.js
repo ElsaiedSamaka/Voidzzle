@@ -15,7 +15,7 @@ module.exports = {
           bgPrimary: "#000",
           bgSecondary: "#18181a",
           textPrimary: "#ededed",
-          textSecondary: "#a1a1aa",
+          textSecondary: "#F5F5F5",
           iconPrimary: "#DFE1E3",
           iconSecondary: "#F5F5F5",
           bgDisabled: "#818182",

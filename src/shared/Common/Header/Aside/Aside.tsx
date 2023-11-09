@@ -18,11 +18,17 @@ const Aside = () => {
   return (
     <aside
       className={classnames(
-        "fixed top-0 ltr:left-0 rtl:right-0 z-20 w-64 h-screen pt-14 transition-transform -translate-x-full  ltr:border-r rtl:border-l border-gray-200 md:translate-x-0 ",
+        "fixed top-0 ltr:left-0 rtl:right-0 z-20 w-64 h-screen pt-14 transition-transform -translate-x-full  ltr:border-r rtl:border-l  md:translate-x-0 ",
         { "translate-x-0": showDrawer },
         { "-translate-x-full": !showDrawer },
-        { "bg-light-bgPrimary text-light-textPrimary": mode === "light" },
-        { "bg-dark-bgPrimary text-dark-textPrimary": mode === "dark" }
+        {
+          "bg-light-bgPrimary text-light-textPrimary border-light-border":
+            mode === "light",
+        },
+        {
+          "bg-dark-bgPrimary text-dark-textPrimary border-dark-border":
+            mode === "dark",
+        }
       )}
       aria-label="Sidenav"
       id="drawer-navigation"

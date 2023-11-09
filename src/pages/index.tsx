@@ -17,7 +17,7 @@ const IndexPage = () => {
           content="Next.js + SWR codebase containing realworld examples (CRUD, auth, advanced patterns, etc) that adheres to the realworld spec and API"
         />
       </Head>
-      <main className=" p-2">
+      <main className="main">
         <Home />
       </main>
     </>

@@ -1,11 +1,25 @@
 import { RootState } from "core/store";
 import { useSelector } from "react-redux";
 import Link from "next/link";
+import { useThemeContext } from "core/context/ThemeContext";
+import classNames from "classnames";
 const ProductCard = ({ id = null }) => {
   // const userSlice = useSelector((state: RootState) => state.user);
+  const { theme } = useThemeContext();
+  const { mode } = theme;
   return (
     <li>
-      <div className="relative  flex w-full  flex-col overflow-hidden rounded-2xl border border-gray-100 ">
+      <div
+        className={classNames(
+          "relative  flex w-full  flex-col overflow-hidden rounded-2xl border",
+          {
+            "bg-dark-bgPrimary text-dark-textSecondary border-dark-border":
+              mode === "dark",
+            "bg-light-bgPrimary text-light-textSecondary border-light-border":
+              mode === "light",
+          }
+        )}
+      >
         {/* image */}
         <Link href={`/products/${encodeURIComponent(id)}`}>
           <div className="relative mx-2 mt-2 flex h-60 overflow-hidden rounded-2xl">
@@ -14,7 +28,7 @@ const ProductCard = ({ id = null }) => {
               src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8c25lYWtlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
               alt="product image"
             />
-            <span className="absolute top-0 left-0 m-2 inline-flex justify-center items-center w-[46px] h-[46px] rounded-full border border-gray-200 bg-white text-gray-700 shadow-sm ">
+            <span className="absolute top-0 left-0 m-2 inline-flex justify-center items-center w-[46px] h-[46px] rounded-full border shadow-sm ">
               <svg
                 className="w-5 h-5"
                 xmlns="http://www.w3.org/2000/svg"
@@ -35,12 +49,8 @@ const ProductCard = ({ id = null }) => {
             <div>
               <div className=" flex items-center justify-between">
                 <p>
-                  <span className="text-3xl font-bold text-slate-900">
-                    $449
-                  </span>
-                  <span className="text-sm text-zinc-400 line-through">
-                    $699
-                  </span>
+                  <span className="text-3xl font-bold ">$449</span>
+                  <span className="text-sm line-through">$699</span>
                 </p>
                 <div className="flex items-center">
                   {/* TODO:if the rating is under 2.5 then it's a red label instead of yellow */}
@@ -49,12 +59,12 @@ const ProductCard = ({ id = null }) => {
                   </span>
                 </div>
               </div>
-              <h5 className="text-xl tracking-tight text-zinc-900">
+              <h5 className="text-xl tracking-tight">
                 Nike Air MX Super 2500 - Red
               </h5>
             </div>
           </Link>
-          <a className="flex items-center justify-center rounded-2xl border border-zinc-100 text-zinc-900 px-5 py-2.5 text-center text-sm font-medium transition-all duration-300 hover:cursor-pointer hover:border-zinc-00 focus:outline-none focus:ring-4 focus:ring-blue-300">
+          <a className="flex items-center justify-center rounded-2xl border px-5 py-2.5 text-center text-sm font-medium transition-all duration-300 hover:cursor-pointer focus:outline-none focus:ring-4 focus:ring-red-300">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="mr-2 h-6 w-6"
