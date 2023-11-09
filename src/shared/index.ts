@@ -26,6 +26,7 @@ import Table from "./Table/Table";
 import LanguageSwitcher from "./Common/LanguageSwitcher/LanguageSwitcher";
 import ThemeSwitcher from "./Common/ThemeSwitcher/ThemeSwitcher";
 import Switch from "./Common/Switch/Switch";
+import Icon from "./Common/Icon/Icon";
 export {
   Aside,
   ProductCard as Card,
@@ -55,5 +56,6 @@ export {
   LanguageSwitcher,
   ThemeSwitcher,
   Switch,
+  Icon,
 };
 
