@@ -2,13 +2,13 @@ const translations = {
   en: {
     "cars.title": "Innovadigits | dashboard",
     "cars.name": "Booking",
-    lang: "en",
+    lang: "English",
     language: "عربي",
   },
   ar: {
     "cars.title": "Innovadigits | سيارات",
     "cars.name": "حجز",
-    lang: "ar",
+    lang: "العربية",
     language: "English",
   },
 };

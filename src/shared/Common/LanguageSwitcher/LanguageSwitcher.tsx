@@ -11,12 +11,12 @@ const LanguageSwitcher = () => {
   }, [locale]);
   return (
     <button
-      className="lang-switch-btn flex p-2 mr-1 text-gray-500 rounded-lg hover:text-gray-900 hover:bg-gray-100 focus:ring-4 focus:ring-gray-300"
+      className="lang-switch-btn flex space-x-1 p-2 mr-1 rounded-lg  focus:ring-2 focus:ring-gray-300"
       onClick={handleClick}
     >
       <span className="sr-only">Change Lang</span>
       <svg
-        className="w-6 h-6"
+        className="w-5 h-5"
         fill="none"
         stroke="currentColor"
         strokeWidth={1.5}

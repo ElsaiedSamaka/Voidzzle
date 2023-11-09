@@ -1,11 +1,11 @@
 const translations = {
   en: {
     "navbar.search": "Search or type",
-    lang: "en",
+    lang: "English",
   },
   ar: {
     "navbar.search": "ابحث او اكتب",
-    lang: "ar",
+    lang: "العربية",
   },
 };
 
