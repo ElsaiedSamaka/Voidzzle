@@ -61,10 +61,10 @@ function CarouselControlsInside({ title }) {
       <div className="glide-01 relative w-full my-2">
         {/*    <!-- Slides --> */}
         <div className="overflow-hidden" data-glide-el="track">
-          <ul className="whitespace-no-wrap flex-no-wrap [backface-visibility: hidden] [transform-style: preserve-3d] [touch-action: pan-Y] [will-change: transform] relative flex w-full overflow-hidden p-0">
-             <Card id={1} />
-             <Card id={2} />
-             <Card id={3} />
+          <ul className="flex-no-wrap [backface-visibility: hidden] [transform-style: preserve-3d] [touch-action: pan-Y] [will-change: transform] relative flex gap-x-2 w-full overflow-hidden p-0">
+            <Card id={1} />
+            <Card id={2} />
+            <Card id={3} />
           </ul>
         </div>
         {/*    <!-- Controls --> */}
