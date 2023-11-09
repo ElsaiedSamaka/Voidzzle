@@ -12,7 +12,12 @@ const Navbar = () => {
         "border-dark-border": mode === "dark",
       })}
     >
-      <div className="flex flex-wrap justify-between items-center">
+      <div
+        className={classNames("flex flex-wrap justify-between items-center", {
+          "text-dark-textPrimary": mode === "dark",
+          "text-light-textPrimary": mode === "light",
+        })}
+      >
         <div className="flex justify-start items-center">
           <button
             onClick={() => toggleDrawer(!state.showDrawer)}
@@ -58,7 +63,7 @@ const Navbar = () => {
               className="mr-3 rounded-full h-8"
               alt="Flowbite Logo"
             />
-            <span className="self-center text-2xl font-semibold whitespace-nowrap :text-white">
+            <span className="self-center text-2xl font-semibold whitespace-nowrap">
               Voidzzle
             </span>
           </a>
@@ -96,7 +101,7 @@ const Navbar = () => {
             type="button"
             data-drawer-toggle="drawer-navigation"
             aria-controls="drawer-navigation"
-            className="p-2 mr-1 text-gray-500 rounded-lg md:hidden hover:text-gray-900 hover:bg-gray-100 :text-gray-400 :hover:text-white :hover:bg-gray-700 focus:ring-4 focus:ring-gray-300 :focus:ring-gray-600"
+            className="p-2 mr-1  rounded-lg md:hidden hover:text-gray-900 hover:bg-white/10  focus:ring-4 focus:ring-gray-300 "
           >
             <span className="sr-only">Toggle search</span>
             <svg
