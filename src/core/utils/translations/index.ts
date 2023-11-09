@@ -1,5 +1,4 @@
 import dashboardTranslations from "./pages/dashboard";
-import carsTranslations from "./pages/cars";
 import settingsTranslations from "./pages/settings";
 import asideTranslations from "./components/Aside/aside";
 import navbarTranslations from "./components/Navbar/navbar";
@@ -8,7 +7,6 @@ const allTranslations = {
   en: Object.assign(
     {},
     dashboardTranslations.en,
-    carsTranslations.en,
     settingsTranslations.en,
     asideTranslations.en,
     navbarTranslations.en
@@ -16,7 +14,6 @@ const allTranslations = {
   ar: Object.assign(
     {},
     dashboardTranslations.ar,
-    carsTranslations.ar,
     settingsTranslations.ar,
     asideTranslations.ar,
     navbarTranslations.ar

@@ -6,7 +6,6 @@ import Switch from "../Switch/Switch";
 const ThemeSwitcher = () => {
   const { theme, dispatch } = useThemeContext();
   const { mode } = theme;
-  console.log("mode", mode);
   const [showThemPopOver, toggleThemePopOver] = useState<boolean>(false);
 
   function setDarkTheme() {

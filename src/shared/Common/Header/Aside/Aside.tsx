@@ -5,11 +5,15 @@ import Anchor from "shared/Common/Anchor/Anchor";
 import LanguageSwitcher from "shared/Common/LanguageSwitcher/LanguageSwitcher";
 import classnames from "classnames";
 import ThemeSwitcher from "shared/Common/ThemeSwitcher/ThemeSwitcher";
+import { useRouter } from "next/router";
+import useTranslation from "core/hooks/useTranslation";
 const Aside = () => {
   const { state, toggleDrawer } = useDrawerContext();
   const { showDrawer } = state;
   const { theme } = useThemeContext();
   const { mode } = theme;
+  const { locale, pathname } = useRouter();
+  const { t } = useTranslation(locale);
 
   return (
     <aside
@@ -79,7 +83,7 @@ const Aside = () => {
                   />
                 </svg>
 
-                <span className="ml-3">Home</span>
+                <span className="ltr:ml-3 rtl:mr-3">{t("aside.home")}</span>
               </div>
             </Anchor>
           </li>
@@ -105,7 +109,9 @@ const Aside = () => {
                     />
                   </svg>
 
-                  <span className="ml-3">Profile</span>
+                  <span className="ltr:ml-3 rtl:mr-3">
+                    {t("aside.profile")}
+                  </span>
                 </div>
               </div>
             </Anchor>
@@ -118,8 +124,8 @@ const Aside = () => {
                 id="menu-1"
                 defaultChecked={false}
               />
-              <button className="group flex peer relative w-full items-center border-l-black py-3 px-2  outline-none transition-all duration-100 ease-in-out hover:border-l-4 ">
-                <span className="flex mr-6 w-6 ">
+              <button className="group flex peer relative w-full items-center ltr:border-l-black ltr:hover:border-l-4 rtl:border-r-black rtl:hover:border-r-4 py-3 px-2  outline-none transition-all duration-100 ease-in-out  ">
+                <span className="flex ltr:mr-6 rtl:ml-6 w-6 ">
                   <svg
                     className="w-6 h-6 group-hover:animate-spin "
                     fill="none"
@@ -136,7 +142,7 @@ const Aside = () => {
                     ></path>
                   </svg>
                 </span>
-                Settings
+                {t("aside.settings")}
                 <label
                   htmlFor="menu-1"
                   className="absolute inset-0 h-full w-full cursor-pointer"
@@ -144,7 +150,7 @@ const Aside = () => {
               </button>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="absolute right-0 top-4 ml-auto mr-5 h-4  transition peer-checked:rotate-180 peer-hover:text-black"
+                className="arrow-down-icon absolute ltr:right-0 rtl:left-0 top-4 ltr:ml-auto rtl:mr-auto ltr:mr-5 rtl:ml-auto h-4  transition peer-checked:rotate-180 "
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -251,7 +257,9 @@ const Aside = () => {
                   <path d="M8.707 7.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l2-2a1 1 0 00-1.414-1.414L11 7.586V3a1 1 0 10-2 0v4.586l-.293-.293z" />
                   <path d="M3 5a2 2 0 012-2h1a1 1 0 010 2H5v7h2l1 2h4l1-2h2V5h-1a1 1 0 110-2h1a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V5z" />
                 </svg>
-                <span className="flex-1 ml-3 whitespace-nowrap">Messages</span>
+                <span className="flex-1 ltr:ml-3 rtl:mr-3 whitespace-nowrap">
+                  {t("aside.messages")}
+                </span>
                 <span className="inline-flex justify-center items-center w-5 h-5 text-xs font-semibold rounded-full ">
                   4
                 </span>
@@ -278,8 +286,8 @@ const Aside = () => {
                     d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0"
                   />
                 </svg>
-                <span className="flex-1 ml-3 whitespace-nowrap">
-                  Notifications
+                <span className="flex-1 ltr:ml-3 rtl:mr-3 whitespace-nowrap">
+                  {t("aside.notifications")}
                 </span>
                 <span className="inline-flex justify-center items-center w-5 h-5 text-xs font-semibold rounded-full text-primary-800 bg-primary-100">
                   4
@@ -295,8 +303,8 @@ const Aside = () => {
                 id="menu-2"
                 defaultChecked={false}
               />
-              <button className="group flex peer relative w-full items-center border-l-black py-3 px-4  outline-none transition-all duration-100 ease-in-out hover:border-l-4 ">
-                <span className="flex mr-5 w-5">
+              <button className="group flex peer relative w-full items-center ltr:border-l-black ltr:hover:border-l-4 rtl:border-r-black rtl:hover:border-r-4 py-3 px-2  outline-none transition-all duration-100 ease-in-out  ">
+                <span className="flex ltr:mr-6 rtl:ml-6 w-6 ">
                   <svg
                     className="w-6 h-6 group-hover:animate-bounce duration-300"
                     fill="none"
@@ -313,7 +321,7 @@ const Aside = () => {
                     />
                   </svg>
                 </span>
-                Analytics
+                {t("aside.analytics")}
                 <label
                   htmlFor="menu-2"
                   className="absolute inset-0 h-full w-full cursor-pointer"
@@ -321,7 +329,7 @@ const Aside = () => {
               </button>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="absolute right-0 top-4 ml-auto mr-5 h-4 transition peer-checked:rotate-180 peer-hover:text-black"
+                className="arrow-down-icon absolute ltr:right-0 rtl:left-0 top-4 ltr:ml-auto rtl:mr-auto ltr:mr-5 rtl:ml-auto h-4  transition peer-checked:rotate-180 "
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -421,7 +429,7 @@ const Aside = () => {
                       d="M14.25 6.087c0-.355.186-.676.401-.959.221-.29.349-.634.349-1.003 0-1.036-1.007-1.875-2.25-1.875s-2.25.84-2.25 1.875c0 .369.128.713.349 1.003.215.283.401.604.401.959v0a.64.64 0 01-.657.643 48.39 48.39 0 01-4.163-.3c.186 1.613.293 3.25.315 4.907a.656.656 0 01-.658.663v0c-.355 0-.676-.186-.959-.401a1.647 1.647 0 00-1.003-.349c-1.036 0-1.875 1.007-1.875 2.25s.84 2.25 1.875 2.25c.369 0 .713-.128 1.003-.349.283-.215.604-.401.959-.401v0c.31 0 .555.26.532.57a48.039 48.039 0 01-.642 5.056c1.518.19 3.058.309 4.616.354a.64.64 0 00.657-.643v0c0-.355-.186-.676-.401-.959a1.647 1.647 0 01-.349-1.003c0-1.035 1.008-1.875 2.25-1.875 1.243 0 2.25.84 2.25 1.875 0 .369-.128.713-.349 1.003-.215.283-.4.604-.4.959v0c0 .333.277.599.61.58a48.1 48.1 0 005.427-.63 48.05 48.05 0 00.582-4.717.532.532 0 00-.533-.57v0c-.355 0-.676.186-.959.401-.29.221-.634.349-1.003.349-1.035 0-1.875-1.007-1.875-2.25s.84-2.25 1.875-2.25c.37 0 .713.128 1.003.349.283.215.604.401.96.401v0a.656.656 0 00.658-.663 48.422 48.422 0 00-.37-5.36c-1.886.342-3.81.574-5.766.689a.578.578 0 01-.61-.58v0z"
                     />
                   </svg>
-                  <span className="ml-3">Innovadigits</span>
+                  <span className="ltr:ml-3 rtl:mr-3">Innovadigits</span>
                 </div>
               </div>
             </Anchor>
