@@ -80,7 +80,7 @@ const Navbar = () => {
                 Search
               </label>
               <div className="relative md:w-96">
-                <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+                <div className="flex absolute inset-y-0 ltr:left-0 rtl:right-0 items-center ltr:pl-3 rtl:pr-3 pointer-events-none">
                   <svg
                     className="w-5 h-5 "
                     fill="currentColor"
@@ -99,7 +99,7 @@ const Navbar = () => {
                   name="search"
                   id="topbar-search"
                   className={classNames(
-                    "border rounded-full  block w-full pl-10 p-2",
+                    "border rounded-full block w-full ltr:pl-10 rtl:pr-10 p-2",
                     {
                       "bg-dark-bgSecondary border-dark-border text-dark-textSecondary ":
                         mode === "dark",
@@ -109,23 +109,25 @@ const Navbar = () => {
                   )}
                   placeholder="Search"
                 />
-                <Icon>
-                  <svg
-                    className="w-6 h-6"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      stroke="currentColor"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="1.5"
-                      d="M7.75 4H19M7.75 4a2.25 2.25 0 0 1-4.5 0m4.5 0a2.25 2.25 0 0 0-4.5 0M1 4h2.25m13.5 6H19m-2.25 0a2.25 2.25 0 0 1-4.5 0m4.5 0a2.25 2.25 0 0 0-4.5 0M1 10h11.25m-4.5 6H19M7.75 16a2.25 2.25 0 0 1-4.5 0m4.5 0a2.25 2.25 0 0 0-4.5 0M1 16h2.25"
-                    />
-                  </svg>
-                </Icon>
+                <div className="absolute inset-y-0 ltr:right-0 rtl:left-0">
+                  <Icon>
+                    <svg
+                      className="w-6 h-6"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        stroke="currentColor"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="1.5"
+                        d="M7.75 4H19M7.75 4a2.25 2.25 0 0 1-4.5 0m4.5 0a2.25 2.25 0 0 0-4.5 0M1 4h2.25m13.5 6H19m-2.25 0a2.25 2.25 0 0 1-4.5 0m4.5 0a2.25 2.25 0 0 0-4.5 0M1 10h11.25m-4.5 6H19M7.75 16a2.25 2.25 0 0 1-4.5 0m4.5 0a2.25 2.25 0 0 0-4.5 0M1 16h2.25"
+                      />
+                    </svg>
+                  </Icon>
+                </div>
               </div>
             </form>
           </div>
