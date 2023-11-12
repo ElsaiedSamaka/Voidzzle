@@ -13,6 +13,7 @@ module.exports = {
       colors: {
         dark: {
           bgPrimary: "#000",
+          // 181a1b
           bgSecondary: "#18181a",
           textPrimary: "#ededed",
           textSecondary: "#F5F5F5",

@@ -25,6 +25,8 @@ import Tabs from "./Common/Tabs/Tabs";
 import Table from "./Table/Table";
 import LanguageSwitcher from "./Common/LanguageSwitcher/LanguageSwitcher";
 import ThemeSwitcher from "./Common/ThemeSwitcher/ThemeSwitcher";
+import LightDecortor from "./Common/Decorator/LightDecortor";
+import DarkDecorator from "./Common/Decorator/DarkDecorator";
 import Switch from "./Common/Switch/Switch";
 import Icon from "./Common/Icon/Icon";
 export {
@@ -55,6 +57,8 @@ export {
   Table,
   LanguageSwitcher,
   ThemeSwitcher,
+  LightDecortor,
+  DarkDecorator,
   Switch,
   Icon,
 };
