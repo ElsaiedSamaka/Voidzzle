@@ -7,6 +7,7 @@ import styles from "./Form.module.css";
 import { useFormStateContext } from "./shared/FormContext";
 import { useThemeContext } from "core/context/ThemeContext";
 import classNames from "classnames";
+import { Fragment } from "react";
 
 interface IFromProps {
   defaultValues: Object;
@@ -60,10 +61,10 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
         <div className="grid gap-4 mb-4 grid-cols-1 md:grid-cols-4">
           {formFields.map((field, i) => {
             return (
-              <>
+              <Fragment key={field.id}>
                 {field.type == "text" && (
                   <div
-                    key={i}
+                    key={field.id}
                     className="input flex flex-col w-full font-semibold group col-span-2"
                   >
                     {field.label && (
@@ -90,9 +91,18 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                           value: field.required,
                           message: "this is a required field",
                         },
-                        pattern: field.pattern,
-                        maxLength: field.maxLength,
-                        minLength: field.minLength,
+                        pattern: {
+                          value: field.pattern,
+                          message: `a required valid pattern is ${field.pattern}`,
+                        },
+                        maxLength: {
+                          value: field.maxLength,
+                          message: "maxLength is " + field.maxLength,
+                        },
+                        minLength: {
+                          value: field.minLength,
+                          message: "minLength is " + field.minLength,
+                        },
                         validate: field.validation?.reduce((acc, validator) => {
                           return {
                             ...acc,
@@ -110,7 +120,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                 )}
                 {field.type == "date" && (
                   <div
-                    key={i}
+                    key={field.id}
                     className="input flex flex-col w-full font-semibold group col-span-2"
                   >
                     {field.label && (
@@ -137,9 +147,18 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                           value: field.required,
                           message: "this is a required field",
                         },
-                        pattern: field.pattern,
-                        maxLength: field.maxLength,
-                        minLength: field.minLength,
+                        pattern: {
+                          value: field.pattern,
+                          message: `a required valid pattern is ${field.pattern}`,
+                        },
+                        maxLength: {
+                          value: field.maxLength,
+                          message: `maxLength is ${field.maxLength}`,
+                        },
+                        minLength: {
+                          value: field.menLength,
+                          message: `minLength is ${field.minLength}`,
+                        },
                         validate: field.validation?.reduce((acc, validator) => {
                           return {
                             ...acc,
@@ -157,7 +176,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                 )}
                 {field.type == "checkbox" && (
                   <div
-                    key={i}
+                    key={field.id}
                     className="input flex flex-col w-full font-semibold group"
                   >
                     <label className={styles.checkboxbtn}>
@@ -174,7 +193,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                 )}
                 {field.type == "select" && (
                   <div
-                    key={i}
+                    key={field.id}
                     className="input flex flex-col w-full font-semibold group col-span-2"
                   >
                     {field.label && (
@@ -200,9 +219,18 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                           value: field.required,
                           message: "this is a required field",
                         },
-                        pattern: field.pattern,
-                        maxLength: field.maxLength,
-                        minLength: field.minLength,
+                        pattern: {
+                          value: field.pattern,
+                          message: `a required valid pattern is ${field.pattern}`,
+                        },
+                        maxLength: {
+                          value: field.maxLength,
+                          message: `maxLength is ${field.maxLength}`,
+                        },
+                        minLength: {
+                          value: field.menLength,
+                          message: `minLength is ${field.minLength}`,
+                        },
                         validate: field.validation?.reduce((acc, validator) => {
                           return {
                             ...acc,
@@ -225,7 +253,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                 )}
                 {field.type == "text-area" && (
                   <div
-                    key={i}
+                    key={field.id}
                     className="input flex flex-col w-full font-semibold group col-span-2"
                   >
                     {field.label && (
@@ -257,7 +285,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                 )}
                 {field.type == "password" && (
                   <div
-                    key={i}
+                    key={field.id}
                     className="input flex flex-col w-full font-semibold group col-span-2"
                   >
                     {field.label && (
@@ -284,9 +312,18 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                           value: field.required,
                           message: "this is a required field",
                         },
-                        pattern: field.pattern,
-                        maxLength: field.maxLength,
-                        minLength: field.minLength,
+                        pattern: {
+                          value: field.pattern,
+                          message: `a required valid pattern is ${field.pattern}`,
+                        },
+                        maxLength: {
+                          value: field.maxLength,
+                          message: `maxLength is ${field.maxLength}`,
+                        },
+                        minLength: {
+                          value: field.menLength,
+                          message: `minLength is ${field.minLength}`,
+                        },
                         validate: field.validation?.reduce((acc, validator) => {
                           return {
                             ...acc,
@@ -304,7 +341,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                 )}
                 {field.type == "file" && (
                   <div
-                    key={i}
+                    key={field.id}
                     className="flex flex-col items-start justify-center w-full col-span-2"
                   >
                     <label className="capitalize  font-semibold">
@@ -348,7 +385,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                 )}
                 {field.type == "radio" && (
                   <div
-                    key={i}
+                    key={field.id}
                     className="input flex flex-col w-full font-semibold group"
                   >
                     {field.label && (
@@ -375,9 +412,18 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                           value: field.required,
                           message: "this is a required field",
                         },
-                        pattern: field.pattern,
-                        maxLength: field.maxLength,
-                        minLength: field.minLength,
+                        pattern: {
+                          value: field.pattern,
+                          message: `a required valid pattern is ${field.pattern}`,
+                        },
+                        maxLength: {
+                          value: field.maxLength,
+                          message: `maxLength is ${field.maxLength}`,
+                        },
+                        minLength: {
+                          value: field.menLength,
+                          message: `minLength is ${field.minLength}`,
+                        },
                         validate: field.validation?.reduce((acc, validator) => {
                           return {
                             ...acc,
@@ -395,7 +441,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                 )}
                 {field.type == "tel" && (
                   <div
-                    key={i}
+                    key={field.id}
                     className="input flex flex-col w-full font-semibold group"
                   >
                     {field.label && (
@@ -422,9 +468,18 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                           value: field.required,
                           message: "this is a required field",
                         },
-                        pattern: field.pattern,
-                        maxLength: field.maxLength,
-                        minLength: field.minLength,
+                        pattern: {
+                          value: field.pattern,
+                          message: `a required valid pattern is ${field.pattern}`,
+                        },
+                        maxLength: {
+                          value: field.maxLength,
+                          message: `maxLength is ${field.maxLength}`,
+                        },
+                        minLength: {
+                          value: field.menLength,
+                          message: `minLength is ${field.minLength}`,
+                        },
                         validate: field.validation?.reduce((acc, validator) => {
                           return {
                             ...acc,
@@ -442,7 +497,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                 )}
                 {field.type == "range" && (
                   <div
-                    key={i}
+                    key={field.id}
                     className="input flex flex-col w-full font-semibold group"
                   >
                     {field.label && (
@@ -469,9 +524,18 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                           value: field.required,
                           message: "this is a required field",
                         },
-                        pattern: field.pattern,
-                        maxLength: field.maxLength,
-                        minLength: field.minLength,
+                        pattern: {
+                          value: field.pattern,
+                          message: `a required valid pattern is ${field.pattern}`,
+                        },
+                        maxLength: {
+                          value: field.maxLength,
+                          message: `maxLength is ${field.maxLength}`,
+                        },
+                        minLength: {
+                          value: field.menLength,
+                          message: `minLength is ${field.minLength}`,
+                        },
                         validate: field.validation?.reduce((acc, validator) => {
                           return {
                             ...acc,
@@ -489,7 +553,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                 )}
                 {field.type == "email" && (
                   <div
-                    key={i}
+                    key={field.id}
                     className="input flex flex-col w-full font-semibold group col-span-full"
                   >
                     {field.label && (
@@ -517,9 +581,18 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                           value: field.required,
                           message: "this is a required field",
                         },
-                        pattern: field.pattern,
-                        maxLength: field.maxLength,
-                        minLength: field.minLength,
+                        pattern: {
+                          value: field.pattern,
+                          message: `a required valid pattern is ${field.pattern}`,
+                        },
+                        maxLength: {
+                          value: field.maxLength,
+                          message: `maxLength is ${field.maxLength}`,
+                        },
+                        minLength: {
+                          value: field.menLength,
+                          message: `minLength is ${field.minLength}`,
+                        },
                         validate: field.validation?.reduce((acc, validator) => {
                           return {
                             ...acc,
@@ -537,7 +610,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                 )}
                 {field.type == "number" && (
                   <div
-                    key={i}
+                    key={field.id}
                     className="input flex flex-col w-full font-semibold group"
                   >
                     {field.label && (
@@ -565,9 +638,18 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                           value: field.required,
                           message: "this is a required field",
                         },
-                        pattern: field.pattern,
-                        maxLength: field.maxLength,
-                        minLength: field.minLength,
+                        pattern: {
+                          value: field.pattern,
+                          message: `a required valid pattern is ${field.pattern}`,
+                        },
+                        maxLength: {
+                          value: field.maxLength,
+                          message: `maxLength is ${field.maxLength}`,
+                        },
+                        minLength: {
+                          value: field.menLength,
+                          message: `minLength is ${field.minLength}`,
+                        },
                         validate: field.validation?.reduce((acc, validator) => {
                           return {
                             ...acc,
@@ -583,7 +665,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                     )}
                   </div>
                 )}
-              </>
+              </Fragment>
             );
           })}
         </div>

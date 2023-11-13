@@ -89,8 +89,8 @@ const Signup = () => {
     },
     {
       name: "password",
-      label: "password",
       id: "password",
+      label: "password",
       type: "password",
       required: true,
       maxLength: 40,
@@ -98,7 +98,10 @@ const Signup = () => {
       validation: [
         {
           isPassword: (val: string) => {
-            Validators.password(val);
+            const isValidPassword = Validators.password(val);
+            if (!isValidPassword) {
+              return "Not valid password";
+            }
           },
         },
       ],
@@ -113,8 +116,11 @@ const Signup = () => {
       minLength: 8,
       validation: [
         {
-          isPassword: (val: string) => {
-            Validators.password(val);
+          isPasswordConfirmationMatch: (val: string) => {
+            const isMatch = Validators.passwordConfirmation(val, "");
+            if (!isMatch) {
+              return "passwordConfirmation doesnot match password";
+            }
           },
         },
       ],
@@ -126,7 +132,7 @@ const Signup = () => {
   function handleDispatch(): void {
     dispatch(registerThunk(formValue));
   }
-  console.log("formState", state);
+  console.log("form state", state);
   return (
     <>
       <Head>
@@ -249,7 +255,6 @@ const Signup = () => {
                 type="submit"
                 onClick={() => {
                   handleDispatch();
-                  router.push("/");
                 }}
               >
                 {t("signup.Sign Up")}
