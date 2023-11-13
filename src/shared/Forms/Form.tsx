@@ -72,9 +72,16 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                       </label>
                     )}
                     <input
-                      className={`p-2 rounded-md border ${
-                        errors[field.name] ? "border-red-500" : ""
-                      } font-normal bg-gray-50 hover:bg-gray-100`}
+                      className={classNames(
+                        "p-2 rounded-md border font-normal",
+                        { "border-red-500": errors[field.name] },
+                        {
+                          "bg-dark-bgSecondary text-dark-textSecondary border-dark-border hover:bg-zinc-800":
+                            mode === "dark",
+                          "bg-light-bgSecondary text-light-textSecondary border-light-border hover:bg-gray-100":
+                            mode === "light",
+                        }
+                      )}
                       name={field.name}
                       id={field.id}
                       type={field.type}
@@ -112,9 +119,16 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                       </label>
                     )}
                     <input
-                      className={`p-2 rounded-md border ${
-                        errors[field.name] ? "border-red-500" : ""
-                      } font-normal bg-gray-50 hover:bg-gray-100`}
+                      className={classNames(
+                        "p-2 rounded-md border font-normal",
+                        { "border-red-500": errors[field.name] },
+                        {
+                          "bg-dark-bgSecondary text-dark-textSecondary border-dark-border hover:bg-zinc-800":
+                            mode === "dark",
+                          "bg-light-bgSecondary text-light-textSecondary border-light-border hover:bg-gray-100":
+                            mode === "light",
+                        }
+                      )}
                       name={field.name}
                       id={field.id}
                       type={field.type}
@@ -169,9 +183,16 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                       </label>
                     )}
                     <select
-                      className={`p-2 rounded-md border ${
-                        errors[field.name] ? "border-red-500" : ""
-                      } font-normal bg-gray-50 hover:bg-gray-100`}
+                      className={classNames(
+                        "p-2 rounded-md border font-normal",
+                        { "border-red-500": errors[field.name] },
+                        {
+                          "bg-dark-bgSecondary text-dark-textSecondary border-dark-border hover:bg-zinc-800":
+                            mode === "dark",
+                          "bg-light-bgSecondary text-light-textSecondary border-light-border hover:bg-gray-100":
+                            mode === "light",
+                        }
+                      )}
                       name={field.name}
                       id={field.id}
                       {...register(field.name, {
@@ -214,9 +235,16 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                     )}
 
                     <textarea
-                      className={`p-2 w-full rounded-md border ${
-                        errors[field.name] ? "border-red-500" : ""
-                      } font-normal bg-gray-50 hover:bg-gray-100 h-32`}
+                      className={classNames(
+                        "p-2 rounded-md border font-normal",
+                        { "border-red-500": errors[field.name] },
+                        {
+                          "bg-dark-bgSecondary text-dark-textSecondary border-dark-border hover:bg-zinc-800":
+                            mode === "dark",
+                          "bg-light-bgSecondary text-light-textSecondary border-light-border hover:bg-gray-100":
+                            mode === "light",
+                        }
+                      )}
                       name={field.name}
                       id={field.id}
                     ></textarea>
@@ -238,9 +266,16 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                       </label>
                     )}
                     <input
-                      className={`p-2 rounded-md border ${
-                        errors[field.name] ? "border-red-500" : ""
-                      } font-normal bg-gray-50 hover:bg-gray-100`}
+                      className={classNames(
+                        "p-2 rounded-md border font-normal",
+                        { "border-red-500": errors[field.name] },
+                        {
+                          "bg-dark-bgSecondary text-dark-textSecondary border-dark-border hover:bg-zinc-800":
+                            mode === "dark",
+                          "bg-light-bgSecondary text-light-textSecondary border-light-border hover:bg-gray-100":
+                            mode === "light",
+                        }
+                      )}
                       name={field.name}
                       id={field.id}
                       type={field.type}
@@ -322,9 +357,16 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                       </label>
                     )}
                     <input
-                      className={`p-2 rounded-md border ${
-                        errors[field.name] ? "border-red-500" : ""
-                      } font-normal`}
+                      className={classNames(
+                        "p-2 rounded-md border font-normal",
+                        { "border-red-500": errors[field.name] },
+                        {
+                          "bg-dark-bgSecondary text-dark-textSecondary border-dark-border hover:bg-zinc-800":
+                            mode === "dark",
+                          "bg-light-bgSecondary text-light-textSecondary border-light-border hover:bg-gray-100":
+                            mode === "light",
+                        }
+                      )}
                       name={field.name}
                       id={field.id}
                       type={field.type}
@@ -362,9 +404,16 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                       </label>
                     )}
                     <input
-                      className={`p-2 rounded-md border ${
-                        errors[field.name] ? "border-red-500" : ""
-                      } font-normal bg-gray-50 hover:bg-gray-100`}
+                      className={classNames(
+                        "p-2 rounded-md border font-normal",
+                        { "border-red-500": errors[field.name] },
+                        {
+                          "bg-dark-bgSecondary text-dark-textSecondary border-dark-border hover:bg-zinc-800":
+                            mode === "dark",
+                          "bg-light-bgSecondary text-light-textSecondary border-light-border hover:bg-gray-100":
+                            mode === "light",
+                        }
+                      )}
                       name={field.name}
                       id={field.id}
                       type={field.type}
@@ -402,9 +451,16 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                       </label>
                     )}
                     <input
-                      className={`p-2 rounded-md border ${
-                        errors[field.name] ? "border-red-500" : ""
-                      } font-normal`}
+                      className={classNames(
+                        "p-2 rounded-md border font-normal",
+                        { "border-red-500": errors[field.name] },
+                        {
+                          "bg-dark-bgSecondary text-dark-textSecondary border-dark-border hover:bg-zinc-800":
+                            mode === "dark",
+                          "bg-light-bgSecondary text-light-textSecondary border-light-border hover:bg-gray-100":
+                            mode === "light",
+                        }
+                      )}
                       name={field.name}
                       id={field.id}
                       type={field.type}
@@ -442,9 +498,16 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                       </label>
                     )}
                     <input
-                      className={`p-2 rounded-md border ${
-                        errors[field.name] ? "border-red-500" : ""
-                      } font-normal bg-gray-50 hover:bg-gray-100`}
+                      className={classNames(
+                        "p-2 rounded-md border font-normal",
+                        { "border-red-500": errors[field.name] },
+                        {
+                          "bg-dark-bgSecondary text-dark-textSecondary border-dark-border hover:bg-zinc-800":
+                            mode === "dark",
+                          "bg-light-bgSecondary text-light-textSecondary border-light-border hover:bg-gray-100":
+                            mode === "light",
+                        }
+                      )}
                       name={field.name}
                       id={field.id}
                       type={field.type}
@@ -483,9 +546,16 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                       </label>
                     )}
                     <input
-                      className={`p-2 rounded-md border ${
-                        errors[field.name] ? "border-red-500" : ""
-                      } font-normal bg-gray-50 hover:bg-gray-100`}
+                      className={classNames(
+                        "p-2 rounded-md border font-normal",
+                        { "border-red-500": errors[field.name] },
+                        {
+                          "bg-dark-bgSecondary text-dark-textSecondary border-dark-border hover:bg-zinc-800":
+                            mode === "dark",
+                          "bg-light-bgSecondary text-light-textSecondary border-light-border hover:bg-gray-100":
+                            mode === "light",
+                        }
+                      )}
                       name={field.name}
                       id={field.id}
                       type={field.type}
