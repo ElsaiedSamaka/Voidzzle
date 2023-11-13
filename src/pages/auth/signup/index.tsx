@@ -2,14 +2,18 @@ import classNames from "classnames";
 import { useThemeContext } from "core/context/ThemeContext";
 import useTranslation from "core/hooks/useTranslation";
 import getDirection from "core/utils/translations/getDirections";
+import Validators from "core/validators";
 import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { useFormStateContext } from "shared/Forms/shared/FormContext";
+
 import {
   LanguageSwitcher,
   ThemeSwitcher,
   LightDecortor,
   DarkDecorator,
+  Form,
 } from "shared";
 
 const Signup = () => {
@@ -18,7 +22,100 @@ const Signup = () => {
   const { theme } = useThemeContext();
   const { mode } = theme;
   const { t } = useTranslation(locale);
+  const formFields = [
+    {
+      name: "firstname",
+      label: "firstname",
+      id: "firstname",
+      type: "text",
+      required: true,
+      maxLength: 20,
+      minLength: 5,
+      validation: [
+        {
+          isName: (val) => {
+            if (val === "admin") {
+              return "Enter a different firstname";
+            }
+          },
+        },
+      ],
+    },
+    {
+      name: "lastname",
+      label: "lastname",
+      id: "lastname",
+      type: "text",
+      required: true,
+      maxLength: 20,
+      minLength: 5,
+      validation: [
+        {
+          isName: (val) => {
+            if (val === "admin") {
+              return "Enter a different lastname";
+            }
+          },
+        },
+      ],
+    },
+    {
+      name: "email",
+      label: "email",
+      id: "email",
+      type: "email",
+      required: true,
+      maxLength: 40,
+      minLength: 5,
+      validation: [
+        {
+          isEmail: (val: string) => {
+            Validators.email(val);
+          },
+        },
+      ],
+    },
+    {
+      name: "password",
+      label: "password",
+      id: "password",
+      type: "password",
+      required: true,
+      maxLength: 40,
+      minLength: 8,
+      validation: [
+        {
+          isPassword: (val: string) => {
+            Validators.password(val);
+          },
+        },
+      ],
+    },
+    {
+      name: "passwordConfirmation",
+      label: "passwordConfirmation",
+      id: "passwordConfirmation",
+      type: "password",
+      required: true,
+      maxLength: 40,
+      minLength: 8,
+      validation: [
+        {
+          isPassword: (val: string) => {
+            Validators.password(val);
+          },
+        },
+      ],
+    },
+  ];
+  const defaultValues = {};
+  const { state } = useFormStateContext();
+  const { isValid, isDirty, isSubmitting } = state;
 
+  function handleDispatch(data: any): void {
+    throw new Error("Function not implemented.");
+  }
+  console.log("formState", state);
   return (
     <>
       <Head>
@@ -77,7 +174,7 @@ const Signup = () => {
               </div>
             </div>
           </div>
-          <div className="px-4 py-20 z-10 ">
+          <div className=" px-4 py-20 z-10">
             <h2 className="mb-2 text-3xl font-bold">{t("signup.name")}</h2>
             <div className="mb-10 block font-bold text--600">
               {t("signup.have an account ?")}
@@ -126,37 +223,27 @@ const Signup = () => {
                 </span>
               </div>
             </div>
-            <p className="mb-1 font-medium text--500">Email</p>
-            <div className="mb-4 flex flex-col">
-              <div className="focus-within:border-red-600 relativeflex overflow-hidden rounded-md border-2 transition sm:w-80 lg:w-full">
-                <input
-                  type="email"
-                  id="signup-email"
-                  className="w-full border--300 bg-white px-4 py-2 text-base text--700 placeholder--400 focus:outline-none"
-                  placeholder="Enter your email"
-                />
-              </div>
-            </div>
-            <p className="mb-1 font-medium text--500">Password</p>
-            <div className="mb-4 flex flex-col">
-              <div className="focus-within:border-red-600 relative flex overflow-hidden rounded-md border-2 transition sm:w-80 lg:w-full">
-                <input
-                  type="password"
-                  id="signup-password"
-                  className="w-full border--300 bg-white px-4 py-2 text-base text--700 placeholder--400 focus:outline-none"
-                  placeholder="Choose a password (minimum 8 characters)"
-                />
-              </div>
-            </div>
-            <button
-              className="hover:shadow-red-600/40 rounded-xl bg-gradient-to-r from-red-700 to-red-600 px-8 py-3 font-bold text-white transition-all hover:opacity-90 hover:shadow-lg"
-              onClick={() => {
-                router.push("/");
-                console.log("signup");
-              }}
-            >
-              {t("signup.Sign Up")}
-            </button>
+            <Form formFields={formFields} defaultValues={defaultValues}>
+              <button
+                className={classNames(
+                  "hover:shadow-red-600/40 rounded-xl px-8 py-3 font-bold transition-all hover:opacity-90 hover:shadow-lg disabled:cursor-not-allowed",
+                  {
+                    "bg-dark-primary disabled:bg-dark-bgDisabled":
+                      mode === "dark",
+                    "bg-light-primary disabled:bg-light-bgDisabled":
+                      mode === "light",
+                  }
+                )}
+                disabled={!isValid || !isDirty}
+                type="submit"
+                onClick={() => {
+                  router.push("/");
+                  console.log("signup");
+                }}
+              >
+                {t("signup.Sign Up")}
+              </button>
+            </Form>
           </div>
           <div className="absolute inline-flex items-center ltr:right-5 top-5 rtl:left-5">
             <ThemeSwitcher />

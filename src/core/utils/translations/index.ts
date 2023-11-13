@@ -1,6 +1,7 @@
 import dashboardTranslations from "./pages/dashboard";
 import settingsTranslations from "./pages/settings";
 import signupTranslations from "./pages/signup";
+import homeTranslations from "./pages/home";
 import asideTranslations from "./components/Aside/aside";
 import navbarTranslations from "./components/Navbar/navbar";
 
@@ -11,7 +12,8 @@ const allTranslations = {
     settingsTranslations.en,
     signupTranslations.en,
     asideTranslations.en,
-    navbarTranslations.en
+    navbarTranslations.en,
+    homeTranslations.en
   ),
   ar: Object.assign(
     {},
@@ -19,7 +21,8 @@ const allTranslations = {
     settingsTranslations.ar,
     signupTranslations.ar,
     asideTranslations.ar,
-    navbarTranslations.ar
+    navbarTranslations.ar,
+    homeTranslations.ar
   ),
 };
 

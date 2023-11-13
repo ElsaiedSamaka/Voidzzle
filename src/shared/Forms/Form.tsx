@@ -1,40 +1,50 @@
 import { useForm, useFieldArray } from "react-hook-form";
+import PropTypes from "prop-types";
 import { DevTool } from "@hookform/devtools";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "core/store";
-import { createProductThunk } from "core/store/products/products.thunk";
+import { useDispatch } from "react-redux";
+
 import styles from "./Form.module.css";
-const Form = ({
-  formActions: { handleModalToggle, handleDispatch },
-  defaultValues,
-  formFields,
-}) => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors, isValid, isDirty, isSubmitting },
-    control,
-    reset,
-    watch,
-  } = useForm({
-    defaultValues,
-    mode: "onBlur",
-  });
-  const dispatch = useDispatch();
+import { useFormStateContext } from "./shared/FormContext";
+import { useThemeContext } from "core/context/ThemeContext";
+import classNames from "classnames";
+
+interface IFromProps {
+  defaultValues: Object;
+  formFields: any[];
+  children: React.ReactNode;
+}
+const Form = ({ defaultValues, formFields, children }: IFromProps) => {
+  const {register, handleSubmit, formState, reset} = useForm({ defaultValues, mode: "onBlur"});
+  const {errors,isValid,isDirty,isSubmitting} = formState;
+  const { state, dispatch } = useFormStateContext();
+  const { theme } = useThemeContext();
+  const { mode } = theme;
   const submit = (formData) => {
-    handleDispatch(formData);
-    handleModalToggle();
+    // handleDispatch(formData);
+    // handleModalToggle();
   };
   const handleReset = () => {
     reset(defaultValues);
   };
-  const watchForm = watch();
-  console.log("errors", errors);
+  function handleChange() {
+    dispatch({
+      type: "CHANGE",
+      payload: {
+        errors: errors,
+        isValid: isValid,
+        isDirty: isDirty,
+        isSubmitting:isSubmitting
+      }
+    });
+  }
   return (
     <>
       <form
+        onInput={() => {
+          handleChange();
+        }}
         onSubmit={handleSubmit(submit)}
-        className="mt-2 flex flex-col w-full h-fit"
+        className={classNames("mt-2 flex flex-col w-full h-fit",{"text-dark-textSecondary":mode==='dark',"text-light-textSecondary" :mode==='light'})}
       >
         {/* Form fields */}
         <div className="grid gap-4 mb-4 grid-cols-1 md:grid-cols-4">
@@ -42,10 +52,13 @@ const Form = ({
             return (
               <>
                 {field.type == "text" && (
-                  <div className="input flex flex-col w-full font-semibold group col-span-2">
+                  <div
+                    key={i}
+                    className="input flex flex-col w-full font-semibold group col-span-2"
+                  >
                     {field.label && (
                       <label
-                        className="capitalize  text-gray-900"
+                        className="capitalize  "
                         htmlFor={field.name}
                       >
                         {field.label}
@@ -82,10 +95,13 @@ const Form = ({
                   </div>
                 )}
                 {field.type == "date" && (
-                  <div className="input flex flex-col w-full font-semibold group col-span-2">
+                  <div
+                    key={i}
+                    className="input flex flex-col w-full font-semibold group col-span-2"
+                  >
                     {field.label && (
                       <label
-                        className="capitalize text-gray-900"
+                        className="capitalize "
                         htmlFor={field.name}
                       >
                         {field.label}
@@ -122,7 +138,10 @@ const Form = ({
                   </div>
                 )}
                 {field.type == "checkbox" && (
-                  <div className="input flex flex-col w-full font-semibold group">
+                  <div
+                    key={i}
+                    className="input flex flex-col w-full font-semibold group"
+                  >
                     <label className={styles.checkboxbtn}>
                       <label htmlFor={field.label}>{field.label}</label>
                       <input id={field.id} type={field.type} />
@@ -136,10 +155,13 @@ const Form = ({
                   </div>
                 )}
                 {field.type == "select" && (
-                  <div className="input flex flex-col w-full font-semibold group col-span-2">
+                  <div
+                    key={i}
+                    className="input flex flex-col w-full font-semibold group col-span-2"
+                  >
                     {field.label && (
                       <label
-                        className="capitalize text-gray-900"
+                        className="capitalize "
                         htmlFor={field.name}
                       >
                         {field.label}
@@ -180,10 +202,13 @@ const Form = ({
                   </div>
                 )}
                 {field.type == "text-area" && (
-                  <div className="input flex flex-col w-full font-semibold group col-span-2">
+                  <div
+                    key={i}
+                    className="input flex flex-col w-full font-semibold group col-span-2"
+                  >
                     {field.label && (
                       <label
-                        className="capitalize text-gray-900"
+                        className="capitalize "
                         htmlFor={field.name}
                       >
                         {field.label}
@@ -205,10 +230,13 @@ const Form = ({
                   </div>
                 )}
                 {field.type == "password" && (
-                  <div className="input flex flex-col w-full font-semibold group">
+                  <div
+                    key={i}
+                    className="input flex flex-col w-full font-semibold group col-span-2"
+                  >
                     {field.label && (
                       <label
-                        className="capitalize text-gray-900"
+                        className="capitalize "
                         htmlFor={field.name}
                       >
                         {field.label}
@@ -245,8 +273,11 @@ const Form = ({
                   </div>
                 )}
                 {field.type == "file" && (
-                  <div className="flex flex-col items-start justify-center w-full col-span-2">
-                    <label className="capitalize text-gray-900 font-semibold">
+                  <div
+                    key={i}
+                    className="flex flex-col items-start justify-center w-full col-span-2"
+                  >
+                    <label className="capitalize  font-semibold">
                       {field.label}
                     </label>
                     <label
@@ -286,10 +317,13 @@ const Form = ({
                   </div>
                 )}
                 {field.type == "radio" && (
-                  <div className="input flex flex-col w-full font-semibold group">
+                  <div
+                    key={i}
+                    className="input flex flex-col w-full font-semibold group"
+                  >
                     {field.label && (
                       <label
-                        className="capitalize text-gray-900"
+                        className="capitalize "
                         htmlFor={field.name}
                       >
                         {field.label}
@@ -326,10 +360,13 @@ const Form = ({
                   </div>
                 )}
                 {field.type == "tel" && (
-                  <div className="input flex flex-col w-full font-semibold group">
+                  <div
+                    key={i}
+                    className="input flex flex-col w-full font-semibold group"
+                  >
                     {field.label && (
                       <label
-                        className="capitalize text-gray-900"
+                        className="capitalize "
                         htmlFor={field.name}
                       >
                         {field.label}
@@ -366,10 +403,13 @@ const Form = ({
                   </div>
                 )}
                 {field.type == "range" && (
-                  <div className="input flex flex-col w-full font-semibold group">
+                  <div
+                    key={i}
+                    className="input flex flex-col w-full font-semibold group"
+                  >
                     {field.label && (
                       <label
-                        className="capitalize text-gray-900"
+                        className="capitalize "
                         htmlFor={field.name}
                       >
                         {field.label}
@@ -406,10 +446,13 @@ const Form = ({
                   </div>
                 )}
                 {field.type == "email" && (
-                  <div className="input flex flex-col w-full font-semibold group">
+                  <div
+                    key={i}
+                    className="input flex flex-col w-full font-semibold group col-span-full"
+                  >
                     {field.label && (
                       <label
-                        className="capitalize text-gray-900"
+                        className="capitalize "
                         htmlFor={field.name}
                       >
                         {field.label}
@@ -447,10 +490,13 @@ const Form = ({
                   </div>
                 )}
                 {field.type == "number" && (
-                  <div className="input flex flex-col w-full font-semibold group">
+                  <div
+                    key={i}
+                    className="input flex flex-col w-full font-semibold group"
+                  >
                     {field.label && (
                       <label
-                        className="capitalize text-gray-900"
+                        className="capitalize "
                         htmlFor={field.name}
                       >
                         {field.label}
@@ -495,20 +541,23 @@ const Form = ({
 
         {/* Buttons */}
         <div className="flex mr-auto gap-x-2">
-          <button
+          {children}
+          {/* <button
             className="inline-flex items-center text-white border bg-black hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
-            // disabled={!isValid || !isDirty || !isSubmitting}
+            disabled={!isValid || !isDirty || !isSubmitting}
             type="submit"
           >
             Save
           </button>
-          <button
-            onClick={handleModalToggle}
-            type="button"
-            className="inline-flex items-center text-gray-500 border bg-transparent hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
-          >
-            Cancel
-          </button>
+          {handleModalToggle && (
+            <button
+              onClick={handleModalToggle}
+              type="button"
+              className="inline-flex items-center text-gray-500 border bg-transparent hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+            >
+              Cancel
+            </button>
+          )} */}
         </div>
         {/* Buttons */}
       </form>
@@ -516,6 +565,14 @@ const Form = ({
     </>
   );
 };
+// Form.propTypes = {
+//   formActions: {
+//     handleModalToggle: PropTypes.func,
+//     handleDispatch: PropTypes.func.isRequired,
+//   },
+//   formFields: PropTypes.array.isRequired,
+//   defaultValues: PropTypes.object.isRequired,
+// };
 
 export default Form;
 
@@ -574,3 +631,86 @@ export default Form;
 //  {
 //    /* Dynamic fields */
 //  }
+
+// Form.propTypes = {
+//   // You can declare that a prop is a specific JS primitive. By default, these
+//   // are all optional.
+//   optionalArray: PropTypes.array,
+//   optionalBigInt: PropTypes.bigint,
+//   optionalBool: PropTypes.bool,
+//   optionalFunc: PropTypes.func,
+//   optionalNumber: PropTypes.number,
+//   optionalObject: PropTypes.object,
+//   optionalString: PropTypes.string,
+//   optionalSymbol: PropTypes.symbol,
+
+//   // Anything that can be rendered: numbers, strings, elements or an array
+//   // (or fragment) containing these types.
+//   // see https://reactjs.org/docs/rendering-elements.html for more info
+//   optionalNode: PropTypes.node,
+
+//   // A React element (ie. <MyComponent />).
+//   optionalElement: PropTypes.element,
+
+//   // A React element type (eg. MyComponent).
+//   // a function, string, or "element-like" object (eg. React.Fragment, Suspense, etc.)
+//   // see https://github.com/facebook/react/blob/HEAD/packages/shared/isValidElementType.js
+//   optionalElementType: PropTypes.elementType,
+
+//   // You can also declare that a prop is an instance of a class. This uses
+//   // JS's instanceof operator.
+//   // optionalMessage: PropTypes.instanceOf(Message),
+
+//   // You can ensure that your prop is limited to specific values by treating
+//   // it as an enum.
+//   optionalEnum: PropTypes.oneOf(["News", "Photos"]),
+
+//   // An object that could be one of many types
+//   optionalUnion: PropTypes.oneOfType([
+//     PropTypes.string,
+//     PropTypes.number,
+//     // PropTypes.instanceOf(Message),
+//   ]),
+
+//   // An array of a certain type
+//   optionalArrayOf: PropTypes.arrayOf(PropTypes.number),
+
+//   // An object with property values of a certain type
+//   optionalObjectOf: PropTypes.objectOf(PropTypes.number),
+
+//   // You can chain any of the above with `isRequired` to make sure a warning
+//   // is shown if the prop isn't provided.
+
+//   // An object taking on a particular shape
+//   optionalObjectWithShape: PropTypes.shape({
+//     optionalProperty: PropTypes.string,
+//     requiredProperty: PropTypes.number.isRequired,
+//   }),
+
+//   // An object with warnings on extra properties
+//   optionalObjectWithStrictShape: PropTypes.exact({
+//     optionalProperty: PropTypes.string,
+//     requiredProperty: PropTypes.number.isRequired,
+//   }),
+
+//   requiredFunc: PropTypes.func.isRequired,
+
+//   // A value of any data type
+//   requiredAny: PropTypes.any.isRequired,
+
+//   // You can also specify a custom validator. It should return an Error
+//   // object if the validation fails. Don't `console.warn` or throw, as this
+//   // won't work inside `oneOfType`.
+//   customProp: function (props, propName, componentName) {
+//     if (!/matchme/.test(props[propName])) {
+//       return new Error(
+//         "Invalid prop `" +
+//           propName +
+//           "` supplied to" +
+//           " `" +
+//           componentName +
+//           "`. Validation failed."
+//       );
+//     }
+//   },
+// };

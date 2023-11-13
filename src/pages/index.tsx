@@ -11,7 +11,7 @@ const IndexPage = () => {
   return (
     <>
       <Head>
-        <title>{t("settings.title")}</title>
+        <title>{t("home.title")}</title>
         <meta
           name="description"
           content="Next.js + SWR codebase containing realworld examples (CRUD, auth, advanced patterns, etc) that adheres to the realworld spec and API"
