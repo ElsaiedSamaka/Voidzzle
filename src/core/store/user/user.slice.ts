@@ -1,39 +1,56 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { User } from "core/models";
+import {
+  registerThunk,
+  loginThunk,
+  logoutThunk,
+  changePasswordThunk,
+} from "./user.thunk";
 
 interface UserState {
-  id: string;
-  username: string;
-  email: string;
+  user: User | null;
 }
 
 const initialState: UserState = {
-  id: "1",
-  username: "saied",
-  email: "saied.samaka1997@gmail.com",
+  user: {
+    firstname: "",
+    lastname: "",
+    email: "",
+    role: "",
+    password: "",
+    passwordConfirmation: "",
+  },
 };
-export const userSlice = createSlice({
+export const usersSlice = createSlice({
   name: "user",
   initialState,
-  reducers: {
-    setUser: (state, action) => {
-      state = action.payload;
-    },
-    updateUserusername: (state, action) => {
-      state.username = action.payload;
-    },
-    updateUseremail: (state, action) => {
-      state.email = action.payload;
-    },
-    deleteUser: (state, action) => {
-      state = initialState;
-      return state;
-    },
-    updateUser: (state, action) => {
-      state = action.payload;
-      return state;
-    },
+  reducers: {},
+  extraReducers: (builder) => {
+    // register
+    builder
+      .addCase(registerThunk.rejected, (state, action) => {
+        state.user = null;
+      })
+      .addCase(registerThunk.fulfilled, (state, action) => {
+        // getting user from api action payload is the response of register service
+        state.user = action.payload;
+      });
+    // login
+    builder
+      .addCase(loginThunk.fulfilled, (state, action) => {
+        state.user = action.payload;
+      })
+      .addCase(loginThunk.rejected, (state, action) => {
+        state.user = null;
+      });
+    // logout
+    builder.addCase(logoutThunk.fulfilled,(state, action)=>{
+        state.user = action.payload;
+    }).addCase(logoutThunk.rejected, (state, action) => {
+        state.user = null;
+      });
   },
 });
 
-export const { setUser, updateUserusername, updateUseremail } = userSlice.actions;
-export default userSlice.reducer;
+export const {} = usersSlice.actions;
+export default usersSlice.reducer;

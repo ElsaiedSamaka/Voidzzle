@@ -1,63 +1,80 @@
 import apiservice from "./api.service";
 
 const authservice = {
-  post: async (body: any) => {
+  register: async (body: any) => {
     try {
-      const response = await apiservice.post("auth", body);
+      const response = await apiservice.post("auth/register", body);
       return response;
     } catch (error) {
       throw error;
     }
   },
-  //   post2: async (body: any) => {
-  //     try {
-  //       const response = await axiosClient.post(`${base_url}/products`, body, {
-  //         headers: { "Content-Type": "multipart/form-data" },
-  //         ...axiosConfig,
-  //       });
-  //       return response.data;
-  //     } catch (error) {
-  //       throw error;
-  //     }
-  //   },
-
-  get: async () => {
+  login: async (body: any) => {
     try {
-      const response = await apiservice.get("auth");
+      const response = await apiservice.post("auth/login", body);
       return response;
     } catch (error) {
       throw error;
     }
   },
-  getById: async (id: string) => {
+  logout: async (body: any) => {
     try {
-      const response = await apiservice.get(`auth/${id}`);
+      const response = await apiservice.post("auth/logout", body);
       return response;
     } catch (error) {
       throw error;
     }
   },
-  put: async (id: string, body: any) => {
+  tokens: async (body: any) => {
     try {
-      const response = await apiservice.put(`auth/${id}`, body);
+      const response = await apiservice.post("auth/tokens", body);
       return response;
     } catch (error) {
       throw error;
     }
   },
-
-  remove: async (id: string) => {
+  forgotPassword: async (body: any) => {
     try {
-      const response = await apiservice.remove(`auth/${id}`);
+      const response = await apiservice.post("auth/forgot-password", body);
       return response;
     } catch (error) {
       throw error;
     }
   },
 
-  patch: async (id: string, body: any) => {
+  resetPassword: async (body: any) => {
     try {
-      const response = await apiservice.put(`auth/${id}`, body);
+      const response = await apiservice.post("auth/reset-password", body);
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  },
+
+  verifyEmail: async (body: any) => {
+    try {
+      const response = await apiservice.post("auth/verify-email", body);
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  },
+
+  sendVerificationEmail: async (body: any) => {
+    try {
+      const response = await apiservice.post(
+        "auth/send-verification-email",
+        body
+      );
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  },
+
+  changePassword: async (body: any) => {
+    try {
+      const response = await apiservice.patch(`auth/change-password`, body);
       return response;
     } catch (error) {
       throw error;

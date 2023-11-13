@@ -1,5 +1,4 @@
 import { configureStore } from "@reduxjs/toolkit";
-import todosReducer from "./todos/todos.slice";
 import userReducer from "./user/user.slice";
 import productsReducer from "./products/products.slice";
 import usersReducer from "./users/users.slice";
@@ -7,7 +6,6 @@ import brandsReducer from "./brands/brands.slice";
 export const store = configureStore({
   reducer: {
     user: userReducer,
-    todos: todosReducer,
     products: productsReducer,
     users: usersReducer,
     brands: brandsReducer,
@@ -21,3 +19,4 @@ export const store = configureStore({
 export type RootState = ReturnType<typeof store.getState>;
 // Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
 export type AppDispatch = typeof store.dispatch;
+// thunks are nothing but Redux Action Creator that can be dispatch

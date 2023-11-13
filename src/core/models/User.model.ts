@@ -1,13 +1,14 @@
 export type User = {
-  id: number;
-  email: string;
-  phonenumber?: number;
-  birthdate?: Date;
-  address?: string;
-  password: string;
-  user_img?: string;
-  passwordConfirmation: string;
-  firstname: string;
+  firstname:string;
   lastname: string;
+  email: string;
+  phone?: number;
+  role?:string;
+  address?: string;
+  companyName?:string;
+  password?: string;
+  passwordConfirmation?: string;
+  profileImage?: string;
+  discountCode?: string;
   socketId?: string;
 };

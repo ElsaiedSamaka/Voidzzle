@@ -7,6 +7,7 @@ import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useFormStateContext } from "shared/Forms/shared/FormContext";
+import { RootState } from "core/store";
 
 import {
   LanguageSwitcher,
@@ -15,6 +16,8 @@ import {
   DarkDecorator,
   Form,
 } from "shared";
+import { useSelector, useDispatch } from "react-redux";
+import { registerThunk } from "core/store/user/user.thunk";
 
 const Signup = () => {
   const router = useRouter();
@@ -22,6 +25,15 @@ const Signup = () => {
   const { theme } = useThemeContext();
   const { mode } = theme;
   const { t } = useTranslation(locale);
+  const { state } = useFormStateContext();
+  const {
+    formState: { errors, isValid, isDirty, isSubmitting },
+    formValue,
+  } = state;
+
+  const userSlice = useSelector((state: RootState) => state.user);
+  const dispatch = useDispatch();
+  console.log("userSlice", userSlice);
   const formFields = [
     {
       name: "firstname",
@@ -108,12 +120,11 @@ const Signup = () => {
       ],
     },
   ];
-  const defaultValues = {};
-  const { state } = useFormStateContext();
-  const { isValid, isDirty, isSubmitting } = state;
 
-  function handleDispatch(data: any): void {
-    throw new Error("Function not implemented.");
+  const defaultValues = {};
+
+  function handleDispatch(): void {
+    dispatch(registerThunk(formValue));
   }
   console.log("formState", state);
   return (
@@ -237,8 +248,8 @@ const Signup = () => {
                 disabled={!isValid || !isDirty}
                 type="submit"
                 onClick={() => {
+                  handleDispatch();
                   router.push("/");
-                  console.log("signup");
                 }}
               >
                 {t("signup.Sign Up")}

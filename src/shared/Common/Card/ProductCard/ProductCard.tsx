@@ -1,10 +1,8 @@
 import { RootState } from "core/store";
-import { useSelector } from "react-redux";
 import Link from "next/link";
 import { useThemeContext } from "core/context/ThemeContext";
 import classNames from "classnames";
 const ProductCard = ({ id = null }) => {
-  // const userSlice = useSelector((state: RootState) => state.user);
   const { theme } = useThemeContext();
   const { mode } = theme;
   return (

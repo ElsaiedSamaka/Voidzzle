@@ -14,8 +14,12 @@ interface IFromProps {
   children: React.ReactNode;
 }
 const Form = ({ defaultValues, formFields, children }: IFromProps) => {
-  const {register, handleSubmit, formState, reset} = useForm({ defaultValues, mode: "onBlur"});
-  const {errors,isValid,isDirty,isSubmitting} = formState;
+  const { register, handleSubmit, formState, reset, watch } = useForm({
+    defaultValues,
+    mode: "onBlur",
+  });
+  const { errors, isValid, isDirty, isSubmitting } = formState;
+  const formValue = watch();
   const { state, dispatch } = useFormStateContext();
   const { theme } = useThemeContext();
   const { mode } = theme;
@@ -29,22 +33,28 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
   function handleChange() {
     dispatch({
       type: "CHANGE",
-      payload: {
-        errors: errors,
-        isValid: isValid,
-        isDirty: isDirty,
-        isSubmitting:isSubmitting
-      }
+      formState: {
+        errors,
+        isValid,
+        isDirty,
+        isSubmitting,
+      },
+      formValue: {
+        ...formValue,
+      },
     });
   }
   return (
     <>
       <form
-        onInput={() => {
+        onChange={() => {
           handleChange();
         }}
         onSubmit={handleSubmit(submit)}
-        className={classNames("mt-2 flex flex-col w-full h-fit",{"text-dark-textSecondary":mode==='dark',"text-light-textSecondary" :mode==='light'})}
+        className={classNames("mt-2 flex flex-col w-full h-fit", {
+          "text-dark-textSecondary": mode === "dark",
+          "text-light-textSecondary": mode === "light",
+        })}
       >
         {/* Form fields */}
         <div className="grid gap-4 mb-4 grid-cols-1 md:grid-cols-4">
@@ -57,10 +67,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                     className="input flex flex-col w-full font-semibold group col-span-2"
                   >
                     {field.label && (
-                      <label
-                        className="capitalize  "
-                        htmlFor={field.name}
-                      >
+                      <label className="capitalize  " htmlFor={field.name}>
                         {field.label}
                       </label>
                     )}
@@ -100,10 +107,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                     className="input flex flex-col w-full font-semibold group col-span-2"
                   >
                     {field.label && (
-                      <label
-                        className="capitalize "
-                        htmlFor={field.name}
-                      >
+                      <label className="capitalize " htmlFor={field.name}>
                         {field.label}
                       </label>
                     )}
@@ -160,10 +164,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                     className="input flex flex-col w-full font-semibold group col-span-2"
                   >
                     {field.label && (
-                      <label
-                        className="capitalize "
-                        htmlFor={field.name}
-                      >
+                      <label className="capitalize " htmlFor={field.name}>
                         {field.label}
                       </label>
                     )}
@@ -207,10 +208,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                     className="input flex flex-col w-full font-semibold group col-span-2"
                   >
                     {field.label && (
-                      <label
-                        className="capitalize "
-                        htmlFor={field.name}
-                      >
+                      <label className="capitalize " htmlFor={field.name}>
                         {field.label}
                       </label>
                     )}
@@ -235,10 +233,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                     className="input flex flex-col w-full font-semibold group col-span-2"
                   >
                     {field.label && (
-                      <label
-                        className="capitalize "
-                        htmlFor={field.name}
-                      >
+                      <label className="capitalize " htmlFor={field.name}>
                         {field.label}
                       </label>
                     )}
@@ -322,10 +317,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                     className="input flex flex-col w-full font-semibold group"
                   >
                     {field.label && (
-                      <label
-                        className="capitalize "
-                        htmlFor={field.name}
-                      >
+                      <label className="capitalize " htmlFor={field.name}>
                         {field.label}
                       </label>
                     )}
@@ -365,10 +357,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                     className="input flex flex-col w-full font-semibold group"
                   >
                     {field.label && (
-                      <label
-                        className="capitalize "
-                        htmlFor={field.name}
-                      >
+                      <label className="capitalize " htmlFor={field.name}>
                         {field.label}
                       </label>
                     )}
@@ -408,10 +397,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                     className="input flex flex-col w-full font-semibold group"
                   >
                     {field.label && (
-                      <label
-                        className="capitalize "
-                        htmlFor={field.name}
-                      >
+                      <label className="capitalize " htmlFor={field.name}>
                         {field.label}
                       </label>
                     )}
@@ -451,10 +437,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                     className="input flex flex-col w-full font-semibold group col-span-full"
                   >
                     {field.label && (
-                      <label
-                        className="capitalize "
-                        htmlFor={field.name}
-                      >
+                      <label className="capitalize " htmlFor={field.name}>
                         {field.label}
                       </label>
                     )}
@@ -495,10 +478,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                     className="input flex flex-col w-full font-semibold group"
                   >
                     {field.label && (
-                      <label
-                        className="capitalize "
-                        htmlFor={field.name}
-                      >
+                      <label className="capitalize " htmlFor={field.name}>
                         {field.label}
                       </label>
                     )}

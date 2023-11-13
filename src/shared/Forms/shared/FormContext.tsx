@@ -2,17 +2,23 @@ import * as React from "react";
 
 type Dispatch = (action: any) => void;
 type State = {
-  errors: Object;
-  isValid: Boolean;
-  isDirty: Boolean;
-  isSubmitting: Boolean;
+  formState: {
+    errors: Object;
+    isValid: Boolean;
+    isDirty: Boolean;
+    isSubmitting: Boolean;
+  };
+  formValue: Object;
 };
 type FormProviderProps = { children: React.ReactNode };
 const initialState: State = {
-  errors: {},
-  isValid: false,
-  isDirty: false,
-  isSubmitting: false,
+  formState: {
+    errors: {},
+    isValid: false,
+    isDirty: false,
+    isSubmitting: false,
+  },
+  formValue: {},
 };
 const FormStateContext = React.createContext<
   { state: State; dispatch: Dispatch } | undefined
@@ -23,7 +29,12 @@ function formStateReducer(state: State, action: any) {
     case "CHANGE":
       return {
         ...state,
-        ...action.payload,
+        formState: {
+          ...action.formState,
+        },
+        formValue: {
+          ...action.formValue,
+        },
       };
 
     default: {

@@ -1,11 +1,11 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import todossService from "core/services/todos.service";
+import authService from "core/services/auth.service";
 
-export const getTodosThunk = createAsyncThunk(
-  "todos/get",
-  async (_, thunkAPI) => {
+export const registerThunk = createAsyncThunk(
+  "user/register",
+  async (params: any, thunkAPI) => {
     try {
-      const response = await todossService.get();
+      const response = await authService.register(params);
       return thunkAPI.fulfillWithValue(response);
     } catch (error) {
       thunkAPI.rejectWithValue(error);
@@ -13,11 +13,11 @@ export const getTodosThunk = createAsyncThunk(
   }
 );
 
-export const deleteTodoThunk = createAsyncThunk(
-  "todos/delete",
-  async (id: any, thunkAPI) => {
+export const loginThunk = createAsyncThunk(
+  "user/login",
+  async (params: any, thunkAPI) => {
     try {
-      const response = await todossService.remove(id);
+      const response = await authService.login(params);
       return thunkAPI.fulfillWithValue(response);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
@@ -25,11 +25,11 @@ export const deleteTodoThunk = createAsyncThunk(
   }
 );
 
-export const updateTodoThunk = createAsyncThunk(
-  "todos/update",
+export const logoutThunk = createAsyncThunk(
+  "user/logout",
   async (params: any, thunkAPI) => {
     try {
-      const response = await todossService.put(params.id, params.body);
+      const response = await authService.logout(params);
       return thunkAPI.fulfillWithValue(response);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
@@ -37,11 +37,11 @@ export const updateTodoThunk = createAsyncThunk(
   }
 );
 
-export const createTodoThunk = createAsyncThunk(
-  "todos/post",
+export const changePasswordThunk = createAsyncThunk(
+  "user/change-password",
   async (params: any, thunkAPI) => {
     try {
-      const response = await todossService.post(params);
+      const response = await authService.changePassword(params);
       return thunkAPI.fulfillWithValue(response);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
