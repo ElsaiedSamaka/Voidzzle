@@ -18,6 +18,7 @@ import {
 } from "shared";
 import { useSelector, useDispatch } from "react-redux";
 import { registerThunk } from "core/store/user/user.thunk";
+import { useEffect } from "react";
 
 const Signup = () => {
   const router = useRouter();
@@ -33,7 +34,8 @@ const Signup = () => {
 
   const userSlice = useSelector((state: RootState) => state.user);
   const dispatch = useDispatch();
-  console.log("userSlice", userSlice);
+  // console.log("userSlice", userSlice);
+  console.log("form state", state);
   const formFields = [
     {
       name: "firstname",
@@ -116,8 +118,11 @@ const Signup = () => {
       minLength: 8,
       validation: [
         {
-          isPasswordConfirmationMatch: (val: string) => {
-            const isMatch = Validators.passwordConfirmation(val, "");
+          isPasswordConfirmationMatch: (val: string, form: any) => {
+            const isMatch = Validators.passwordConfirmation(
+              val,
+              form.passwordConfirmation
+            );
             if (!isMatch) {
               return "passwordConfirmation doesnot match password";
             }
@@ -132,7 +137,7 @@ const Signup = () => {
   function handleDispatch(): void {
     dispatch(registerThunk(formValue));
   }
-  console.log("form state", state);
+
   return (
     <>
       <Head>

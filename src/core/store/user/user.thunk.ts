@@ -6,7 +6,8 @@ export const registerThunk = createAsyncThunk(
   async (params: any, thunkAPI) => {
     try {
       const response = await authService.register(params);
-      return thunkAPI.fulfillWithValue(response);
+      const { user } = response;
+      return thunkAPI.fulfillWithValue(user);
     } catch (error) {
       thunkAPI.rejectWithValue(error);
     }

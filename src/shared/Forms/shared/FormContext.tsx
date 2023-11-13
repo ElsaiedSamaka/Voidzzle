@@ -27,6 +27,7 @@ const FormStateContext = React.createContext<
 function formStateReducer(state: State, action: any) {
   switch (action.type) {
     case "CHANGE":
+      console.log("action", action);
       return {
         ...state,
         formState: {

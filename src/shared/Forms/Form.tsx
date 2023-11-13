@@ -7,7 +7,7 @@ import styles from "./Form.module.css";
 import { useFormStateContext } from "./shared/FormContext";
 import { useThemeContext } from "core/context/ThemeContext";
 import classNames from "classnames";
-import { Fragment } from "react";
+import { Fragment, useState, useEffect } from "react";
 
 interface IFromProps {
   defaultValues: Object;
@@ -15,41 +15,34 @@ interface IFromProps {
   children: React.ReactNode;
 }
 const Form = ({ defaultValues, formFields, children }: IFromProps) => {
-  const { register, handleSubmit, formState, reset, watch } = useForm({
-    defaultValues,
-    mode: "onBlur",
-  });
+  const { control, register, handleSubmit, formState, reset, getValues } =
+    useForm({
+      defaultValues,
+      mode: "onBlur",
+    });
   const { errors, isValid, isDirty, isSubmitting } = formState;
-  const formValue = watch();
+  const formValues = getValues();
   const { state, dispatch } = useFormStateContext();
   const { theme } = useThemeContext();
   const { mode } = theme;
+
   const submit = (formData) => {
     // handleDispatch(formData);
-    // handleModalToggle();
   };
-  const handleReset = () => {
-    reset(defaultValues);
-  };
-  function handleChange() {
+
+  function handleChange(formState, formValues) {
     dispatch({
       type: "CHANGE",
-      formState: {
-        errors,
-        isValid,
-        isDirty,
-        isSubmitting,
-      },
-      formValue: {
-        ...formValue,
-      },
+      formState: formState,
+      formValue: formValues,
     });
   }
+
   return (
     <>
       <form
         onChange={() => {
-          handleChange();
+          handleChange({ errors, isValid, isDirty, isSubmitting }, formValues);
         }}
         onSubmit={handleSubmit(submit)}
         className={classNames("mt-2 flex flex-col w-full h-fit", {
@@ -672,39 +665,13 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
         {/* Form fields */}
 
         {/* Buttons */}
-        <div className="flex mr-auto gap-x-2">
-          {children}
-          {/* <button
-            className="inline-flex items-center text-white border bg-black hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
-            disabled={!isValid || !isDirty || !isSubmitting}
-            type="submit"
-          >
-            Save
-          </button>
-          {handleModalToggle && (
-            <button
-              onClick={handleModalToggle}
-              type="button"
-              className="inline-flex items-center text-gray-500 border bg-transparent hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
-            >
-              Cancel
-            </button>
-          )} */}
-        </div>
+        <div className="flex mr-auto gap-x-2">{children}</div>
         {/* Buttons */}
       </form>
       {/* <DevTool control={control} /> */}
     </>
   );
 };
-// Form.propTypes = {
-//   formActions: {
-//     handleModalToggle: PropTypes.func,
-//     handleDispatch: PropTypes.func.isRequired,
-//   },
-//   formFields: PropTypes.array.isRequired,
-//   defaultValues: PropTypes.object.isRequired,
-// };
 
 export default Form;
 
