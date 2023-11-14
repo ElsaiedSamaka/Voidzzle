@@ -1,6 +1,7 @@
 import dashboardTranslations from "./pages/dashboard";
 import settingsTranslations from "./pages/settings";
 import signupTranslations from "./pages/signup";
+import signinTranslations from "./pages/signin";
 import homeTranslations from "./pages/home";
 import asideTranslations from "./components/Aside/aside";
 import navbarTranslations from "./components/Navbar/navbar";
@@ -11,6 +12,7 @@ const allTranslations = {
     dashboardTranslations.en,
     settingsTranslations.en,
     signupTranslations.en,
+    signinTranslations.en,
     asideTranslations.en,
     navbarTranslations.en,
     homeTranslations.en
@@ -20,6 +22,7 @@ const allTranslations = {
     dashboardTranslations.ar,
     settingsTranslations.ar,
     signupTranslations.ar,
+    signinTranslations.ar,
     asideTranslations.ar,
     navbarTranslations.ar,
     homeTranslations.ar

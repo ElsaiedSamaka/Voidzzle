@@ -28,11 +28,12 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
     mode: "onBlur",
   });
   const { errors, isValid, isDirty, isSubmitting } = formState;
+  console.log("isValid", isValid);
   const { state, dispatch } = useFormStateContext();
   const { theme } = useThemeContext();
   const { mode } = theme;
 
-  const formValues = watch(); // Use watch to get the form field values
+  const formValues = getValues(); // Use watch to get the form field values
   const previousFormValues = useRef(formValues); // Track previous form values
 
   const submit = (formData) => {
@@ -60,9 +61,10 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
     dispatch({
       type: "CHANGE",
       formState: {
-        errors,
-        isValid,
-        isDirty
+        errors: errors,
+        isValid: isValid,
+        isDirty: isDirty,
+        isSubmitting: isSubmitting,
       },
       formValue: {
         ...formValues,
@@ -307,7 +309,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                 {field.type == "password" && (
                   <div
                     key={field.id}
-                    className="input flex flex-col w-full font-semibold group col-span-2"
+                    className="input flex flex-col w-full font-semibold group col-span-full "
                   >
                     {field.label && (
                       <label className="capitalize " htmlFor={field.name}>
@@ -575,7 +577,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                 {field.type == "email" && (
                   <div
                     key={field.id}
-                    className="input flex flex-col w-full font-semibold group col-span-full"
+                    className="email-input flex flex-col w-full font-semibold group col-span-full "
                   >
                     {field.label && (
                       <label className="capitalize " htmlFor={field.name}>
