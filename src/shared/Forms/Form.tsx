@@ -40,6 +40,9 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
     dispatch({
       type: "SUBMIT",
       formState: {
+        errors: errors,
+        isValid: isValid,
+        isDirty: isDirty,
         isSubmitting: true,
       },
     });

@@ -61,14 +61,14 @@ const Signin = () => {
       maxLength: 20,
       minLength: 8,
       validation: [
-        // {
-        //   isPassword: (val: string) => {
-        //     const isValidPassword = Validators.password(val);
-        //     if (!isValidPassword) {
-        //       return "Not valid password";
-        //     }
-        //   },
-        // },
+        {
+          isPassword: (val: string) => {
+            const isValidPassword = Validators.password(val);
+            if (!isValidPassword) {
+              return "Not valid password";
+            }
+          },
+        },
       ],
     },
   ];
