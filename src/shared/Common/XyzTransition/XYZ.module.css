@@ -1,0 +1,35 @@
+
+.flexcol {
+  display: flex;
+  flex-direction: column;
+}
+
+.flexrow {
+  display: flex;
+  flex-direction: row;
+}
+
+.examplewrap {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.examplegrid {
+  display: grid;
+  grid-template-columns: repeat(4, 5rem);
+  justify-content: center;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.examplebutton {
+  margin: 1rem;
+}
+
+.square {
+  width: 5rem;
+  height: 5rem;
+  background-color: #56ccf2;
+}

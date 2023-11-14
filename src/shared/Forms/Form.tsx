@@ -1,13 +1,13 @@
-import { useForm, useFieldArray } from "react-hook-form";
-import PropTypes from "prop-types";
-import { DevTool } from "@hookform/devtools";
-import { useDispatch } from "react-redux";
-
 import styles from "./Form.module.css";
+
+import { Fragment, useEffect, useRef } from "react";
+import { useForm } from "react-hook-form";
+import classNames from "classnames";
+
 import { useFormStateContext } from "./shared/FormContext";
 import { useThemeContext } from "core/context/ThemeContext";
-import classNames from "classnames";
-import { Fragment, useState, useEffect } from "react";
+
+import { isEqual } from "core/helper";
 
 interface IFromProps {
   defaultValues: Object;
@@ -15,35 +15,63 @@ interface IFromProps {
   children: React.ReactNode;
 }
 const Form = ({ defaultValues, formFields, children }: IFromProps) => {
-  const { control, register, handleSubmit, formState, reset, getValues } =
-    useForm({
-      defaultValues,
-      mode: "onBlur",
-    });
+  const {
+    control,
+    register,
+    handleSubmit,
+    formState,
+    reset,
+    getValues,
+    watch,
+  } = useForm({
+    defaultValues,
+    mode: "onBlur",
+  });
   const { errors, isValid, isDirty, isSubmitting } = formState;
-  const formValues = getValues();
   const { state, dispatch } = useFormStateContext();
   const { theme } = useThemeContext();
   const { mode } = theme;
 
+  const formValues = watch(); // Use watch to get the form field values
+  const previousFormValues = useRef(formValues); // Track previous form values
+
   const submit = (formData) => {
-    // handleDispatch(formData);
+    dispatch({
+      type: "SUBMIT",
+      formState: {
+        isSubmitting: true,
+      },
+    });
   };
 
-  function handleChange(formState, formValues) {
+  useEffect(() => {
+    const hasFormValuesChanged = !isEqual(
+      formValues,
+      previousFormValues.current
+    );
+
+    if (hasFormValuesChanged) {
+      previousFormValues.current = formValues;
+      handleChange();
+    }
+  }, [formValues, errors, isValid, isDirty, isSubmitting]);
+
+  function handleChange() {
     dispatch({
       type: "CHANGE",
-      formState: formState,
-      formValue: formValues,
+      formState: {
+        errors,
+        isValid,
+        isDirty
+      },
+      formValue: {
+        ...formValues,
+      },
     });
   }
-
   return (
     <>
       <form
-        onChange={() => {
-          handleChange({ errors, isValid, isDirty, isSubmitting }, formValues);
-        }}
         onSubmit={handleSubmit(submit)}
         className={classNames("mt-2 flex flex-col w-full h-fit", {
           "text-dark-textSecondary": mode === "dark",

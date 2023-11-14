@@ -25,9 +25,9 @@ const FormStateContext = React.createContext<
 >(undefined);
 
 function formStateReducer(state: State, action: any) {
-  switch (action.type) {
+  const {type,formState:{ errors, isValid, isDirty, isSubmitting },formValue} = action;
+  switch (type) {
     case "CHANGE":
-      console.log("action", action);
       return {
         ...state,
         formState: {
@@ -37,7 +37,14 @@ function formStateReducer(state: State, action: any) {
           ...action.formValue,
         },
       };
-
+    case "SUBMIT":
+      return {
+        ...state,
+        formState: {
+          ...action.formState,
+          isSubmitting: isSubmitting,
+        },
+      };
     default: {
       throw new Error(`Unhandled action type: ${action}`);
     }

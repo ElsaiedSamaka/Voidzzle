@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@animxyz/react": "^0.6.7",
     "@glidejs/glide": "^3.6.0",
     "@reduxjs/toolkit": "^1.7.1",
     "apexcharts": "3.43.2-0",

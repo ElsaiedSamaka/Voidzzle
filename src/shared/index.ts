@@ -29,6 +29,7 @@ import LightDecortor from "./Common/Decorator/LightDecortor";
 import DarkDecorator from "./Common/Decorator/DarkDecorator";
 import Switch from "./Common/Switch/Switch";
 import Icon from "./Common/Icon/Icon";
+import XYZ from "./Common/XyzTransition/XYZ";
 export {
   Aside,
   ProductCard as Card,
@@ -61,5 +62,6 @@ export {
   DarkDecorator,
   Switch,
   Icon,
+  XYZ
 };
 
