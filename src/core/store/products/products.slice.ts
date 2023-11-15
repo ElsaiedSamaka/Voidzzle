@@ -43,8 +43,9 @@ export const productsSlice = createSlice({
         state.error = action.error.message;
       })
       .addCase(getProductsThunk.fulfilled, (state, action) => {
-        // getting todos from api action payload is the response of getTodos service
-        state.items = action.payload;
+        const { products } = action.payload;
+        // getting products from api action payload is the response of getTodos service
+        state.items = products;
         state.loading = false;
         state.error = null;
       });

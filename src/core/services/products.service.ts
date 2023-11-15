@@ -3,7 +3,7 @@ import apiservice from "./api.service";
 const productsService = {
   post: async (body: any) => {
     try {
-      const response = await apiservice.post("products", body);
+      const response = await apiservice.post("product", body);
       return response;
     } catch (error) {
       throw error;
@@ -23,7 +23,7 @@ const productsService = {
 
   get: async () => {
     try {
-      const response = await apiservice.get("products");
+      const response = await apiservice.get("product");
       return response;
     } catch (error) {
       throw error;
@@ -31,7 +31,7 @@ const productsService = {
   },
   getById: async (id: string) => {
     try {
-      const response = await apiservice.get(`products/${id}`);
+      const response = await apiservice.get(`product/${id}`);
       return response;
     } catch (error) {
       throw error;
@@ -39,7 +39,7 @@ const productsService = {
   },
   put: async (id: string, body: any) => {
     try {
-      const response = await apiservice.put(`products/${id}`, body);
+      const response = await apiservice.put(`product/${id}`, body);
       return response;
     } catch (error) {
       throw error;
@@ -48,7 +48,7 @@ const productsService = {
 
   remove: async (id: string) => {
     try {
-      const response = await apiservice.remove(`products/${id}`);
+      const response = await apiservice.remove(`product/${id}`);
       return response;
     } catch (error) {
       throw error;
@@ -57,7 +57,7 @@ const productsService = {
 
   removeAll: async (ids: any[]) => {
     try {
-      const response = await apiservice.post("products/remove-all", ids);
+      const response = await apiservice.post("product/remove-all", ids);
       return response;
     } catch (error) {
       throw error;
@@ -66,7 +66,7 @@ const productsService = {
 
   patch: async (id: string, body: any) => {
     try {
-      const response = await apiservice.put(`products/${id}`, body);
+      const response = await apiservice.put(`product/${id}`, body);
       return response;
     } catch (error) {
       throw error;
@@ -75,7 +75,7 @@ const productsService = {
 
   search: async(query: string) => {
     try {
-      const response = await apiservice.get(`products/search/${query}`);
+      const response = await apiservice.get(`product/search/${query}`);
       return response;
     } catch (error) {
       throw error;
