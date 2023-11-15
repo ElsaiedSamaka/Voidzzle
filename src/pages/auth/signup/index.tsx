@@ -84,7 +84,7 @@ const Signup = () => {
       validation: [
         {
           isEmail: (val: string) => {
-            Validators.email(val);
+            Validators.isEmail(val);
           },
         },
       ],

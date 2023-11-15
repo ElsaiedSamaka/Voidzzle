@@ -48,7 +48,10 @@ const Signin = () => {
       validation: [
         {
           isEmail: (val: string) => {
-            Validators.email(val);
+            const isValidEmail = Validators.isEmail(val);
+            if (!isValidEmail) {
+              return "Valid email is like example@mail.com";
+            }
           },
         },
       ],
