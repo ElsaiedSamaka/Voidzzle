@@ -15,10 +15,10 @@ import {
   LightDecortor,
   DarkDecorator,
   Form,
-  XYZ
 } from "shared";
 import { useSelector, useDispatch } from "react-redux";
 import { registerThunk } from "core/store/user/user.thunk";
+import { useEffect } from "react";
 
 const Signup = () => {
   const router = useRouter();
@@ -137,6 +137,17 @@ const Signup = () => {
   function handleDispatch(): void {
     dispatch(registerThunk(formValue));
   }
+  // Listen for changes in the Redux store
+  useEffect(() => {
+    if (userSlice.error) {
+      // TODO: add toast to handle this case
+      console.error("Register error:", userSlice.error);
+      // Handle error display or any other action
+    } else if (userSlice.user) {
+      console.log("Register success. Redirecting to home.");
+      router.push("/");
+    }
+  }, [userSlice.error, userSlice.user]);
 
   return (
     <>

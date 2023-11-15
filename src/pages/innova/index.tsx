@@ -6,11 +6,9 @@ const InnvoaPage = () => {
   return (
     <TabProvider>
       <section className="min-h-screen  p-4">
-        {/* page head */}
-        <div className="flex mb-5">
+    <div className="flex mb-5">
           <h1 className="text-4xl font-semibold">Innova</h1>
         </div>
-        {/* page head */}
         {/* taps */}
         <Tabs
           items={[
