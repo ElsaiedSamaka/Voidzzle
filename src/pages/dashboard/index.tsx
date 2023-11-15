@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
-import { InnovaLayout, RootLayout, Table, Tabs } from "shared";
+import { DashboardLayout, RootLayout, Table, Tabs } from "shared";
 import { TabContext, TabProvider } from "core/context/TabContext";
 import Content from "views/Innova.views/content.innova/Content";
-const InnvoaPage = () => {
+const Dashboard = () => {
   return (
     <TabProvider>
       <section className="min-h-screen  p-4">
@@ -27,11 +27,11 @@ const InnvoaPage = () => {
     </TabProvider>
   );
 };
-InnvoaPage.getLayout = (page) => {
+Dashboard.getLayout = (page) => {
   return (
     <RootLayout>
-      <InnovaLayout>{page}</InnovaLayout>
+      <DashboardLayout>{page}</DashboardLayout>
     </RootLayout>
   );
 };
-export default InnvoaPage;
+export default Dashboard;
