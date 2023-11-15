@@ -9,17 +9,14 @@ import {
 
 interface UserState {
   user: User | null;
+  loading: boolean;
+  error: string | null;
 }
 
 const initialState: UserState = {
-  user: {
-    firstname: "",
-    lastname: "",
-    email: "",
-    role: "",
-    password: "",
-    passwordConfirmation: "",
-  },
+  user: null,
+  loading: false,
+  error: null,
 };
 export const usersSlice = createSlice({
   name: "user",
@@ -28,20 +25,34 @@ export const usersSlice = createSlice({
   extraReducers: (builder) => {
     // register
     builder
+      .addCase(registerThunk.pending, (state) => {
+      state.loading = true;
+      state.error = null;
+    })
       .addCase(registerThunk.rejected, (state, action) => {
-        state.user = null;
+      state.loading = false;
+      state.user = null;
+      state.error = action.error.message || "An error occurred during registration.";
       })
       .addCase(registerThunk.fulfilled, (state, action) => {
+      const { user } = action.payload;
         // getting user from api action payload is the response of register service
-        state.user = action.payload;
+      state.loading = false;
+      state.user = user;
+      state.error = null;
       });
     // login
     builder
       .addCase(loginThunk.fulfilled, (state, action) => {
-        state.user = action.payload;
+      const { user } = action.payload;
+      state.loading = false;
+      state.user = user;
+      state.error = null;
       })
       .addCase(loginThunk.rejected, (state, action) => {
-        state.user = null;
+      state.loading = false;
+      state.user = null;
+      state.error = action.error.message || "An error occurred during login.";
       });
     // logout
     builder.addCase(logoutThunk.fulfilled,(state, action)=>{

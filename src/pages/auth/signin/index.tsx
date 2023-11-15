@@ -18,6 +18,7 @@ import {
 } from "shared";
 import { useSelector, useDispatch } from "react-redux";
 import { loginThunk } from "core/store/user/user.thunk";
+import { useEffect } from "react";
 
 const Signin = () => {
   const router = useRouter();
@@ -78,6 +79,17 @@ const Signin = () => {
   function handleDispatch(): void {
     dispatch(loginThunk(formValue));
   }
+  // Listen for changes in the Redux store
+  useEffect(() => {
+    if (userSlice.error) {
+      // TODO: add toast to handle this case
+      console.error("Login error:", userSlice.error);
+      // Handle error display or any other action
+    } else if (userSlice.user) {
+      console.log("Login success. Redirecting to home.");
+      router.push("/");
+    }
+  }, [userSlice.error, userSlice.user]);
 
   return (
     <>

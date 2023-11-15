@@ -5,7 +5,7 @@ const Validators = {
     return re.test(email);
   },
   password: (password: string) => {
-   const re = /^(?=.*\d)(?=.*[a-zA-Z]).{8,}$/;
+    const re = /^(?=.*\d)(?=.*[a-zA-Z]).{8,}$/;
     return re.test(password);
   },
   number: (number: string) => {

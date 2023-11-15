@@ -6,8 +6,7 @@ export const registerThunk = createAsyncThunk(
   async (params: any, thunkAPI) => {
     try {
       const response = await authService.register(params);
-      const { user } = response;
-      return thunkAPI.fulfillWithValue(user);
+      return thunkAPI.fulfillWithValue(response);
     } catch (error) {
       thunkAPI.rejectWithValue(error);
     }
@@ -19,8 +18,7 @@ export const loginThunk = createAsyncThunk(
   async (params: any, thunkAPI) => {
     try {
       const response = await authService.login(params);
-      const { user } = response;
-      return thunkAPI.fulfillWithValue(user.user);
+      return thunkAPI.fulfillWithValue(response);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
     }

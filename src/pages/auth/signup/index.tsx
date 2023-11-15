@@ -34,7 +34,7 @@ const Signup = () => {
 
   const userSlice = useSelector((state: RootState) => state.user);
   const dispatch = useDispatch();
-  // console.log("userSlice", userSlice);
+  console.log("userSlice", userSlice);
   console.log("form state", state);
   const formFields = [
     {
