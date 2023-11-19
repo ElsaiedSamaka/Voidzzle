@@ -62,24 +62,24 @@ const TableBody = ({
       });
     }
   }
-/**
- * Handles the select all functionality.
- */
-function handleSelectAll() {
-  // If there are items in the list
-  if (items.length > 0) {
-    // Reset the selected items
-    dispatchSelectedItems({ type: "reset" });
-  } else {
-    // Add all items to the selected items list
-    dispatchSelectedItems({ type: "add", payload: data.items });
+  /**
+   * Handles the select all functionality.
+   */
+  function handleSelectAll() {
+    // If there are items in the list
+    if (items.length > 0) {
+      // Reset the selected items
+      dispatchSelectedItems({ type: "reset" });
+    } else {
+      // Add all items to the selected items list
+      dispatchSelectedItems({ type: "add", payload: data.items });
+    }
   }
-}
   return (
     <>
       <div className="overflow-x-auto">
-        <table className="w-full text-sm text-left text-gray-500 :text-gray-400">
-          <thead className="text-xs text-gray-700 uppercase bg-gray-50 :bg-gray-700 :text-gray-400">
+        <table className="w-full text-sm text-left">
+          <thead className="text-xs uppercase">
             <tr>
               {_config.multiSelect && (
                 <th scope="col" className="p-4">
@@ -89,7 +89,7 @@ function handleSelectAll() {
                       onChange={handleSelectAll}
                       id="checkbox-all"
                       type="checkbox"
-                      className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 :focus:ring-primary-600 :ring-offset-gray-800 focus:ring-2 :bg-gray-700 :border-gray-600"
+                      className="w-4 h4 roundefocus:ring-2"
                     />
                     <label htmlFor="checkbox-all" className="sr-only">
                       checkbox
@@ -131,7 +131,7 @@ function handleSelectAll() {
                             }}
                             id="checkbox-table-search-1"
                             type="checkbox"
-                            className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 focus:ring-2"
+                            className="w-4 h-4 rounded focus:ring-2"
                           />
                           <label
                             htmlFor="checkbox-table-search-1"
@@ -145,7 +145,10 @@ function handleSelectAll() {
                     {_config.th.map((column, i) => (
                       <td className="px-4 py-1" key={column.id}>
                         <div className="flex items-center">
-                          {item[column.label]}
+                          {JSON.stringfy(column,null,2)}
+                          {/* {column.select
+                            ? item[column.label].select
+                            : item[column.label]} */}
                         </div>
                       </td>
                     ))}
@@ -158,7 +161,7 @@ function handleSelectAll() {
                             }}
                             id="apple-imac-20-dropdown-button"
                             data-dropdown-toggle="apple-imac-20-dropdown"
-                            className="inline-flex items-center p-0.5 text-sm font-medium text-center text-gray-500 hover:text-gray-800 rounded-lg focus:outline-none :text-gray-400 :hover:text-gray-100"
+                            className="inline-flex items-center p-0.5 text-sm font-medium text-center hover:text-gray-800 rounded-lg focus:outline-none"
                             type="button"
                           >
                             <svg
@@ -177,7 +180,7 @@ function handleSelectAll() {
                                 <>
                                   <div>
                                     <ul
-                                      className="py-1 text-sm text-gray-700"
+                                      className="py-1 text-sm"
                                       aria-labelledby="apple-imac-20-dropdown-button"
                                     >
                                       <li>
@@ -185,7 +188,7 @@ function handleSelectAll() {
                                           onClick={() =>
                                             handlePreviewModalToggle(item)
                                           }
-                                          className="block py-2 px-4 hover:bg-gray-100 hover:cursor-pointer"
+                                          className="block py-2 px-4  hover:cursor-pointer"
                                         >
                                           Show
                                         </a>
@@ -195,7 +198,7 @@ function handleSelectAll() {
                                           onClick={() =>
                                             handleEditModalToggle(item)
                                           }
-                                          className="block py-2 px-4 hover:bg-gray-100 hover:cursor-pointer"
+                                          className="block py-2 px-4  hover:cursor-pointer"
                                         >
                                           Edit
                                         </a>
@@ -205,7 +208,7 @@ function handleSelectAll() {
                                       className="py-1"
                                       onClick={() => deleteItem(item.id)}
                                     >
-                                      <a className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 hover:cursor-pointer">
+                                      <a className="block py-2 px-4 text-sm  hover:cursor-pointer">
                                         Delete
                                       </a>
                                     </div>
@@ -264,7 +267,7 @@ function handleSelectAll() {
                           disabled
                           id="checkbox-table-search-1"
                           type="checkbox"
-                          className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 :focus:ring-primary-600 :ring-offset-gray-800 focus:ring-2 :bg-gray-700 :border-gray-600"
+                          className="w-4 h-4 rounded focus:ring-2 "
                         />
                         <label
                           htmlFor="checkbox-table-search-1"
@@ -287,7 +290,7 @@ function handleSelectAll() {
                           disabled
                           id="apple-imac-20-dropdown-button"
                           data-dropdown-toggle="apple-imac-20-dropdown"
-                          className="inline-flex items-center p-0.5 text-sm font-medium text-center text-gray-500  rounded-lg focus:outline-none disabled:cursor-not-allowed"
+                          className="inline-flex items-center p-0.5 text-sm font-medium text-center  rounded-lg focus:outline-none disabled:cursor-not-allowed"
                           type="button"
                         >
                           <svg
@@ -314,10 +317,10 @@ function handleSelectAll() {
 const EditDailogHeader = ({ handleModalToggle }) => {
   return (
     <div className="dailog-header flex justify-between items-center">
-      <h3 className=" text-xl font-bold text-gray-900 ">Edit product</h3>
+      <h3 className=" text-xl font-bold  ">Edit product</h3>
       <div
         onClick={handleModalToggle}
-        className="p-1 w-fit h-fit rounded-full text-gray-700 bg-gray-50 hover:bg-gray-100 hover:cursor-pointer hover:text-gray-900"
+        className="p-1 w-fit h-fit rounded-full   hover:cursor-pointer "
       >
         <svg
           className="w-5 h-5"
@@ -345,23 +348,18 @@ const EditDailogBody = ({
   formFields,
 }) => {
   return (
-    <Form
-      formActions={{
-        handleModalToggle: handleModalToggle,
-        handleDispatch: handleDispatch,
-      }}
-      formFields={formFields}
-      defaultValues={defaultValues}
-    />
+    <Form formFields={formFields} defaultValues={defaultValues}>
+      <div>test</div>
+    </Form>
   );
 };
 const PreviewDailogHeader = ({ handleModalToggle }) => {
   return (
     <div className="dailog-header flex justify-between items-center  pb-2">
-      <h3 className=" text-xl font-bold text-gray-900 ">product details</h3>
+      <h3 className=" text-xl font-bold  ">product details</h3>
       <div
         onClick={handleModalToggle}
-        className="p-1 w-fit h-fit rounded-full text-gray-700 bg-gray-50 hover:bg-gray-100 hover:cursor-pointer hover:text-gray-900"
+        className="p-1 w-fit h-fit rounded-full   hover:cursor-pointer "
       >
         <svg
           className="w-5 h-5"
@@ -392,22 +390,22 @@ const PreviewDailogBody = ({ item, handleModalToggle }) => {
     >
       <div className="relative border-t  ">
         <div className="w-full sm:my-4">
-          <div className="flex items-center justify-between text-lg text-gray-900 md:text-xl ">
+          <div className="flex items-center justify-between text-lg  md:text-xl ">
             <h4 className="font-medium ">{item.name}”</h4>
             <p className="font-medium">${item.price}</p>
           </div>
         </div>
         <dl>
-          <dt className="mb-2 font-semibold leading-none text-gray-900 :text-white">
+          <dt className="mb-2 font-semibold leading-none  ">
             Details
           </dt>
-          <dd className="mb-4 font-light text-gray-500 sm:mb-5 :text-gray-400">
+          <dd className="mb-4 font-light sm:mb-5 :text-gray-400">
             {item.description ? item.description : "N/A"}
           </dd>
-          <dt className="mb-2 font-semibold leading-none text-gray-900 :text-white">
+          <dt className="mb-2 font-semibold leading-none  ">
             Colors
           </dt>
-          <dd className="mb-4 font-light text-gray-500 sm:mb-5 :text-gray-400">
+          <dd className="mb-4 font-light sm:mb-5 :text-gray-400">
             <span className="w-5 h-5 bg-red-500 rounded-full">
               <div>
                 <input
@@ -421,10 +419,10 @@ const PreviewDailogBody = ({ item, handleModalToggle }) => {
               </div>
             </span>
           </dd>
-          <dt className="mb-2 font-semibold leading-none text-gray-900 :text-white">
+          <dt className="mb-2 font-semibold leading-none  ">
             Category
           </dt>
-          <dd className="mb-4 font-light text-gray-500 sm:mb-5 :text-gray-400">
+          <dd className="mb-4 font-light sm:mb-5 :text-gray-400">
             {item.category ? item.category : "N/A"}
           </dd>
         </dl>
@@ -495,7 +493,7 @@ const PreviewDailogBody = ({ item, handleModalToggle }) => {
           <button
             onClick={handleModalToggle}
             type="button"
-            className="inline-flex items-center text-gray-500 border bg-transparent hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+            className="inline-flex items-center border bg-transparent  focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
           >
             Cancel
           </button>

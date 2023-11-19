@@ -8,7 +8,6 @@ import {
   searchProductsThunk,
   updateProductThunk,
 } from "core/store/products/products.thunk";
-import { getTodosThunk } from "core/store/todos/todos.thunk";
 import Validators from "core/validators";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -42,19 +41,19 @@ const Products = () => {
   };
   const th = [
     { label: "name", id: 1 },
-    { label: "category", id: 2 },
-    { label: "stock", id: 3 },
+    { label: "category", select: "name", id: 2 },
+    { label: "quantity", id: 3 },
     { label: "brand", id: 4 },
     { label: "Sales/Month", id: 5 },
-    { label: "rating", id: 6 },
-    { label: "sales", id: 7 },
+    { label: "ratingsAverage", id: 6 },
+    { label: "sold", id: 7 },
     { label: "price", id: 8 },
     { label: "updatedAt", id: 9 },
   ];
   // get products from api just when component is mounted
   useEffect(() => {
     dispatch(getProductsThunk());
-  }, [dispatch]);
+  }, []);
   const formFields = [
     {
       name: "name",

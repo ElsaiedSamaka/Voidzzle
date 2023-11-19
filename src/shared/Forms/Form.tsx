@@ -13,7 +13,7 @@ import Switch from "shared/Common/Switch/Switch";
 interface IFromProps {
   defaultValues: Object;
   formFields: any[];
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 const Form = ({ defaultValues, formFields, children }: IFromProps) => {
   const {

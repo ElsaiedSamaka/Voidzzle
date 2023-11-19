@@ -1,5 +1,4 @@
 import { RootState } from "core/store";
-import { getTodosThunk } from "core/store/todos/todos.thunk";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import TableHead from "./TableHead/TableHead";
@@ -46,7 +45,7 @@ const Table = ({
 }) => {
   return (
     <div className=" mx-auto max-w-screen-2xl my-2">
-      <div className="relative overflow-hidden bg-white shadow rounded-md">
+      <div className="relative overflow-hidden shadow rounded-md">
         {/* table head */}
         {_config._head.show && (
           <TableHead
@@ -95,4 +94,3 @@ const Table = ({
 };
 
 export default Table;
-
