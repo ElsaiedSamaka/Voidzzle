@@ -1,75 +1,92 @@
-import apiservice from "./api.service";
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import type { Brand } from "../models/index";
+import { HttpReqeusttypes } from "core/types";
+const base_url = process.env.NEXT_PUBLIC_BASE_URL;
 
-const brandsService = {
-  post: async (body: any) => {
-    try {
-      const response = await apiservice.post("brands", body);
-      return response;
-    } catch (error) {
-      throw error;
-    }
-  },
+// Define a service using a base URL and expected endpoints
+export const brandsApi = createApi({
+  reducerPath: "brandApi",
+  baseQuery: fetchBaseQuery({ baseUrl: base_url }),
+  tagTypes: ["Brands"],
 
-  get: async () => {
-    try {
-      const response = await apiservice.get("brands");
-      return response;
-    } catch (error) {
-      throw error;
-    }
-  },
-  getById: async (id: string) => {
-    try {
-      const response = await apiservice.get(`brands/${id}`);
-      return response;
-    } catch (error) {
-      throw error;
-    }
-  },
-  put: async (id: string, body: any) => {
-    try {
-      const response = await apiservice.put(`brands/${id}`, body);
-      return response;
-    } catch (error) {
-      throw error;
-    }
-  },
+  /**
+   * Returns an object containing various endpoints for interacting with cars.
+   * @param {Function} builder - The builder function.
+   * @return {Object} - The object containing the endpoints.
+   */
+  endpoints: (builder) => ({
+    /**
+     * Retrieves all brands.
+     * @returns {Array<Brand>} - The array of brands.
+     */
+    getBrands: builder.query<Brand[], void>({
+      query: () => `brands`,
+      providesTags: ["Brands"],
+    }),
 
-  remove: async (id: string) => {
-    try {
-      const response = await apiservice.remove(`brands/${id}`);
-      return response;
-    } catch (error) {
-      throw error;
-    }
-  },
+    /**
+     * Retrieves a brand by its name.
+     * @param {string} name - The name of the brand.
+     * @returns {Brand} - The brand object.
+     */
+    getBrandsByName: builder.query<Brand[], string>({
+      query: (name) => `brands?name_like=${name}`,
+      providesTags: ["Brands"],
+    }),
 
-  removeAll: async (ids: any[]) => {
-    try {
-      const response = await apiservice.post("brands/remove-all", ids);
-      return response;
-    } catch (error) {
-      throw error;
-    }
-  },
+    /**
+     * Adds a new brand.
+     * @param {Partial<Brand>} brand - The brand object to add.
+     * @returns {Brand} - The added brand object.
+     */
+    addCar: builder.mutation<Brand, Partial<Brand>>({
+      query: (brand) => ({
+        url: `brands`,
+        method: HttpReqeusttypes.POST,
+        body: brand,
+      }),
+      invalidatesTags: ["Brands"],
+    }),
 
-  patch: async (id: string, body: any) => {
-    try {
-      const response = await apiservice.put(`brands/${id}`, body);
-      return response;
-    } catch (error) {
-      throw error;
-    }
-  },
+    /**
+     * Updates an existing brand.
+     * @param {Partial<Brand>} brand - The brand object to update.
+     * @returns {Brand} - The updated brand object.
+     */
+    updateBrand: builder.mutation<Brand, Partial<Brand>>({
+      query: (brand) => ({
+        url: `brands/${brand.id}`,
+        method: HttpReqeusttypes.PATCH,
+        body: brand,
+      }),
+      invalidatesTags: ["Brands"],
+    }),
 
-  search: async (query: string) => {
-    try {
-      const response = await apiservice.get(`brands/search/${query}`);
-      return response;
-    } catch (error) {
-      throw error;
-    }
-  },
-};
+    /**
+     * Deletes a brand by its ID.
+     * @param {string} id - The ID of the brand to delete.
+     * @returns {Brand} - The deleted brand object.
+     */
+    deleteBrand: builder.mutation<Brand, string>({
+      query: (id) => ({
+        url: `brands/${id}`,
+        method: HttpReqeusttypes.DELETE,
+      }),
+      invalidatesTags: ["Brands"],
+    }),
+  }),
+});
 
-export default brandsService;
+// Export hooks for usage in functional components, which are
+// auto-generated based on the defined endpoints
+export const { useGetBrandsQuery, useGetBrandsByNameQuery } = brandsApi;
+// usage example
+  // API call
+  // const {
+  //   data = [],
+  //   error,
+  //   isError,
+  //   isLoading,
+  //   isFetching,
+  //   isSuccess,
+  // } = useGetBrandsQuery();

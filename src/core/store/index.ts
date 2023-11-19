@@ -3,12 +3,14 @@ import userReducer from "./user/user.slice";
 import productsReducer from "./products/products.slice";
 import usersReducer from "./users/users.slice";
 import brandsReducer from "./brands/brands.slice";
+import { brandsApi } from "core/services/brands.service";
+
 export const store = configureStore({
   reducer: {
     user: userReducer,
     products: productsReducer,
     users: usersReducer,
-    brands: brandsReducer,
+    [brandsApi.reducerPath]: brandsApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({ serializableCheck: false }),
