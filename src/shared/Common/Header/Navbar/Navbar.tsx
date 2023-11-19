@@ -3,15 +3,18 @@ import logo from "../../../../../public/images/favicon-32x32.png";
 import classNames from "classnames";
 import { useThemeContext } from "core/context/ThemeContext";
 import Dailog from "shared/Modals/Dailog/Dailog";
-import FilterationCard from "shared/Common/Card/FilterationCard/FilterationCard";
 import Icon from "shared/Common/Icon/Icon";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
+
 const Navbar = () => {
   const { state, toggleDrawer } = useDrawerContext();
   const { theme } = useThemeContext();
   const { mode } = theme;
   const [showFilterationDailog, toggleFilterationDailog] =
     useState<boolean>(false);
+  const pathname = usePathname();
+  const isHomePath = pathname === '/';
   function handleFilterDailgoToggle(): void {
     toggleFilterationDailog(!showFilterationDailog);
   }
@@ -69,19 +72,19 @@ const Navbar = () => {
               <span className="sr-only">Toggle sidebar</span>
             </button>
             <a
-              href="https://flowbite.com"
+              href="https://voidzzle.com"
               className="flex items-center justify-between mr-4"
             >
               <img
                 src={logo.src}
                 className="mr-3 rounded-full h-8"
-                alt="Flowbite Logo"
+                alt="Voidzzle Logo"
               />
               <span className="self-center text-2xl font-semibold whitespace-nowrap">
                 Voidzzle
               </span>
             </a>
-            <form className="hidden md:block md:pl-2">
+            {isHomePath && <form className="hidden md:block md:pl-2">
               <label htmlFor="topbar-search" className="sr-only">
                 Search
               </label>
@@ -138,7 +141,8 @@ const Navbar = () => {
                   </Icon>
                 </div>
               </div>
-            </form>
+            </form> }
+            
           </div>
           <div className="flex items-center lg:order-2">
             <button
