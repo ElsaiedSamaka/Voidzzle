@@ -40,10 +40,4 @@ const Dailog = ({ header, body, footer }) => {
   );
 };
 
-Dailog.propTypes = {
-  header: PropTypes.elementType.isRequired,
-  body: PropTypes.elementType.isRequired,
-  footer: PropTypes.elementType,
-};
-
 export default Dailog;
