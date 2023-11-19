@@ -1,13 +1,16 @@
 // packages
 import classNames from "classnames";
+import { useThemeContext } from "core/context/ThemeContext";
 // hooks
 import { useState } from "react";
 
 const UserMenu = () => {
-    const [showUserMenuDDL, setUserMenuDDL] = useState(false);
-    function toggleUserMenu() {
-        setUserMenuDDL(!showUserMenuDDL);
-    }
+  const [showUserMenuDDL, setUserMenuDDL] = useState(false);
+  const { theme } = useThemeContext();
+  const { mode } = theme;
+  function toggleUserMenu() {
+    setUserMenuDDL(!showUserMenuDDL);
+  }
   return (
     <>
       <button
