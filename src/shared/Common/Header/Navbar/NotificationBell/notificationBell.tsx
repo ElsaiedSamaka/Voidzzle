@@ -5,7 +5,7 @@ import { useThemeContext } from "core/context/ThemeContext";
 import { useState } from "react";
 
 const NotificationBell = ()=>{
-    const [showNotificationDDL, setNotificationDDL] = useState<boolean>(true);
+    const [showNotificationDDL, setNotificationDDL] = useState<boolean>(false);
       const { theme } = useThemeContext();
       const { mode } = theme;
     function toggleNotificationDDL() {

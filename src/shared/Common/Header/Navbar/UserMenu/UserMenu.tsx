@@ -5,7 +5,7 @@ import { useThemeContext } from "core/context/ThemeContext";
 import { useState } from "react";
 
 const UserMenu = () => {
-  const [showUserMenuDDL, setUserMenuDDL] = useState(false);
+  const [showUserMenuDDL, setUserMenuDDL] = useState(true);
   const { theme } = useThemeContext();
   const { mode } = theme;
   function toggleUserMenu() {
@@ -16,7 +16,7 @@ const UserMenu = () => {
       <button
         onClick={toggleUserMenu}
         type="button"
-        className="flex mx-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 :focus:ring-gray-600"
+        className="flex mx-3 text-sm rounded-full md:mr-0 focus:ring-4 focus:ring-white/10"
         id="user-menu-button"
       >
         <span className="sr-only">Open user menu</span>
@@ -28,34 +28,36 @@ const UserMenu = () => {
       </button>
       <div
         className={classNames(
-          "absolute opacity-0 transition-all duration-300 top-10 right-5 z-50 my-4 w-56 text-base list-none bg-white  divide-y divide-gray-100 shadow rounded-xl",
-          { "opacity-100 -translate-x-5": showUserMenuDDL }
+          "absolute opacity-0 transition-all duration-300 top-10 right-5 z-50 my-4 w-56 text-base list-none   divide-y  shadow-xl rounded-xl",
+          { "opacity-100 -translate-x-5": showUserMenuDDL },
+          {
+            "bg-dark-bgSecondary text-dark-textSecondary divide-dark-border":
+              mode == "dark",
+            "bg-light-bgPrimary text-light-textSecondary divide-light-border":
+              mode == "light",
+          }
         )}
         id="dropdown"
       >
         <div className="py-3 px-4">
-          <span className="block text-sm font-semibold text-gray-900 ">
-            Neil Sims
-          </span>
-          <span className="block text-sm text-gray-900 truncate ">
-            name@flowbite.com
-          </span>
+          <span className="block text-sm font-semibold  ">Neil Sims</span>
+          <span className="block text-sm  truncate ">name@flowbite.com</span>
         </div>
-        <ul className="py-1 text-gray-700 " aria-labelledby="dropdown">
+        <ul className="py-1  " aria-labelledby="dropdown">
           <li>
-            <a className="block py-2 px-4 text-sm hover:bg-gray-100">
+            <a className="block py-2 px-4 text-sm hover:cursor-pointer hover:font-semibold transition-transform duration-300">
               My profile
             </a>
           </li>
           <li>
-            <a className="block py-2 px-4 text-sm hover:bg-gray-100">
+            <a className="block py-2 px-4 text-sm hover:cursor-pointer hover:font-semibold transition-transform duration-300">
               Account settings
             </a>
           </li>
         </ul>
-        <ul className="py-1 text-gray-700 " aria-labelledby="dropdown">
+        <ul className="py-1  " aria-labelledby="dropdown">
           <li>
-            <a className="flex items-center py-2 px-4 text-sm hover:bg-gray-100">
+            <a className="flex items-center py-2 px-4 text-sm hover:cursor-pointer hover:font-semibold transition-transform duration-300">
               <svg
                 className="mr-2 w-5 h-5 text-gray-400"
                 fill="currentColor"
@@ -72,7 +74,7 @@ const UserMenu = () => {
             </a>
           </li>
           <li>
-            <a className="flex items-center py-2 px-4 text-sm hover:bg-gray-100  :">
+            <a className="flex items-center py-2 px-4 text-sm hover:cursor-pointer hover:font-semibold transition-transform duration-300  :">
               <svg
                 className="mr-2 w-5 h-5 text-gray-400"
                 fill="currentColor"
@@ -85,7 +87,7 @@ const UserMenu = () => {
             </a>
           </li>
           <li>
-            <a className="flex justify-between items-center py-2 px-4 text-sm hover:bg-gray-100  :">
+            <a className="flex justify-between items-center py-2 px-4 text-sm hover:cursor-pointer hover:font-semibold transition-transform duration-300  :">
               <span className="flex items-center">
                 <svg
                   aria-hidden="true"
@@ -118,9 +120,9 @@ const UserMenu = () => {
             </a>
           </li>
         </ul>
-        <ul className="py-1 text-gray-700 " aria-labelledby="dropdown">
+        <ul className="py-1  " aria-labelledby="dropdown">
           <li>
-            <a className="block py-2 px-4 text-sm hover:bg-gray-100  :">
+            <a className="block py-2 px-4 text-sm hover:cursor-pointer hover:font-semibold transition-transform duration-300  :">
               Sign out
             </a>
           </li>
