@@ -23,7 +23,6 @@ const UserMenu = () => {
           alt="user photo"
         />
       </button>
-      {/* Dropdown menu */}
       <div
         className={classNames(
           "absolute opacity-0 transition-all duration-300 top-10 right-5 z-50 my-4 w-56 text-base list-none bg-white  divide-y divide-gray-100 shadow rounded-xl",
