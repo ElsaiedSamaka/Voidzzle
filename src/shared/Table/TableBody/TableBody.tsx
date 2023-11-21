@@ -145,7 +145,6 @@ const TableBody = ({
                     {_config.th.map((column, i) => (
                       <td className="px-4 py-1" key={column.id}>
                         <div className="flex items-center">
-                          {JSON.stringfy(column,null,2)}
                           {/* {column.select
                             ? item[column.label].select
                             : item[column.label]} */}

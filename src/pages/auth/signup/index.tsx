@@ -32,9 +32,9 @@ const Signup = () => {
     formValue,
   } = state;
 
-  const userSlice = useSelector((state: RootState) => state.user);
+  const authSlice = useSelector((state: RootState) => state.user);
   const dispatch = useDispatch();
-  console.log("userSlice", userSlice);
+  console.log("authSlice", authSlice);
   console.log("form state", state);
   const formFields = [
     {
@@ -139,15 +139,15 @@ const Signup = () => {
   }
   // Listen for changes in the Redux store
   useEffect(() => {
-    if (userSlice.error) {
+    if (authSlice.error) {
       // TODO: add toast to handle this case
-      console.error("Register error:", userSlice.error);
+      console.error("Register error:", authSlice.error);
       // Handle error display or any other action
-    } else if (userSlice.user) {
+    } else if (authSlice.user) {
       console.log("Register success. Redirecting to home.");
       router.push("/");
     }
-  }, [userSlice.error, userSlice.user]);
+  }, [authSlice.error, authSlice.user]);
 
   return (
     <>

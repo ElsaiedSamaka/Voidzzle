@@ -7,19 +7,19 @@ import {
   changePasswordThunk,
 } from "./user.thunk";
 
-interface UserState {
+interface AuthState {
   user: User | null;
   loading: boolean;
   error: string | null;
 }
 
-const initialState: UserState = {
+const initialState: AuthState = {
   user: null,
   loading: false,
   error: null,
 };
-export const usersSlice = createSlice({
-  name: "user",
+export const authSlice = createSlice({
+  name: "auth",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
@@ -63,5 +63,5 @@ export const usersSlice = createSlice({
   },
 });
 
-export const {} = usersSlice.actions;
-export default usersSlice.reducer;
+export const {} = authSlice.actions;
+export default authSlice.reducer;

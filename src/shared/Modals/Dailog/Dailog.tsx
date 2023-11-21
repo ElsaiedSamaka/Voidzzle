@@ -27,7 +27,6 @@ const Dailog = ({ header, body, footer }) => {
         )}
       >
         <div className="flex flex-col w-full h-full max-h-fit overflow-scroll">
-          {/* Modal content */}
           {/* Modal header */}
           <div className="modal-header">{header}</div>
           {/* Modal body */}
@@ -39,5 +38,10 @@ const Dailog = ({ header, body, footer }) => {
     </>
   );
 };
-
+// component props
+Dailog.propTypes = {
+  header: PropTypes.element.isRequired,
+  body: PropTypes.element.isRequired,
+  footer: PropTypes.element, // Make it optional
+};
 export default Dailog;
