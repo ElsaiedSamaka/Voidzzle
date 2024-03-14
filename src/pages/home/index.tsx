@@ -85,6 +85,7 @@ const Home = () => {
                 )}
               >
                 <button
+                  title="temp"
                   type="button"
                   className="relative w-[52px] h-[52px] text-gray-500 bg-white rounded-full border border-gray-200 hover:text-gray-900 :border-gray-600 shadow-sm :hover:text-white :text-gray-400 hover:bg-gray-50 :bg-gray-700 :hover:bg-gray-600 focus:ring-4 focus:ring-gray-300 focus:outline-none :focus:ring-gray-400"
                 >
@@ -99,6 +100,7 @@ const Home = () => {
                   </svg>
                 </button>
                 <button
+                  title="temp"
                   type="button"
                   className="relative w-[52px] h-[52px] text-gray-500 bg-white rounded-full border border-gray-200 :border-gray-600 hover:text-gray-900 shadow-sm :hover:text-white :text-gray-400 hover:bg-gray-50 :bg-gray-700 :hover:bg-gray-600 focus:ring-4 focus:ring-gray-300 focus:outline-none :focus:ring-gray-400"
                 >
@@ -114,6 +116,7 @@ const Home = () => {
                   </svg>
                 </button>
                 <button
+                  title="test"
                   type="button"
                   className="relative w-[52px] h-[52px] text-gray-500 bg-white rounded-full border border-gray-200 :border-gray-600 hover:text-gray-900 shadow-sm :hover:text-white :text-gray-400 hover:bg-gray-50 :bg-gray-700 :hover:bg-gray-600 focus:ring-4 focus:ring-gray-300 focus:outline-none :focus:ring-gray-400"
                 >
@@ -129,6 +132,7 @@ const Home = () => {
                   </svg>
                 </button>
                 <button
+                  title="temp"
                   type="button"
                   className="relative w-[52px] h-[52px] text-gray-500 bg-white rounded-full border border-gray-200 :border-gray-600 hover:text-gray-900 shadow-sm :hover:text-white :text-gray-400 hover:bg-gray-50 :bg-gray-700 :hover:bg-gray-600 focus:ring-4 focus:ring-gray-300 focus:outline-none :focus:ring-gray-400"
                 >
@@ -178,7 +182,7 @@ const Home = () => {
           </div>
         </div>
         <div className="chat-container  rounded-2xl w-full xs:hidden lg:inline-block border">
-          <div className="bg-gray-100 rounded-t-md px-3 py-3 font-semibold inline-flex w-full justify-between border-b">
+          <div className="bg-gray-100 rounded-t-2xl px-3 py-3 font-semibold inline-flex w-full justify-between border-b">
             <span className="text-xl">Conversations</span>
             <span>
               <svg

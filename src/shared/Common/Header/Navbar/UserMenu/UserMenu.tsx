@@ -1,13 +1,18 @@
 // packages
 import classNames from "classnames";
-import { useThemeContext } from "core/context/ThemeContext";
 // hooks
+import { useThemeContext } from "core/context/ThemeContext";
 import { useState } from "react";
+import { useSelector } from "react-redux";
+import { RootState } from "core/store";
 
 const UserMenu = () => {
   const [showUserMenuDDL, setUserMenuDDL] = useState(true);
   const { theme } = useThemeContext();
   const { mode } = theme;
+  const authSlice = useSelector((state: RootState) => state.user);
+  const {user}=authSlice;
+
   function toggleUserMenu() {
     setUserMenuDDL(!showUserMenuDDL);
   }
