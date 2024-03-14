@@ -1,8 +1,17 @@
-import Glide from "@glidejs/glide";
-import { useEffect } from "react";
+// Components
 import { Card } from "shared";
+import Glide from "@glidejs/glide";
+// Hooks & services
+import { useEffect } from "react";
+import { useRouter } from "next/router";
+import useTranslation from "core/hooks/useTranslation";
+
 
 function CarouselControlsInside({ title }) {
+   const router = useRouter();
+  const { locale } = router;
+  const { t } = useTranslation(locale);
+
   useEffect(() => {
     const slider = new Glide(".glide-01", {
       type: "carousel",
@@ -37,9 +46,10 @@ function CarouselControlsInside({ title }) {
   return (
     <>
       <div className="flex justify-between items-center my-2 font-semibold">
-        <span className="font-bold text-2xl">{title}</span>
+        <span className="font-bold text-2xl">{t(title)}</span>
         <span className="group inline-flex items-center font-semibold hover:cursor-pointer hover:underline">
-          See All
+          {t('general.see_all')}
+          {/* TODO: reversthis icon on ar either replace the whole icon by if case or using css class rtl / ltr */}
           <svg
             className="w-5 h-5 group-hover:translate-x-3 group-hover:animate-ping duration:300"
             fill="none"

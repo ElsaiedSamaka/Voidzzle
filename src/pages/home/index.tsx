@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useRouter } from "next/router";
+import useTranslation from "core/hooks/useTranslation";
 import {
   CarouselControlsInside,
   CarouselTestimonial,
@@ -13,6 +15,9 @@ import {
 import classnames from "classnames";
 const Home = () => {
   const [showSellOptions, toggleSellOptions] = useState(false);
+     const router = useRouter();
+  const { locale } = router;
+  const { t } = useTranslation(locale);
   return (
     <section className="w-full h-[89vh] overflow-hidden">
       <div className="grid grid-cols-4 gap-4 h-full my-2">
@@ -25,11 +30,11 @@ const Home = () => {
           </div>
           <div className="my-3">
             {/* controls */}
-            <CarouselControlsInside title="Deals of the day" />
+            <CarouselControlsInside title="home.deals_of_day" />
             {/* controls */}
           </div>
           <div className="flex items-center justify-between my-3">
-            <span className="font-bold text-2xl">Trusted By</span>
+            <span className="font-bold text-2xl">{t("home.trusted_by")}</span>
             <div className=" max-w-[90%] border rounded-full shadow-inner relative">
               {/* infinite carousel */}
               <InfiniteCarousel />
