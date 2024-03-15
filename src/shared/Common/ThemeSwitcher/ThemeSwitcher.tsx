@@ -1,7 +1,7 @@
-import classNames from "classnames";
-import { useThemeContext } from "core/context/ThemeContext";
-import { useEffect, useState } from "react";
-import Switch from "../Switch/Switch";
+import classNames from 'classnames';
+import { useThemeContext } from 'core/context/ThemeContext';
+import { useEffect, useState } from 'react';
+import Switch from '../Switch/Switch';
 
 const ThemeSwitcher = () => {
   const { theme, dispatch } = useThemeContext();
@@ -9,22 +9,22 @@ const ThemeSwitcher = () => {
   const [showThemPopOver, toggleThemePopOver] = useState<boolean>(false);
 
   function setDarkTheme() {
-    dispatch({ type: "DARK" });
+    dispatch({ type: 'DARK' });
     handleThemePopOver();
   }
   function setLightTheme() {
-    dispatch({ type: "LIGHT" });
+    dispatch({ type: 'LIGHT' });
     handleThemePopOver();
   }
   function setSystemTheme() {
-    dispatch({ type: "SYSTEM" });
+    dispatch({ type: 'SYSTEM' });
     handleThemePopOver();
   }
   function handleThemePopOver() {
     toggleThemePopOver(!showThemPopOver);
   }
   return (
-    <div className={classNames("relative")}>
+    <div className={classNames('relative')}>
       <button
         onClick={handleThemePopOver}
         className="flex items-center justify-center h-7 w-7 text-foreground"
@@ -65,18 +65,18 @@ const ThemeSwitcher = () => {
 
       <div
         className={classNames(
-          "absolute rounded-md -top-20 ltr:-left-10 rtl:-right-10 opacity-0 transition-all duration-900",
-          { "bg-light-bgSecondary": mode === "light" },
-          { "bg-dark-bgSecondary": mode === "dark" },
-          { "opacity-100": showThemPopOver }
+          'absolute rounded-md -top-20 ltr:-left-10 rtl:-right-10 opacity-0 transition-all duration-900',
+          { 'bg-light-bgSecondary': mode === 'light' },
+          { 'bg-dark-bgSecondary': mode === 'dark' },
+          { 'opacity-100': showThemPopOver },
         )}
       >
         <div
           role="menu"
           className={classNames(
-            "z-50 min-w-[8rem]  rounded-md border p-1 text-foreground-light shadow-md max-w-60",
-            { "border-light-border": mode === "light" },
-            { "border-dark-border": mode === "dark" }
+            'z-50 min-w-[8rem]  rounded-md border p-1 text-foreground-light shadow-md max-w-60',
+            { 'border-light-border': mode === 'light' },
+            { 'border-dark-border': mode === 'dark' },
           )}
         >
           <div role="group">

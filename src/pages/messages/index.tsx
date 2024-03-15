@@ -1,5 +1,5 @@
-import React from "react";
-import { MessagesLayout, RootLayout } from "shared";
+import React from 'react';
+import { MessagesLayout, RootLayout } from 'shared';
 
 const Messages = () => {
   return (
@@ -70,7 +70,7 @@ const Messages = () => {
                   </div>
                   <div className="flex-col ml-2">
                     <div className="flex space-x-1 text-emerald-500 font-normal">
-                      {" "}
+                      {' '}
                       /
                     </div>
                     <span />
@@ -174,7 +174,7 @@ const Messages = () => {
                 404
               </div>
               <span className="">
-                {"{"}"no conversations found"|translate{"}"}
+                {'{'}"no conversations found"|translate{'}'}
               </span>
             </div>
           </ul>

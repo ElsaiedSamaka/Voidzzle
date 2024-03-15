@@ -1,9 +1,9 @@
-import apiservice from "./api.service";
+import apiservice from './api.service';
 
 const authservice = {
   register: async (body: any) => {
     try {
-      const response = await apiservice.post("auth/register", body);
+      const response = await apiservice.post('auth/register', body);
       return response;
     } catch (error) {
       throw error;
@@ -11,7 +11,7 @@ const authservice = {
   },
   login: async (body: any) => {
     try {
-      const response = await apiservice.post("auth/login", body);
+      const response = await apiservice.post('auth/login', body);
       return response;
     } catch (error) {
       throw error;
@@ -19,7 +19,7 @@ const authservice = {
   },
   logout: async (body: any) => {
     try {
-      const response = await apiservice.post("auth/logout", body);
+      const response = await apiservice.post('auth/logout', body);
       return response;
     } catch (error) {
       throw error;
@@ -27,7 +27,7 @@ const authservice = {
   },
   tokens: async (body: any) => {
     try {
-      const response = await apiservice.post("auth/tokens", body);
+      const response = await apiservice.post('auth/tokens', body);
       return response;
     } catch (error) {
       throw error;
@@ -35,7 +35,7 @@ const authservice = {
   },
   forgotPassword: async (body: any) => {
     try {
-      const response = await apiservice.post("auth/forgot-password", body);
+      const response = await apiservice.post('auth/forgot-password', body);
       return response;
     } catch (error) {
       throw error;
@@ -44,7 +44,7 @@ const authservice = {
 
   resetPassword: async (body: any) => {
     try {
-      const response = await apiservice.post("auth/reset-password", body);
+      const response = await apiservice.post('auth/reset-password', body);
       return response;
     } catch (error) {
       throw error;
@@ -53,7 +53,7 @@ const authservice = {
 
   verifyEmail: async (body: any) => {
     try {
-      const response = await apiservice.post("auth/verify-email", body);
+      const response = await apiservice.post('auth/verify-email', body);
       return response;
     } catch (error) {
       throw error;
@@ -63,8 +63,8 @@ const authservice = {
   sendVerificationEmail: async (body: any) => {
     try {
       const response = await apiservice.post(
-        "auth/send-verification-email",
-        body
+        'auth/send-verification-email',
+        body,
       );
       return response;
     } catch (error) {

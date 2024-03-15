@@ -1,8 +1,8 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
-import usersService from "core/services/users.service";
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import usersService from 'core/services/users.service';
 
 export const getUsersThunk = createAsyncThunk(
-  "users/get",
+  'users/get',
   async (_, thunkAPI) => {
     try {
       const response = await usersService.get();
@@ -10,11 +10,11 @@ export const getUsersThunk = createAsyncThunk(
     } catch (error) {
       thunkAPI.rejectWithValue(error);
     }
-  }
+  },
 );
 
 export const deleteUserThunk = createAsyncThunk(
-  "users/delete",
+  'users/delete',
   async (id: any, thunkAPI) => {
     try {
       const response = await usersService.remove(id);
@@ -22,11 +22,11 @@ export const deleteUserThunk = createAsyncThunk(
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
     }
-  }
+  },
 );
 
 export const updateUserThunk = createAsyncThunk(
-  "users/update",
+  'users/update',
   async (params: any, thunkAPI) => {
     try {
       const response = await usersService.put(params.id, params.body);
@@ -34,11 +34,11 @@ export const updateUserThunk = createAsyncThunk(
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
     }
-  }
+  },
 );
 
 export const createUserThunk = createAsyncThunk(
-  "users/post",
+  'users/post',
   async (params: any, thunkAPI) => {
     try {
       const response = await usersService.post(params);
@@ -46,5 +46,5 @@ export const createUserThunk = createAsyncThunk(
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
     }
-  }
+  },
 );

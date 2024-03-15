@@ -1,17 +1,17 @@
 // packages
-import classNames from "classnames";
+import classNames from 'classnames';
 // hooks
-import { useThemeContext } from "core/context/ThemeContext";
-import { useState } from "react";
-import { useSelector } from "react-redux";
-import { RootState } from "core/store";
+import { useThemeContext } from 'core/context/ThemeContext';
+import { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { RootState } from 'core/store';
 
 const UserMenu = () => {
   const [showUserMenuDDL, setUserMenuDDL] = useState(true);
   const { theme } = useThemeContext();
   const { mode } = theme;
   const authSlice = useSelector((state: RootState) => state.user);
-  const {user}=authSlice;
+  const { user } = authSlice;
 
   function toggleUserMenu() {
     setUserMenuDDL(!showUserMenuDDL);
@@ -33,14 +33,14 @@ const UserMenu = () => {
       </button>
       <div
         className={classNames(
-          "absolute opacity-0 transition-all duration-300 top-10 right-5 z-50 my-4 w-56 text-base list-none   divide-y  shadow-xl rounded-xl",
-          { "opacity-100 -translate-x-5": showUserMenuDDL },
+          'absolute opacity-0 transition-all duration-300 top-10 right-5 z-50 my-4 w-56 text-base list-none   divide-y  shadow-xl rounded-xl',
+          { 'opacity-100 -translate-x-5': showUserMenuDDL },
           {
-            "bg-dark-bgSecondary text-dark-textSecondary divide-dark-border":
-              mode == "dark",
-            "bg-light-bgPrimary text-light-textSecondary divide-light-border":
-              mode == "light",
-          }
+            'bg-dark-bgSecondary text-dark-textSecondary divide-dark-border':
+              mode == 'dark',
+            'bg-light-bgPrimary text-light-textSecondary divide-light-border':
+              mode == 'light',
+          },
         )}
         id="dropdown"
       >

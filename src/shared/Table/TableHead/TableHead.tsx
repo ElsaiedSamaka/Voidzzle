@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import Form from "shared/Forms/Form";
-import Dailog from "shared/Modals/Dailog/Dailog";
-import classNames from "classnames";
-import { useDispatch } from "react-redux";
-import { deleteAllProductsThunk } from "core/store/products/products.thunk";
-import { useSelectedItems } from "../shared/context/SelectedItemsContext";
-import { useDebounce } from "core/hooks";
+import React, { useState } from 'react';
+import Form from 'shared/Forms/Form';
+import Dailog from 'shared/Modals/Dailog/Dailog';
+import classNames from 'classnames';
+import { useDispatch } from 'react-redux';
+import { deleteAllProductsThunk } from 'core/store/products/products.thunk';
+import { useSelectedItems } from '../shared/context/SelectedItemsContext';
+import { useDebounce } from 'core/hooks';
 const TableHead = ({
   _config,
   data,
@@ -17,7 +17,7 @@ const TableHead = ({
   handleSearchDispatch,
   handleGetFilterationDispatch,
 }) => {
-  const [searchInput, setSearchInput] = useState("");
+  const [searchInput, setSearchInput] = useState('');
   const [showAddModal, toggleAddetionModal] = useState(false);
   const [showActionsPopover, setShowActionsPopover] = useState(false);
   const [showFilterPopOver, setShowFilterPopOver] = useState(false);
@@ -74,7 +74,7 @@ const TableHead = ({
                   type="text"
                   id="simple-search"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-10 p-2 :bg-gray-700 :border-gray-600 :placeholder-gray-400 :text-white :focus:ring-primary-500 :focus:border-primary-500"
-                  placeholder={"Search over " + _config.title}
+                  placeholder={'Search over ' + _config.title}
                 />
               </div>
             </form>
@@ -133,8 +133,8 @@ const TableHead = ({
                     </button>
                     <div
                       className={classNames(
-                        "absolute opacity-0 transition-opacity duration-300 top-10 z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow",
-                        { "opacity-100": showActionsPopover }
+                        'absolute opacity-0 transition-opacity duration-300 top-10 z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow',
+                        { 'opacity-100': showActionsPopover },
                       )}
                       id="actionsDropdown"
                     >
@@ -191,8 +191,8 @@ const TableHead = ({
                     <div
                       id="filterDropdown"
                       className={classNames(
-                        "absolute opacity-0 translate-y-0 transition-all duration-300 top-10 z-10 w-44 h-36 overflow-clip  bg-white rounded divide-y divide-gray-100 p-1 shadow-md",
-                        { "opacity-100 translate-y-1": showFilterPopOver }
+                        'absolute opacity-0 translate-y-0 transition-all duration-300 top-10 z-10 w-44 h-36 overflow-clip  bg-white rounded divide-y divide-gray-100 p-1 shadow-md',
+                        { 'opacity-100 translate-y-1': showFilterPopOver },
                       )}
                     >
                       <h6 className="mb-3 text-sm font-medium text-gray-900 :text-white">
@@ -310,14 +310,14 @@ const DailogHeader = ({ handleModalToggle }) => {
           className="w-5 h-5"
           fill="none"
           stroke="currentColor"
-          stroke-width="1.5"
+          strokeWidth="1.5"
           viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg"
           aria-hidden="true"
         >
           <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeLinecap="round"
+            strokeLinejoin="round"
             d="M6 18L18 6M6 6l12 12"
           ></path>
         </svg>

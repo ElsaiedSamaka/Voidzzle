@@ -1,14 +1,14 @@
-import styles from "./Form.module.css";
+import styles from './Form.module.css';
 
-import { Fragment, useEffect, useRef, useState } from "react";
-import { useForm } from "react-hook-form";
-import classNames from "classnames";
+import { Fragment, useEffect, useRef, useState } from 'react';
+import { useForm } from 'react-hook-form';
+import classNames from 'classnames';
 
-import { useFormStateContext } from "./shared/FormContext";
-import { useThemeContext } from "core/context/ThemeContext";
+import { useFormStateContext } from './shared/FormContext';
+import { useThemeContext } from 'core/context/ThemeContext';
 
-import { isEqual } from "core/helper";
-import Switch from "shared/Common/Switch/Switch";
+import { isEqual } from 'core/helper';
+import Switch from 'shared/Common/Switch/Switch';
 
 interface IFromProps {
   defaultValues: Object;
@@ -26,7 +26,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
     watch,
   } = useForm({
     defaultValues,
-    mode: "onBlur",
+    mode: 'onBlur',
   });
   const { errors, isValid, isDirty, isSubmitting } = formState;
   const { state, dispatch } = useFormStateContext();
@@ -36,14 +36,14 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
   const formValues = getValues(); // Use watch to get the form field values
   const previousFormValues = useRef(formValues); // Track previous form values
 
-  const [passwordType, togglePassword] = useState("text");
+  const [passwordType, togglePassword] = useState('text');
 
   function handlePasswordToggle(type: string) {
     togglePassword(type);
   }
   const submit = (formData) => {
     dispatch({
-      type: "SUBMIT",
+      type: 'SUBMIT',
       formState: {
         errors: errors,
         isValid: isValid,
@@ -56,7 +56,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
   useEffect(() => {
     const hasFormValuesChanged = !isEqual(
       formValues,
-      previousFormValues.current
+      previousFormValues.current,
     );
 
     if (hasFormValuesChanged) {
@@ -67,7 +67,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
 
   function handleChange() {
     dispatch({
-      type: "CHANGE",
+      type: 'CHANGE',
       formState: {
         errors: errors,
         isValid: isValid,
@@ -83,9 +83,9 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
     <>
       <form
         onSubmit={handleSubmit(submit)}
-        className={classNames("mt-2 flex flex-col w-full h-fit", {
-          "text-dark-textSecondary": mode === "dark",
-          "text-light-textSecondary": mode === "light",
+        className={classNames('mt-2 flex flex-col w-full h-fit', {
+          'text-dark-textSecondary': mode === 'dark',
+          'text-light-textSecondary': mode === 'light',
         })}
       >
         {/* Form fields */}
@@ -93,7 +93,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
           {formFields.map((field, i) => {
             return (
               <Fragment key={field.id}>
-                {field.type == "text" && (
+                {field.type == 'text' && (
                   <div
                     key={field.id}
                     className="input flex flex-col w-full font-semibold group col-span-2"
@@ -105,14 +105,14 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                     )}
                     <input
                       className={classNames(
-                        "p-2 rounded-md border font-normal",
-                        { "border-red-500": errors[field.name] },
+                        'p-2 rounded-md border font-normal',
+                        { 'border-red-500': errors[field.name] },
                         {
-                          "bg-dark-bgSecondary text-dark-textSecondary border-dark-border hover:bg-zinc-800":
-                            mode === "dark",
-                          "bg-light-bgSecondary text-light-textSecondary border-light-border hover:bg-gray-100":
-                            mode === "light",
-                        }
+                          'bg-dark-bgSecondary text-dark-textSecondary border-dark-border hover:bg-zinc-800':
+                            mode === 'dark',
+                          'bg-light-bgSecondary text-light-textSecondary border-light-border hover:bg-gray-100':
+                            mode === 'light',
+                        },
                       )}
                       name={field.name}
                       id={field.id}
@@ -120,7 +120,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                       {...register(field.name, {
                         required: {
                           value: field.required,
-                          message: "this is a required field",
+                          message: 'this is a required field',
                         },
                         pattern: {
                           value: field.pattern,
@@ -128,11 +128,11 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                         },
                         maxLength: {
                           value: field.maxLength,
-                          message: "maxLength is " + field.maxLength,
+                          message: 'maxLength is ' + field.maxLength,
                         },
                         minLength: {
                           value: field.minLength,
-                          message: "minLength is " + field.minLength,
+                          message: 'minLength is ' + field.minLength,
                         },
                         validate: field.validation?.reduce((acc, validator) => {
                           return {
@@ -149,7 +149,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                     )}
                   </div>
                 )}
-                {field.type == "date" && (
+                {field.type == 'date' && (
                   <div
                     key={field.id}
                     className="input flex flex-col w-full font-semibold group col-span-2"
@@ -161,14 +161,14 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                     )}
                     <input
                       className={classNames(
-                        "p-2 rounded-md border font-normal",
-                        { "border-red-500": errors[field.name] },
+                        'p-2 rounded-md border font-normal',
+                        { 'border-red-500': errors[field.name] },
                         {
-                          "bg-dark-bgSecondary text-dark-textSecondary border-dark-border hover:bg-zinc-800":
-                            mode === "dark",
-                          "bg-light-bgSecondary text-light-textSecondary border-light-border hover:bg-gray-100":
-                            mode === "light",
-                        }
+                          'bg-dark-bgSecondary text-dark-textSecondary border-dark-border hover:bg-zinc-800':
+                            mode === 'dark',
+                          'bg-light-bgSecondary text-light-textSecondary border-light-border hover:bg-gray-100':
+                            mode === 'light',
+                        },
                       )}
                       name={field.name}
                       id={field.id}
@@ -176,7 +176,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                       {...register(field.name, {
                         required: {
                           value: field.required,
-                          message: "this is a required field",
+                          message: 'this is a required field',
                         },
                         pattern: {
                           value: field.pattern,
@@ -205,7 +205,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                     )}
                   </div>
                 )}
-                {field.type == "checkbox" && (
+                {field.type == 'checkbox' && (
                   <div
                     key={field.id}
                     className="input flex flex-col w-full font-semibold group"
@@ -222,7 +222,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                     )}
                   </div>
                 )}
-                {field.type == "select" && (
+                {field.type == 'select' && (
                   <div
                     key={field.id}
                     className="input flex flex-col w-full font-semibold group col-span-2"
@@ -234,21 +234,21 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                     )}
                     <select
                       className={classNames(
-                        "p-2 rounded-md border font-normal",
-                        { "border-red-500": errors[field.name] },
+                        'p-2 rounded-md border font-normal',
+                        { 'border-red-500': errors[field.name] },
                         {
-                          "bg-dark-bgSecondary text-dark-textSecondary border-dark-border hover:bg-zinc-800":
-                            mode === "dark",
-                          "bg-light-bgSecondary text-light-textSecondary border-light-border hover:bg-gray-100":
-                            mode === "light",
-                        }
+                          'bg-dark-bgSecondary text-dark-textSecondary border-dark-border hover:bg-zinc-800':
+                            mode === 'dark',
+                          'bg-light-bgSecondary text-light-textSecondary border-light-border hover:bg-gray-100':
+                            mode === 'light',
+                        },
                       )}
                       name={field.name}
                       id={field.id}
                       {...register(field.name, {
                         required: {
                           value: field.required,
-                          message: "this is a required field",
+                          message: 'this is a required field',
                         },
                         pattern: {
                           value: field.pattern,
@@ -282,7 +282,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                     )}
                   </div>
                 )}
-                {field.type == "text-area" && (
+                {field.type == 'text-area' && (
                   <div
                     key={field.id}
                     className="input flex flex-col w-full font-semibold group col-span-2"
@@ -295,14 +295,14 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
 
                     <textarea
                       className={classNames(
-                        "p-2 rounded-md border font-normal",
-                        { "border-red-500": errors[field.name] },
+                        'p-2 rounded-md border font-normal',
+                        { 'border-red-500': errors[field.name] },
                         {
-                          "bg-dark-bgSecondary text-dark-textSecondary border-dark-border hover:bg-zinc-800":
-                            mode === "dark",
-                          "bg-light-bgSecondary text-light-textSecondary border-light-border hover:bg-gray-100":
-                            mode === "light",
-                        }
+                          'bg-dark-bgSecondary text-dark-textSecondary border-dark-border hover:bg-zinc-800':
+                            mode === 'dark',
+                          'bg-light-bgSecondary text-light-textSecondary border-light-border hover:bg-gray-100':
+                            mode === 'light',
+                        },
                       )}
                       name={field.name}
                       id={field.id}
@@ -314,7 +314,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                     )}
                   </div>
                 )}
-                {field.type == "password" && (
+                {field.type == 'password' && (
                   <div
                     key={field.id}
                     className="password-input relative flex flex-col w-full font-semibold group col-span-full "
@@ -326,14 +326,14 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                     )}
                     <input
                       className={classNames(
-                        "p-2 rounded-md border font-normal",
-                        { "border-red-500": errors[field.name] },
+                        'p-2 rounded-md border font-normal',
+                        { 'border-red-500': errors[field.name] },
                         {
-                          "bg-dark-bgSecondary text-dark-textSecondary border-dark-border hover:bg-zinc-800":
-                            mode === "dark",
-                          "bg-light-bgSecondary text-light-textSecondary border-light-border hover:bg-gray-100":
-                            mode === "light",
-                        }
+                          'bg-dark-bgSecondary text-dark-textSecondary border-dark-border hover:bg-zinc-800':
+                            mode === 'dark',
+                          'bg-light-bgSecondary text-light-textSecondary border-light-border hover:bg-gray-100':
+                            mode === 'light',
+                        },
                       )}
                       name={field.name}
                       id={field.id}
@@ -341,7 +341,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                       {...register(field.name, {
                         required: {
                           value: field.required,
-                          message: "this is a required field",
+                          message: 'this is a required field',
                         },
                         pattern: {
                           value: field.pattern,
@@ -367,7 +367,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                       <Switch testCase={passwordType}>
                         <svg
                           onClick={() => {
-                            handlePasswordToggle("text");
+                            handlePasswordToggle('text');
                           }}
                           id="password"
                           className=" w-5 h-5 text-gray-400 hover:text-gray-900 hover:cursor-pointer"
@@ -391,7 +391,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                         </svg>
                         <svg
                           onClick={() => {
-                            handlePasswordToggle("password");
+                            handlePasswordToggle('password');
                           }}
                           id="text"
                           className="w-5 h-5 text-gray-400 hover:text-gray-900 hover:cursor-pointer"
@@ -417,7 +417,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                     )}
                   </div>
                 )}
-                {field.type == "file" && (
+                {field.type == 'file' && (
                   <div
                     key={field.id}
                     className="flex flex-col items-start justify-center w-full col-span-2"
@@ -446,7 +446,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                           />
                         </svg>
                         <p className="mb-2 text-sm text-gray-500 :text-gray-400">
-                          <span className="font-semibold">Click to upload</span>{" "}
+                          <span className="font-semibold">Click to upload</span>{' '}
                           or drag and drop
                         </p>
                         <p className="text-xs text-gray-500 :text-gray-400">
@@ -461,7 +461,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                     </label>
                   </div>
                 )}
-                {field.type == "radio" && (
+                {field.type == 'radio' && (
                   <div
                     key={field.id}
                     className="input flex flex-col w-full font-semibold group"
@@ -473,14 +473,14 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                     )}
                     <input
                       className={classNames(
-                        "p-2 rounded-md border font-normal",
-                        { "border-red-500": errors[field.name] },
+                        'p-2 rounded-md border font-normal',
+                        { 'border-red-500': errors[field.name] },
                         {
-                          "bg-dark-bgSecondary text-dark-textSecondary border-dark-border hover:bg-zinc-800":
-                            mode === "dark",
-                          "bg-light-bgSecondary text-light-textSecondary border-light-border hover:bg-gray-100":
-                            mode === "light",
-                        }
+                          'bg-dark-bgSecondary text-dark-textSecondary border-dark-border hover:bg-zinc-800':
+                            mode === 'dark',
+                          'bg-light-bgSecondary text-light-textSecondary border-light-border hover:bg-gray-100':
+                            mode === 'light',
+                        },
                       )}
                       name={field.name}
                       id={field.id}
@@ -488,7 +488,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                       {...register(field.name, {
                         required: {
                           value: field.required,
-                          message: "this is a required field",
+                          message: 'this is a required field',
                         },
                         pattern: {
                           value: field.pattern,
@@ -517,7 +517,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                     )}
                   </div>
                 )}
-                {field.type == "tel" && (
+                {field.type == 'tel' && (
                   <div
                     key={field.id}
                     className="input flex flex-col w-full font-semibold group"
@@ -529,14 +529,14 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                     )}
                     <input
                       className={classNames(
-                        "p-2 rounded-md border font-normal",
-                        { "border-red-500": errors[field.name] },
+                        'p-2 rounded-md border font-normal',
+                        { 'border-red-500': errors[field.name] },
                         {
-                          "bg-dark-bgSecondary text-dark-textSecondary border-dark-border hover:bg-zinc-800":
-                            mode === "dark",
-                          "bg-light-bgSecondary text-light-textSecondary border-light-border hover:bg-gray-100":
-                            mode === "light",
-                        }
+                          'bg-dark-bgSecondary text-dark-textSecondary border-dark-border hover:bg-zinc-800':
+                            mode === 'dark',
+                          'bg-light-bgSecondary text-light-textSecondary border-light-border hover:bg-gray-100':
+                            mode === 'light',
+                        },
                       )}
                       name={field.name}
                       id={field.id}
@@ -544,7 +544,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                       {...register(field.name, {
                         required: {
                           value: field.required,
-                          message: "this is a required field",
+                          message: 'this is a required field',
                         },
                         pattern: {
                           value: field.pattern,
@@ -573,7 +573,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                     )}
                   </div>
                 )}
-                {field.type == "range" && (
+                {field.type == 'range' && (
                   <div
                     key={field.id}
                     className="input flex flex-col w-full font-semibold group"
@@ -585,14 +585,14 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                     )}
                     <input
                       className={classNames(
-                        "p-2 rounded-md border font-normal",
-                        { "border-red-500": errors[field.name] },
+                        'p-2 rounded-md border font-normal',
+                        { 'border-red-500': errors[field.name] },
                         {
-                          "bg-dark-bgSecondary text-dark-textSecondary border-dark-border hover:bg-zinc-800":
-                            mode === "dark",
-                          "bg-light-bgSecondary text-light-textSecondary border-light-border hover:bg-gray-100":
-                            mode === "light",
-                        }
+                          'bg-dark-bgSecondary text-dark-textSecondary border-dark-border hover:bg-zinc-800':
+                            mode === 'dark',
+                          'bg-light-bgSecondary text-light-textSecondary border-light-border hover:bg-gray-100':
+                            mode === 'light',
+                        },
                       )}
                       name={field.name}
                       id={field.id}
@@ -600,7 +600,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                       {...register(field.name, {
                         required: {
                           value: field.required,
-                          message: "this is a required field",
+                          message: 'this is a required field',
                         },
                         pattern: {
                           value: field.pattern,
@@ -629,7 +629,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                     )}
                   </div>
                 )}
-                {field.type == "email" && (
+                {field.type == 'email' && (
                   <div
                     key={field.id}
                     className="email-input flex flex-col w-full font-semibold group col-span-full "
@@ -641,14 +641,14 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                     )}
                     <input
                       className={classNames(
-                        "p-2 rounded-md border font-normal",
-                        { "border-red-500": errors[field.name] },
+                        'p-2 rounded-md border font-normal',
+                        { 'border-red-500': errors[field.name] },
                         {
-                          "bg-dark-bgSecondary text-dark-textSecondary border-dark-border hover:bg-zinc-800":
-                            mode === "dark",
-                          "bg-light-bgSecondary text-light-textSecondary border-light-border hover:bg-gray-100":
-                            mode === "light",
-                        }
+                          'bg-dark-bgSecondary text-dark-textSecondary border-dark-border hover:bg-zinc-800':
+                            mode === 'dark',
+                          'bg-light-bgSecondary text-light-textSecondary border-light-border hover:bg-gray-100':
+                            mode === 'light',
+                        },
                       )}
                       name={field.name}
                       id={field.id}
@@ -657,7 +657,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                       {...register(field.name, {
                         required: {
                           value: field.required,
-                          message: "this is a required field",
+                          message: 'this is a required field',
                         },
                         pattern: {
                           value: field.pattern,
@@ -686,7 +686,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                     )}
                   </div>
                 )}
-                {field.type == "number" && (
+                {field.type == 'number' && (
                   <div
                     key={field.id}
                     className="input flex flex-col w-full font-semibold group"
@@ -698,14 +698,14 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                     )}
                     <input
                       className={classNames(
-                        "p-2 rounded-md border font-normal",
-                        { "border-red-500": errors[field.name] },
+                        'p-2 rounded-md border font-normal',
+                        { 'border-red-500': errors[field.name] },
                         {
-                          "bg-dark-bgSecondary text-dark-textSecondary border-dark-border hover:bg-zinc-800":
-                            mode === "dark",
-                          "bg-light-bgSecondary text-light-textSecondary border-light-border hover:bg-gray-100":
-                            mode === "light",
-                        }
+                          'bg-dark-bgSecondary text-dark-textSecondary border-dark-border hover:bg-zinc-800':
+                            mode === 'dark',
+                          'bg-light-bgSecondary text-light-textSecondary border-light-border hover:bg-gray-100':
+                            mode === 'light',
+                        },
                       )}
                       name={field.name}
                       id={field.id}
@@ -714,7 +714,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                       {...register(field.name, {
                         required: {
                           value: field.required,
-                          message: "this is a required field",
+                          message: 'this is a required field',
                         },
                         pattern: {
                           value: field.pattern,

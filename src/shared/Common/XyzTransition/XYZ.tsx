@@ -1,7 +1,7 @@
-import "@animxyz/core";
-import { XyzTransition, XyzTransitionGroup } from "@animxyz/react";
-import { useState } from "react";
-import styles from "./XYZ.module.css";
+import '@animxyz/core';
+import { XyzTransition, XyzTransitionGroup } from '@animxyz/react';
+import { useState } from 'react';
+import styles from './XYZ.module.css';
 const XYZ = () => {
   const [buttonToggled, setButtonToggled] = useState(true);
 

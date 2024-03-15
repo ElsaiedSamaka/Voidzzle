@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 
-const AnalyticsLayout = ({children}) => {
+const AnalyticsLayout = ({ children }) => {
   return (
     <section className="analytics-layout mt-10">
       <div className=" max-w-screen-2xl">
@@ -11,7 +11,7 @@ const AnalyticsLayout = ({children}) => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default AnalyticsLayout
+export default AnalyticsLayout;

@@ -1,5 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { Product } from "core/models";
+import { createSlice } from '@reduxjs/toolkit';
+import { Product } from 'core/models';
 import {
   createProductThunk,
   deleteAllProductsThunk,
@@ -7,7 +7,7 @@ import {
   getProductsThunk,
   searchProductsThunk,
   updateProductThunk,
-} from "./products.thunk";
+} from './products.thunk';
 
 interface ProductsState {
   items: Product[];
@@ -21,7 +21,7 @@ const initialState: ProductsState = {
   error: null,
 };
 export const productsSlice = createSlice({
-  name: "products",
+  name: 'products',
   initialState,
   reducers: {
     setLoading: (state, action) => {
@@ -118,17 +118,20 @@ export const productsSlice = createSlice({
         state.error = null;
       });
     // searchProducts
-    builder.addCase(searchProductsThunk.fulfilled, (state, action) => {
-      state.items = action.payload;
-      state.loading = false;
-      state.error = null;
-    }).addCase(searchProductsThunk.rejected, (state, action) => {
-      state.loading = false;
-      state.error = action.error.message;
-    }).addCase(searchProductsThunk.pending, (state, action) => {
-      state.loading = true;
-      state.error = null;
-    })
+    builder
+      .addCase(searchProductsThunk.fulfilled, (state, action) => {
+        state.items = action.payload;
+        state.loading = false;
+        state.error = null;
+      })
+      .addCase(searchProductsThunk.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message;
+      })
+      .addCase(searchProductsThunk.pending, (state, action) => {
+        state.loading = true;
+        state.error = null;
+      });
   },
 });
 

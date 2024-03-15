@@ -1,7 +1,7 @@
-import { useThemeContext } from "core/context/ThemeContext";
-import getDirection from "core/utils/translations/getDirections";
-import { useRouter } from "next/router";
-import Header from "shared/Common/Header/Header";
+import { useThemeContext } from 'core/context/ThemeContext';
+import getDirection from 'core/utils/translations/getDirections';
+import { useRouter } from 'next/router';
+import Header from 'shared/Common/Header/Header';
 
 const RootLayout = ({ children }) => {
   const { locale } = useRouter();
@@ -11,9 +11,9 @@ const RootLayout = ({ children }) => {
     <section
       dir={getDirection(locale)}
       className={`root-layout ${
-        mode === "dark"
-          ? "bg-dark-bgSecondary text-dark-textSecondary"
-          : "bg-light-bgSecondary text-light-textSecondary"
+        mode === 'dark'
+          ? 'bg-dark-bgSecondary text-dark-textSecondary'
+          : 'bg-light-bgSecondary text-light-textSecondary'
       }`}
     >
       <Header />

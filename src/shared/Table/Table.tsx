@@ -1,13 +1,13 @@
-import { RootState } from "core/store";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import TableHead from "./TableHead/TableHead";
-import TableBody from "./TableBody/TableBody";
-import TableFooter from "./TableFooter/TableFooter";
+import { RootState } from 'core/store';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import TableHead from './TableHead/TableHead';
+import TableBody from './TableBody/TableBody';
+import TableFooter from './TableFooter/TableFooter';
 
 const Table = ({
   _config = {
-    title: "",
+    title: '',
     _head: {
       show: true,
       _actions: {

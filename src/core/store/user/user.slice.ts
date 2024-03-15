@@ -1,11 +1,11 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { User } from "core/models";
+import { createSlice } from '@reduxjs/toolkit';
+import { User } from 'core/models';
 import {
   registerThunk,
   loginThunk,
   logoutThunk,
   changePasswordThunk,
-} from "./user.thunk";
+} from './user.thunk';
 
 interface AuthState {
   user: User | null;
@@ -19,45 +19,48 @@ const initialState: AuthState = {
   error: null,
 };
 export const authSlice = createSlice({
-  name: "auth",
+  name: 'auth',
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     // register
     builder
       .addCase(registerThunk.pending, (state) => {
-      state.loading = true;
-      state.error = null;
-    })
+        state.loading = true;
+        state.error = null;
+      })
       .addCase(registerThunk.rejected, (state, action) => {
-      state.loading = false;
-      state.user = null;
-      state.error = action.error.message || "An error occurred during registration.";
+        state.loading = false;
+        state.user = null;
+        state.error =
+          action.error.message || 'An error occurred during registration.';
       })
       .addCase(registerThunk.fulfilled, (state, action) => {
-      const { user } = action.payload;
+        const { user } = action.payload;
         // getting user from api action payload is the response of register service
-      state.loading = false;
-      state.user = user;
-      state.error = null;
+        state.loading = false;
+        state.user = user;
+        state.error = null;
       });
     // login
     builder
       .addCase(loginThunk.fulfilled, (state, action) => {
-      const { user } = action.payload;
-      state.loading = false;
-      state.user = user;
-      state.error = null;
+        const { user } = action.payload;
+        state.loading = false;
+        state.user = user;
+        state.error = null;
       })
       .addCase(loginThunk.rejected, (state, action) => {
-      state.loading = false;
-      state.user = null;
-      state.error = action.error.message || "An error occurred during login.";
+        state.loading = false;
+        state.user = null;
+        state.error = action.error.message || 'An error occurred during login.';
       });
     // logout
-    builder.addCase(logoutThunk.fulfilled,(state, action)=>{
+    builder
+      .addCase(logoutThunk.fulfilled, (state, action) => {
         state.user = action.payload;
-    }).addCase(logoutThunk.rejected, (state, action) => {
+      })
+      .addCase(logoutThunk.rejected, (state, action) => {
         state.user = null;
       });
   },

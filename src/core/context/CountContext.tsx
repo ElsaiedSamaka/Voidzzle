@@ -1,6 +1,6 @@
-import * as React from "react";
+import * as React from 'react';
 
-type Action = { type: "increment" } | { type: "decrement" } | { type: "reset" };
+type Action = { type: 'increment' } | { type: 'decrement' } | { type: 'reset' };
 type Dispatch = (action: Action) => void;
 type State = { count: number };
 type CountProviderProps = { children: React.ReactNode };
@@ -10,10 +10,10 @@ const CountStateContext = React.createContext<
 
 function countReducer(state: State, action: Action) {
   switch (action.type) {
-    case "increment": {
+    case 'increment': {
       return { count: state.count + 1 };
     }
-    case "decrement": {
+    case 'decrement': {
       return { count: state.count - 1 };
     }
     default: {
@@ -37,10 +37,9 @@ function CountProvider({ children }: CountProviderProps) {
 function useCount() {
   const context = React.useContext(CountStateContext);
   if (context === undefined) {
-    throw new Error("useCount must be used within a CountProvider");
+    throw new Error('useCount must be used within a CountProvider');
   }
   return context;
 }
 
 export { CountProvider, useCount };
-

@@ -1,4 +1,4 @@
-import { useCount } from "core/context/CountContext";
+import { useCount } from 'core/context/CountContext';
 
 const Counter = () => {
   const { state, dispatch } = useCount();
@@ -9,7 +9,7 @@ const Counter = () => {
       <span>
         <button
           onClick={() => {
-            dispatch({ type: "increment" });
+            dispatch({ type: 'increment' });
           }}
         >
           increment
@@ -18,7 +18,7 @@ const Counter = () => {
       <span>
         <button
           onClick={() => {
-            dispatch({ type: "decrement" });
+            dispatch({ type: 'decrement' });
           }}
         >
           decrement

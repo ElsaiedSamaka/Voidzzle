@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
-import Glide from "@glidejs/glide";
+import React, { useEffect } from 'react';
+import Glide from '@glidejs/glide';
 
 export default function CarouselTestimonial() {
   useEffect(() => {
-    const slider = new Glide(".glide-08", {
-      type: "carousel",
+    const slider = new Glide('.glide-08', {
+      type: 'carousel',
       focusAt: 1,
       animationDuration: 9000,
       autoplay: true,
@@ -13,7 +13,7 @@ export default function CarouselTestimonial() {
       gap: 48,
       classes: {
         nav: {
-          active: "[&>*]:bg-wuiSlate-700",
+          active: '[&>*]:bg-wuiSlate-700',
         },
       },
       breakpoints: {

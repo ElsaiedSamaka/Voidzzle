@@ -1,4 +1,4 @@
-import { Card, ProfileLayout, RootLayout } from "shared";
+import { Card, ProfileLayout, RootLayout } from 'shared';
 
 const Profile = () => {
   return (
@@ -385,7 +385,7 @@ export default Profile;
 //            </td>
 //            <td className="px-6 py-4">
 //              <a
-//                
+//
 //                className="font-medium text-red-600 :text-red-500 hover:underline"
 //              >
 //                Remove
@@ -458,7 +458,7 @@ export default Profile;
 //            </td>
 //            <td className="px-6 py-4">
 //              <a
-//                
+//
 //                className="font-medium text-red-600 :text-red-500 hover:underline"
 //              >
 //                Remove
@@ -531,7 +531,7 @@ export default Profile;
 //            </td>
 //            <td className="px-6 py-4">
 //              <a
-//                
+//
 //                className="font-medium text-red-600 :text-red-500 hover:underline"
 //              >
 //                Remove

@@ -15,7 +15,7 @@ function isEqual(value1, value2) {
     }
 
     // Check if all the keys and their corresponding values are equal
-    for (let key of keys1) {
+    for (const key of keys1) {
       if (!isEqual(value1[key], value2[key])) {
         return false;
       }

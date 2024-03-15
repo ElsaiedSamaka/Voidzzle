@@ -6,8 +6,19 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family:'Tajawal', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family:
+    'Tajawal',
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    Fira Sans,
+    Droid Sans,
+    Helvetica Neue,
+    sans-serif;
   /* very nice trick to handle dynamic font sizing */
   font-size: 14px;
   @screen md {
@@ -46,5 +57,5 @@ a {
 
 ::-webkit-scrollbar-thumb {
   background-color: rgba(128, 128, 128, 0.829);
-     border-radius: 10px;
+  border-radius: 10px;
 }

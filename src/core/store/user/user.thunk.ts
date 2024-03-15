@@ -1,8 +1,8 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
-import authService from "core/services/auth.service";
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import authService from 'core/services/auth.service';
 
 export const registerThunk = createAsyncThunk(
-  "user/register",
+  'user/register',
   async (params: any, thunkAPI) => {
     try {
       const response = await authService.register(params);
@@ -10,11 +10,11 @@ export const registerThunk = createAsyncThunk(
     } catch (error) {
       thunkAPI.rejectWithValue(error);
     }
-  }
+  },
 );
 
 export const loginThunk = createAsyncThunk(
-  "user/login",
+  'user/login',
   async (params: any, thunkAPI) => {
     try {
       const response = await authService.login(params);
@@ -22,11 +22,11 @@ export const loginThunk = createAsyncThunk(
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
     }
-  }
+  },
 );
 
 export const logoutThunk = createAsyncThunk(
-  "user/logout",
+  'user/logout',
   async (params: any, thunkAPI) => {
     try {
       const response = await authService.logout(params);
@@ -34,11 +34,11 @@ export const logoutThunk = createAsyncThunk(
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
     }
-  }
+  },
 );
 
 export const changePasswordThunk = createAsyncThunk(
-  "user/change-password",
+  'user/change-password',
   async (params: any, thunkAPI) => {
     try {
       const response = await authService.changePassword(params);
@@ -46,5 +46,5 @@ export const changePasswordThunk = createAsyncThunk(
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
     }
-  }
+  },
 );

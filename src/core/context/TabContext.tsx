@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useReducer } from "react";
+import { createContext, useContext, useEffect, useReducer } from 'react';
 
 // initial state
 const initialState = {
@@ -7,7 +7,7 @@ const initialState = {
 // reducer
 const tabReducer = (state, action) => {
   switch (action.type) {
-    case "SELECT_TAB":
+    case 'SELECT_TAB':
       return {
         ...state,
         selectedTabIndex: action.payload,
@@ -27,10 +27,10 @@ export const TabProvider = ({ children }) => {
 
   // wrapper of dispatch function
   const selectTab = (index) => {
-    dispatch({ type: "SELECT_TAB", payload: index });
+    dispatch({ type: 'SELECT_TAB', payload: index });
   };
   useEffect(() => {
-    const storedTabIndex = window.sessionStorage.getItem("selectedTabIndex");
+    const storedTabIndex = window.sessionStorage.getItem('selectedTabIndex');
     if (storedTabIndex !== null) {
       selectTab(parseInt(storedTabIndex, 10));
     }
@@ -38,8 +38,8 @@ export const TabProvider = ({ children }) => {
 
   useEffect(() => {
     window.sessionStorage.setItem(
-      "selectedTabIndex",
-      state.selectedTabIndex.toString()
+      'selectedTabIndex',
+      state.selectedTabIndex.toString(),
     );
   }, [state.selectedTabIndex]);
   return (
@@ -53,7 +53,7 @@ export const TabProvider = ({ children }) => {
 export const useTabContext = () => {
   const context = useContext(TabContext);
   if (context === undefined) {
-    throw new Error("useTabContext must be used within a TabProvider");
+    throw new Error('useTabContext must be used within a TabProvider');
   }
   return context;
 };

@@ -1,11 +1,11 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { Todo, User } from "core/models";
+import { createSlice } from '@reduxjs/toolkit';
+import { Todo, User } from 'core/models';
 import {
   createUserThunk,
   deleteUserThunk,
   getUsersThunk,
   updateUserThunk,
-} from "./users.thunk";
+} from './users.thunk';
 
 interface UsersState {
   items: User[];
@@ -19,7 +19,7 @@ const initialState: UsersState = {
   error: null,
 };
 export const usersSlice = createSlice({
-  name: "users",
+  name: 'users',
   initialState,
   reducers: {
     setLoading: (state, action) => {

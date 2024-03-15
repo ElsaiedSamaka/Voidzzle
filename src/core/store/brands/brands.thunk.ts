@@ -1,8 +1,8 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
-import brandsService from "core/services/brands.service";
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import brandsService from 'core/services/brands.service';
 
 export const getBrandsThunk = createAsyncThunk(
-  "brands/get",
+  'brands/get',
   async (_, thunkAPI) => {
     try {
       const response = await brandsService.get();
@@ -10,11 +10,11 @@ export const getBrandsThunk = createAsyncThunk(
     } catch (error) {
       thunkAPI.rejectWithValue(error);
     }
-  }
+  },
 );
 
 export const deleteBrandThunk = createAsyncThunk(
-  "brands/delete",
+  'brands/delete',
   async (id: any, thunkAPI) => {
     try {
       // ideally the resualt of delete request should be deleted product id of the deleted product
@@ -25,11 +25,11 @@ export const deleteBrandThunk = createAsyncThunk(
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
     }
-  }
+  },
 );
 
 export const deleteAllBrandsThunk = createAsyncThunk(
-  "brands/deleteAll",
+  'brands/deleteAll',
   async (ids: any[], thunkAPI) => {
     try {
       const response = await brandsService.removeAll(ids);
@@ -37,10 +37,10 @@ export const deleteAllBrandsThunk = createAsyncThunk(
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
     }
-  }
+  },
 );
 export const updateBrandThunk = createAsyncThunk(
-  "brands/update",
+  'brands/update',
   async (body: any, thunkAPI) => {
     try {
       const response = await brandsService.put(body.id, body);
@@ -48,11 +48,11 @@ export const updateBrandThunk = createAsyncThunk(
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
     }
-  }
+  },
 );
 
 export const createBrandThunk = createAsyncThunk(
-  "brands/post",
+  'brands/post',
   async (body: any, thunkAPI) => {
     try {
       const response = await brandsService.post(body);
@@ -60,11 +60,11 @@ export const createBrandThunk = createAsyncThunk(
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
     }
-  }
+  },
 );
 
 export const searchBrandsThunk = createAsyncThunk(
-  "brands/search",
+  'brands/search',
   async (query: string, thunkAPI) => {
     try {
       const response = await brandsService.search(query);
@@ -72,5 +72,5 @@ export const searchBrandsThunk = createAsyncThunk(
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
     }
-  }
+  },
 );

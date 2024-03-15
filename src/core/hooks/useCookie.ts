@@ -1,5 +1,5 @@
-import { useState, useCallback } from "react";
-import Cookies from "js-cookie";
+import { useState, useCallback } from 'react';
+import Cookies from 'js-cookie';
 
 // This function is a custom hook that manages a cookie value.
 // It returns the current cookie value, a function to update the cookie value,
@@ -31,7 +31,7 @@ export default function useCookie(name, defaultValue) {
       Cookies.set(name, newValue, options);
       setValue(newValue);
     },
-    [name]
+    [name],
   );
 
   /**

@@ -1,4 +1,4 @@
-import { axiosClient, axiosConfig } from "./axios.client";
+import { axiosClient, axiosConfig } from './axios.client';
 
 const base_url = process.env.NEXT_PUBLIC_BASE_URL;
 
@@ -8,7 +8,7 @@ const apiservice = {
       const response = await axiosClient.post(
         `${base_url}/${path}`,
         body || {},
-        axiosConfig
+        axiosConfig,
       );
       return response.data;
     } catch (error) {
@@ -20,7 +20,7 @@ const apiservice = {
     try {
       const response = await axiosClient.get(
         `${base_url}/${path}`,
-        axiosConfig
+        axiosConfig,
       );
       return response.data;
     } catch (error) {
@@ -33,7 +33,7 @@ const apiservice = {
       const response = await axiosClient.put(
         `${base_url}/${path}`,
         body || {},
-        axiosConfig
+        axiosConfig,
       );
       return response.data;
     } catch (error) {
@@ -45,7 +45,7 @@ const apiservice = {
     try {
       const response = await axiosClient.delete(
         `${base_url}/${path}`,
-        axiosConfig
+        axiosConfig,
       );
       return response.data;
     } catch (error) {
@@ -58,7 +58,7 @@ const apiservice = {
       const response = await axiosClient.patch(
         `${base_url}/${path}`,
         body || {},
-        axiosConfig
+        axiosConfig,
       );
       return response.data;
     } catch (error) {

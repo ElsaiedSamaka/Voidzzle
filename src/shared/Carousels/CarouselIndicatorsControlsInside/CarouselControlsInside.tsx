@@ -1,28 +1,27 @@
 // Components
-import { Card } from "shared";
-import Glide from "@glidejs/glide";
+import { Card } from 'shared';
+import Glide from '@glidejs/glide';
 // Hooks & services
-import { useEffect } from "react";
-import { useRouter } from "next/router";
-import useTranslation from "core/hooks/useTranslation";
-
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
+import useTranslation from 'core/hooks/useTranslation';
 
 function CarouselControlsInside({ title }) {
-   const router = useRouter();
+  const router = useRouter();
   const { locale } = router;
   const { t } = useTranslation(locale);
 
   useEffect(() => {
-    const slider = new Glide(".glide-01", {
-      type: "carousel",
-      focusAt: "center",
+    const slider = new Glide('.glide-01', {
+      type: 'carousel',
+      focusAt: 'center',
       perView: 4,
       autoplay: 9000,
       animationDuration: 900,
       gap: 10,
       classNames: {
         nav: {
-          active: "[&>*]:bg-zinc-700",
+          active: '[&>*]:bg-zinc-700',
         },
       },
       breakpoints: {

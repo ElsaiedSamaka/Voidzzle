@@ -1,5 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { Product } from "core/models";
+import { createSlice } from '@reduxjs/toolkit';
+import { Product } from 'core/models';
 import {
   createBrandThunk,
   deleteBrandThunk,
@@ -7,7 +7,7 @@ import {
   deleteAllBrandsThunk,
   searchBrandsThunk,
   updateBrandThunk,
-} from "./brands.thunk";
+} from './brands.thunk';
 
 interface BrandsState {
   items: Product[];
@@ -21,7 +21,7 @@ const initialState: BrandsState = {
   error: null,
 };
 export const brandsSlice = createSlice({
-  name: "brands",
+  name: 'brands',
   initialState,
   reducers: {
     setLoading: (state, action) => {

@@ -1,5 +1,5 @@
-import React from "react";
-import { RootLayout } from "shared";
+import React from 'react';
+import { RootLayout } from 'shared';
 
 const Products = () => {
   return <div>Products</div>;

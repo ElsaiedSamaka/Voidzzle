@@ -1,8 +1,8 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
-import productsService from "core/services/products.service";
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import productsService from 'core/services/products.service';
 
 export const getProductsThunk = createAsyncThunk(
-  "products/get",
+  'products/get',
   async (_, thunkAPI) => {
     try {
       const response = await productsService.get();
@@ -10,11 +10,11 @@ export const getProductsThunk = createAsyncThunk(
     } catch (error) {
       thunkAPI.rejectWithValue(error);
     }
-  }
+  },
 );
 
 export const deleteProductThunk = createAsyncThunk(
-  "products/delete",
+  'products/delete',
   async (id: any, thunkAPI) => {
     try {
       // ideally the resualt of delete request should be deleted product id of the deleted product
@@ -25,11 +25,11 @@ export const deleteProductThunk = createAsyncThunk(
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
     }
-  }
+  },
 );
 
 export const deleteAllProductsThunk = createAsyncThunk(
-  "products/deleteAll",
+  'products/deleteAll',
   async (ids: any[], thunkAPI) => {
     try {
       const response = await productsService.removeAll(ids);
@@ -37,10 +37,10 @@ export const deleteAllProductsThunk = createAsyncThunk(
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
     }
-  }
+  },
 );
 export const updateProductThunk = createAsyncThunk(
-  "products/update",
+  'products/update',
   async (body: any, thunkAPI) => {
     try {
       const response = await productsService.put(body.id, body);
@@ -48,11 +48,11 @@ export const updateProductThunk = createAsyncThunk(
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
     }
-  }
+  },
 );
 
 export const createProductThunk = createAsyncThunk(
-  "products/post",
+  'products/post',
   async (body: any, thunkAPI) => {
     try {
       const response = await productsService.post(body);
@@ -60,11 +60,11 @@ export const createProductThunk = createAsyncThunk(
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
     }
-  }
+  },
 );
 
 export const searchProductsThunk = createAsyncThunk(
-  "products/search",
+  'products/search',
   async (query: string, thunkAPI) => {
     try {
       const response = await productsService.search(query);
@@ -72,5 +72,5 @@ export const searchProductsThunk = createAsyncThunk(
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
     }
-  }
-)
+  },
+);

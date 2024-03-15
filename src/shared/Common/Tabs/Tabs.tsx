@@ -1,5 +1,5 @@
-import { TabContext, useTabContext } from "core/context/TabContext";
-import React, { useContext } from "react";
+import { TabContext, useTabContext } from 'core/context/TabContext';
+import React, { useContext } from 'react';
 
 const Tabs = ({ items }) => {
   const { state, selectTab } = useTabContext();
@@ -18,8 +18,8 @@ const Tabs = ({ items }) => {
                 onClick={() => handleTabClick(item.id)}
                 className={`whitespace-nowrap inline-flex rounded-md py-2 px-4 items-center text-sm ${
                   item.id === selectedTabIndex
-                    ? "text-gray-700 bg-white shadow"
-                    : "text-gray-400 bg-gray-100"
+                    ? 'text-gray-700 bg-white shadow'
+                    : 'text-gray-400 bg-gray-100'
                 } transition-all duration-200 hover:cursor-pointer ease-in-out hover:text-gray-700 hover:shadow`}
               >
                 {item.label}

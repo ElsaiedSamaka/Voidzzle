@@ -1,7 +1,7 @@
-import { useParams, usePathname, useSearchParams } from "next/navigation";
-import { useRouter } from "next/router";
-import React from "react";
-import { RootLayout } from "shared";
+import { useParams, usePathname, useSearchParams } from 'next/navigation';
+import { useRouter } from 'next/router';
+import React from 'react';
+import { RootLayout } from 'shared';
 
 const ProductDetails = () => {
   const router = useRouter();
@@ -9,14 +9,14 @@ const ProductDetails = () => {
   const pathName = usePathname();
   const searchParams = useSearchParams();
   console.log(
-    "router",
+    'router',
     router,
-    "params",
+    'params',
     params,
-    "pathName",
+    'pathName',
     pathName,
-    "searchParams",
-    searchParams
+    'searchParams',
+    searchParams,
   );
   // router.prefetch(`/products/${params.id}`);
   return (
@@ -27,8 +27,8 @@ const ProductDetails = () => {
             <li className="text-left">
               <div className="-m-1">
                 <a className="rounded-md p-1 text-sm font-medium text-gray-600 focus:text-gray-900 focus:shadow hover:text-gray-800">
-                  {"{"}" "{"}"}
-                  Home{"{"}" "{"}"}
+                  {'{'}" "{'}'}
+                  Home{'{'}" "{'}'}
                 </a>
               </div>
             </li>
@@ -37,8 +37,8 @@ const ProductDetails = () => {
                 <span className="mx-2 text-gray-400">/</span>
                 <div className="-m-1">
                   <a className="rounded-md p-1 text-sm font-medium text-gray-600 focus:text-gray-900 focus:shadow hover:text-gray-800">
-                    {"{"}" "{"}"}
-                    Products{"{"}" "{"}"}
+                    {'{'}" "{'}'}
+                    Products{'{'}" "{'}'}
                   </a>
                 </div>
               </div>
@@ -51,8 +51,8 @@ const ProductDetails = () => {
                     className="rounded-md p-1 text-sm font-medium text-gray-600 focus:text-gray-900 focus:shadow hover:text-gray-800"
                     aria-current="page"
                   >
-                    {"{"}" "{"}"}
-                    Coffee{"{"}" "{"}"}
+                    {'{'}" "{'}'}
+                    Coffee{'{'}" "{'}'}
                   </a>
                 </div>
               </div>
@@ -329,14 +329,14 @@ const ProductDetails = () => {
             <div className="border-b border-gray-300">
               <nav className="flex gap-4">
                 <a className="border-b-2 border-gray-900 py-4 text-sm font-medium text-gray-900 hover:border-gray-400 hover:text-gray-800">
-                  {"{"}" "{"}"}
-                  Description{"{"}" "{"}"}
+                  {'{'}" "{'}'}
+                  Description{'{'}" "{'}'}
                 </a>
                 <a className="inline-flex items-center border-b-2 border-transparent py-4 text-sm font-medium text-gray-600">
                   Reviews
                   <span className="ml-2 block rounded-full bg-gray-500 px-2 py-px text-xs font-bold text-gray-100">
-                    {"{"}" "{"}"}
-                    1,209{"{"}" "{"}"}
+                    {'{'}" "{'}'}
+                    1,209{'{'}" "{'}'}
                   </span>
                 </a>
               </nav>

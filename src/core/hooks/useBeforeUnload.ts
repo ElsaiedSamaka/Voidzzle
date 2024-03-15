@@ -1,13 +1,13 @@
-import { useEffect } from "react";
+import { useEffect } from 'react';
 
 export function useBeforeUnload(
   callback: (e: BeforeUnloadEvent) => any,
-  deps?: React.DependencyList | undefined
+  deps?: React.DependencyList | undefined,
 ) {
   useEffect(() => {
-    window.addEventListener("beforeunload", callback);
+    window.addEventListener('beforeunload', callback);
     return () => {
-      window.removeEventListener("beforeunload", callback);
+      window.removeEventListener('beforeunload', callback);
     };
   }, deps);
 }

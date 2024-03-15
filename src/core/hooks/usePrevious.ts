@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef } from 'react';
 
 /**
  * Custom hook that returns the previous value of a given value.

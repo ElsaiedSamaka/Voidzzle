@@ -1,6 +1,6 @@
-import translations from "../utils/translations";
+import translations from '../utils/translations';
 
-export default function useTranslation(locale = "en") {
+export default function useTranslation(locale = 'en') {
   function t(key) {
     if (!translations[locale][key]) {
       console.warn(`Translation '${key}' for locale '${locale}' not found.`);

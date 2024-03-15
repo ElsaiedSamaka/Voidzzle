@@ -1,18 +1,17 @@
-import { useDebounce } from "core/hooks";
-import { RootState } from "core/store";
-import { getBrandsThunk } from "core/store/brands/brands.thunk";
+import { RootState } from 'core/store';
+import { getBrandsThunk } from 'core/store/brands/brands.thunk';
 import {
   createProductThunk,
   deleteAllProductsThunk,
   getProductsThunk,
   searchProductsThunk,
   updateProductThunk,
-} from "core/store/products/products.thunk";
-import Validators from "core/validators";
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Table } from "shared";
-import { useSelectedItems } from "shared/Table/shared/context/SelectedItemsContext";
+} from 'core/store/products/products.thunk';
+import Validators from 'core/validators';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Table } from 'shared';
+import { useSelectedItems } from 'shared/Table/shared/context/SelectedItemsContext';
 
 const Products = () => {
   const productsSlice = useSelector((state: RootState) => state.products);
@@ -20,7 +19,7 @@ const Products = () => {
   const { state, dispatch: dispatchSelectedItems } = useSelectedItems();
   const { items } = state;
   const dispatch = useDispatch();
-  const handleAddetionDispatch = (data: any) => {
+  const handleAddetionDispatch = (data) => {
     dispatch(createProductThunk(data));
   };
   const handleUpdateDispatch = (data) => {
@@ -30,7 +29,7 @@ const Products = () => {
     const ids = items.map((item) => item.id);
     dispatch(deleteAllProductsThunk(ids));
     dispatchSelectedItems({
-      type: "reset",
+      type: 'reset',
     });
   };
   const handleItemsSearch = (query: string) => {
@@ -40,15 +39,15 @@ const Products = () => {
     dispatch(getBrandsThunk());
   };
   const th = [
-    { label: "name", id: 1 },
-    { label: "category", select: "name", id: 2 },
-    { label: "quantity", id: 3 },
-    { label: "brand", id: 4 },
-    { label: "Sales/Month", id: 5 },
-    { label: "ratingsAverage", id: 6 },
-    { label: "sold", id: 7 },
-    { label: "price", id: 8 },
-    { label: "updatedAt", id: 9 },
+    { label: 'name', id: 1 },
+    { label: 'category', select: 'name', id: 2 },
+    { label: 'quantity', id: 3 },
+    { label: 'brand', id: 4 },
+    { label: 'Sales/Month', id: 5 },
+    { label: 'ratingsAverage', id: 6 },
+    { label: 'sold', id: 7 },
+    { label: 'price', id: 8 },
+    { label: 'updatedAt', id: 9 },
   ];
   // get products from api just when component is mounted
   useEffect(() => {
@@ -56,146 +55,146 @@ const Products = () => {
   }, []);
   const formFields = [
     {
-      name: "name",
-      label: "name",
-      id: "name",
-      type: "text",
+      name: 'name',
+      label: 'name',
+      id: 'name',
+      type: 'text',
       required: true,
       maxLength: 20,
       minLength: 10,
       validation: [
         {
           isName: (val) => {
-            if (val === "name") {
-              return "Enter a different product name";
+            if (val === 'name') {
+              return 'Enter a different product name';
             }
           },
         },
       ],
     },
     {
-      name: "category",
-      label: "category",
-      id: "category",
-      type: "select",
+      name: 'category',
+      label: 'category',
+      id: 'category',
+      type: 'select',
       required: true,
       validation: [],
     },
     {
-      name: "brand",
-      label: "brand",
-      id: "brand",
-      type: "text",
+      name: 'brand',
+      label: 'brand',
+      id: 'brand',
+      type: 'text',
       required: true,
       validation: [],
     },
     {
-      name: "price",
-      label: "price",
-      id: "price",
-      type: "number",
+      name: 'price',
+      label: 'price',
+      id: 'price',
+      type: 'number',
       required: true,
       validation: [
         {
           isNotZero: (val: number) => {
-            Validators.isNotZero(val, "product");
+            Validators.isNotZero(val, 'product');
           },
           isNotNegative: (val: number) => {
-            Validators.isNotNegative(val, "product");
+            Validators.isNotNegative(val, 'product');
           },
         },
       ],
     },
     {
-      name: "stock",
-      label: "stock",
-      id: "stock",
-      type: "number",
+      name: 'stock',
+      label: 'stock',
+      id: 'stock',
+      type: 'number',
       required: true,
       validation: [
         {
           isNotZero: (val: number) => {
-            Validators.isNotZero(val, "product");
+            Validators.isNotZero(val, 'product');
           },
           isNotNegative: (val: number) => {
-            Validators.isNotNegative(val, "product");
+            Validators.isNotNegative(val, 'product');
           },
         },
       ],
     },
     {
-      name: "weight",
-      label: "weight (Kg)",
-      id: "weight",
-      type: "number",
+      name: 'weight',
+      label: 'weight (Kg)',
+      id: 'weight',
+      type: 'number',
       validation: [
         {
           isNotZero: (val: number) => {
-            Validators.isNotZero(val, "product");
+            Validators.isNotZero(val, 'product');
           },
           isNotNegative: (val: number) => {
-            Validators.isNotNegative(val, "product");
+            Validators.isNotNegative(val, 'product');
           },
         },
       ],
     },
     {
-      name: "length",
-      label: "Length (cm)",
-      id: "length",
-      type: "number",
+      name: 'length',
+      label: 'Length (cm)',
+      id: 'length',
+      type: 'number',
       validation: [
         {
           isNotZero: (val: number) => {
-            Validators.isNotZero(val, "product");
+            Validators.isNotZero(val, 'product');
           },
           isNotNegative: (val: number) => {
-            Validators.isNotNegative(val, "product");
+            Validators.isNotNegative(val, 'product');
           },
         },
       ],
     },
     {
-      name: "breadth",
-      label: "Breadth (cm)",
-      id: "breadth",
-      type: "number",
+      name: 'breadth',
+      label: 'Breadth (cm)',
+      id: 'breadth',
+      type: 'number',
       validation: [
         {
           isNotZero: (val: number) => {
-            Validators.isNotZero(val, "product");
+            Validators.isNotZero(val, 'product');
           },
           isNotNegative: (val: number) => {
-            Validators.isNotNegative(val, "product");
+            Validators.isNotNegative(val, 'product');
           },
         },
       ],
     },
     {
-      name: "width",
-      label: "Width (cm)",
-      id: "width",
-      type: "number",
+      name: 'width',
+      label: 'Width (cm)',
+      id: 'width',
+      type: 'number',
       // required: true,
       // maxLength: 20,
       // minLength: 10,
       // validation: [],
     },
     {
-      name: "description",
-      label: "description",
-      id: "description",
-      type: "text-area",
+      name: 'description',
+      label: 'description',
+      id: 'description',
+      type: 'text-area',
       required: true,
       maxLength: 2000,
       minLength: 10,
       validation: [],
     },
     {
-      name: "product_imgs",
-      label: "product images",
-      id: "product_imgs",
-      type: "file",
+      name: 'product_imgs',
+      label: 'product images',
+      id: 'product_imgs',
+      type: 'file',
       required: false,
     },
   ];
@@ -203,7 +202,7 @@ const Products = () => {
   return (
     <Table
       _config={{
-        title: "Products",
+        title: 'Products',
         _head: {
           show: true,
           _actions: {

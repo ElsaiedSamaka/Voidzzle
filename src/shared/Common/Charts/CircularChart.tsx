@@ -1,14 +1,14 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 // ApexCharts wont work for server component by default so we have to use dynamic import in order
 // to lazely load it
-import dynamic from "next/dynamic";
-import { ApexOptions } from "apexcharts";
-const ApexChart = dynamic(() => import("react-apexcharts"), { ssr: false });
+import dynamic from 'next/dynamic';
+import { ApexOptions } from 'apexcharts';
+const ApexChart = dynamic(() => import('react-apexcharts'), { ssr: false });
 const CircularChart = ({ title, textColor, strokeColor }) => {
   const [series, setStateSeries] = useState([10]);
   const [options] = useState({
     chart: {
-      type: "radialBar",
+      type: 'radialBar',
     },
     plotOptions: {
       radialBar: {
@@ -19,15 +19,15 @@ const CircularChart = ({ title, textColor, strokeColor }) => {
         offsetY: 10,
         hallow: {
           margin: 0,
-          size: "0%",
-          background: "transparent",
+          size: '0%',
+          background: 'transparent',
           image: undefined,
           imageWidth: 150,
           imageHeight: 150,
           imageOffsetX: 0,
           imageOffsetY: 0,
           imageClipped: true,
-          position: "front",
+          position: 'front',
           dropShadow: {
             enabled: false,
             top: 0,
@@ -40,28 +40,28 @@ const CircularChart = ({ title, textColor, strokeColor }) => {
           show: true,
           startAngle: -130,
           endAngle: 130,
-          background: "#f4f5f9",
+          background: '#f4f5f9',
           opacity: 0.9,
           margin: 0,
-          strokeWidth: "100%",
+          strokeWidth: '100%',
         },
         dataLabels: {
           show: true,
           value: {
             show: true,
-            fontSize: "28px",
-            fontFamily: "DM sans",
+            fontSize: '28px',
+            fontFamily: 'DM sans',
             fontWeight: 600,
             color: textColor,
             offsetY: 0,
             // TODO: add a custom formatter pipe for the following formatter function
             formatter: function (val) {
               if (val > 1000 && val < 999999) {
-                return val / 1000 + "k" + "%";
+                return val / 1000 + 'k' + '%';
               } else if (val > 999999 && val < 9999999) {
-                return val / 1000000 + "m" + "%";
+                return val / 1000000 + 'm' + '%';
               } else if (val <= 1000 && val > 0) {
-                return val + "%";
+                return val + '%';
               } else {
                 return val;
               }
@@ -71,7 +71,7 @@ const CircularChart = ({ title, textColor, strokeColor }) => {
       },
     },
     fill: {
-      type: "solid",
+      type: 'solid',
       colors: [strokeColor],
       // if we ever needed to check over some value for fill colors we can use below code
       //   colors: [
@@ -87,23 +87,23 @@ const CircularChart = ({ title, textColor, strokeColor }) => {
       //   ],
     },
     stroke: {
-      lineCap: "round",
-      curve: "smooth",
-      colors: ["#000"],
+      lineCap: 'round',
+      curve: 'smooth',
+      colors: ['#000'],
       width: 4,
     },
-    labels: [""],
+    labels: [''],
     title: {
       text: title,
-      align: "center",
+      align: 'center',
       margin: 10,
       offsetX: 0,
       offsetY: 20,
       floating: true,
       style: {
-        fontSize: "24px",
-        fontWeight: "bold",
-        fontFamily: "DM sans",
+        fontSize: '24px',
+        fontWeight: 'bold',
+        fontFamily: 'DM sans',
         color: textColor,
       },
     },
@@ -116,17 +116,17 @@ const CircularChart = ({ title, textColor, strokeColor }) => {
       inverseOrder: false,
       custom: undefined,
       fillSeriesColor: false,
-      theme: "dark",
+      theme: 'dark',
       style: {
-        fontSize: "12px",
-        fontFamily: "DM sans",
+        fontSize: '12px',
+        fontFamily: 'DM sans',
       },
       onDatasetHover: {
         highlightDataSeries: true,
       },
       x: {
         show: true,
-        format: "dd MMM",
+        format: 'dd MMM',
         formatter: undefined,
       },
       y: {
@@ -137,31 +137,31 @@ const CircularChart = ({ title, textColor, strokeColor }) => {
       },
       z: {
         formatter: undefined,
-        title: "Size: ",
+        title: 'Size: ',
       },
       marker: {
         show: true,
       },
       items: {
-        display: "flex",
+        display: 'flex',
       },
       fixed: {
         enabled: false,
-        position: "topRight",
+        position: 'topRight',
         offsetX: 0,
         offsetY: 0,
       },
     },
     noData: {
-      text: "No Data",
-      align: "center",
-      verticalAlign: "middle",
+      text: 'No Data',
+      align: 'center',
+      verticalAlign: 'middle',
       offsetX: 0,
       offsetY: 0,
       style: {
-        color: "#fff",
-        fontSize: "20px",
-        fontFamily: "DM sans",
+        color: '#fff',
+        fontSize: '20px',
+        fontFamily: 'DM sans',
       },
     },
   });

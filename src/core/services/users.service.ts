@@ -1,9 +1,9 @@
-import apiservice from "./api.service";
+import apiservice from './api.service';
 
 const usersService = {
   post: async (body: any) => {
     try {
-      const response = await apiservice.post("users", body);
+      const response = await apiservice.post('users', body);
       return response;
     } catch (error) {
       throw error;
@@ -23,7 +23,7 @@ const usersService = {
 
   get: async () => {
     try {
-      const response = await apiservice.get("users");
+      const response = await apiservice.get('users');
       return response;
     } catch (error) {
       throw error;

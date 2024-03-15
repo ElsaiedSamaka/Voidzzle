@@ -1,7 +1,7 @@
-import { Provider } from "react-redux";
-import "../../styles/globals.css";
-import { store } from "core/store";
-import ContextProvider from "core/context";
+import { Provider } from 'react-redux';
+import '../../styles/globals.css';
+import { store } from 'core/store';
+import ContextProvider from 'core/context';
 
 function MyApp({ Component, pageProps }) {
   // If page layout is available, use it. Else return the page

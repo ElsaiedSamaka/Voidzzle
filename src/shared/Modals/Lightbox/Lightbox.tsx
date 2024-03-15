@@ -1,9 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 const Lightbox = () => {
-  return (
-    <div>Lightbox</div>
-  )
-}
+  return <div>Lightbox</div>;
+};
 
-export default Lightbox
+export default Lightbox;

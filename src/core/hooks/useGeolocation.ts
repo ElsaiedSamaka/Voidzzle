@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
 /**
  * Custom hook that retrieves the current geolocation.
@@ -29,14 +29,14 @@ export default function useGeolocation(options) {
     navigator.geolocation.getCurrentPosition(
       successHandler, // Success handler
       errorHandler, // Error handler
-      options // Geolocation options
+      options, // Geolocation options
     );
 
     // Watch for changes in geolocation
     const id = navigator.geolocation.watchPosition(
       successHandler, // Success handler
       errorHandler, // Error handler
-      options // Geolocation options
+      options, // Geolocation options
     );
 
     // Clear geolocation watch when component unmounts

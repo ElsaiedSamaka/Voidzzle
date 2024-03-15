@@ -1,3 +1,3 @@
 export default function getDirection(locale) {
-  return locale === "ar" ? "rtl" : "ltr";
+  return locale === 'ar' ? 'rtl' : 'ltr';
 }

@@ -1,7 +1,7 @@
-import { RootState } from "core/store";
-import Link from "next/link";
-import { useThemeContext } from "core/context/ThemeContext";
-import classNames from "classnames";
+import { RootState } from 'core/store';
+import Link from 'next/link';
+import { useThemeContext } from 'core/context/ThemeContext';
+import classNames from 'classnames';
 const ProductCard = ({ id = null }) => {
   const { theme } = useThemeContext();
   const { mode } = theme;
@@ -9,13 +9,13 @@ const ProductCard = ({ id = null }) => {
     <li>
       <div
         className={classNames(
-          "relative  flex w-full  flex-col overflow-hidden rounded-2xl border",
+          'relative  flex w-full  flex-col overflow-hidden rounded-2xl border',
           {
-            "bg-dark-bgPrimary text-dark-textSecondary border-dark-border":
-              mode === "dark",
-            "bg-light-bgPrimary text-light-textSecondary border-light-border":
-              mode === "light",
-          }
+            'bg-dark-bgPrimary text-dark-textSecondary border-dark-border':
+              mode === 'dark',
+            'bg-light-bgPrimary text-light-textSecondary border-light-border':
+              mode === 'light',
+          },
         )}
       >
         {/* image */}

@@ -1,6 +1,6 @@
-import { useState } from "react";
-import { useRouter } from "next/router";
-import useTranslation from "core/hooks/useTranslation";
+import { useState } from 'react';
+import { useRouter } from 'next/router';
+import useTranslation from 'core/hooks/useTranslation';
 import {
   CarouselControlsInside,
   CarouselTestimonial,
@@ -11,11 +11,11 @@ import {
   HomeLayout,
   InfiniteCarousel,
   RootLayout,
-} from "shared";
-import classnames from "classnames";
+} from 'shared';
+import classnames from 'classnames';
 const Home = () => {
   const [showSellOptions, toggleSellOptions] = useState(false);
-     const router = useRouter();
+  const router = useRouter();
   const { locale } = router;
   const { t } = useTranslation(locale);
   return (
@@ -34,7 +34,7 @@ const Home = () => {
             {/* controls */}
           </div>
           <div className="flex items-center justify-between my-3">
-            <span className="font-bold text-2xl">{t("home.trusted_by")}</span>
+            <span className="font-bold text-2xl">{t('home.trusted_by')}</span>
             <div className=" max-w-[90%] border rounded-full shadow-inner relative">
               {/* infinite carousel */}
               <InfiniteCarousel />
@@ -43,50 +43,62 @@ const Home = () => {
           </div>
           <div className="my-3">
             {/* controls */}
-            <CarouselControlsInside title="Villas" />
+            <CarouselControlsInside title="home.villas" />
             {/* controls */}
           </div>
           <div className="my-3">
             {/* controls */}
-            <CarouselControlsInside title="Mobiles & Tablets" />
+            <CarouselControlsInside title="home.mobile_&_taplets" />
             {/* controls */}
           </div>
           <div className="my-3">
             {/* controls */}
-            <CarouselControlsInside title="Laps & PC" />
+            <CarouselControlsInside title="home.laps_&_pc" />
             {/* controls */}
           </div>
           <div className="my-3">
             {/* controls */}
-            <CarouselControlsInside title="Vehicles" />
+            <CarouselControlsInside title="home.vehicles" />
             {/* controls */}
           </div>
           <div className="my-3">
             {/* controls */}
-            <CarouselControlsInside title="Pets & animals" />
+            <CarouselControlsInside title="home.pets" />
             {/* controls */}
           </div>
           <div className="my-3">
             {/* controls */}
-            <CarouselControlsInside title="Fashion & clothes" />
+            <CarouselControlsInside title="home.fashion_&_clothes" />
             {/* controls */}
           </div>
           <div className="my-3">
             {/* controls */}
-            <CarouselControlsInside title="Other stuff" />
+            <CarouselControlsInside title="home.footwear" />
             {/* controls */}
           </div>
-          {/* products grid */}
-          {/* <Grid title="Villas For Sale" path="/products" /> */}
-          {/* products grid */}
+          <div className="my-3">
+            {/* controls */}
+            <CarouselControlsInside title="home.footwear" />
+            {/* controls */}
+          </div>
+          <div className="my-3">
+            {/* controls */}
+            <CarouselControlsInside title="home.furniture" />
+            {/* controls */}
+          </div>
+          <div className="my-3">
+            {/* controls */}
+            <CarouselControlsInside title="home.other_stuff" />
+            {/* controls */}
+          </div>
           {/* sell */}
           <div>
             <div className="fixed bottom-10 right-10 group">
               <div
                 id="speed-dial-menu-text-outside-button-square"
                 className={classnames(
-                  "flex flex-col items-center  mb-4 space-y-2 transition-all duration-300",
-                  { hidden: !showSellOptions }
+                  'flex flex-col items-center  mb-4 space-y-2 transition-all duration-300',
+                  { hidden: !showSellOptions },
                 )}
               >
                 <button

@@ -3,10 +3,10 @@
  *
  * You may delete this file and its occurrences from the project filesystem if you are using GatsbyJS or react-scripts version
  */
-import getDirection from "core/utils/translations/getDirections";
-import Document, { Head, Html, Main, NextScript } from "next/document";
-import { useRouter } from "next/router";
-import React from "react";
+import getDirection from 'core/utils/translations/getDirections';
+import Document, { Head, Html, Main, NextScript } from 'next/document';
+import { useRouter } from 'next/router';
+import React from 'react';
 
 export default class MyDocument extends Document {
   render() {

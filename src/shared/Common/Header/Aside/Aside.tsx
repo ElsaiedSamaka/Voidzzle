@@ -1,12 +1,12 @@
-import { useDrawerContext } from "core/context/DrawerContext";
-import { useThemeContext } from "core/context/ThemeContext";
-import { useEffect } from "react";
-import Anchor from "shared/Common/Anchor/Anchor";
-import LanguageSwitcher from "shared/Common/LanguageSwitcher/LanguageSwitcher";
-import classnames from "classnames";
-import ThemeSwitcher from "shared/Common/ThemeSwitcher/ThemeSwitcher";
-import { useRouter } from "next/router";
-import useTranslation from "core/hooks/useTranslation";
+import { useDrawerContext } from 'core/context/DrawerContext';
+import { useThemeContext } from 'core/context/ThemeContext';
+import { useEffect } from 'react';
+import Anchor from 'shared/Common/Anchor/Anchor';
+import LanguageSwitcher from 'shared/Common/LanguageSwitcher/LanguageSwitcher';
+import classnames from 'classnames';
+import ThemeSwitcher from 'shared/Common/ThemeSwitcher/ThemeSwitcher';
+import { useRouter } from 'next/router';
+import useTranslation from 'core/hooks/useTranslation';
 const Aside = () => {
   const { state, toggleDrawer } = useDrawerContext();
   const { showDrawer } = state;
@@ -18,17 +18,17 @@ const Aside = () => {
   return (
     <aside
       className={classnames(
-        "fixed top-0 ltr:left-0 rtl:right-0 z-20 w-64 h-screen pt-14 transition-transform -translate-x-full  ltr:border-r rtl:border-l  md:translate-x-0 ",
-        { "translate-x-0": showDrawer },
-        { "-translate-x-full": !showDrawer },
+        'fixed top-0 ltr:left-0 rtl:right-0 z-20 w-64 h-screen pt-14 transition-transform -translate-x-full  ltr:border-r rtl:border-l  md:translate-x-0 ',
+        { 'translate-x-0': showDrawer },
+        { '-translate-x-full': !showDrawer },
         {
-          "bg-light-bgPrimary text-light-textPrimary border-light-border":
-            mode === "light",
+          'bg-light-bgPrimary text-light-textPrimary border-light-border':
+            mode === 'light',
         },
         {
-          "bg-dark-bgPrimary text-dark-textPrimary border-dark-border":
-            mode === "dark",
-        }
+          'bg-dark-bgPrimary text-dark-textPrimary border-dark-border':
+            mode === 'dark',
+        },
       )}
       aria-label="Sidenav"
       id="drawer-navigation"
@@ -36,9 +36,9 @@ const Aside = () => {
       {/* top side bar nav */}
       <div
         className={classnames(
-          "overflow-y-auto py-5 px-3 h-full",
-          { "bg-light-bgPrimary": mode === "light" },
-          { "bg-dark-bgPrimary": mode === "dark" }
+          'overflow-y-auto py-5 px-3 h-full',
+          { 'bg-light-bgPrimary': mode === 'light' },
+          { 'bg-dark-bgPrimary': mode === 'dark' },
         )}
       >
         <form className="md:hidden mb-2">
@@ -89,7 +89,7 @@ const Aside = () => {
                   />
                 </svg>
 
-                <span className="ltr:ml-3 rtl:mr-3">{t("aside.home")}</span>
+                <span className="ltr:ml-3 rtl:mr-3">{t('aside.home')}</span>
               </div>
             </Anchor>
           </li>
@@ -116,7 +116,7 @@ const Aside = () => {
                   </svg>
 
                   <span className="ltr:ml-3 rtl:mr-3">
-                    {t("aside.profile")}
+                    {t('aside.profile')}
                   </span>
                 </div>
               </div>
@@ -148,7 +148,7 @@ const Aside = () => {
                     ></path>
                   </svg>
                 </span>
-                {t("aside.settings")}
+                {t('aside.settings')}
                 <label
                   htmlFor="menu-1"
                   className="absolute inset-0 h-full w-full cursor-pointer"
@@ -170,15 +170,15 @@ const Aside = () => {
               </svg>
               <ul
                 className={classnames(
-                  "duration-400 flex m-2 max-h-0 flex-col overflow-hidden rounded-xl   transition-all duration-300 peer-checked:max-h-96",
+                  'duration-400 flex m-2 max-h-0 flex-col overflow-hidden rounded-xl   transition-all duration-300 peer-checked:max-h-96',
                   {
-                    "bg-light-bgSecondary text-light-textSecondary":
-                      mode == "light",
+                    'bg-light-bgSecondary text-light-textSecondary':
+                      mode == 'light',
                   },
                   {
-                    "bg-dark-bgSecondary text-dark-textSecondary":
-                      mode === "dark",
-                  }
+                    'bg-dark-bgSecondary text-dark-textSecondary':
+                      mode === 'dark',
+                  },
                 )}
               >
                 <li className="flex m-2 cursor-pointer border-l-black text-sm ">
@@ -264,7 +264,7 @@ const Aside = () => {
                   <path d="M3 5a2 2 0 012-2h1a1 1 0 010 2H5v7h2l1 2h4l1-2h2V5h-1a1 1 0 110-2h1a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V5z" />
                 </svg>
                 <span className="flex-1 ltr:ml-3 rtl:mr-3 whitespace-nowrap">
-                  {t("aside.messages")}
+                  {t('aside.messages')}
                 </span>
                 <span className="inline-flex justify-center items-center w-5 h-5 text-xs font-semibold rounded-full ">
                   4
@@ -293,7 +293,7 @@ const Aside = () => {
                   />
                 </svg>
                 <span className="flex-1 ltr:ml-3 rtl:mr-3 whitespace-nowrap">
-                  {t("aside.notifications")}
+                  {t('aside.notifications')}
                 </span>
                 <span className="inline-flex justify-center items-center w-5 h-5 text-xs font-semibold rounded-full text-primary-800 bg-primary-100">
                   4
@@ -327,7 +327,7 @@ const Aside = () => {
                     />
                   </svg>
                 </span>
-                {t("aside.analytics")}
+                {t('aside.analytics')}
                 <label
                   htmlFor="menu-2"
                   className="absolute inset-0 h-full w-full cursor-pointer"
@@ -349,15 +349,15 @@ const Aside = () => {
               </svg>
               <ul
                 className={classnames(
-                  "duration-400 flex m-2 max-h-0 flex-col overflow-hidden rounded-xl   transition-all duration-300 peer-checked:max-h-96",
+                  'duration-400 flex m-2 max-h-0 flex-col overflow-hidden rounded-xl   transition-all duration-300 peer-checked:max-h-96',
                   {
-                    "bg-light-bgSecondary text-light-textSecondary":
-                      mode == "light",
+                    'bg-light-bgSecondary text-light-textSecondary':
+                      mode == 'light',
                   },
                   {
-                    "bg-dark-bgSecondary text-dark-textSecondary":
-                      mode === "dark",
-                  }
+                    'bg-dark-bgSecondary text-dark-textSecondary':
+                      mode === 'dark',
+                  },
                 )}
               >
                 <li className="flex m-2 cursor-pointer border-l-black text-sm ">
@@ -410,9 +410,9 @@ const Aside = () => {
         </ul>
         <div
           className={classnames(
-            "h-0.5 w-full border",
-            { "border-light-border": mode === "light" },
-            { "border-dark-border": mode === "dark" }
+            'h-0.5 w-full border',
+            { 'border-light-border': mode === 'light' },
+            { 'border-dark-border': mode === 'dark' },
           )}
         ></div>
         <ul>

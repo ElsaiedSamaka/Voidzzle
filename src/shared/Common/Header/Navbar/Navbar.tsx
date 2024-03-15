@@ -1,26 +1,26 @@
-import logo from "../../../../../public/images/favicon-32x32.png";
+import logo from '../../../../../public/images/favicon-32x32.png';
 // packages
-import classNames from "classnames";
+import classNames from 'classnames';
 // hooks
-import { useThemeContext } from "core/context/ThemeContext";
-import { usePathname } from "next/navigation";
-import { useDrawerContext } from "core/context/DrawerContext";
-import { useSelector } from "react-redux";
-import { RootState } from "core/store";
-import { useRouter } from "next/router";
-import useTranslation from "core/hooks/useTranslation";
+import { useThemeContext } from 'core/context/ThemeContext';
+import { usePathname } from 'next/navigation';
+import { useDrawerContext } from 'core/context/DrawerContext';
+import { useSelector } from 'react-redux';
+import { RootState } from 'core/store';
+import { useRouter } from 'next/router';
+import useTranslation from 'core/hooks/useTranslation';
 // components
-import SearchForm from "./searchForm/searchForm";
-import NotificationBell from "./NotificationBell/notificationBell";
-import UserMenu from "./UserMenu/UserMenu";
+import SearchForm from './searchForm/searchForm';
+import NotificationBell from './NotificationBell/notificationBell';
+import UserMenu from './UserMenu/UserMenu';
 // builtin components
-import Link from 'next/link'
+import Link from 'next/link';
 
 const Navbar = () => {
   const { state, toggleDrawer } = useDrawerContext();
   const { theme } = useThemeContext();
   const { mode } = theme;
- 
+
   const pathname = usePathname();
   const isHomePath = pathname === '/';
   const router = useRouter();
@@ -30,15 +30,15 @@ const Navbar = () => {
   const authSlice = useSelector((state: RootState) => state.user);
   return (
     <nav
-      className={classNames("border-b px-4 py-1 z-30 w-full backdrop-blur-md", {
-        "bg-dark-bgPrimary border-dark-border": mode === "dark",
-        "bg-light-bgPrimary border-light-border": mode === "light",
+      className={classNames('border-b px-4 py-1 z-30 w-full backdrop-blur-md', {
+        'bg-dark-bgPrimary border-dark-border': mode === 'dark',
+        'bg-light-bgPrimary border-light-border': mode === 'light',
       })}
     >
       <div
-        className={classNames("flex flex-wrap justify-between items-center", {
-          "text-dark-textPrimary": mode === "dark",
-          "text-light-textPrimary": mode === "light",
+        className={classNames('flex flex-wrap justify-between items-center', {
+          'text-dark-textPrimary': mode === 'dark',
+          'text-light-textPrimary': mode === 'light',
         })}
       >
         <div className="flex justify-start items-center">
@@ -123,27 +123,27 @@ const Navbar = () => {
             <div className="auth space-x-2">
               <Link href="/auth/signin">
                 <button
-                className={classNames(
-                  "bg-transparent hover:shadow-red-600/40 border border-red-600/40 rounded-3xl px-4 py-1.5  transition-all hover:opacity-90 hover:shadow"
-                )}
-              >
-                {t("navbar.Sign In")}
-              </button>
+                  className={classNames(
+                    'bg-transparent hover:shadow-red-600/40 border border-red-600/40 rounded-3xl px-4 py-1.5  transition-all hover:opacity-90 hover:shadow',
+                  )}
+                >
+                  {t('navbar.Sign In')}
+                </button>
               </Link>
               <Link href="/auth/signup">
-              <button
-                className={classNames(
-                  "hover:shadow-red-600/40 rounded-3xl px-4 py-1.5  transition-all hover:opacity-90 hover:shadow ",
-                  {
-                    "bg-dark-primary text-dark-textPrimary disabled:bg-dark-bgDisabled":
-                      mode === "dark",
-                    "bg-light-primary text-white disabled:bg-light-bgDisabled":
-                      mode === "light",
-                  }
-                )}
-              >
-                {t("navbar.Sign Up")}
-              </button>
+                <button
+                  className={classNames(
+                    'hover:shadow-red-600/40 rounded-3xl px-4 py-1.5  transition-all hover:opacity-90 hover:shadow ',
+                    {
+                      'bg-dark-primary text-dark-textPrimary disabled:bg-dark-bgDisabled':
+                        mode === 'dark',
+                      'bg-light-primary text-white disabled:bg-light-bgDisabled':
+                        mode === 'light',
+                    },
+                  )}
+                >
+                  {t('navbar.Sign Up')}
+                </button>
               </Link>
             </div>
           )}

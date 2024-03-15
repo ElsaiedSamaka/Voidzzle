@@ -1,5 +1,5 @@
-import React from "react";
-import { RootLayout, SettingsLayout } from "shared";
+import React from 'react';
+import { RootLayout, SettingsLayout } from 'shared';
 
 const AccountSettings = () => {
   return (
@@ -64,7 +64,7 @@ const AccountSettings = () => {
             </svg>
           </div>
           <p className="mt-2">
-            Can't remember your current password.{" "}
+            Can't remember your current password.{' '}
             <a
               className="text-sm font-semibold text-blue-600 underline decoration-2"
               href="#"
@@ -114,6 +114,5 @@ AccountSettings.getLayout = (page) => {
     </RootLayout>
   );
 };
-
 
 export default AccountSettings;

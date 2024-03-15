@@ -1,15 +1,15 @@
 const translations = {
   en: {
-    "dashboard.title": "Voidzzle | dashboard",
-    "dashboard.name": "dashboard",
-    lang: "English",
-    language: "عربي",
+    'dashboard.title': 'Voidzzle | dashboard',
+    'dashboard.name': 'dashboard',
+    lang: 'English',
+    language: 'عربي',
   },
   ar: {
-    "home.title": "Voidzzle | لوحة التحكم",
-    "dashboard.name": "لوحة التحكم",
-    lang: "العربية",
-    language: "English",
+    'home.title': 'Voidzzle | لوحة التحكم',
+    'dashboard.name': 'لوحة التحكم',
+    lang: 'العربية',
+    language: 'English',
   },
 };
 

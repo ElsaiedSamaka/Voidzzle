@@ -1,14 +1,14 @@
-import * as React from "react";
+import * as React from 'react';
 
-type Dispatch = (action: any) => void;
+type Dispatch = (action) => void;
 type State = {
   formState: {
-    errors: Object;
-    isValid: Boolean;
-    isDirty: Boolean;
-    isSubmitting: Boolean;
+    errors: object;
+    isValid: boolean;
+    isDirty: boolean;
+    isSubmitting: boolean;
   };
-  formValue: Object;
+  formValue: object;
 };
 type FormProviderProps = { children: React.ReactNode };
 const initialState: State = {
@@ -24,10 +24,10 @@ const FormStateContext = React.createContext<
   { state: State; dispatch: Dispatch } | undefined
 >(undefined);
 
-function formStateReducer(state: State, action: any) {
-  const {type,formState:{ errors, isValid, isDirty, isSubmitting },formValue} = action;
+function formStateReducer(state: State, action) {
+  // const {type,formState:{ errors, isValid, isDirty, isSubmitting },formValue} = action;
   switch (type) {
-    case "CHANGE":
+    case 'CHANGE':
       return {
         ...state,
         formState: {
@@ -37,7 +37,7 @@ function formStateReducer(state: State, action: any) {
           ...action.formValue,
         },
       };
-    case "SUBMIT":
+    case 'SUBMIT':
       return {
         ...state,
         formState: {
@@ -64,7 +64,7 @@ function FormStateProvider({ children }: FormProviderProps) {
 function useFormStateContext() {
   const context = React.useContext(FormStateContext);
   if (context === undefined) {
-    throw new Error("useFormState must be used within a FormStateProvider");
+    throw new Error('useFormState must be used within a FormStateProvider');
   }
   return context;
 }

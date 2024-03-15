@@ -63,7 +63,7 @@ const Validators = {
   },
   passwordResetTokenConfirmation: (
     passwordResetToken: string,
-    passwordResetTokenConfirmation: string
+    passwordResetTokenConfirmation: string,
   ) => {
     return passwordResetToken === passwordResetTokenConfirmation;
   },

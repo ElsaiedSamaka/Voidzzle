@@ -1,5 +1,5 @@
-import React from "react";
-import { RootLayout, SettingsLayout } from "shared";
+import React from 'react';
+import { RootLayout, SettingsLayout } from 'shared';
 
 const BillingSettings = () => {
   return (
@@ -27,8 +27,8 @@ const BillingSettings = () => {
                       MONTHLY
                     </strong>
                     <span className="text-xs text-gray-400">
-                      {" "}
-                      Next Renewal: 4 Jan 2022{" "}
+                      {' '}
+                      Next Renewal: 4 Jan 2022{' '}
                     </span>
                   </p>
                 </div>
@@ -47,14 +47,14 @@ const BillingSettings = () => {
                   />
                   <p className="ml-4 w-56">
                     <strong className="block text-lg font-medium">
-                      **** **** **** 453{" "}
+                      **** **** **** 453{' '}
                     </strong>
                     <strong className="block text-lg font-medium">
-                      ALBERT K. DANIEL{" "}
+                      ALBERT K. DANIEL{' '}
                     </strong>
                     <span className="text-xs text-gray-400">
-                      {" "}
-                      Expires on: Dec 2024{" "}
+                      {' '}
+                      Expires on: Dec 2024{' '}
                     </span>
                   </p>
                 </div>

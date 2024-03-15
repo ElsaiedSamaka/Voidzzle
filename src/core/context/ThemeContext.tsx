@@ -1,36 +1,36 @@
-import { createContext, useReducer, useEffect, useContext } from "react";
+import { createContext, useReducer, useEffect, useContext } from 'react';
 
 const theme = {
-  mode: "",
+  mode: '',
 };
 export const ThemeContext = createContext({ theme, dispatch: null });
 
-ThemeContext.displayName = "ThemeContext";
+ThemeContext.displayName = 'ThemeContext';
 
 const storeTheme = (mode) => {
-  localStorage.setItem("theme", mode);
+  localStorage.setItem('theme', mode);
 };
 
 const getStoredTheme = () => {
-  return localStorage.getItem("theme");
+  return localStorage.getItem('theme');
 };
 
 const clearStoredTheme = () => {
-  localStorage.removeItem("theme");
+  localStorage.removeItem('theme');
 };
 
 const getSystemTheme = () => {
-  const mql = window.matchMedia("(prefers-color-scheme: dark)");
-  return mql.matches ? "dark" : "light";
+  const mql = window.matchMedia('(prefers-color-scheme: dark)');
+  return mql.matches ? 'dark' : 'light';
 };
 
 const addThemeToDOM = (mode) => {
-  if (mode === "dark") document.documentElement.classList.add("dark");
-  else document.documentElement.classList.remove("dark");
+  if (mode === 'dark') document.documentElement.classList.add('dark');
+  else document.documentElement.classList.remove('dark');
 };
 
 const init = (initialState) => {
-  let storedTheme = getStoredTheme();
+  const storedTheme = getStoredTheme();
   if (storedTheme) {
     addThemeToDOM(storedTheme);
     return { mode: storedTheme };
@@ -42,32 +42,32 @@ const init = (initialState) => {
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case "LIGHT":
-      storeTheme("light");
-      addThemeToDOM("light");
-      return { mode: "light" };
-    case "DARK":
-      storeTheme("dark");
-      addThemeToDOM("dark");
-      return { mode: "dark" };
-    case "SYSTEM":
+    case 'LIGHT':
+      storeTheme('light');
+      addThemeToDOM('light');
+      return { mode: 'light' };
+    case 'DARK':
+      storeTheme('dark');
+      addThemeToDOM('dark');
+      return { mode: 'dark' };
+    case 'SYSTEM':
       clearStoredTheme();
       addThemeToDOM(getSystemTheme());
-      return { mode: "system" };
+      return { mode: 'system' };
     default:
       return init(state);
   }
 };
 // donot forget to provide the context to the whole app
 const ThemeContextProvider = (props) => {
-  const [state, dispatch] = useReducer(reducer, { mode: "system" });
+  const [state, dispatch] = useReducer(reducer, { mode: 'system' });
 
   useEffect(() => {
-    dispatch({ type: "init" });
+    dispatch({ type: 'init' });
 
     window
-      .matchMedia("(prefers-color-scheme: dark)")
-      .addEventListener("change", ({ matches }) => {
+      .matchMedia('(prefers-color-scheme: dark)')
+      .addEventListener('change', ({ matches }) => {
         if (getStoredTheme()) return;
         addThemeToDOM(getSystemTheme());
       });
@@ -85,7 +85,7 @@ const useThemeContext = () => {
 
   if (!context) {
     throw Error(
-      "Error, ThemeContext must be used inside ThemeContext Provider"
+      'Error, ThemeContext must be used inside ThemeContext Provider',
     );
   }
 

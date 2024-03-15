@@ -1,18 +1,18 @@
 // packages
-import classNames from "classnames";
+import classNames from 'classnames';
 // components
-import Icon from "shared/Common/Icon/Icon";
-import Dailog from "shared/Modals/Dailog/Dailog";
+import Icon from 'shared/Common/Icon/Icon';
+import Dailog from 'shared/Modals/Dailog/Dailog';
 // hooks
-import { useState } from "react";
-import { useThemeContext } from "core/context/ThemeContext";
+import { useState } from 'react';
+import { useThemeContext } from 'core/context/ThemeContext';
 
 const SearchForm = () => {
-      const { theme } = useThemeContext();
+  const { theme } = useThemeContext();
   const { mode } = theme;
-      const [showFilterationDailog, toggleFilterationDailog] =
+  const [showFilterationDailog, toggleFilterationDailog] =
     useState<boolean>(false);
-      function handleFilterDailgoToggle(): void {
+  function handleFilterDailgoToggle(): void {
     toggleFilterationDailog(!showFilterationDailog);
   }
   return (
@@ -41,13 +41,13 @@ const SearchForm = () => {
             name="search"
             id="topbar-search"
             className={classNames(
-              "border rounded-full block w-full ltr:pl-10 rtl:pr-10 p-2",
+              'border rounded-full block w-full ltr:pl-10 rtl:pr-10 p-2',
               {
-                "bg-dark-bgSecondary border-dark-border text-dark-textSecondary ":
-                  mode === "dark",
-                "bg-light-bgSecondary border-light-border text-light-textPrimary":
-                  mode === "light",
-              }
+                'bg-dark-bgSecondary border-dark-border text-dark-textSecondary ':
+                  mode === 'dark',
+                'bg-light-bgSecondary border-light-border text-light-textPrimary':
+                  mode === 'light',
+              },
             )}
             placeholder="Search"
           />
@@ -204,6 +204,6 @@ const SearchForm = () => {
       )}
     </>
   );
-}
+};
 
-export default SearchForm
+export default SearchForm;

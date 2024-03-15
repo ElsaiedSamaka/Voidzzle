@@ -1,11 +1,11 @@
-import dashboardTranslations from "./pages/dashboard";
-import settingsTranslations from "./pages/settings";
-import signupTranslations from "./pages/signup";
-import signinTranslations from "./pages/signin";
-import homeTranslations from "./pages/home";
-import asideTranslations from "./components/Aside/aside";
-import navbarTranslations from "./components/Navbar/navbar";
-import generalTranslations from "./shared/general";
+import dashboardTranslations from './pages/dashboard';
+import settingsTranslations from './pages/settings';
+import signupTranslations from './pages/signup';
+import signinTranslations from './pages/signin';
+import homeTranslations from './pages/home';
+import asideTranslations from './components/Aside/aside';
+import navbarTranslations from './components/Navbar/navbar';
+import generalTranslations from './shared/general';
 
 const allTranslations = {
   en: Object.assign(
@@ -17,7 +17,7 @@ const allTranslations = {
     asideTranslations.en,
     navbarTranslations.en,
     homeTranslations.en,
-    generalTranslations.en
+    generalTranslations.en,
   ),
   ar: Object.assign(
     {},
@@ -28,7 +28,7 @@ const allTranslations = {
     asideTranslations.ar,
     navbarTranslations.ar,
     homeTranslations.ar,
-    generalTranslations.ar
+    generalTranslations.ar,
   ),
 };
 

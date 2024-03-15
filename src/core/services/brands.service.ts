@@ -1,13 +1,13 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import type { Brand } from "../models/index";
-import { HttpReqeusttypes } from "core/types";
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import type { Brand } from '../models/index';
+import { HttpReqeusttypes } from 'core/types';
 const base_url = process.env.NEXT_PUBLIC_BASE_URL;
 
 // Define a service using a base URL and expected endpoints
 export const brandsApi = createApi({
-  reducerPath: "brandApi",
+  reducerPath: 'brandApi',
   baseQuery: fetchBaseQuery({ baseUrl: base_url }),
-  tagTypes: ["Brands"],
+  tagTypes: ['Brands'],
 
   /**
    * Returns an object containing various endpoints for interacting with cars.
@@ -21,7 +21,7 @@ export const brandsApi = createApi({
      */
     getBrands: builder.query<Brand[], void>({
       query: () => `brands`,
-      providesTags: ["Brands"],
+      providesTags: ['Brands'],
     }),
 
     /**
@@ -31,7 +31,7 @@ export const brandsApi = createApi({
      */
     getBrandsByName: builder.query<Brand[], string>({
       query: (name) => `brands?name_like=${name}`,
-      providesTags: ["Brands"],
+      providesTags: ['Brands'],
     }),
 
     /**
@@ -45,7 +45,7 @@ export const brandsApi = createApi({
         method: HttpReqeusttypes.POST,
         body: brand,
       }),
-      invalidatesTags: ["Brands"],
+      invalidatesTags: ['Brands'],
     }),
 
     /**
@@ -59,7 +59,7 @@ export const brandsApi = createApi({
         method: HttpReqeusttypes.PATCH,
         body: brand,
       }),
-      invalidatesTags: ["Brands"],
+      invalidatesTags: ['Brands'],
     }),
 
     /**
@@ -72,7 +72,7 @@ export const brandsApi = createApi({
         url: `brands/${id}`,
         method: HttpReqeusttypes.DELETE,
       }),
-      invalidatesTags: ["Brands"],
+      invalidatesTags: ['Brands'],
     }),
   }),
 });
@@ -81,12 +81,12 @@ export const brandsApi = createApi({
 // auto-generated based on the defined endpoints
 export const { useGetBrandsQuery, useGetBrandsByNameQuery } = brandsApi;
 // usage example
-  // API call
-  // const {
-  //   data = [],
-  //   error,
-  //   isError,
-  //   isLoading,
-  //   isFetching,
-  //   isSuccess,
-  // } = useGetBrandsQuery();
+// API call
+// const {
+//   data = [],
+//   error,
+//   isError,
+//   isLoading,
+//   isFetching,
+//   isSuccess,
+// } = useGetBrandsQuery();

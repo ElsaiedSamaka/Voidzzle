@@ -1,9 +1,9 @@
-import { useState } from "react";
-import copy from "copy-to-clipboard";
+import { useState } from 'react';
+import copy from 'copy-to-clipboard';
 
 /**
  * Custom hook to copy text to clipboard.
- * 
+ *
  * @returns {Array} An array containing the copyToClipboard function and the copy status.
  */
 export default function useCopyToClipboard() {
@@ -12,7 +12,7 @@ export default function useCopyToClipboard() {
 
   /**
    * Copy the given text to clipboard.
-   * 
+   *
    * @param {string} text - The text to be copied.
    * @param {object} options - Optional options for copying.
    */

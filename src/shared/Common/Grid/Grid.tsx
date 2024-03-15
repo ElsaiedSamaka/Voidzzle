@@ -1,8 +1,8 @@
-import Link from "next/link";
-import React from "react";
-import { Card } from "shared";
+import Link from 'next/link';
+import React from 'react';
+import { Card } from 'shared';
 
-const Grid = ({ title = "", path = "" }) => {
+const Grid = ({ title = '', path = '' }) => {
   return (
     <div>
       {/* Grid head */}

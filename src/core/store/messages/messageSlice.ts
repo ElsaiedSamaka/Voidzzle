@@ -18,7 +18,7 @@ const initialState: MessagesState = {
   loading: false,
 };
 
-export const messagesSlice:any = createSlice({
+export const messagesSlice: any = createSlice({
   name: 'messages',
   initialState,
   reducers: {
@@ -49,48 +49,49 @@ export const messagesSlice:any = createSlice({
     // },
   },
   extraReducers: (builder) => {
-    builder
-      // .addCase(fetchMessagesThunk.fulfilled, (state, action) => {
-      //   const { id, messages } = action.payload.data;
-      //   const index = state.messages.findIndex((cm) => cm.id === id);
-      //   const exists = state.messages.find((cm) => cm.id === id);
-      //   if (exists) {
-      //     console.log('exists');
-      //     state.messages[index] = action.payload.data;
-      //   } else {
-      //     state.messages.push(action.payload.data);
-      //   }
-      // })
-      // .addCase(deleteMessageThunk.fulfilled, (state, action) => {
-      //   const { data } = action.payload;
-      //   const conversationMessages = state.messages.find((cm) => cm.id === data.conversationId);
-      //   if (!conversationMessages) return;
-      //   const messageIndex = conversationMessages.messages.findIndex(
-      //     (m) => m.id === data.messageId
-      //   );
-      //   conversationMessages?.messages.splice(messageIndex, 1);
-      // })
-      // .addCase(editMessageThunk.fulfilled, (state, action) => {
-      //   console.log('editMessageThunk.fulfilled');
-      //   const { data: message } = action.payload;
-      //   const { id } = message.conversation;
-      //   const conversationMessage = state.messages.find((cm) => cm.id === id);
-      //   if (!conversationMessage) return;
-      //   const messageIndex = conversationMessage.messages.findIndex((m) => m.id === message.id);
-      //   console.log(messageIndex);
-      //   conversationMessage.messages[messageIndex] = message;
-      //   console.log('Updated Message');
-      // });
+    builder;
+    // .addCase(fetchMessagesThunk.fulfilled, (state, action) => {
+    //   const { id, messages } = action.payload.data;
+    //   const index = state.messages.findIndex((cm) => cm.id === id);
+    //   const exists = state.messages.find((cm) => cm.id === id);
+    //   if (exists) {
+    //     console.log('exists');
+    //     state.messages[index] = action.payload.data;
+    //   } else {
+    //     state.messages.push(action.payload.data);
+    //   }
+    // })
+    // .addCase(deleteMessageThunk.fulfilled, (state, action) => {
+    //   const { data } = action.payload;
+    //   const conversationMessages = state.messages.find((cm) => cm.id === data.conversationId);
+    //   if (!conversationMessages) return;
+    //   const messageIndex = conversationMessages.messages.findIndex(
+    //     (m) => m.id === data.messageId
+    //   );
+    //   conversationMessages?.messages.splice(messageIndex, 1);
+    // })
+    // .addCase(editMessageThunk.fulfilled, (state, action) => {
+    //   console.log('editMessageThunk.fulfilled');
+    //   const { data: message } = action.payload;
+    //   const { id } = message.conversation;
+    //   const conversationMessage = state.messages.find((cm) => cm.id === id);
+    //   if (!conversationMessage) return;
+    //   const messageIndex = conversationMessage.messages.findIndex((m) => m.id === message.id);
+    //   console.log(messageIndex);
+    //   conversationMessage.messages[messageIndex] = message;
+    //   console.log('Updated Message');
+    // });
   },
 });
 
-const selectConversationMessages = (state: RootState) =>null;
+const selectConversationMessages = (state: RootState) => null;
 
 const selectConversationMessageId = (state: RootState, id: number) => id;
 
 export const selectConversationMessage = createSelector(
   [selectConversationMessages, selectConversationMessageId],
-  (conversationMessages, id) => conversationMessages.find((cm:any) => cm.id === id)
+  (conversationMessages, id) =>
+    conversationMessages.find((cm: any) => cm.id === id),
 );
 
 export const { addMessage, deleteMessage, editMessage } = messagesSlice.actions;

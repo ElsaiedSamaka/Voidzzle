@@ -1,11 +1,11 @@
-import React from 'react'
+import React from 'react';
 import { Table } from 'shared';
 
 const Sales = () => {
   return (
     <Table
       _config={{
-        title: "Sales",
+        title: 'Sales',
         _head: {
           show: true,
           _actions: {
@@ -24,6 +24,6 @@ const Sales = () => {
       data={[]}
     />
   );
-}
+};
 
-export default Sales
+export default Sales;

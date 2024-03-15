@@ -1,4 +1,4 @@
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useRef, useState } from 'react';
 
 /**
  * useStateWithHistory is a custom hook that allows you to manage a state value
@@ -12,7 +12,7 @@ import { useCallback, useRef, useState } from "react";
  */
 export default function useStateWithHistory(
   defaultValue,
-  { capacity = 10 } = {}
+  { capacity = 10 } = {},
 ) {
   // Set up the initial state value
   const [value, setValue] = useState(defaultValue);
@@ -27,7 +27,7 @@ export default function useStateWithHistory(
   const set = useCallback(
     (v) => {
       // Resolve the value if it's a function
-      const resolvedValue = typeof v === "function" ? v(value) : v;
+      const resolvedValue = typeof v === 'function' ? v(value) : v;
 
       // Check if the new value is different from the current history value
       if (historyRef.current[pointerRef.current] !== resolvedValue) {
@@ -51,7 +51,7 @@ export default function useStateWithHistory(
       // Set the new value
       setValue(resolvedValue);
     },
-    [capacity, value]
+    [capacity, value],
   );
 
   // Function to navigate back in the history

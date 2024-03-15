@@ -1,11 +1,11 @@
-import React from 'react'
-import { Table } from "shared";
+import React from 'react';
+import { Table } from 'shared';
 
 const Tasks = () => {
   return (
     <Table
       _config={{
-        title: "Tasks",
+        title: 'Tasks',
         _head: {
           show: true,
           _actions: {
@@ -26,4 +26,4 @@ const Tasks = () => {
   );
 };
 
-export default Tasks
+export default Tasks;

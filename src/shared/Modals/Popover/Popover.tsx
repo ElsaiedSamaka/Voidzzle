@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const Popover = ({ content }) => {
   return (
@@ -11,4 +11,4 @@ const Popover = ({ content }) => {
   );
 };
 
-export default Popover
+export default Popover;

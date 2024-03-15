@@ -1,17 +1,17 @@
-import Glide from "@glidejs/glide";
-import { useEffect } from "react";
+import Glide from '@glidejs/glide';
+import { useEffect } from 'react';
 
 function InfiniteCarousel() {
   useEffect(() => {
-    const slider = new Glide(".glide-09", {
-      type: "carousel",
+    const slider = new Glide('.glide-09', {
+      type: 'carousel',
       autoplay: 10,
       animationDuration: 3000,
-      animationTimingFunc: "linear",
+      animationTimingFunc: 'linear',
       perView: 3,
       classes: {
         nav: {
-          active: "[&>*]:bg-zinc-700",
+          active: '[&>*]:bg-zinc-700',
         },
       },
       breakpoints: {

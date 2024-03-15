@@ -1,13 +1,13 @@
-import { RootState } from "core/store";
+import { RootState } from 'core/store';
 import {
   createUserThunk,
   getUsersThunk,
   updateUserThunk,
-} from "core/store/users/users.thunk";
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Table } from "shared";
-import { useSelectedItems } from "shared/Table/shared/context/SelectedItemsContext";
+} from 'core/store/users/users.thunk';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Table } from 'shared';
+import { useSelectedItems } from 'shared/Table/shared/context/SelectedItemsContext';
 
 const Users = () => {
   const usersSlice = useSelector((state: RootState) => state.users);
@@ -15,7 +15,7 @@ const Users = () => {
   const { state, dispatch: dispatchSelectedItems } = useSelectedItems();
   const { items } = state;
   const dispatch = useDispatch();
-  const handleAddetionDispatch = (data: any) => {
+  const handleAddetionDispatch = (data) => {
     dispatch(createUserThunk(data));
   };
   const handleUpdateDispatch = (data) => {
@@ -23,34 +23,36 @@ const Users = () => {
   };
   const handleDeleteAll = () => {
     const ids = items.map((item) => item.id);
+    console.log(ids);
     // dispatch(deleteAllProductsThunk(ids));
     dispatchSelectedItems({
-      type: "reset",
+      type: 'reset',
     });
   };
   const handleItemsSearch = (query: string) => {
+    console.log(query);
     //  dispatch(searchProductsThunk(query));
   };
   const handleGetBrandsDispatch = () => {
     //  dispatch(getBrandsThunk());
   };
   const th = [
-    { label: "email", id: 1 },
-    { label: "phonenumber", id: 2 },
-    { label: "birthdate", id: 3 },
-    { label: "address", id: 4 },
-    { label: "firstname", id: 5 },
-    { label: "lastname", id: 6 },
+    { label: 'email', id: 1 },
+    { label: 'phonenumber', id: 2 },
+    { label: 'birthdate', id: 3 },
+    { label: 'address', id: 4 },
+    { label: 'firstname', id: 5 },
+    { label: 'lastname', id: 6 },
   ];
   useEffect(() => {
     dispatch(getUsersThunk());
   }, []);
   const formFields = [
     {
-      name: "name",
-      label: "name",
-      id: "name",
-      type: "text",
+      name: 'name',
+      label: 'name',
+      id: 'name',
+      type: 'text',
       // required: true,
       // maxLength: 20,
       // minLength: 10,
@@ -65,67 +67,67 @@ const Users = () => {
       // ],
     },
     {
-      name: "description",
-      label: "description",
-      id: "description",
-      type: "text-area",
+      name: 'description',
+      label: 'description',
+      id: 'description',
+      type: 'text-area',
       // required: true,
       // maxLength: 20,
       // minLength: 10,
       // validation: [],
     },
     {
-      name: "price",
-      label: "price",
-      id: "price",
-      type: "number",
+      name: 'price',
+      label: 'price',
+      id: 'price',
+      type: 'number',
       // required: true,
       // maxLength: 20,
       // minLength: 10,
       // validation: [],
     },
     {
-      name: "stock",
-      label: "stock",
-      id: "stock",
-      type: "number",
+      name: 'stock',
+      label: 'stock',
+      id: 'stock',
+      type: 'number',
       // required: true,
       // maxLength: 20,
       // minLength: 10,
       // validation: [],
     },
     {
-      name: "availablity",
-      label: "availablity",
-      id: "availablity",
-      type: "checkbox",
+      name: 'availablity',
+      label: 'availablity',
+      id: 'availablity',
+      type: 'checkbox',
       // required: true,
       // validation: [],
     },
     {
-      name: "product_img",
-      id: "product_img",
-      type: "file",
+      name: 'product_img',
+      id: 'product_img',
+      type: 'file',
       required: false,
     },
   ];
   const defaultValues = {
-    name: "product name",
-    brand: "",
+    name: 'product name',
+    brand: '',
     price: 1,
     date: null,
-    category: "",
-    description: "",
+    category: '',
+    description: '',
     test: {
-      temp1: "",
-      temp2: "",
+      temp1: '',
+      temp2: '',
     },
     array: [{ field: null }],
   };
   return (
     <Table
       _config={{
-        title: "Users",
+        title: 'Users',
         _head: {
           show: true,
           _actions: {

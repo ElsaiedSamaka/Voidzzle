@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback } from 'react';
 
 /**
  * useStateWithValidation is a custom hook that provides state management with validation.
@@ -20,11 +20,11 @@ export default function useStateWithValidation(validationFunc, initialValue) {
   const onChange = useCallback(
     (nextState) => {
       const value =
-        typeof nextState === "function" ? nextState(state) : nextState;
+        typeof nextState === 'function' ? nextState(state) : nextState;
       setState(value);
       setIsValid(validationFunc(value));
     },
-    [validationFunc]
+    [validationFunc],
   );
 
   return [state, onChange, isValid];

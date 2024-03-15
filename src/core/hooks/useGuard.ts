@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
 export function useGuard() {
   const [loading, setLoading] = useState(false);
@@ -6,7 +6,7 @@ export function useGuard() {
   const controller = new AbortController();
 
   useEffect(() => {
-    console.log("Fetching Group");
+    console.log('Fetching Group');
     setLoading(true);
 
     return () => {

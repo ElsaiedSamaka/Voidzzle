@@ -1,11 +1,11 @@
 export type User = {
-  firstname:string;
+  firstname: string;
   lastname: string;
   email: string;
   phone?: number;
-  role?:string;
+  role?: string;
   address?: string;
-  companyName?:string;
+  companyName?: string;
   password?: string;
   passwordConfirmation?: string;
   profileImage?: string;

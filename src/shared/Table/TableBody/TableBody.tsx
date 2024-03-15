@@ -1,10 +1,10 @@
-import { deleteProductThunk } from "core/store/products/products.thunk";
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import Form from "shared/Forms/Form";
-import Dailog from "shared/Modals/Dailog/Dailog";
-import Popover from "shared/Modals/Popover/Popover";
-import { useSelectedItems } from "../shared/context/SelectedItemsContext";
+import { deleteProductThunk } from 'core/store/products/products.thunk';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import Form from 'shared/Forms/Form';
+import Dailog from 'shared/Modals/Dailog/Dailog';
+import Popover from 'shared/Modals/Popover/Popover';
+import { useSelectedItems } from '../shared/context/SelectedItemsContext';
 
 const TableBody = ({
   _config,
@@ -52,12 +52,12 @@ const TableBody = ({
     });
     if (itemIndex !== -1) {
       dispatchSelectedItems({
-        type: "remove",
+        type: 'remove',
         payload: item.id,
       });
     } else {
       dispatchSelectedItems({
-        type: "add",
+        type: 'add',
         payload: [item],
       });
     }
@@ -69,10 +69,10 @@ const TableBody = ({
     // If there are items in the list
     if (items.length > 0) {
       // Reset the selected items
-      dispatchSelectedItems({ type: "reset" });
+      dispatchSelectedItems({ type: 'reset' });
     } else {
       // Add all items to the selected items list
-      dispatchSelectedItems({ type: "add", payload: data.items });
+      dispatchSelectedItems({ type: 'add', payload: data.items });
     }
   }
   return (
@@ -124,7 +124,7 @@ const TableBody = ({
                           <input
                             value={item.id}
                             checked={items.some(
-                              (selectedItem) => selectedItem.id == item.id
+                              (selectedItem) => selectedItem.id == item.id,
                             )}
                             onChange={() => {
                               handleItemSelect(item);
@@ -325,14 +325,14 @@ const EditDailogHeader = ({ handleModalToggle }) => {
           className="w-5 h-5"
           fill="none"
           stroke="currentColor"
-          stroke-width="1.5"
+          strokeWidth="1.5"
           viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg"
           aria-hidden="true"
         >
           <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeLinecap="round"
+            strokeLinejoin="round"
             d="M6 18L18 6M6 6l12 12"
           ></path>
         </svg>
@@ -364,14 +364,14 @@ const PreviewDailogHeader = ({ handleModalToggle }) => {
           className="w-5 h-5"
           fill="none"
           stroke="currentColor"
-          stroke-width="1.5"
+          strokeWidth="1.5"
           viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg"
           aria-hidden="true"
         >
           <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeLinecap="round"
+            strokeLinejoin="round"
             d="M6 18L18 6M6 6l12 12"
           ></path>
         </svg>
@@ -395,15 +395,11 @@ const PreviewDailogBody = ({ item, handleModalToggle }) => {
           </div>
         </div>
         <dl>
-          <dt className="mb-2 font-semibold leading-none  ">
-            Details
-          </dt>
+          <dt className="mb-2 font-semibold leading-none  ">Details</dt>
           <dd className="mb-4 font-light sm:mb-5 :text-gray-400">
-            {item.description ? item.description : "N/A"}
+            {item.description ? item.description : 'N/A'}
           </dd>
-          <dt className="mb-2 font-semibold leading-none  ">
-            Colors
-          </dt>
+          <dt className="mb-2 font-semibold leading-none  ">Colors</dt>
           <dd className="mb-4 font-light sm:mb-5 :text-gray-400">
             <span className="w-5 h-5 bg-red-500 rounded-full">
               <div>
@@ -418,11 +414,9 @@ const PreviewDailogBody = ({ item, handleModalToggle }) => {
               </div>
             </span>
           </dd>
-          <dt className="mb-2 font-semibold leading-none  ">
-            Category
-          </dt>
+          <dt className="mb-2 font-semibold leading-none  ">Category</dt>
           <dd className="mb-4 font-light sm:mb-5 :text-gray-400">
-            {item.category ? item.category : "N/A"}
+            {item.category ? item.category : 'N/A'}
           </dd>
         </dl>
         <div>
