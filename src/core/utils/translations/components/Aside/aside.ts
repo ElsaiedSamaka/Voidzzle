@@ -8,6 +8,11 @@ const translations = {
     'aside.analytics': 'Analytics',
     'aside.notifications': 'Notifications',
     'aside.logout': 'Logout',
+    'aside.billing':'Billing',
+    'aside.account':'Account',
+    'aside.notification':'Notification',
+    'aside.refund':'Refund',
+    'aside.dashboard':'Dashboard'
   },
   ar: {
     'aside.home': 'الرئيسية',
@@ -18,6 +23,11 @@ const translations = {
     'aside.analytics': 'تحليلات',
     'aside.notifications': 'الإشعارات',
     'aside.logout': 'تسجيل الخروج',
+    'aside.billing':'الفواتير',
+    'aside.account':'الحساب',
+    'aside.notification':'الإشعارات',
+    'aside.refund': 'مرتجعات',
+    'aside.dashboard': 'لوحة التحكم'
   },
 };
 
