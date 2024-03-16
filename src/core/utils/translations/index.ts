@@ -9,6 +9,7 @@ import generalTranslations from './shared/general';
 import profileTranslations from './pages/profile';
 import billingTranslations from './pages/settings/billing';
 import notificationsTranslations from './pages/settings/notifications';
+import accountTranslations from './pages/settings/account';
 
 const allTranslations = {
   en: Object.assign(
@@ -23,7 +24,8 @@ const allTranslations = {
     generalTranslations.en,
     profileTranslations.en,
     billingTranslations.en,
-    notificationsTranslations.en
+    notificationsTranslations.en,
+    accountTranslations.en
   ),
   ar: Object.assign(
     {},
@@ -37,7 +39,8 @@ const allTranslations = {
     generalTranslations.ar,
     profileTranslations.ar,
     billingTranslations.ar,
-    notificationsTranslations.ar
+    notificationsTranslations.ar,
+    accountTranslations.ar
   ),
 };
 
