@@ -1,10 +1,8 @@
-import { RootState } from 'core/store';
 import Link from 'next/link';
 import { useThemeContext } from 'core/context/ThemeContext';
 import classNames from 'classnames';
-const ProductCard = ({ id = null }) => {
-  const { theme } = useThemeContext();
-  const { mode } = theme;
+const ProductCard = ({ id }) => {
+  const { theme: {mode} } = useThemeContext();
   return (
     <li>
       <div
