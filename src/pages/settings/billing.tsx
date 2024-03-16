@@ -1,14 +1,28 @@
-import React from 'react';
+// Layouts
 import { RootLayout, SettingsLayout } from 'shared';
+// Packages
+import Head from 'next/head';
+// Hooks & Services
+import {useTranslation} from 'core/context/TranslationContext';
 
 const BillingSettings = () => {
+  const { t } = useTranslation();
+
   return (
+    <>
+    <Head>
+        <title>{t('billing.title')}</title>
+        <meta
+          name="description"
+          content="Next.js + SWR codebase containing realworld examples (CRUD, auth, advanced patterns, etc) that adheres to the realworld spec and API"
+        />
+      </Head>
     <div className="mx-4  sm:mx-8 xl:mx-auto">
-      <h1 className="border-b py-6 text-4xl font-semibold">Settings</h1>
+      <h1 className="border-b py-6 text-4xl font-semibold">{t('settings.name')}</h1>
       <div className="grid grid-cols-8 pt-3 pb-10 sm:grid-cols-10">
         <div className="col-span-10 rounded-xl sm:bg-gray-50 sm:px-8 sm:shadow">
           <div className="pt-4">
-            <h1 className="py-2 text-2xl font-semibold">Billing settings</h1>
+            <h1 className="py-2 text-2xl font-semibold">{t('billing.name')}</h1>
             {/* <p class="font- text-slate-600">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p> */}
           </div>
           <hr className="mt-4 mb-8" />
@@ -42,6 +56,7 @@ const BillingSettings = () => {
                 </div>
                 <div className="flex items-center rounded-md border border-gray-100 bg-white py-3 shadow">
                   <img
+                    title="Visa"
                     className="h-10 object-contain pl-4"
                     src="/images/kt10d0A1TgzZpAoNM_YPX.png"
                   />
@@ -179,6 +194,8 @@ const BillingSettings = () => {
         </div>
       </div>
     </div>
+    </>
+    
   );
 };
 

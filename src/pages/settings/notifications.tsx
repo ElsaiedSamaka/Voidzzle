@@ -1,15 +1,27 @@
-import React from 'react';
 import { SettingsLayout, RootLayout } from 'shared';
-
+// Packages
+import Head from 'next/head';
+// Hooks & Services
+import {useTranslation} from 'core/context/TranslationContext';
 const NotificationsSettings = () => {
+  const { t } = useTranslation();
+
   return (
+    <>
+    <Head>
+        <title>{t('notifications.title')}</title>
+        <meta
+          name="description"
+          content="Next.js + SWR codebase containing realworld examples (CRUD, auth, advanced patterns, etc) that adheres to the realworld spec and API"
+        />
+      </Head>
     <div className="mx-4 min-h-screen sm:mx-8 xl:mx-auto">
-      <h1 className="border-b py-6 text-4xl font-semibold">Settings</h1>
+      <h1 className="border-b py-6 text-4xl font-semibold">{t('settings.name')}</h1>
       <div className="grid grid-cols-8 pt-3 sm:grid-cols-10">
         <div className="col-span-10 overflow-hidden rounded-xl bg-gray-50 px-8 shadow">
           <div className="border-b pt-4 pb-8">
             <h1 className="py-2 text-2xl font-semibold">
-              Notification settings
+              {t('notifications.name')}
             </h1>
             <p className="font- text-slate-600">
               Lorem ipsum dolor, sit amet consectetur adipisicing elit.
@@ -198,6 +210,7 @@ const NotificationsSettings = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 NotificationsSettings.getLayout = (page) => {
