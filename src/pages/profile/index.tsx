@@ -21,16 +21,17 @@ const Profile = () => {
         <h1 className="border-b py-6 text-4xl font-semibold">{t('profile.name')}</h1>
         <div className="flex items-center">
           {/* Tab Navs */}
-          <nav className="grid gap-4" aria-label="Tabs" role="tablist">
+          <nav className="grid gap-4 text-zinc-500" aria-label="Tabs" role="tablist">
+            {/* TODO: make a custom active class so that active tab have b-white and some shadow */}
             <button
               type="button"
-              className="hs-tab-active:bg-white hs-tab-active:shadow-md hs-tab-active:hover:border-transparent text-left hover:bg-gray-200 p-4 md:p-5 rounded-xl :hs-tab-active:bg-slate-900 :hover:bg-gray-700 active"
+              className="text-left hover:bg-gray-200 p-4 md:p-5 rounded-xl active"
               id="tabs-with-card-item-1"
               role="tab"
             >
               <span className="flex">
                 <svg
-                  className="flex-shrink-0 mt-2 h-6 w-6 md:w-7 md:h-7 hs-tab-active:text-blue-600 text-gray-800 :hs-tab-active:text-blue-500 :text-gray-200"
+                  className="flex-shrink-0 mt-2 h-6 w-6 md:w-7 md:h-7"
                   fill="none"
                   stroke="currentColor"
                   strokeWidth={1.5}
@@ -45,10 +46,10 @@ const Profile = () => {
                   />
                 </svg>
                 <span className="grow ml-6">
-                  <span className="block text-lg font-semibold hs-tab-active:text-blue-600 text-gray-800 :hs-tab-active:text-blue-500 :text-gray-200">
+                  <span className="block text-lg font-semibold ">
                     Wish list
                   </span>
-                  <span className="block mt-1 text-gray-800 :hs-tab-active:text-gray-200 :text-gray-200">
+                  <span className="block mt-1 ">
                     Use Preline thoroughly thought and automated libraries to
                     manage your businesses.
                   </span>
@@ -57,13 +58,13 @@ const Profile = () => {
             </button>
             <button
               type="button"
-              className="hs-tab-active:bg-white hs-tab-active:shadow-md hs-tab-active:hover:border-transparent text-left hover:bg-gray-200 p-4 md:p-5 rounded-xl :hs-tab-active:bg-slate-900 :hover:bg-gray-700"
+              className="text-left hover:bg-gray-200 p-4 md:p-5 rounded-xl"
               id="tabs-with-card-item-2"
               role="tab"
             >
               <span className="flex">
                 <svg
-                  className="flex-shrink-0 mt-2 h-6 w-6 md:w-7 md:h-7 hs-tab-active:text-blue-600 text-gray-800  :hs-tab-active:text-blue-500 :text-gray-200"
+                  className="flex-shrink-0 mt-2 h-6 w-6 md:w-7 md:h-7 "
                   fill="none"
                   stroke="currentColor"
                   strokeWidth={1.5}
@@ -78,10 +79,10 @@ const Profile = () => {
                   />
                 </svg>
                 <span className="grow ml-6">
-                  <span className="block text-lg font-semibold hs-tab-active:text-blue-600 text-gray-800 :hs-tab-active:text-blue-500 :text-gray-200">
+                  <span className="block text-lg font-semibold ">
                     Orders
                   </span>
-                  <span className="block mt-1 text-gray-800 :hs-tab-active:text-gray-200 :text-gray-200">
+                  <span className="block mt-1 ">
                     Quickly Preline sample components, copy-paste codes, and
                     start right off.
                   </span>
@@ -90,12 +91,12 @@ const Profile = () => {
             </button>
             <button
               type="button"
-              className="hs-tab-active:bg-white hs-tab-active:shadow-md hs-tab-active:hover:border-transparent text-left hover:bg-gray-200 p-4 md:p-5 rounded-xl :hs-tab-active:bg-slate-900 :hover:bg-gray-700"
+              className="text-left hover:bg-gray-200 p-4 md:p-5 rounded-xl "
               role="tab"
             >
               <span className="flex">
                 <svg
-                  className="flex-shrink-0 mt-2 h-6 w-6 md:w-7 md:h-7 hs-tab-active:text-blue-600 text-gray-800  :hs-tab-active:text-blue-500 :text-gray-200"
+                  className="flex-shrink-0 mt-2 h-6 w-6 md:w-7 md:h-7 "
                   fill="none"
                   stroke="currentColor"
                   strokeWidth={1.5}
@@ -110,10 +111,10 @@ const Profile = () => {
                   />
                 </svg>
                 <span className="grow ml-6">
-                  <span className="block text-lg font-semibold hs-tab-active:text-blue-600 text-gray-800 :hs-tab-active:text-blue-500 :text-gray-200">
+                  <span className="block text-lg font-semibold ">
                     Buying requests
                   </span>
-                  <span className="block mt-1 text-gray-800 :hs-tab-active:text-gray-200 :text-gray-200">
+                  <span className="block mt-1 ">
                     Reduce time and effort on building modern look design with
                     Preline only.
                   </span>
@@ -122,14 +123,14 @@ const Profile = () => {
             </button>
             <button
               type="button"
-              className="hs-tab-active:bg-white hs-tab-active:shadow-md hs-tab-active:hover:border-transparent text-left hover:bg-gray-200 p-4 md:p-5 rounded-xl :hs-tab-active:bg-slate-900 :hover:bg-gray-700"
+              className="text-left hover:bg-gray-200 p-4 md:p-5 rounded-xl "
               id="tabs-with-card-item-3"
               role="tab"
             >
               <span className="flex">
                 <svg
                   fill="none"
-                  className="flex-shrink-0 mt-2 h-6 w-6 md:w-7 md:h-7 hs-tab-active:text-blue-600 text-gray-800  :hs-tab-active:text-blue-500 :text-gray-200"
+                  className="flex-shrink-0 mt-2 h-6 w-6 md:w-7 md:h-7 "
                   stroke="currentColor"
                   strokeWidth={1.5}
                   viewBox="0 0 24 24"
@@ -143,10 +144,10 @@ const Profile = () => {
                   />
                 </svg>
                 <span className="grow ml-6">
-                  <span className="block text-lg font-semibold hs-tab-active:text-blue-600 text-gray-800 :hs-tab-active:text-blue-500 :text-gray-200">
+                  <span className="block text-lg font-semibold ">
                     Refund requests
                   </span>
-                  <span className="block mt-1 text-gray-800 :hs-tab-active:text-gray-200 :text-gray-200">
+                  <span className="block mt-1 ">
                     Reduce time and effort on building modern look design with
                     Preline only.
                   </span>
