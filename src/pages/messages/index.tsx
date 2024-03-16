@@ -1,13 +1,26 @@
-import React from 'react';
 import { MessagesLayout, RootLayout } from 'shared';
+// Packages
+import Head from 'next/head';
+// Hooks & Services
+import {useTranslation} from 'core/context/TranslationContext';
 
 const Messages = () => {
+  const { t } = useTranslation();
+
   return (
-    <section className="flex h-[94vh] overflow-hidden flex-col gap-2 pt-4 ">
+    <>
+<Head>
+        <title>{t('billing.title')}</title>
+        <meta
+          name="description"
+          content="Next.js + SWR codebase containing realworld examples (CRUD, auth, advanced patterns, etc) that adheres to the realworld spec and API"
+        />
+      </Head>
+<section className="flex h-[94vh] overflow-hidden flex-col gap-2 pt-4 ">
       <div className="grid grid-cols-5 gap-4 h-full">
         <div className="sm:col-span-2 xs:col-span-full h-full p-2 border rounded-xl rounded-b-none  sm:bg-gray-50 sm:px-8 sm:shadow">
           <div className="flex items-center justify-between border-b">
-            <span className="text-xl font-semibold my-2">conversations</span>
+            <span className="text-xl font-semibold my-2">{t('messages.name')}</span>
             <span className="relative group">
               {/* settings icon */}
               <svg
@@ -185,6 +198,7 @@ const Messages = () => {
         {/* detailed content */}
       </div>
     </section>
+</>
   );
 };
 Messages.getLayout = (page) => {
