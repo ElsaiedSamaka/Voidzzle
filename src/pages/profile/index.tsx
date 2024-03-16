@@ -1,10 +1,24 @@
+// Components
 import { Card, ProfileLayout, RootLayout } from 'shared';
+// Packages
+import Head from 'next/head';
+// Hooks & Services
+import {useTranslation} from 'core/context/TranslationContext';
 
 const Profile = () => {
+  const { t } = useTranslation();
+
   return (
     <>
-      <div className="mx-4 ">
-        <h1 className="border-b py-6 text-4xl font-semibold">Profile</h1>
+      <Head>
+        <title>{t('profile.title')}</title>
+        <meta
+          name="description"
+          content="Next.js + SWR codebase containing realworld examples (CRUD, auth, advanced patterns, etc) that adheres to the realworld spec and API"
+        />
+      </Head>
+      <div className="mx-4">
+        <h1 className="border-b py-6 text-4xl font-semibold">{t('profile.name')}</h1>
         <div className="flex items-center">
           {/* Tab Navs */}
           <nav className="grid gap-4" aria-label="Tabs" role="tablist">
@@ -12,8 +26,6 @@ const Profile = () => {
               type="button"
               className="hs-tab-active:bg-white hs-tab-active:shadow-md hs-tab-active:hover:border-transparent text-left hover:bg-gray-200 p-4 md:p-5 rounded-xl :hs-tab-active:bg-slate-900 :hover:bg-gray-700 active"
               id="tabs-with-card-item-1"
-              data-hs-tab="#tabs-with-card-1"
-              aria-controls="tabs-with-card-1"
               role="tab"
             >
               <span className="flex">
@@ -47,8 +59,6 @@ const Profile = () => {
               type="button"
               className="hs-tab-active:bg-white hs-tab-active:shadow-md hs-tab-active:hover:border-transparent text-left hover:bg-gray-200 p-4 md:p-5 rounded-xl :hs-tab-active:bg-slate-900 :hover:bg-gray-700"
               id="tabs-with-card-item-2"
-              data-hs-tab="#tabs-with-card-2"
-              aria-controls="tabs-with-card-2"
               role="tab"
             >
               <span className="flex">
@@ -81,9 +91,6 @@ const Profile = () => {
             <button
               type="button"
               className="hs-tab-active:bg-white hs-tab-active:shadow-md hs-tab-active:hover:border-transparent text-left hover:bg-gray-200 p-4 md:p-5 rounded-xl :hs-tab-active:bg-slate-900 :hover:bg-gray-700"
-              id="tabs-with-card-item-3"
-              data-hs-tab="#tabs-with-card-3"
-              aria-controls="tabs-with-card-3"
               role="tab"
             >
               <span className="flex">
@@ -117,8 +124,6 @@ const Profile = () => {
               type="button"
               className="hs-tab-active:bg-white hs-tab-active:shadow-md hs-tab-active:hover:border-transparent text-left hover:bg-gray-200 p-4 md:p-5 rounded-xl :hs-tab-active:bg-slate-900 :hover:bg-gray-700"
               id="tabs-with-card-item-3"
-              data-hs-tab="#tabs-with-card-3"
-              aria-controls="tabs-with-card-3"
               role="tab"
             >
               <span className="flex">

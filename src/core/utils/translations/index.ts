@@ -6,6 +6,7 @@ import homeTranslations from './pages/home';
 import asideTranslations from './components/Aside/aside';
 import navbarTranslations from './components/Navbar/navbar';
 import generalTranslations from './shared/general';
+import profileTranslations from './pages/profile';
 
 const allTranslations = {
   en: Object.assign(
@@ -18,6 +19,7 @@ const allTranslations = {
     navbarTranslations.en,
     homeTranslations.en,
     generalTranslations.en,
+    profileTranslations.en
   ),
   ar: Object.assign(
     {},
@@ -29,6 +31,7 @@ const allTranslations = {
     navbarTranslations.ar,
     homeTranslations.ar,
     generalTranslations.ar,
+    profileTranslations.ar
   ),
 };
 
