@@ -18,11 +18,10 @@ const Profile = () => {
         />
       </Head>
       <div className="mx-4">
-        <h1 className="border-b py-6 text-4xl font-semibold">{t('profile.name')}</h1>
+        <h1 className="border-b border-zinc-500/20 py-6 text-4xl font-semibold">{t('profile.name')}</h1>
         <div className="flex items-center">
           {/* Tab Navs */}
           <nav className="grid gap-4 text-zinc-500" aria-label="Tabs" role="tablist">
-            {/* TODO: make a custom active class so that active tab have b-white and some shadow */}
             <button
               type="button"
               className="text-left hover:bg-gray-200 p-4 md:p-5 rounded-xl active"
