@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { useThemeContext } from 'core/context/ThemeContext';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Switch from '../Switch/Switch';
 
 const ThemeSwitcher = () => {
@@ -14,10 +14,6 @@ const ThemeSwitcher = () => {
   }
   function setLightTheme() {
     dispatch({ type: 'LIGHT' });
-    handleThemePopOver();
-  }
-  function setSystemTheme() {
-    dispatch({ type: 'SYSTEM' });
     handleThemePopOver();
   }
   function handleThemePopOver() {
@@ -72,7 +68,6 @@ const ThemeSwitcher = () => {
         )}
       >
         <div
-          role="menu"
           className={classNames(
             'z-50 min-w-[8rem]  rounded-md border p-1 text-foreground-light shadow-md max-w-60',
             { 'border-light-border': mode === 'light' },
@@ -82,10 +77,9 @@ const ThemeSwitcher = () => {
           <div role="group">
             <div
               onClick={setDarkTheme}
-              role="menuitemradio"
               className="relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-xs outline-none transition-colors focus:bg-overlay-hover focus:text-strong hover:cursor-pointer  hover:bg-white/10"
             >
-              <span className="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">
+              {mode === 'dark' && (<span className="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">
                 <span>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -102,15 +96,29 @@ const ThemeSwitcher = () => {
                     <circle cx={12} cy={12} r={10} />
                   </svg>
                 </span>
-              </span>
+              </span>)}
               Dark
             </div>
             <div
               onClick={setLightTheme}
-              role="menuitemradio"
               className="relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-xs outline-none transition-colors focus:bg-overlay-hover focus:text-strong hover:cursor-pointer hover:bg-white/10"
             >
-              <span className="absolute left-2 flex h-3.5 w-3.5 items-center justify-center" />
+            {mode === 'light' && (<span className="absolute left-2 flex h-3.5 w-3.5 items-center justify-center" >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width={24}
+                    height={24}
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="h-2 w-2 fill-current"
+                  >
+                    <circle cx={12} cy={12} r={10} />
+                  </svg>
+              </span>)}  
               Light
             </div>
           </div>
