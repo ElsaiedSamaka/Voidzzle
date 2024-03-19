@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import classNames from 'classnames';
 import { useThemeContext } from 'core/context/ThemeContext';
 import useTranslation from 'core/hooks/useTranslation';
@@ -28,6 +29,7 @@ const Signup = () => {
   const { t } = useTranslation(locale);
   const { state } = useFormStateContext();
   const {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     formState: { errors, isValid, isDirty, isSubmitting },
     formValue,
   } = state;

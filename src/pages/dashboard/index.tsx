@@ -1,18 +1,15 @@
-import React, { useContext } from 'react';
-import { DashboardLayout, RootLayout, Table, Tabs } from 'shared';
-import { TabContext, TabProvider } from 'core/context/TabContext';
+// Components
+import { TabProvider } from 'core/context/TabContext';
 import Content from 'views/Innova.views/content.innova/Content';
+import { DashboardLayout, RootLayout, Tabs } from 'shared';
+// Utiles & Services
 import Head from 'next/head';
-import { useRouter } from 'next/router';
-import { useThemeContext } from 'core/context/ThemeContext';
-import useTranslation from 'core/hooks/useTranslation';
+// Hooks
+import { useTranslation } from 'core/context/TranslationContext';
+
 
 const Dashboard = () => {
-  const router = useRouter();
-  const { locale } = router;
-  const { theme } = useThemeContext();
-  const { mode } = theme;
-  const { t } = useTranslation(locale);
+  const { t } = useTranslation();
   return (
     <>
       <Head>

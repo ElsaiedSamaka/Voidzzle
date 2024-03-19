@@ -1,6 +1,3 @@
-import { RootState } from 'core/store';
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import TableHead from './TableHead/TableHead';
 import TableBody from './TableBody/TableBody';
 import TableFooter from './TableFooter/TableFooter';

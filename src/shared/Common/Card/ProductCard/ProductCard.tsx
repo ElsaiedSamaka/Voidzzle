@@ -9,11 +9,11 @@ const ProductCard = ({ id }) => {
     <li>
       <div
         className={classNames(
-          'relative  flex w-full  flex-col overflow-hidden rounded-2xl border',
+          'relative  flex w-full bg-zinc-500/10  flex-col overflow-hidden rounded-2xl border',
           {
-            'bg-dark-bgPrimary text-dark-textSecondary border-dark-border':
+            ' text-dark-textSecondary border-dark-border':
               mode === 'dark',
-            'bg-light-bgPrimary text-light-textSecondary border-light-border':
+            ' text-light-textSecondary border-light-border':
               mode === 'light',
           },
         )}
@@ -62,7 +62,7 @@ const ProductCard = ({ id }) => {
               </h5>
             </div>
           </Link>
-          <a className="flex items-center justify-center rounded-2xl border px-5 py-2.5 text-center text-sm font-medium transition-all duration-300 hover:cursor-pointer focus:outline-none focus:ring-4 focus:ring-red-300">
+          <a className="flex border border-transparent items-center justify-center rounded-2xl  px-5 py-2.5 text-center text-sm font-medium transition-all duration-300 hover:cursor-pointer hover:bg-white/10 hover:border hover:border-white/50 focus:outline-none focus:ring-4 focus:ring-red-300">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="mr-2 h-6 w-6"

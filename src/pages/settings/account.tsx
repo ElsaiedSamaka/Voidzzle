@@ -3,6 +3,7 @@ import { RootLayout, SettingsLayout } from 'shared';
 import Head from 'next/head';
 // Hooks & Services
 import { useTranslation } from 'core/context/TranslationContext';
+
 const AccountSettings = () => {
   const { t } = useTranslation();
 
@@ -16,51 +17,51 @@ const AccountSettings = () => {
         />
       </Head>
       <div className="mx-4 min-h-screen sm:mx-8 xl:mx-auto">
-        <h1 className="border-b py-6 text-4xl font-semibold">
+        <h1 className="border-b border-zinc-500/50 py-6 text-4xl font-semibold">
           {t('settings.name')}
         </h1>
         <div className="grid grid-cols-8 pt-3 sm:grid-cols-10">
-          <div className="col-span-10 overflow-hidden rounded-xl sm:bg-gray-50 sm:px-8 sm:shadow">
+          <div className="col-span-10 overflow-hidden rounded-xl bg-zinc-500/10  sm:px-8 sm:shadow">
             <div className="pt-4">
               <h1 className="py-2 text-2xl font-semibold">
                 {t('account.name')}
               </h1>
-              {/* <p class="font- text-slate-600">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p> */}
+              <p class="">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
             </div>
-            <hr className="mt-4 mb-8" />
+            <hr className="mt-4 mb-8 border border-zinc-500/50" />
             <p className="py-2 text-xl font-semibold">Email Address</p>
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
-              <p className="text-gray-600">
+              <p className="">
                 Your email address is <strong>john.doe@company.com</strong>
               </p>
               <button className="inline-flex text-sm font-semibold text-blue-600 underline decoration-2">
                 Change
               </button>
             </div>
-            <hr className="mt-4 mb-8" />
+            <hr className="mt-4 mb-8 border border-zinc-500/50" />
             <p className="py-2 text-xl font-semibold">Password</p>
             <div className="flex items-center">
               <div className="flex flex-col space-y-2 sm:flex-row sm:space-y-0 sm:space-x-3">
                 <label htmlFor="login-password">
-                  <span className="text-sm text-gray-500">
+                  <span className="text-sm">
                     Current Password
                   </span>
                   <div className="relative flex overflow-hidden rounded-md border-2 transition focus-within:border-blue-600">
                     <input
                       type="password"
                       id="login-password"
-                      className="w-full flex-shrink appearance-none border-gray-300 bg-white py-2 px-4 text-base text-gray-700 placeholder-gray-400 focus:outline-none"
+                      className="w-full flex-shrink appearance-none border-gray-300  py-2 px-4 text-base text-gray-700 placeholder-gray-400 focus:outline-none"
                       placeholder="***********"
                     />
                   </div>
                 </label>
                 <label htmlFor="login-password">
-                  <span className="text-sm text-gray-500">New Password</span>
+                  <span className="text-sm ">New Password</span>
                   <div className="relative flex overflow-hidden rounded-md border-2 transition focus-within:border-blue-600">
                     <input
                       type="password"
                       id="login-password"
-                      className="w-full flex-shrink appearance-none border-gray-300 bg-white py-2 px-4 text-base text-gray-700 placeholder-gray-400 focus:outline-none"
+                      className="w-full flex-shrink appearance-none border-gray-300  py-2 px-4 text-base text-gray-700 focus:outline-none"
                       placeholder="***********"
                     />
                   </div>
@@ -82,7 +83,7 @@ const AccountSettings = () => {
               </svg>
             </div>
             <p className="mt-2">
-              Can't remember your current password.{' '}
+              Cant remember your current password.{' '}
               <a
                 className="text-sm font-semibold text-blue-600 underline decoration-2"
                 href="#"
@@ -93,7 +94,7 @@ const AccountSettings = () => {
             <button className="mt-4 rounded-lg bg-blue-600 px-4 py-2 text-white">
               Save Password
             </button>
-            <hr className="mt-4 mb-8" />
+            <hr className="mt-4 mb-8 border border-zinc-500/50" />
             <div className="mb-10">
               <p className="py-2 text-xl font-semibold">Delete Account</p>
               <p className="inline-flex items-center rounded-full bg-rose-100 px-4 py-1 text-rose-600">
