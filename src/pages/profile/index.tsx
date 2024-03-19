@@ -3,7 +3,7 @@ import { Card, ProfileLayout, RootLayout } from 'shared';
 // Packages
 import Head from 'next/head';
 // Hooks & Services
-import {useTranslation} from 'core/context/TranslationContext';
+import { useTranslation } from 'core/context/TranslationContext';
 
 const Profile = () => {
   const { t } = useTranslation();
@@ -18,10 +18,16 @@ const Profile = () => {
         />
       </Head>
       <div className="mx-4">
-        <h1 className="border-b border-zinc-500/20 py-6 text-4xl font-semibold">{t('profile.name')}</h1>
+        <h1 className="border-b border-zinc-500/20 py-6 text-4xl font-semibold">
+          {t('profile.name')}
+        </h1>
         <div className="flex items-center">
           {/* Tab Navs */}
-          <nav className="grid gap-4 text-zinc-500" aria-label="Tabs" role="tablist">
+          <nav
+            className="grid gap-4 text-zinc-500"
+            aria-label="Tabs"
+            role="tablist"
+          >
             <button
               type="button"
               className="text-left hover:bg-gray-200 p-4 md:p-5 rounded-xl active"
@@ -78,9 +84,7 @@ const Profile = () => {
                   />
                 </svg>
                 <span className="grow ml-6">
-                  <span className="block text-lg font-semibold ">
-                    Orders
-                  </span>
+                  <span className="block text-lg font-semibold ">Orders</span>
                   <span className="block mt-1 ">
                     Quickly Preline sample components, copy-paste codes, and
                     start right off.

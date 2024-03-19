@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import {useTranslation} from 'core/context/TranslationContext';
+import { useTranslation } from 'core/context/TranslationContext';
 
 import {
   CarouselControlsInside,

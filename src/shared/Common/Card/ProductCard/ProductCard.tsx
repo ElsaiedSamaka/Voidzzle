@@ -2,7 +2,9 @@ import Link from 'next/link';
 import { useThemeContext } from 'core/context/ThemeContext';
 import classNames from 'classnames';
 const ProductCard = ({ id }) => {
-  const { theme: {mode} } = useThemeContext();
+  const {
+    theme: { mode },
+  } = useThemeContext();
   return (
     <li>
       <div

@@ -79,8 +79,34 @@ const ThemeSwitcher = () => {
               onClick={setDarkTheme}
               className="relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-xs outline-none transition-colors focus:bg-overlay-hover focus:text-strong hover:cursor-pointer  hover:bg-white/10"
             >
-              {mode === 'dark' && (<span className="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">
-                <span>
+              {mode === 'dark' && (
+                <span className="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">
+                  <span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width={24}
+                      height={24}
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="h-2 w-2 fill-current"
+                    >
+                      <circle cx={12} cy={12} r={10} />
+                    </svg>
+                  </span>
+                </span>
+              )}
+              Dark
+            </div>
+            <div
+              onClick={setLightTheme}
+              className="relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-xs outline-none transition-colors focus:bg-overlay-hover focus:text-strong hover:cursor-pointer hover:bg-white/10"
+            >
+              {mode === 'light' && (
+                <span className="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width={24}
@@ -96,29 +122,7 @@ const ThemeSwitcher = () => {
                     <circle cx={12} cy={12} r={10} />
                   </svg>
                 </span>
-              </span>)}
-              Dark
-            </div>
-            <div
-              onClick={setLightTheme}
-              className="relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-xs outline-none transition-colors focus:bg-overlay-hover focus:text-strong hover:cursor-pointer hover:bg-white/10"
-            >
-            {mode === 'light' && (<span className="absolute left-2 flex h-3.5 w-3.5 items-center justify-center" >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width={24}
-                    height={24}
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="h-2 w-2 fill-current"
-                  >
-                    <circle cx={12} cy={12} r={10} />
-                  </svg>
-              </span>)}  
+              )}
               Light
             </div>
           </div>

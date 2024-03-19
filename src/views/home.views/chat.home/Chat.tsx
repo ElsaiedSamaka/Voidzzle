@@ -1,5 +1,5 @@
 import React from 'react';
-import {useTranslation} from 'core/context/TranslationContext';
+import { useTranslation } from 'core/context/TranslationContext';
 function Chat() {
   const { t } = useTranslation();
   return (
