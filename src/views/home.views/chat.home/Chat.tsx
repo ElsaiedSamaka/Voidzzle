@@ -4,7 +4,7 @@ function Chat() {
   const { t } = useTranslation();
   return (
     <>
-      <div className=" rounded-t-2xl px-3 py-3 font-semibold inline-flex w-full justify-between border-b ">
+      <div className=" rounded-t-2xl px-3 py-3 font-semibold inline-flex w-full justify-between border-b border-gray-100/10">
         <span className="text-xl">{t('home.conversations')}</span>
         <span>
           <svg

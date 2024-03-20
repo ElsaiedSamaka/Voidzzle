@@ -17,19 +17,19 @@ const BillingSettings = () => {
           content="Next.js + SWR codebase containing realworld examples (CRUD, auth, advanced patterns, etc) that adheres to the realworld spec and API"
         />
       </Head>
-      <div className="mx-4  sm:mx-8 xl:mx-auto">
-        <h1 className="border-b py-6 text-4xl font-semibold">
+      <div className="mx-4 sm:mx-8 xl:mx-auto">
+        <h1 className="border-b border-zinc-500/50 py-6 text-4xl font-semibold">
           {t('settings.name')}
         </h1>
         <div className="grid grid-cols-8 pt-3 pb-10 sm:grid-cols-10">
-          <div className="col-span-10 rounded-xl sm:bg-gray-50 sm:px-8 sm:shadow">
+          <div className="col-span-10 overflow-y-scroll rounded-xl bg-zinc-500/10 sm:px-8 sm:shadow">
             <div className="pt-4">
               <h1 className="py-2 text-2xl font-semibold">
                 {t('billing.name')}
               </h1>
-              {/* <p class="font- text-slate-600">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p> */}
+              <p class="font- ">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
             </div>
-            <hr className="mt-4 mb-8" />
+            <hr className="mt-4 mb-8 border border-zinc-500/50" />
             <div className="mb-10 grid gap-y-8 lg:grid-cols-2 lg:gap-y-0">
               <div className="space-y-8">
                 <div>
@@ -39,12 +39,12 @@ const BillingSettings = () => {
                       Change
                     </button>
                   </div>
-                  <div className="flex items-center rounded-md border border-gray-100 bg-white py-3 shadow">
+                  <div className="flex items-center rounded-md border border-gray-100/10 bg-white/5 py-3 shadow">
                     <p className="ml-4 w-56">
                       <strong className="block text-lg font-medium">
                         MONTHLY
                       </strong>
-                      <span className="text-xs text-gray-400">
+                      <span className="text-xs ">
                         {' '}
                         Next Renewal: 4 Jan 2022{' '}
                       </span>
@@ -58,7 +58,7 @@ const BillingSettings = () => {
                       Change
                     </button>
                   </div>
-                  <div className="flex items-center rounded-md border border-gray-100 bg-white py-3 shadow">
+                  <div className="flex items-center rounded-md border border-gray-100/10 bg-white/5 py-3 shadow">
                     <img
                       title="Visa"
                       className="h-10 object-contain pl-4"
@@ -71,7 +71,7 @@ const BillingSettings = () => {
                       <strong className="block text-lg font-medium">
                         ALBERT K. DANIEL{' '}
                       </strong>
-                      <span className="text-xs text-gray-400">
+                      <span className="text-xs ">
                         {' '}
                         Expires on: Dec 2024{' '}
                       </span>
@@ -83,7 +83,7 @@ const BillingSettings = () => {
                 <label className="block" htmlFor="name">
                   <p className="text-sm">Name</p>
                   <input
-                    className="w-full rounded-md border bg-white py-2 px-2 outline-none ring-blue-600 focus:ring-1"
+                    className="w-full rounded-md border border-zinc-500/10 bg-white/40 py-2 px-2 outline-none ring-blue-600 focus:ring-1"
                     type="text"
                     defaultValue="Shakir Ali"
                   />
@@ -91,7 +91,7 @@ const BillingSettings = () => {
                 <label className="block" htmlFor="name">
                   <p className="text-sm">Email Address</p>
                   <input
-                    className="w-full rounded-md border bg-white py-2 px-2 outline-none ring-blue-600 focus:ring-1"
+                    className="w-full rounded-md border border-zinc-500/10 bg-white/40 py-2 px-2 outline-none ring-blue-600 focus:ring-1"
                     type="text"
                     defaultValue="shakir.ali@corpora.de"
                   />
@@ -99,7 +99,7 @@ const BillingSettings = () => {
                 <label className="block sm:col-span-2" htmlFor="name">
                   <p className="text-sm">Billing Address</p>
                   <input
-                    className="w-full rounded-md border bg-white py-2 px-2 outline-none ring-blue-600 focus:ring-1"
+                    className="w-full rounded-md border border-zinc-500/10 bg-white/40 py-2 px-2 outline-none ring-blue-600 focus:ring-1"
                     type="text"
                     defaultValue="82844 Boyle Extension Suite 541 - Covington, HI / 28013"
                   />
@@ -107,7 +107,7 @@ const BillingSettings = () => {
                 <label className="block" htmlFor="name">
                   <p className="text-sm">VAT #</p>
                   <input
-                    className="w-full rounded-md border bg-white py-2 px-2 outline-none ring-blue-600 focus:ring-1"
+                    className="w-full rounded-md border border-zinc-500/10 bg-white/40 py-2 px-2 outline-none ring-blue-600 focus:ring-1"
                     type="text"
                     defaultValue={6346322}
                   />
@@ -115,15 +115,15 @@ const BillingSettings = () => {
                 <label className="block" htmlFor="name">
                   <p className="text-sm">Country</p>
                   <input
-                    className="w-full rounded-md border bg-white py-2 px-2 outline-none ring-blue-600 focus:ring-1"
+                    className="w-full rounded-md border border-zinc-500/10 bg-white/40 py-2 px-2 outline-none ring-blue-600 focus:ring-1"
                     type="text"
                     defaultValue="Germany"
                   />
                 </label>
               </div>
             </div>
-            <div className="amx-auto mb-10 overflow-hidden rounded-lg border bg-white">
-              <p className="mb-6 bg-gray-100 py-1 text-center text-lg font-medium">
+            <div className="amx-auto mb-10 overflow-hidden rounded-lg border bg-white/5 border-gray-100/10">
+              <p className="mb-6 bg-zinc-100/10 py-1 text-center text-lg font-medium">
                 Billing History
               </p>
               <table className="w-full">
@@ -137,64 +137,16 @@ const BillingSettings = () => {
                 </thead>
                 <tbody>
                   <tr>
-                    <td className="border-b py-2 text-center text-sm">
+                    <td className="border-b border-gray-100/10 py-2 text-center text-sm">
                       23 Nov 2021
                     </td>
-                    <td className="border-b py-2 text-center text-sm">
+                    <td className="border-b border-gray-100/10 py-2 text-center text-sm">
                       X-543242
                     </td>
-                    <td className="border-b py-2 text-center text-sm">
+                    <td className="border-b border-gray-100/10 py-2 text-center text-sm">
                       $99.00
                     </td>
-                    <td className="border-b py-2 text-center text-sm">
-                      <button className="text-sm text-blue-600 underline">
-                        PDF
-                      </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="border-b py-2 text-center text-sm">
-                      23 Nov 2021
-                    </td>
-                    <td className="border-b py-2 text-center text-sm">
-                      X-543242
-                    </td>
-                    <td className="border-b py-2 text-center text-sm">
-                      $99.00
-                    </td>
-                    <td className="border-b py-2 text-center text-sm">
-                      <button className="text-sm text-blue-600 underline">
-                        PDF
-                      </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="border-b py-2 text-center text-sm">
-                      23 Nov 2021
-                    </td>
-                    <td className="border-b py-2 text-center text-sm">
-                      X-543242
-                    </td>
-                    <td className="border-b py-2 text-center text-sm">
-                      $99.00
-                    </td>
-                    <td className="border-b py-2 text-center text-sm">
-                      <button className="text-sm text-blue-600 underline">
-                        PDF
-                      </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="border-b py-2 text-center text-sm">
-                      23 Nov 2021
-                    </td>
-                    <td className="border-b py-2 text-center text-sm">
-                      X-543242
-                    </td>
-                    <td className="border-b py-2 text-center text-sm">
-                      $99.00
-                    </td>
-                    <td className="border-b py-2 text-center text-sm">
+                    <td className="border-b border-gray-100/10 py-2 text-center text-sm">
                       <button className="text-sm text-blue-600 underline">
                         PDF
                       </button>

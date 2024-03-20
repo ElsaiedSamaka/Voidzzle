@@ -31,7 +31,7 @@ const Home = () => {
           </div>
           <div className="flex items-center justify-between my-3">
             <span className="font-bold text-2xl">{t('home.trusted_by')}</span>
-            <div className=" max-w-[90%] border rounded-full shadow-inner relative">
+            <div className=" max-w-[90%] border border-gray-100/10 rounded-full shadow-inner relative">
               {/* infinite carousel */}
               <InfiniteCarousel />
               {/* infinite carousel */}
@@ -194,7 +194,7 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <div className="chat-container rounded-2xl w-full xs:hidden lg:inline-block border">
+        <div className="chat-container rounded-2xl w-full xs:hidden lg:inline-block border border-gray-100/10">
           <Chat />
         </div>
       </div>

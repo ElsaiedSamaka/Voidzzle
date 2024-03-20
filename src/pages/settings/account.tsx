@@ -26,7 +26,7 @@ const AccountSettings = () => {
               <h1 className="py-2 text-2xl font-semibold">
                 {t('account.name')}
               </h1>
-              <p class="">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+              <p className="">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
             </div>
             <hr className="mt-4 mb-8 border border-zinc-500/50" />
             <p className="py-2 text-xl font-semibold">Email Address</p>

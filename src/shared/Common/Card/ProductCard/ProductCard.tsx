@@ -9,7 +9,7 @@ const ProductCard = ({ id }) => {
     <li>
       <div
         className={classNames(
-          'relative  flex w-full bg-zinc-500/10  flex-col overflow-hidden rounded-2xl border',
+          'relative  flex w-full bg-white/5  flex-col overflow-hidden rounded-2xl border',
           {
             ' text-dark-textSecondary border-dark-border':
               mode === 'dark',

@@ -16,25 +16,25 @@ const NotificationsSettings = () => {
         />
       </Head>
       <div className="mx-4 min-h-screen sm:mx-8 xl:mx-auto">
-        <h1 className="border-b py-6 text-4xl font-semibold">
+        <h1 className="border-b border-zinc-500/50 py-6 text-4xl font-semibold">
           {t('settings.name')}
         </h1>
         <div className="grid grid-cols-8 pt-3 sm:grid-cols-10">
-          <div className="col-span-10 overflow-hidden rounded-xl bg-gray-50 px-8 shadow">
-            <div className="border-b pt-4 pb-8">
+          <div className="col-span-10 overflow-hidden rounded-xl bg-zinc-500/10 px-8 shadow">
+            <div className="border-b border-zinc-500/50 pt-4 pb-8">
               <h1 className="py-2 text-2xl font-semibold">
                 {t('notifications.name')}
               </h1>
-              <p className="font- text-slate-600">
+              <p className="">
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit.
               </p>
             </div>
-            <div className="grid border-b py-6 sm:grid-cols-2">
+            <div className="grid py-6 sm:grid-cols-2">
               <div className="">
-                <h2 className="text-lg font-semibold leading-4 text-slate-700">
+                <h2 className="text-lg font-semibold leading-4 ">
                   Comments
                 </h2>
-                <p className="font- text-slate-600">
+                <p className="font- ">
                   Lorem ipsum dolor, Alias eligendi laboriosam magni reiciendis
                   neque.
                 </p>
@@ -89,12 +89,12 @@ const NotificationsSettings = () => {
                 </div>
               </div>
             </div>
-            <div className="grid border-b py-6 sm:grid-cols-2">
+            <div className="grid border-b border-zinc-500/50 py-6 sm:grid-cols-2">
               <div className="">
-                <h2 className="text-lg font-semibold leading-4 text-slate-700">
+                <h2 className="text-lg font-semibold leading-4 ">
                   Reminders
                 </h2>
-                <p className="font- text-slate-600">
+                <p className="font- ">
                   Lorem ipsum dolor, Alias eligendi laboriosam magni reiciendis
                   neque.
                 </p>
@@ -149,12 +149,12 @@ const NotificationsSettings = () => {
                 </div>
               </div>
             </div>
-            <div className="grid border-b py-6 sm:grid-cols-2">
+            <div className="grid py-6 sm:grid-cols-2">
               <div className="">
-                <h2 className="text-lg font-semibold leading-4 text-slate-700">
+                <h2 className="text-lg font-semibold leading-4 ">
                   Updates
                 </h2>
-                <p className="font- text-slate-600">
+                <p className="font- ">
                   Lorem ipsum dolor, Alias eligendi laboriosam magni reiciendis
                   neque.
                 </p>

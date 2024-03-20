@@ -1,11 +1,16 @@
 import { MessagesLayout, RootLayout } from 'shared';
 // Packages
 import Head from 'next/head';
+import classNames from 'classnames';
+
 // Hooks & Services
 import { useTranslation } from 'core/context/TranslationContext';
+import { useThemeContext } from 'core/context/ThemeContext';
 
 const Messages = () => {
   const { t } = useTranslation();
+  const { theme: {mode} } = useThemeContext();
+
 
   return (
     <>
@@ -18,8 +23,8 @@ const Messages = () => {
       </Head>
       <section className="flex h-[94vh] overflow-hidden flex-col gap-2 pt-4 ">
         <div className="grid grid-cols-5 gap-4 h-full">
-          <div className="sm:col-span-2 xs:col-span-full h-full p-2 border rounded-xl rounded-b-none  sm:bg-gray-50 sm:px-8 sm:shadow">
-            <div className="flex items-center justify-between border-b">
+          <div className="sm:col-span-2 xs:col-span-full h-full p-2 border border-gray-100/10 rounded-xl rounded-b-none  bg-white/5 sm:px-8 sm:shadow">
+            <div className="flex items-center justify-between border-b border-gray-100/10">
               <span className="text-xl font-semibold my-2">
                 {t('messages.name')}
               </span>
@@ -47,6 +52,7 @@ const Messages = () => {
                 </svg>
                 <div
                   id="tooltip-default"
+                  title="temp"
                   role="tooltip"
                   className="absolute opacity-0 group-hover:opacity-100 top-6 z-10  inline-block px-3 py-2 text-sm font-medium  transition-opacity duration-300  rounded-lg shadow-md tooltip "
                 >
@@ -58,12 +64,12 @@ const Messages = () => {
             <input
               type="text"
               placeholder="search over your contacts ..."
-              className="search-contacts  my-1 h-11 w-full items-center gap-2 rounded-xl pl-2 pr-3 text-sm text-zinc-500 ring-1 placeholder:text-zinc-400 ring-zinc-900/10 transition hover:ring-zinc-900/20 ui-not-focus-visible:outline-none"
+              className="search-contacts  my-1 h-11 w-full items-center gap-2 rounded-xl pl-2 pr-3 text-sm text-zinc-500 ring-1 bg-white/10 placeholder:text-zinc-400 ring-zinc-900/10 transition hover:ring-zinc-900/20 ui-not-focus-visible:outline-none"
             />
             {/* conversations */}
             <ul className="h-[90%] overflow-y-scroll">
               {/* conversation */}
-              <li className=" w-full p-2 my-1 border rounded-lg hover:cursor-pointer bg-white">
+              <li className=" w-full p-2 my-1 border border-gray-100/10 shadow rounded-lg hover:cursor-pointer bg-white/5">
                 <div className="flex justify-between space-x-2">
                   <div className="inline-flex">
                     <div className="p-3 border inline-flex rounded-full">
@@ -110,7 +116,9 @@ const Messages = () => {
                     {/* Dropdown menu */}
                     <div
                       id="dropdownComment1"
-                      className="z-10 absolute rounded divide-y divide-gray-100 shadow bg-white"
+                      className={classNames('z-10 absolute rounded divide-y divide-gray-100 shadow opacity-0 transition-all duration-900',   { 'bg-light-bgSecondary': mode === 'light' },
+          { 'bg-dark-bgSecondary': mode === 'dark' },
+          { 'opacity-100': true },)}
                     >
                       <ul
                         className="py-1 text-sm  w-full"
@@ -169,7 +177,7 @@ const Messages = () => {
                                 ></path>
                               </svg>
                             </span>
-                            <span>Report"|translate</span>
+                            <span>Report</span>
                           </a>
                         </li>
                       </ul>
@@ -196,7 +204,7 @@ const Messages = () => {
             {/* conversations */}
           </div>
           {/* detailed content */}
-          <div className="sm:col-span-3 xs:hidden sm:inline border rounded-lg rounded-b-none h-full overflow-y-scroll sm:bg-gray-50 sm:px-8 sm:shadow"></div>
+          <div className="sm:col-span-3 xs:hidden sm:inline border border-gray-100/10 rounded-lg rounded-b-none h-full overflow-y-scroll bg-white/5 sm:px-8 sm:shadow"></div>
           {/* detailed content */}
         </div>
       </section>
