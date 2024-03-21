@@ -12,7 +12,7 @@ import messagesTranslations from './pages/messages';
 // Components
 import asideTranslations from './components/Aside/aside';
 import navbarTranslations from './components/Navbar/navbar';
-import formTranslations from './components/Form/Form';
+import formTranslations from './components/Form/form';
 // General
 import generalTranslations from './shared/general';
 
