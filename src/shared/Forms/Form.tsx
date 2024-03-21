@@ -49,10 +49,15 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
   const formValues = getValues(); // Use watch to get the form field values
   const previousFormValues = useRef(formValues); // Track previous form values
 
-  const [passwordType, togglePassword] = useState('text');
+  const [passwordType, togglePassword] = useState('password');
+  const [passwordConfirmationType, togglePasswordConfirmation] = useState('password')
 
   function handlePasswordToggle(type: string) {
     togglePassword(type);
+  }
+
+  function handPasswordConfirmation(type: string){
+    togglePasswordConfirmation(type)
   }
   const submit = (formData: any) => {
     dispatch({
@@ -432,6 +437,114 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                         <svg
                           onClick={() => {
                             handlePasswordToggle('password');
+                          }}
+                          id="text"
+                          className="w-5 h-5 text-gray-400 ltr:ml-auto rtl:mr-auto hover:cursor-pointer"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="1.5"
+                          viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
+                          aria-hidden="true"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88"
+                          />
+                        </svg>
+                      </Switch>
+                    </span>
+                    {errors[field.name as keyof typeof errors] && (
+                      <span className="opacity-0 group-hover:opacity-100 transition-all duration-300 text-red-500 px-1 rounded-full text-center w-fit absolute left-[12%] bg-white border border-red-500">
+                        {errors[field.name as keyof typeof errors]?.message}
+                      </span>
+                    )}
+                  </div>
+                )}
+                {field.type == 'passwordConfirmation' && (
+                  <div
+                    key={field.id}
+                    className="passwordConfirmation-input relative flex flex-col w-full font-semibold group col-span-full "
+                  >
+                    {field.label && (
+                      <label className="capitalize " htmlFor={field.name}>
+                        {t(field.label)}
+                      </label>
+                    )}
+                    <input
+                      className={classNames(
+                        'p-2 rounded-md border font-normal',
+                        {
+                          'border-red-500':
+                            errors[field.name as keyof typeof errors],
+                        },
+                        {
+                          'bg-dark-bgSecondary text-dark-textSecondary border-dark-border hover:bg-zinc-800':
+                            mode === 'dark',
+                          'bg-light-bgSecondary text-light-textSecondary border-light-border hover:bg-gray-100':
+                            mode === 'light',
+                        },
+                      )}
+                      id={field.id}
+                      type={passwordConfirmationType}
+                      {...register(field.name as never, {
+                        required: {
+                          value: field.required,
+                          message: 'this is a required field',
+                        },
+                        pattern: {
+                          value: field.pattern as RegExp,
+                          message: `a required valid pattern is ${field.pattern}`,
+                        },
+                        maxLength: {
+                          value: field.maxLength,
+                          message: `maxLength is ${field.maxLength}`,
+                        },
+                        minLength: {
+                          value: field.minLength,
+                          message: `minLength is ${field.minLength}`,
+                        },
+                        validate: (field.validation as any[])?.reduce(
+                          (acc: any, validator: any) => {
+                            return {
+                              ...acc,
+                              ...validator,
+                            };
+                          },
+                          {},
+                        ),
+                      })}
+                    />
+                    <span className="absolute w-full bottom-2.5 ltr:right-5 rtl:left-5">
+                      <Switch testCase={passwordConfirmationType}>
+                        <svg
+                          onClick={() => {
+                            handPasswordConfirmation('text');
+                          }}
+                          id="password"
+                          className="w-5 h-5 text-gray-400 hover:cursor-pointer mr-auto"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="1.5"
+                          viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
+                          aria-hidden="true"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"
+                          ></path>
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                          ></path>
+                        </svg>
+                        <svg
+                          onClick={() => {
+                            handPasswordConfirmation('password');
                           }}
                           id="text"
                           className="w-5 h-5 text-gray-400 ltr:ml-auto rtl:mr-auto hover:cursor-pointer"

@@ -121,7 +121,7 @@ const Signup = () => {
       name: 'passwordConfirmation',
       label: 'form.passwordconfirmation',
       id: 'passwordConfirmation',
-      type: 'password',
+      type: 'passwordConfirmation',
       required: true,
       maxLength: 40,
       minLength: 8,
