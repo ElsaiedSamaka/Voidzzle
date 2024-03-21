@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 
 export function useBeforeUnload(
-  callback: (e: BeforeUnloadEvent) => any,
+  callback: (e: BeforeUnloadEvent) => void,
   deps?: React.DependencyList | undefined,
 ) {
   useEffect(() => {
@@ -9,5 +9,5 @@ export function useBeforeUnload(
     return () => {
       window.removeEventListener('beforeunload', callback);
     };
-  }, deps);
+  }, [deps, callback]);
 }

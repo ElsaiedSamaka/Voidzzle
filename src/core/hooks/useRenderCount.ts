@@ -9,7 +9,7 @@ export default function useRenderCount() {
   const count = useRef(1);
 
   // Increment the count on each component render
-  useEffect(() => count.current++ as any);
+  useEffect(() => count.current++ as number);
 
   // Return the current render count
   return count.current;

@@ -1,5 +1,7 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 // packages
 import classNames from 'classnames';
+import Image from 'next/image';
 // hooks
 import { useThemeContext } from 'core/context/ThemeContext';
 import { useState } from 'react';
@@ -25,10 +27,12 @@ const UserMenu = () => {
         id="user-menu-button"
       >
         <span className="sr-only">Open user menu</span>
-        <img
+        <Image
           className="w-8 h-8 rounded-full"
           src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/michael-gough.png"
           alt="user photo"
+          width={10}
+          height={10}
         />
       </button>
       <div

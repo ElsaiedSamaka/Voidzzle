@@ -19,7 +19,7 @@ export default function useCopyToClipboard() {
   const copyToClipboard = (text, options) => {
     const result = copy(text, options); // Call the copy function
     if (result) setValue(text); // Update the value state if copy is successful
-    setSuccess(result as any); // Update the success state with the copy result
+    setSuccess(result); // Update the success state with the copy result
   };
 
   return [copyToClipboard, { value, success }]; // Return the copyToClipboard function and the copy status

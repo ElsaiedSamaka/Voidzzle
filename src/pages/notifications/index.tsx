@@ -1,5 +1,5 @@
 import React from 'react';
-import { NotificationsLayout, RootLayout, SettingsLayout } from 'shared';
+import { NotificationsLayout, RootLayout } from 'shared';
 
 const Notifications = () => {
   return <div>Notifications</div>;

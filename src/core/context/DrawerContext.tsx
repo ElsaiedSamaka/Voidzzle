@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useReducer } from 'react';
+import { createContext, useContext, useReducer } from 'react';
 
 type DrawerState = {
   showDrawer: boolean;
@@ -9,7 +9,7 @@ const initialState = {
   showDrawer: true,
 };
 // reducer
-const drawerReducer = (state: DrawerState, action: any) => {
+const drawerReducer = (state: DrawerState, action) => {
   switch (action.type) {
     case 'TOGGLE_DRAWER':
       return {
@@ -23,7 +23,9 @@ const drawerReducer = (state: DrawerState, action: any) => {
 // context
 export const DrawerContext = createContext({
   state: initialState,
-  toggleDrawer: (value) => {},
+  toggleDrawer: (value) => {
+    console.log(value)
+  },
 });
 // context provider
 export const DrawerProvider = ({ children }) => {

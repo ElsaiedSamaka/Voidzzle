@@ -1,7 +1,8 @@
+/* eslint-disable no-useless-catch */
 import apiservice from './api.service';
 
 const productsService = {
-  post: async (body: any) => {
+  post: async (body: object) => {
     try {
       const response = await apiservice.post('product', body);
       return response;
@@ -9,7 +10,7 @@ const productsService = {
       throw error;
     }
   },
-  //   post2: async (body: any) => {
+  //   post2: async (body: object) => {
   //     try {
   //       const response = await axiosClient.post(`${base_url}/products`, body, {
   //         headers: { "Content-Type": "multipart/form-data" },
@@ -37,7 +38,7 @@ const productsService = {
       throw error;
     }
   },
-  put: async (id: string, body: any) => {
+  put: async (id: string, body: object) => {
     try {
       const response = await apiservice.put(`product/${id}`, body);
       return response;
@@ -55,7 +56,7 @@ const productsService = {
     }
   },
 
-  removeAll: async (ids: any[]) => {
+  removeAll: async (ids: []) => {
     try {
       const response = await apiservice.post('product/remove-all', ids);
       return response;
@@ -64,7 +65,7 @@ const productsService = {
     }
   },
 
-  patch: async (id: string, body: any) => {
+  patch: async (id: string, body: object) => {
     try {
       const response = await apiservice.put(`product/${id}`, body);
       return response;

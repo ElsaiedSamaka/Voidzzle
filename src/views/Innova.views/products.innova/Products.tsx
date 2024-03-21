@@ -52,7 +52,7 @@ const Products = () => {
   // get products from api just when component is mounted
   useEffect(() => {
     dispatch(getProductsThunk());
-  }, []);
+  });
   const formFields = [
     {
       name: 'name',

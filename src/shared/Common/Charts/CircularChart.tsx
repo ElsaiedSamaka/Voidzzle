@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react';
+import {  useState } from 'react';
 // ApexCharts wont work for server component by default so we have to use dynamic import in order
 // to lazely load it
 import dynamic from 'next/dynamic';
-import { ApexOptions } from 'apexcharts';
 const ApexChart = dynamic(() => import('react-apexcharts'), { ssr: false });
 const CircularChart = ({ title, textColor, strokeColor }) => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [series, setStateSeries] = useState([10]);
   const [options] = useState({
     chart: {
@@ -169,7 +169,7 @@ const CircularChart = ({ title, textColor, strokeColor }) => {
   return (
     <div id="chart">
       <ApexChart
-        options={options as any}
+        options={options}
         series={series}
         type="radialBar"
         height={300}

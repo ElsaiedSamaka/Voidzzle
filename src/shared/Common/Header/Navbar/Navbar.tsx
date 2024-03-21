@@ -1,4 +1,4 @@
-import logo from '../../../../../public/images/favicon-32x32.png';
+import logo from '/public/images/favicon.png';
 // packages
 import classNames from 'classnames';
 // hooks
@@ -15,7 +15,7 @@ import NotificationBell from './NotificationBell/notificationBell';
 import UserMenu from './UserMenu/UserMenu';
 // builtin components
 import Link from 'next/link';
-
+import Image from 'next/image'
 const Navbar = () => {
   const { state, toggleDrawer } = useDrawerContext();
   const { theme } = useThemeContext();
@@ -46,7 +46,6 @@ const Navbar = () => {
             onClick={() => toggleDrawer(!state.showDrawer)}
             data-drawer-target="drawer-navigation"
             data-drawer-toggle="drawer-navigation"
-            aria-controls="drawer-navigation"
             className="p-2 mr-2 rounded-lg cursor-pointer md:hidden  focus:bg-gray-100 :focus:bg-gray-700 focus:ring-2 focus:ring-gray-100 "
           >
             <svg
@@ -81,9 +80,11 @@ const Navbar = () => {
             href="https://voidzzle.com"
             className="flex items-center justify-between mr-4"
           >
-            <img
+            <Image
               src={logo.src}
               className="mr-3 rounded-full h-8"
+              width={10}
+              height={10}
               alt="Voidzzle Logo"
             />
             <span className="self-center text-2xl font-semibold whitespace-nowrap">
@@ -96,7 +97,6 @@ const Navbar = () => {
           <button
             type="button"
             data-drawer-toggle="drawer-navigation"
-            aria-controls="drawer-navigation"
             className="p-2 mr-1  rounded-lg md:hidden hover:text-gray-900 hover:bg-white/10  focus:ring-4 focus:ring-gray-300 "
           >
             <span className="sr-only">Toggle search</span>

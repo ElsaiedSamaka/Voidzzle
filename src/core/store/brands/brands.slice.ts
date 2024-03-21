@@ -34,7 +34,7 @@ export const brandsSlice = createSlice({
   extraReducers: (builder) => {
     // getBrands
     builder
-      .addCase(getBrandsThunk.pending, (state, action) => {
+      .addCase(getBrandsThunk.pending, (state) => {
         state.loading = true;
         state.error = null;
       })
@@ -62,7 +62,7 @@ export const brandsSlice = createSlice({
         state.loading = false;
         state.error = action.error.message;
       })
-      .addCase(createBrandThunk.pending, (state, action) => {
+      .addCase(createBrandThunk.pending, (state) => {
         state.loading = true;
         state.error = null;
       });
@@ -82,7 +82,7 @@ export const brandsSlice = createSlice({
         state.loading = false;
         state.error = action.error.message;
       })
-      .addCase(updateBrandThunk.pending, (state, action) => {
+      .addCase(updateBrandThunk.pending, (state) => {
         state.loading = true;
         state.error = null;
       });
@@ -97,13 +97,13 @@ export const brandsSlice = createSlice({
         state.loading = false;
         state.error = action.error.message;
       })
-      .addCase(deleteBrandThunk.pending, (state, action) => {
+      .addCase(deleteBrandThunk.pending, (state) => {
         state.loading = true;
         state.error = null;
       });
     // deleteAllBrands
     builder
-      .addCase(deleteAllBrandsThunk.fulfilled, (state, action) => {
+      .addCase(deleteAllBrandsThunk.fulfilled, (state) => {
         state.loading = false;
         state.error = null;
         state.items = [];
@@ -112,7 +112,7 @@ export const brandsSlice = createSlice({
         state.loading = false;
         state.error = action.error.message;
       })
-      .addCase(deleteAllBrandsThunk.pending, (state, action) => {
+      .addCase(deleteAllBrandsThunk.pending, (state) => {
         state.loading = true;
         state.error = null;
       });
@@ -127,7 +127,7 @@ export const brandsSlice = createSlice({
         state.loading = false;
         state.error = action.error.message;
       })
-      .addCase(searchBrandsThunk.pending, (state, action) => {
+      .addCase(searchBrandsThunk.pending, (state) => {
         state.loading = true;
         state.error = null;
       });

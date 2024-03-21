@@ -1,15 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+// Packages
 import classNames from 'classnames';
-import { useThemeContext } from 'core/context/ThemeContext';
-import useTranslation from 'core/hooks/useTranslation';
-import getDirection from 'core/utils/translations/getDirections';
-import Validators from 'core/validators';
 import Head from 'next/head';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
-import { useFormStateContext } from 'shared/Forms/shared/FormContext';
-import { RootState } from 'core/store';
-
+import Image from "next/image";
+// Components
 import {
   LanguageSwitcher,
   ThemeSwitcher,
@@ -17,9 +12,20 @@ import {
   DarkDecorator,
   Form,
 } from 'shared';
+// Hooks & services
 import { useSelector, useDispatch } from 'react-redux';
 import { registerThunk } from 'core/store/user/user.thunk';
+import { useFormStateContext } from 'shared/Forms/shared/FormContext';
+import { useRouter } from 'next/router';
+import { useThemeContext } from 'core/context/ThemeContext';
 import { useEffect } from 'react';
+import useTranslation from 'core/hooks/useTranslation';
+// Core
+import getDirection from 'core/utils/translations/getDirections';
+import Validators from 'core/validators';
+import { RootState } from 'core/store';
+import { FormField } from 'core/types';
+
 
 const Signup = () => {
   const router = useRouter();
@@ -38,7 +44,8 @@ const Signup = () => {
   const dispatch = useDispatch();
   console.log('authSlice', authSlice);
   console.log('form state', state);
-  const formFields = [
+  
+  const formFields: FormField[] = [
     {
       name: 'firstname',
       label: 'firstname',
@@ -49,13 +56,13 @@ const Signup = () => {
       minLength: 5,
       validation: [
         {
-          isName: (val) => {
+          isName: (val: string) => {
             if (val === 'admin') {
               return 'Enter a different firstname';
             }
           },
         },
-      ],
+      ] ,
     },
     {
       name: 'lastname',
@@ -67,7 +74,7 @@ const Signup = () => {
       minLength: 5,
       validation: [
         {
-          isName: (val) => {
+          isName: (val: string) => {
             if (val === 'admin') {
               return 'Enter a different lastname';
             }
@@ -193,9 +200,11 @@ const Signup = () => {
               </p>
               <div className="">
                 <div className="flex items-center">
-                  <img
+                  <Image
                     className="h-10 w-10 rounded-full object-cover"
-                    src="/images/y9s3xOJV6rnQPKIrdPYJy.png"
+                    src=""
+                    width={10}
+                    height={10}
                     alt=""
                   />
                   <p className="ml-4 w-56">

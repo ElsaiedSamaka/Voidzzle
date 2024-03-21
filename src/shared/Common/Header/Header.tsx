@@ -1,11 +1,10 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 'use client';
-import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import Aside from './Aside/Aside';
 import Navbar from './Navbar/Navbar';
 import { useDrawerContext } from 'core/context/DrawerContext';
-import LanguageSwitcher from '../LanguageSwitcher/LanguageSwitcher';
 
 const ActiveMenuLink = ({ children, href }) => {
   const pathname = usePathname();

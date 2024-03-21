@@ -68,6 +68,7 @@ const ThemeContextProvider = (props) => {
     window
       .matchMedia('(prefers-color-scheme: dark)')
       .addEventListener('change', ({ matches }) => {
+        console.log('matches', matches);
         if (getStoredTheme()) return;
         addThemeToDOM(getSystemTheme());
       });

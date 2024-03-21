@@ -1,11 +1,11 @@
-import { TabContext, useTabContext } from 'core/context/TabContext';
-import React, { useContext } from 'react';
-import { Table } from 'shared';
+// Components
 import Ads from '../ads.innova/Ads';
 import Sales from '../sales.innova/Sales';
 import Products from '../products.innova/Products';
 import Users from '../users.innova/Users';
 import Tasks from '../tasks.innova/Tasks';
+// Hooks an utils
+import { useTabContext } from 'core/context/TabContext';
 
 const Content = () => {
   const { state } = useTabContext();

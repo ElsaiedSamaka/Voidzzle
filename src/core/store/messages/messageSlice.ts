@@ -18,7 +18,7 @@ const initialState: MessagesState = {
   loading: false,
 };
 
-export const messagesSlice: any = createSlice({
+export const messagesSlice = createSlice({
   name: 'messages',
   initialState,
   reducers: {
@@ -84,14 +84,14 @@ export const messagesSlice: any = createSlice({
   },
 });
 
-const selectConversationMessages = (state: RootState) => null;
+const selectConversationMessages = (state: RootState) => state;
 
 const selectConversationMessageId = (state: RootState, id: number) => id;
 
 export const selectConversationMessage = createSelector(
   [selectConversationMessages, selectConversationMessageId],
   (conversationMessages, id) =>
-    conversationMessages.find((cm: any) => cm.id === id),
+    conversationMessages.find((cm) => cm.id === id),
 );
 
 export const { addMessage, deleteMessage, editMessage } = messagesSlice.actions;

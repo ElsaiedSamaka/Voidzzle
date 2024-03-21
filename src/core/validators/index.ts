@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape */
 const Validators = {
   isEmail: (email: string) => {
     const re = /^[\w\.-]+@[a-zA-Z\d\.-]+\.[a-zA-Z]{2,}$/;

@@ -24,7 +24,7 @@ export default function useStateWithValidation(validationFunc, initialValue) {
       setState(value);
       setIsValid(validationFunc(value));
     },
-    [validationFunc],
+    [state, validationFunc],
   );
 
   return [state, onChange, isValid];

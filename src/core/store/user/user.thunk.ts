@@ -3,7 +3,7 @@ import authService from 'core/services/auth.service';
 
 export const registerThunk = createAsyncThunk(
   'user/register',
-  async (params: any, thunkAPI) => {
+  async (params: object, thunkAPI) => {
     try {
       const response = await authService.register(params);
       return thunkAPI.fulfillWithValue(response);
@@ -15,7 +15,7 @@ export const registerThunk = createAsyncThunk(
 
 export const loginThunk = createAsyncThunk(
   'user/login',
-  async (params: any, thunkAPI) => {
+  async (params: object, thunkAPI) => {
     try {
       const response = await authService.login(params);
       return thunkAPI.fulfillWithValue(response);
@@ -27,7 +27,7 @@ export const loginThunk = createAsyncThunk(
 
 export const logoutThunk = createAsyncThunk(
   'user/logout',
-  async (params: any, thunkAPI) => {
+  async (params: object, thunkAPI) => {
     try {
       const response = await authService.logout(params);
       return thunkAPI.fulfillWithValue(response);
@@ -39,7 +39,7 @@ export const logoutThunk = createAsyncThunk(
 
 export const changePasswordThunk = createAsyncThunk(
   'user/change-password',
-  async (params: any, thunkAPI) => {
+  async (params: object, thunkAPI) => {
     try {
       const response = await authService.changePassword(params);
       return thunkAPI.fulfillWithValue(response);

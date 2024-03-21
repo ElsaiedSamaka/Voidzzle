@@ -150,7 +150,7 @@ const Messages = () => {
                                 ></path>
                               </svg>
                             </span>
-                            <span>Remove"|translate</span>
+                            <span>Remove</span>
                           </a>
                         </li>
                         {/* conversation remove */}
@@ -197,7 +197,7 @@ const Messages = () => {
                   404
                 </div>
                 <span className="">
-                  {'{'}"no conversations found"|translate{'}'}
+                  no conversations found
                 </span>
               </div>
             </ul>

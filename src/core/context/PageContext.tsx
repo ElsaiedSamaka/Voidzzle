@@ -2,7 +2,7 @@ import React from 'react';
 
 import useSessionStorage from '../hooks/useSessionStorage';
 
-export type PageDispatch = React.Dispatch<any>;
+export type PageDispatch = React.Dispatch;
 
 interface Props {
   children: React.ReactNode;

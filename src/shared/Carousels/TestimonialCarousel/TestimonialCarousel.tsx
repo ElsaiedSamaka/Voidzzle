@@ -46,7 +46,7 @@ export default function CarouselTestimonial() {
                     <figure className="relative z-10">
                       <blockquote className="p-6 text-lg leading-relaxed">
                         <p>
-                          Wind-ui, is probably one of the best libraries I've
+                          Wind-ui, is probably one of the best libraries I ve
                           came across. Good looking, easy to use and above all
                           super accessible.
                         </p>

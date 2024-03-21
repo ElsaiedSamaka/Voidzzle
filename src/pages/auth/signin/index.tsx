@@ -1,14 +1,10 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+// Packages
 import classNames from 'classnames';
-import { useThemeContext } from 'core/context/ThemeContext';
-import useTranslation from 'core/hooks/useTranslation';
-import getDirection from 'core/utils/translations/getDirections';
-import Validators from 'core/validators';
 import Head from 'next/head';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
-import { useFormStateContext } from 'shared/Forms/shared/FormContext';
-import { RootState } from 'core/store';
-
+import Image from 'next/image';
+// Components
 import {
   LanguageSwitcher,
   ThemeSwitcher,
@@ -16,9 +12,18 @@ import {
   DarkDecorator,
   Form,
 } from 'shared';
+// Hooks & services
+import { useThemeContext } from 'core/context/ThemeContext';
 import { useSelector, useDispatch } from 'react-redux';
-import { loginThunk } from 'core/store/user/user.thunk';
 import { useEffect } from 'react';
+import { useRouter } from 'next/router';
+import { useFormStateContext } from 'shared/Forms/shared/FormContext';
+// Core
+import useTranslation from 'core/hooks/useTranslation';
+import getDirection from 'core/utils/translations/getDirections';
+import { loginThunk } from 'core/store/user/user.thunk';
+import Validators from 'core/validators';
+import { RootState } from 'core/store';
 
 const Signin = () => {
   const router = useRouter();
@@ -136,9 +141,11 @@ const Signin = () => {
               </p>
               <div className="">
                 <div className="flex items-center">
-                  <img
+                  <Image
                     className="h-10 w-10 rounded-full object-cover"
-                    src="/images/y9s3xOJV6rnQPKIrdPYJy.png"
+                    src=""
+                    width={10}
+                    height={10}
                     alt=""
                   />
                   <p className="ml-4 w-56">

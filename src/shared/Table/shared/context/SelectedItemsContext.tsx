@@ -1,12 +1,12 @@
 import * as React from 'react';
 
 type Action =
-  | { type: 'add'; payload: any }
-  | { type: 'remove'; payload: any }
+  | { type: 'add'; payload }
+  | { type: 'remove'; payload }
   | { type: 'reset' };
 type Dispatch = (action: Action) => void;
 type State = {
-  items: any[];
+  items: [];
 };
 type SelectedProviderProps = { children: React.ReactNode };
 const initialState = {

@@ -15,7 +15,7 @@ export const getUsersThunk = createAsyncThunk(
 
 export const deleteUserThunk = createAsyncThunk(
   'users/delete',
-  async (id: any, thunkAPI) => {
+  async (id: string, thunkAPI) => {
     try {
       const response = await usersService.remove(id);
       return thunkAPI.fulfillWithValue(response);
@@ -27,7 +27,7 @@ export const deleteUserThunk = createAsyncThunk(
 
 export const updateUserThunk = createAsyncThunk(
   'users/update',
-  async (params: any, thunkAPI) => {
+  async (params: object, thunkAPI) => {
     try {
       const response = await usersService.put(params.id, params.body);
       return thunkAPI.fulfillWithValue(response);
@@ -39,7 +39,7 @@ export const updateUserThunk = createAsyncThunk(
 
 export const createUserThunk = createAsyncThunk(
   'users/post',
-  async (params: any, thunkAPI) => {
+  async (params: object, thunkAPI) => {
     try {
       const response = await usersService.post(params);
       return thunkAPI.fulfillWithValue(response);

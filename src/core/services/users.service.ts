@@ -1,7 +1,8 @@
+/* eslint-disable no-useless-catch */
 import apiservice from './api.service';
 
 const usersService = {
-  post: async (body: any) => {
+  post: async (body: object) => {
     try {
       const response = await apiservice.post('users', body);
       return response;
@@ -37,7 +38,7 @@ const usersService = {
       throw error;
     }
   },
-  put: async (id: string, body: any) => {
+  put: async (id: string, body: object) => {
     try {
       const response = await apiservice.put(`users/${id}`, body);
       return response;
@@ -55,7 +56,7 @@ const usersService = {
     }
   },
 
-  patch: async (id: string, body: any) => {
+  patch: async (id: string, body: object) => {
     try {
       const response = await apiservice.put(`users/${id}`, body);
       return response;

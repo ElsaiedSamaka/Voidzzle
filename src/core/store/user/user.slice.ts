@@ -4,6 +4,8 @@ import {
   registerThunk,
   loginThunk,
   logoutThunk,
+  // TODO: add implementation 👇
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   changePasswordThunk,
 } from './user.thunk';
 
@@ -60,11 +62,11 @@ export const authSlice = createSlice({
       .addCase(logoutThunk.fulfilled, (state, action) => {
         state.user = action.payload;
       })
-      .addCase(logoutThunk.rejected, (state, action) => {
+      .addCase(logoutThunk.rejected, (state) => {
         state.user = null;
       });
   },
 });
 
-export const {} = authSlice.actions;
+// export const {} = authSlice.actions;
 export default authSlice.reducer;

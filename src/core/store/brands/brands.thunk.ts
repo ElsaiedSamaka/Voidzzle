@@ -15,13 +15,13 @@ export const getBrandsThunk = createAsyncThunk(
 
 export const deleteBrandThunk = createAsyncThunk(
   'brands/delete',
-  async (id: any, thunkAPI) => {
+  async (id: string, thunkAPI) => {
     try {
       // ideally the resualt of delete request should be deleted product id of the deleted product
       // but since this is a dummy project, we are just returning the id
       const response = await brandsService.remove(id);
-      // return thunkAPI.fulfillWithValue(response);
-      return thunkAPI.fulfillWithValue(id);
+      return thunkAPI.fulfillWithValue(response);
+      // return thunkAPI.fulfillWithValue(id);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
     }
@@ -30,7 +30,7 @@ export const deleteBrandThunk = createAsyncThunk(
 
 export const deleteAllBrandsThunk = createAsyncThunk(
   'brands/deleteAll',
-  async (ids: any[], thunkAPI) => {
+  async (ids: [], thunkAPI) => {
     try {
       const response = await brandsService.removeAll(ids);
       return thunkAPI.fulfillWithValue(response);
@@ -41,7 +41,7 @@ export const deleteAllBrandsThunk = createAsyncThunk(
 );
 export const updateBrandThunk = createAsyncThunk(
   'brands/update',
-  async (body: any, thunkAPI) => {
+  async (body: object, thunkAPI) => {
     try {
       const response = await brandsService.put(body.id, body);
       return thunkAPI.fulfillWithValue(response);
@@ -53,7 +53,7 @@ export const updateBrandThunk = createAsyncThunk(
 
 export const createBrandThunk = createAsyncThunk(
   'brands/post',
-  async (body: any, thunkAPI) => {
+  async (body: object, thunkAPI) => {
     try {
       const response = await brandsService.post(body);
       return thunkAPI.fulfillWithValue(response);

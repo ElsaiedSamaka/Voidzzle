@@ -3,7 +3,10 @@ const nextConfig = {
   target: 'server',
 
   // React Strict Mode
-  reactStrictMode: true,
+  reactStrictMode: false,
+
+  // Build
+  distDir: 'build',
 
   // i18n with next
   i18n: {
@@ -22,6 +25,7 @@ const nextConfig = {
   // Image optimization configuration
   images: {
     // Image optimization configuration
+    domains: ['images.unsplash.com'],
   },
 
   // Redirects configuration
@@ -54,7 +58,7 @@ const nextConfig = {
   },
 
   // Customizing the build output directory
-  distDir: 'build',
+  // distDir: 'build',
 
   // Enable compilation of TypeScript files
   typescript: {

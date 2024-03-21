@@ -4,7 +4,7 @@ export type Product = {
   description: string;
   price: number;
   stock: number;
-  product_imgs: any[];
+  product_imgs: [];
   weight: number;
   length: number;
   breadth: number;

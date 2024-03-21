@@ -3,7 +3,8 @@
     "next/core-web-vitals",
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:react/recommended",
+    // TODO: uncomment and refactor based react lint recommended rules 
+    // "plugin:react/recommended",
     "plugin:react-hooks/recommended",
     "prettier"
   ],

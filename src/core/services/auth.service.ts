@@ -1,7 +1,8 @@
+/* eslint-disable no-useless-catch */
 import apiservice from './api.service';
 
 const authservice = {
-  register: async (body: any) => {
+  register: async (body: object) => {
     try {
       const response = await apiservice.post('auth/register', body);
       return response;
@@ -9,7 +10,7 @@ const authservice = {
       throw error;
     }
   },
-  login: async (body: any) => {
+  login: async (body: object) => {
     try {
       const response = await apiservice.post('auth/login', body);
       return response;
@@ -17,7 +18,7 @@ const authservice = {
       throw error;
     }
   },
-  logout: async (body: any) => {
+  logout: async (body: object) => {
     try {
       const response = await apiservice.post('auth/logout', body);
       return response;
@@ -25,7 +26,7 @@ const authservice = {
       throw error;
     }
   },
-  tokens: async (body: any) => {
+  tokens: async (body: object) => {
     try {
       const response = await apiservice.post('auth/tokens', body);
       return response;
@@ -33,7 +34,7 @@ const authservice = {
       throw error;
     }
   },
-  forgotPassword: async (body: any) => {
+  forgotPassword: async (body: object) => {
     try {
       const response = await apiservice.post('auth/forgot-password', body);
       return response;
@@ -42,7 +43,7 @@ const authservice = {
     }
   },
 
-  resetPassword: async (body: any) => {
+  resetPassword: async (body: object) => {
     try {
       const response = await apiservice.post('auth/reset-password', body);
       return response;
@@ -51,7 +52,7 @@ const authservice = {
     }
   },
 
-  verifyEmail: async (body: any) => {
+  verifyEmail: async (body: object) => {
     try {
       const response = await apiservice.post('auth/verify-email', body);
       return response;
@@ -60,7 +61,7 @@ const authservice = {
     }
   },
 
-  sendVerificationEmail: async (body: any) => {
+  sendVerificationEmail: async (body: object) => {
     try {
       const response = await apiservice.post(
         'auth/send-verification-email',
@@ -72,7 +73,7 @@ const authservice = {
     }
   },
 
-  changePassword: async (body: any) => {
+  changePassword: async (body: object) => {
     try {
       const response = await apiservice.patch(`auth/change-password`, body);
       return response;

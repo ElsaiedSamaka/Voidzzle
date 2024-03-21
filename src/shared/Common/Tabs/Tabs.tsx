@@ -1,5 +1,4 @@
-import { TabContext, useTabContext } from 'core/context/TabContext';
-import React, { useContext } from 'react';
+import { useTabContext } from 'core/context/TabContext';
 
 const Tabs = ({ items }) => {
   const { state, selectTab } = useTabContext();

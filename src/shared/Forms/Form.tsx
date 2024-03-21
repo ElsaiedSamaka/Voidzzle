@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import styles from './Form.module.css';
 
 import { Fragment, useEffect, useRef, useState } from 'react';
@@ -9,10 +11,11 @@ import { useThemeContext } from 'core/context/ThemeContext';
 
 import { isEqual } from 'core/helper';
 import Switch from 'shared/Common/Switch/Switch';
+import { FormField } from 'core/types';
 
 interface IFromProps {
-  defaultValues: Object;
-  formFields: any[];
+  defaultValues: object;
+  formFields: FormField[];
   children?: React.ReactNode;
 }
 const Form = ({ defaultValues, formFields, children }: IFromProps) => {
@@ -52,6 +55,8 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
       },
     });
   };
+  const temp = 1 + 1;
+  console.log(temp)
 
   useEffect(() => {
     const hasFormValuesChanged = !isEqual(
@@ -62,6 +67,9 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
     if (hasFormValuesChanged) {
       previousFormValues.current = formValues;
       handleChange();
+    }
+    return () =>{
+      handleChange;
     }
   }, [formValues, errors, isValid, isDirty, isSubmitting]);
 
@@ -117,7 +125,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                       name={field.name}
                       id={field.id}
                       type={field.type}
-                      {...register(field.name, {
+                      {...register(field.name as never, {
                         required: {
                           value: field.required,
                           message: 'this is a required field',
@@ -134,7 +142,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                           value: field.minLength,
                           message: 'minLength is ' + field.minLength,
                         },
-                        validate: field.validation?.reduce((acc, validator) => {
+                        validate: field.validation?.reduce((acc, validator:any) => {
                           return {
                             ...acc,
                             ...validator,
@@ -173,7 +181,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                       name={field.name}
                       id={field.id}
                       type={field.type}
-                      {...register(field.name, {
+                      {...register(field.name as never, {
                         required: {
                           value: field.required,
                           message: 'this is a required field',
@@ -187,15 +195,18 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                           message: `maxLength is ${field.maxLength}`,
                         },
                         minLength: {
-                          value: field.menLength,
+                          value: field.minLength,
                           message: `minLength is ${field.minLength}`,
                         },
-                        validate: field.validation?.reduce((acc, validator) => {
-                          return {
-                            ...acc,
-                            ...validator,
-                          };
-                        }, {}),
+                        validate: field.validation?.reduce(
+                          (acc, validator: any) => {
+                            return {
+                              ...acc,
+                              ...validator,
+                            };
+                          },
+                          {},
+                        ),
                       })}
                     />
                     {errors[field.name] && (
@@ -245,7 +256,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                       )}
                       name={field.name}
                       id={field.id}
-                      {...register(field.name, {
+                      {...register(field.name as never, {
                         required: {
                           value: field.required,
                           message: 'this is a required field',
@@ -259,10 +270,10 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                           message: `maxLength is ${field.maxLength}`,
                         },
                         minLength: {
-                          value: field.menLength,
+                          value: field.minLength,
                           message: `minLength is ${field.minLength}`,
                         },
-                        validate: field.validation?.reduce((acc, validator) => {
+                        validate: field.validation?.reduce((acc, validator:any) => {
                           return {
                             ...acc,
                             ...validator,
@@ -338,7 +349,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                       name={field.name}
                       id={field.id}
                       type={passwordType}
-                      {...register(field.name, {
+                      {...register(field.name as never, {
                         required: {
                           value: field.required,
                           message: 'this is a required field',
@@ -352,15 +363,18 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                           message: `maxLength is ${field.maxLength}`,
                         },
                         minLength: {
-                          value: field.menLength,
+                          value: field.minLength,
                           message: `minLength is ${field.minLength}`,
                         },
-                        validate: field.validation?.reduce((acc, validator) => {
-                          return {
-                            ...acc,
-                            ...validator,
-                          };
-                        }, {}),
+                        validate: field.validation?.reduce(
+                          (acc, validator: any) => {
+                            return {
+                              ...acc,
+                              ...validator,
+                            };
+                          },
+                          {},
+                        ),
                       })}
                     />
                     <span className="absolute right-5 bottom-2.5">
@@ -485,7 +499,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                       name={field.name}
                       id={field.id}
                       type={field.type}
-                      {...register(field.name, {
+                      {...register(field.name as never, {
                         required: {
                           value: field.required,
                           message: 'this is a required field',
@@ -499,10 +513,10 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                           message: `maxLength is ${field.maxLength}`,
                         },
                         minLength: {
-                          value: field.menLength,
+                          value: field.minLength,
                           message: `minLength is ${field.minLength}`,
                         },
-                        validate: field.validation?.reduce((acc, validator) => {
+                        validate: field.validation?.reduce((acc, validator:any) => {
                           return {
                             ...acc,
                             ...validator,
@@ -541,7 +555,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                       name={field.name}
                       id={field.id}
                       type={field.type}
-                      {...register(field.name, {
+                      {...register(field.name as never, {
                         required: {
                           value: field.required,
                           message: 'this is a required field',
@@ -555,10 +569,10 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                           message: `maxLength is ${field.maxLength}`,
                         },
                         minLength: {
-                          value: field.menLength,
+                          value: field.minLength,
                           message: `minLength is ${field.minLength}`,
                         },
-                        validate: field.validation?.reduce((acc, validator) => {
+                        validate: field.validation?.reduce((acc, validator:any) => {
                           return {
                             ...acc,
                             ...validator,
@@ -597,7 +611,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                       name={field.name}
                       id={field.id}
                       type={field.type}
-                      {...register(field.name, {
+                      {...register(field.name as never, {
                         required: {
                           value: field.required,
                           message: 'this is a required field',
@@ -611,10 +625,10 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                           message: `maxLength is ${field.maxLength}`,
                         },
                         minLength: {
-                          value: field.menLength,
+                          value: field.minLength,
                           message: `minLength is ${field.minLength}`,
                         },
-                        validate: field.validation?.reduce((acc, validator) => {
+                        validate: field.validation?.reduce((acc, validator: any) => {
                           return {
                             ...acc,
                             ...validator,
@@ -654,7 +668,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                       id={field.id}
                       type={field.type}
                       placeholder={field.placholder}
-                      {...register(field.name, {
+                      {...register(field.name as never, {
                         required: {
                           value: field.required,
                           message: 'this is a required field',
@@ -668,10 +682,10 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                           message: `maxLength is ${field.maxLength}`,
                         },
                         minLength: {
-                          value: field.menLength,
+                          value: field.minLength,
                           message: `minLength is ${field.minLength}`,
                         },
-                        validate: field.validation?.reduce((acc, validator) => {
+                        validate: field.validation?.reduce((acc, validator: any) => {
                           return {
                             ...acc,
                             ...validator,
@@ -711,7 +725,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                       id={field.id}
                       type={field.type}
                       placeholder={field.placholder}
-                      {...register(field.name, {
+                      {...register(field.name as never, {
                         required: {
                           value: field.required,
                           message: 'this is a required field',
@@ -725,10 +739,10 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                           message: `maxLength is ${field.maxLength}`,
                         },
                         minLength: {
-                          value: field.menLength,
+                          value: field.minLength,
                           message: `minLength is ${field.minLength}`,
                         },
-                        validate: field.validation?.reduce((acc, validator) => {
+                        validate: field.validation?.reduce((acc, validator: any) => {
                           return {
                             ...acc,
                             ...validator,

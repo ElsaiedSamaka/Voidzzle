@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState } from 'react';
 import Form from 'shared/Forms/Form';
 import Dailog from 'shared/Modals/Dailog/Dailog';

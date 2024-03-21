@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 export function useGuard() {
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState();
+  const [error] = useState();
   const controller = new AbortController();
 
   useEffect(() => {

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const useSessionStorage = (key: any, initialValue: any) => {
+const useSessionStorage = (key, initialValue) => {
   const [storedValue, setStoredValue] = React.useState(() => {
     if (typeof window !== 'undefined') {
       const item = window.sessionStorage.getItem(key);
@@ -10,7 +10,7 @@ const useSessionStorage = (key: any, initialValue: any) => {
     }
   });
 
-  const setValue = (value: any) => {
+  const setValue = (value) => {
     const valueToStore = value instanceof Function ? value(storedValue) : value;
     setStoredValue(valueToStore);
     if (typeof window !== 'undefined') {

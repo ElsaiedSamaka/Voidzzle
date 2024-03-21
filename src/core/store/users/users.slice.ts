@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { Todo, User } from 'core/models';
+import { User } from 'core/models';
 import {
   createUserThunk,
   deleteUserThunk,
@@ -32,7 +32,7 @@ export const usersSlice = createSlice({
   extraReducers: (builder) => {
     // getUsers
     builder
-      .addCase(getUsersThunk.pending, (state, action) => {
+      .addCase(getUsersThunk.pending, (state) => {
         state.loading = true;
         state.error = null;
       })
@@ -60,7 +60,7 @@ export const usersSlice = createSlice({
         state.loading = false;
         state.error = action.error.message;
       })
-      .addCase(createUserThunk.pending, (state, action) => {
+      .addCase(createUserThunk.pending, (state) => {
         state.loading = true;
         state.error = null;
       });
@@ -80,7 +80,7 @@ export const usersSlice = createSlice({
         state.loading = false;
         state.error = action.error.message;
       })
-      .addCase(updateUserThunk.pending, (state, action) => {
+      .addCase(updateUserThunk.pending, (state) => {
         state.loading = true;
         state.error = null;
       });
@@ -95,7 +95,7 @@ export const usersSlice = createSlice({
         state.loading = false;
         state.error = action.error.message;
       })
-      .addCase(deleteUserThunk.pending, (state, action) => {
+      .addCase(deleteUserThunk.pending, (state) => {
         state.loading = true;
         state.error = null;
       });

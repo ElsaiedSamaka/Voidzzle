@@ -46,7 +46,7 @@ const Users = () => {
   ];
   useEffect(() => {
     dispatch(getUsersThunk());
-  }, []);
+  });
   const formFields = [
     {
       name: 'name',

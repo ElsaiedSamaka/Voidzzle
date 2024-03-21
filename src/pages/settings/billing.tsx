@@ -2,6 +2,8 @@
 import { RootLayout, SettingsLayout } from 'shared';
 // Packages
 import Head from 'next/head';
+import Image from 'next/image';
+
 // Hooks & Services
 import { useTranslation } from 'core/context/TranslationContext';
 
@@ -27,7 +29,9 @@ const BillingSettings = () => {
               <h1 className="py-2 text-2xl font-semibold">
                 {t('billing.name')}
               </h1>
-              <p class="font- ">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+              <p className="font- ">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              </p>
             </div>
             <hr className="mt-4 mb-8 border border-zinc-500/50" />
             <div className="mb-10 grid gap-y-8 lg:grid-cols-2 lg:gap-y-0">
@@ -59,10 +63,13 @@ const BillingSettings = () => {
                     </button>
                   </div>
                   <div className="flex items-center rounded-md border border-gray-100/10 bg-white/5 py-3 shadow">
-                    <img
+                    <Image
+                      alt="temp"
                       title="Visa"
                       className="h-10 object-contain pl-4"
-                      src="/images/kt10d0A1TgzZpAoNM_YPX.png"
+                      src=""
+                      width={10}
+                      height={10}
                     />
                     <p className="ml-4 w-56">
                       <strong className="block text-lg font-medium">
@@ -71,10 +78,7 @@ const BillingSettings = () => {
                       <strong className="block text-lg font-medium">
                         ALBERT K. DANIEL{' '}
                       </strong>
-                      <span className="text-xs ">
-                        {' '}
-                        Expires on: Dec 2024{' '}
-                      </span>
+                      <span className="text-xs "> Expires on: Dec 2024 </span>
                     </p>
                   </div>
                 </div>
@@ -161,8 +165,8 @@ const BillingSettings = () => {
     </>
   );
 };
-
-BillingSettings.getLayout = (page) => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+BillingSettings.getLayout = (page: any) => {
   return (
     <RootLayout>
       <SettingsLayout>{page}</SettingsLayout>

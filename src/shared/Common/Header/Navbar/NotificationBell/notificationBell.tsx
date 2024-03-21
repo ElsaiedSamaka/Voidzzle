@@ -1,5 +1,6 @@
 // packages
 import classNames from 'classnames';
+import Image from 'next/image';
 // hooks
 import { useThemeContext } from 'core/context/ThemeContext';
 import { useState } from 'react';
@@ -59,10 +60,12 @@ const NotificationBell = () => {
         <div className="notification-ddl h-64 overfolw-scroll">
           <a className="flex py-3 px-4 ">
             <div className="flex-shrink-0">
-              <img
+              <Image
                 className="w-11 h-11 rounded-full"
                 src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png"
                 alt="Bonnie Green avatar"
+                width={10}
+                height={10}
               />
               <div className="flex absolute justify-center items-center ml-6 -mt-5 w-5 h-5 rounded-full border border-white/10 ">
                 <svg
@@ -80,8 +83,8 @@ const NotificationBell = () => {
             <div className="pl-3 w-full">
               <div className="font-normal text-sm mb-1.5">
                 New message from
-                <span className="font-semibold">Bonnie Green</span>: "Hey,
-                what's up? All set for the presentation?"
+                <span className="font-semibold">Bonnie Green</span>: Hey, what s
+                up? All set for the presentation?
               </div>
               <div className="text-xs font-medium text-primary-600 ">
                 a few moments ago

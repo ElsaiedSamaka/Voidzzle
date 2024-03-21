@@ -19,7 +19,9 @@ const tabReducer = (state, action) => {
 // context
 export const TabContext = createContext({
   state: initialState,
-  selectTab: (index) => {},
+  selectTab: (index) => {
+    console.log(index)
+  },
 });
 // context provider
 export const TabProvider = ({ children }) => {

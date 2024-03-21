@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { deleteProductThunk } from 'core/store/products/products.thunk';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
@@ -20,7 +21,7 @@ const TableBody = ({
   const { state, dispatch: dispatchSelectedItems } = useSelectedItems();
   const { items } = state;
   const dispatch = useDispatch();
-  function toggleActionsPopover(index: any) {
+  function toggleActionsPopover(index) {
     if (rowIndex == index) {
       setShowActionsPopover(!showActionsPopover);
     } else {
@@ -28,15 +29,15 @@ const TableBody = ({
       setShowActionsPopover(true);
     }
   }
-  function deleteItem(id: any) {
+  function deleteItem(id) {
     dispatch(deleteProductThunk(id));
     toggleActionsPopover(null);
   }
-  function handleEditModalToggle(item: any) {
+  function handleEditModalToggle(item) {
     toggleActionsPopover(null);
     toggleEditModal(!showEditModal);
   }
-  function handlePreviewModalToggle(item: any) {
+  function handlePreviewModalToggle(item) {
     toggleActionsPopover(null);
     togglePreviewModal(!showPreviewModal);
   }
@@ -159,6 +160,7 @@ const TableBody = ({
                               toggleActionsPopover(i);
                             }}
                             id="apple-imac-20-dropdown-button"
+                            title="apple-imac-20-dropdown"
                             data-dropdown-toggle="apple-imac-20-dropdown"
                             className="inline-flex items-center p-0.5 text-sm font-medium text-center hover:text-gray-800 rounded-lg focus:outline-none"
                             type="button"
@@ -288,6 +290,7 @@ const TableBody = ({
                         <button
                           disabled
                           id="apple-imac-20-dropdown-button"
+                          title="apple-imac-20-dropdown"
                           data-dropdown-toggle="apple-imac-20-dropdown"
                           className="inline-flex items-center p-0.5 text-sm font-medium text-center  rounded-lg focus:outline-none disabled:cursor-not-allowed"
                           type="button"

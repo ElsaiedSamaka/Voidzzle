@@ -1,9 +1,10 @@
+/* eslint-disable no-useless-catch */
 import { axiosClient, axiosConfig } from './axios.client';
 
 const base_url = process.env.NEXT_PUBLIC_BASE_URL;
 
 const apiservice = {
-  post: async (path: string, body: any) => {
+  post: async (path: string, body: object) => {
     try {
       const response = await axiosClient.post(
         `${base_url}/${path}`,
@@ -28,7 +29,7 @@ const apiservice = {
     }
   },
 
-  put: async (path: string, body: any) => {
+  put: async (path: string, body: object) => {
     try {
       const response = await axiosClient.put(
         `${base_url}/${path}`,
@@ -53,7 +54,7 @@ const apiservice = {
     }
   },
 
-  patch: async (path: string, body: any) => {
+  patch: async (path: string, body: object) => {
     try {
       const response = await axiosClient.patch(
         `${base_url}/${path}`,

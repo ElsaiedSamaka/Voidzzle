@@ -1,6 +1,10 @@
+// Packages
 import Link from 'next/link';
-import { useThemeContext } from 'core/context/ThemeContext';
+import Image from 'next/image';
 import classNames from 'classnames';
+// Hooks & Services
+import { useThemeContext } from 'core/context/ThemeContext';
+
 const ProductCard = ({ id }) => {
   const {
     theme: { mode },
@@ -11,20 +15,20 @@ const ProductCard = ({ id }) => {
         className={classNames(
           'relative  flex w-full bg-white/5  flex-col overflow-hidden rounded-2xl border',
           {
-            ' text-dark-textSecondary border-dark-border':
-              mode === 'dark',
-            ' text-light-textSecondary border-light-border':
-              mode === 'light',
+            ' text-dark-textSecondary border-dark-border': mode === 'dark',
+            ' text-light-textSecondary border-light-border': mode === 'light',
           },
         )}
       >
         {/* image */}
         <Link href={`/products/${encodeURIComponent(id)}`}>
           <div className="relative mx-2 mt-2 flex h-60 overflow-hidden rounded-2xl">
-            <img
+            <Image
               className="object-cover w-full"
               src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8c25lYWtlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
               alt="product image"
+              width={10}
+              height={10}
             />
             <span className="absolute top-0 left-0 m-2 inline-flex justify-center items-center w-[46px] h-[46px] rounded-full border shadow-sm ">
               <svg

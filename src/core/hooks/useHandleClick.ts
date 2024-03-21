@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 
 export function useHandleClick(
-  callback: (e: MouseEvent) => any,
+  callback: (e: MouseEvent) => void,
   deps?: React.DependencyList | undefined,
 ) {
   useEffect(() => {
