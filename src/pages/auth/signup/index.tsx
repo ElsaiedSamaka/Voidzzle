@@ -150,8 +150,8 @@ const Signup = () => {
   useEffect(() => {
     if (authSlice.error) {
       // TODO: add toast to handle this case
-      console.error('Register error:', authSlice.error);
       // Handle error display or any other action
+      console.error('Register error:', authSlice.error);
     } else if (authSlice.user) {
       console.log('Register success. Redirecting to home.');
       router.push('/');
@@ -183,6 +183,7 @@ const Signup = () => {
             },
           )}
         >
+          {/* start journey card */}
           <div className="max-w-md rounded-3xl bg-gradient-to-t from-red-500 via-red-700 to-red-600 px-4 py-10 text-white sm:px-10 md:m-6 md:mr-8">
             <p className="mb-20 font-bold tracking-wider">Voidzzle</p>
             <p className="mb-4 text-3xl font-bold md:text-4xl md:leading-snug">
@@ -218,7 +219,8 @@ const Signup = () => {
               </div>
             </div>
           </div>
-          <div className=" px-4 py-20 z-10">
+          {/* start journey card */}
+          <div className="regteration-form px-4 py-20 z-10">
             <h2 className="mb-2 text-3xl font-bold">{t('signup.name')}</h2>
             <div className="mb-10 block font-bold text--600">
               {t('signup.have an account ?')}
@@ -228,7 +230,7 @@ const Signup = () => {
             </div>
             <p className="mb-1 font-medium text--500">{t('signup.Sign as?')}</p>
             <div className="mb-6 flex flex-col gap-y-2 gap-x-4 lg:flex-row">
-              <div className="relative flex w-56 items-center justify-center rounded-xl bg--50 px-4 py-3 font-medium text--700">
+              <div className="relative flex w-56 items-center justify-center rounded-xl px-4 py-3 font-medium text--700">
                 <input
                   className="peer hidden"
                   type="radio"
@@ -237,12 +239,12 @@ const Signup = () => {
                   defaultChecked
                 />
                 <label
-                  className="peer-checked:border-red-600 peer-checked:bg-red-200 absolute top-0 h-full w-full cursor-pointer rounded-xl border"
+                  className="peer-checked:border-red-600 peer-checked:bg-red-200/10 absolute top-0 h-full w-full cursor-pointer rounded-xl border border-gray-100/10"
                   htmlFor="radio1"
                 >
                   {' '}
                 </label>
-                <div className="peer-checked:border-transparent peer-checked:bg-red-600 peer-checked:ring-2 absolute left-4 h-5 w-5 rounded-full border-2 border--300 bg--200 ring-red-600 ring-offset-2" />
+                <div className="peer-checked:border-transparent peer-checked:bg-red-200/10 peer-checked:ring-2 absolute left-4 h-5 w-5 rounded-full border-2 border-gray-300/10 ring-red-600 ring-offset-2" />
                 <span className="pointer-events-none z-10">
                   {t('signup.Seller')}
                 </span>
@@ -256,12 +258,12 @@ const Signup = () => {
                   defaultChecked
                 />
                 <label
-                  className="peer-checked:border-red-600 peer-checked:bg-red-200 absolute top-0 h-full w-full cursor-pointer rounded-xl border"
+                  className="peer-checked:border-red-600 peer-checked:bg-red-200/10 absolute top-0 h-full w-full cursor-pointer rounded-xl border border-gray-100/10"
                   htmlFor="radio3"
                 >
                   {' '}
                 </label>
-                <div className="peer-checked:border-transparent peer-checked:bg-red-600 peer-checked:ring-2 absolute left-4 h-5 w-5 rounded-full border-2 border--300 bg--200 ring-red-600 ring-offset-2" />
+                <div className="peer-checked:border-transparent peer-checked:bg-red-200/10 peer-checked:ring-2 absolute left-4 h-5 w-5 rounded-full border-2 border-gray-300/10 bg--200 ring-red-600 ring-offset-2" />
                 <span className="pointer-events-none z-10">
                   {t('signup.Customer')}
                 </span>
