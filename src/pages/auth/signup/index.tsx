@@ -190,12 +190,12 @@ const Signup = () => {
               Start your <br />
               journey with us
             </p>
-            <p className="mb-28 leading-relaxed text--200">
+            <p className="mb-28 leading-relaxed">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere
               nisi voluptas a officia. Omnis.
             </p>
             <div className="bg-red-600/80 rounded-2xl px-4 py-8">
-              <p className="mb-3 text--200">
+              <p className="mb-3">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error
                 ea voluptates sapiente!
               </p>
@@ -230,7 +230,7 @@ const Signup = () => {
             </div>
             <p className="mb-1 font-medium text--500">{t('signup.Sign as?')}</p>
             <div className="mb-6 flex flex-col gap-y-2 gap-x-4 lg:flex-row">
-              <div className="relative flex w-56 items-center justify-center rounded-xl px-4 py-3 font-medium text--700">
+              <div className="relative flex w-56 items-center justify-center rounded-xl px-4 py-3 font-medium">
                 <input
                   className="peer hidden"
                   type="radio"

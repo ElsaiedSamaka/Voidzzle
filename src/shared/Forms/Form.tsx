@@ -403,14 +403,14 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                         ),
                       })}
                     />
-                    <span className="absolute right-5 bottom-2.5">
+                    <span className="absolute w-full bottom-2.5 ltr:right-5 rtl:left-5">
                       <Switch testCase={passwordType}>
                         <svg
                           onClick={() => {
                             handlePasswordToggle('text');
                           }}
                           id="password"
-                          className=" w-5 h-5 text-gray-400 hover:text-gray-900 hover:cursor-pointer"
+                          className="w-5 h-5 text-gray-400 hover:cursor-pointer mr-auto"
                           fill="none"
                           stroke="currentColor"
                           strokeWidth="1.5"
@@ -434,7 +434,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                             handlePasswordToggle('password');
                           }}
                           id="text"
-                          className="w-5 h-5 text-gray-400 hover:text-gray-900 hover:cursor-pointer"
+                          className="w-5 h-5 text-gray-400 ltr:ml-auto rtl:mr-auto hover:cursor-pointer"
                           fill="none"
                           stroke="currentColor"
                           strokeWidth="1.5"
