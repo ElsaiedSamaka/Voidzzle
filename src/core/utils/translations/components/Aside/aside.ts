@@ -12,7 +12,6 @@ const translations = {
     'aside.account': 'Account',
     'aside.notification': 'Notification',
     'aside.refund': 'Refund',
-    'aside.dashboard': 'Dashboard',
   },
   ar: {
     'aside.home': 'الرئيسية',
@@ -27,7 +26,6 @@ const translations = {
     'aside.account': 'الحساب',
     'aside.notification': 'الإشعارات',
     'aside.refund': 'مرتجعات',
-    'aside.dashboard': 'لوحة التحكم',
   },
 };
 

@@ -3,8 +3,7 @@
     "next/core-web-vitals",
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
-    // TODO: uncomment and refactor based react lint recommended rules 
-    // "plugin:react/recommended",
+    "plugin:react/recommended",
     "plugin:react-hooks/recommended",
     "prettier"
   ],
@@ -18,6 +17,8 @@
   },
   "rules": {
     "react/react-in-jsx-scope": "off",
-    "react/jsx-uses-react": "off"
+    "react/jsx-uses-react": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-implicit-any": "off"
   }
 }

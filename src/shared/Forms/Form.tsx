@@ -8,6 +8,7 @@ import classNames from 'classnames';
 
 import { useFormStateContext } from './shared/FormContext';
 import { useThemeContext } from 'core/context/ThemeContext';
+import { useTranslation } from 'core/context/TranslationContext';
 
 import { isEqual } from 'core/helper';
 import Switch from 'shared/Common/Switch/Switch';
@@ -18,6 +19,14 @@ interface IFromProps {
   formFields: FormField[];
   children?: React.ReactNode;
 }
+interface Errors {
+  [fieldName: string]: {
+    type: string | number;
+    message: string;
+  };
+}
+
+
 const Form = ({ defaultValues, formFields, children }: IFromProps) => {
   const {
     control,
@@ -33,6 +42,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
   });
   const { errors, isValid, isDirty, isSubmitting } = formState;
   const { state, dispatch } = useFormStateContext();
+  const { t } = useTranslation();
   const { theme } = useThemeContext();
   const { mode } = theme;
 
@@ -44,7 +54,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
   function handlePasswordToggle(type: string) {
     togglePassword(type);
   }
-  const submit = (formData) => {
+  const submit = (formData: any) => {
     dispatch({
       type: 'SUBMIT',
       formState: {
@@ -56,7 +66,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
     });
   };
   const temp = 1 + 1;
-  console.log(temp)
+  console.log(temp);
 
   useEffect(() => {
     const hasFormValuesChanged = !isEqual(
@@ -68,9 +78,9 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
       previousFormValues.current = formValues;
       handleChange();
     }
-    return () =>{
+    return () => {
       handleChange;
-    }
+    };
   }, [formValues, errors, isValid, isDirty, isSubmitting]);
 
   function handleChange() {
@@ -107,14 +117,17 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                     className="input flex flex-col w-full font-semibold group col-span-2"
                   >
                     {field.label && (
-                      <label className="capitalize  " htmlFor={field.name}>
-                        {field.label}
+                      <label className="capitalize" htmlFor={field.name}>
+                        {t(field.label)}
                       </label>
                     )}
                     <input
                       className={classNames(
                         'p-2 rounded-md border font-normal',
-                        { 'border-red-500': errors[field.name] },
+                        {
+                          'border-red-500':
+                            errors[field.name as keyof typeof errors],
+                        },
                         {
                           'bg-dark-bgSecondary text-dark-textSecondary border-dark-border hover:bg-zinc-800':
                             mode === 'dark',
@@ -122,7 +135,6 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                             mode === 'light',
                         },
                       )}
-                      name={field.name}
                       id={field.id}
                       type={field.type}
                       {...register(field.name as never, {
@@ -131,7 +143,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                           message: 'this is a required field',
                         },
                         pattern: {
-                          value: field.pattern,
+                          value: field.pattern as RegExp,
                           message: `a required valid pattern is ${field.pattern}`,
                         },
                         maxLength: {
@@ -142,17 +154,20 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                           value: field.minLength,
                           message: 'minLength is ' + field.minLength,
                         },
-                        validate: field.validation?.reduce((acc, validator:any) => {
-                          return {
-                            ...acc,
-                            ...validator,
-                          };
-                        }, {}),
+                        validate: (field.validation as any[])?.reduce(
+                          (acc: any, validator: any) => {
+                            return {
+                              ...acc,
+                              ...validator,
+                            };
+                          },
+                          {},
+                        ),
                       })}
                     />
-                    {errors[field.name] && (
+                    {errors[field.name as keyof typeof errors] && (
                       <span className="opacity-0 group-hover:opacity-100 transition-all duration-300 text-red-500 px-1 rounded-full text-center w-fit absolute left-[12%] bg-white border border-red-500">
-                        {errors[field.name].message}
+                        {errors[field.name as keyof typeof errors]?.message}
                       </span>
                     )}
                   </div>
@@ -164,13 +179,16 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                   >
                     {field.label && (
                       <label className="capitalize " htmlFor={field.name}>
-                        {field.label}
+                        {t(field.label)}
                       </label>
                     )}
                     <input
                       className={classNames(
                         'p-2 rounded-md border font-normal',
-                        { 'border-red-500': errors[field.name] },
+                        {
+                          'border-red-500':
+                            errors[field.name as keyof typeof errors],
+                        },
                         {
                           'bg-dark-bgSecondary text-dark-textSecondary border-dark-border hover:bg-zinc-800':
                             mode === 'dark',
@@ -178,7 +196,6 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                             mode === 'light',
                         },
                       )}
-                      name={field.name}
                       id={field.id}
                       type={field.type}
                       {...register(field.name as never, {
@@ -187,7 +204,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                           message: 'this is a required field',
                         },
                         pattern: {
-                          value: field.pattern,
+                          value: field.pattern as RegExp,
                           message: `a required valid pattern is ${field.pattern}`,
                         },
                         maxLength: {
@@ -198,8 +215,8 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                           value: field.minLength,
                           message: `minLength is ${field.minLength}`,
                         },
-                        validate: field.validation?.reduce(
-                          (acc, validator: any) => {
+                        validate: (field.validation as any[])?.reduce(
+                          (acc: any, validator: any) => {
                             return {
                               ...acc,
                               ...validator,
@@ -209,9 +226,9 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                         ),
                       })}
                     />
-                    {errors[field.name] && (
+                    {errors[field.name as keyof typeof errors] && (
                       <span className="opacity-0 group-hover:opacity-100 transition-all duration-300 text-red-500 px-1 rounded-full text-center w-fit absolute left-[12%] bg-white border border-red-500">
-                        {errors[field.name].message}
+                        {errors[field.name as keyof typeof errors]?.message}
                       </span>
                     )}
                   </div>
@@ -222,13 +239,13 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                     className="input flex flex-col w-full font-semibold group"
                   >
                     <label className={styles.checkboxbtn}>
-                      <label htmlFor={field.label}>{field.label}</label>
+                      <label htmlFor={t(field.label)}>{t(field.label)}</label>
                       <input id={field.id} type={field.type} />
                       <span className={styles.checkmark}></span>
                     </label>
-                    {errors[field.name] && (
+                    {errors[field.name as keyof typeof errors] && (
                       <span className="opacity-0 group-hover:opacity-100 transition-all duration-300 text-red-500 px-1 rounded-full text-center w-fit absolute left-[12%] bg-white border border-red-500">
-                        {errors[field.name].message}
+                        {errors[field.name as keyof typeof errors]?.message}
                       </span>
                     )}
                   </div>
@@ -240,13 +257,16 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                   >
                     {field.label && (
                       <label className="capitalize " htmlFor={field.name}>
-                        {field.label}
+                        {t(field.label)}
                       </label>
                     )}
                     <select
                       className={classNames(
                         'p-2 rounded-md border font-normal',
-                        { 'border-red-500': errors[field.name] },
+                        {
+                          'border-red-500':
+                            errors[field.name as keyof typeof errors],
+                        },
                         {
                           'bg-dark-bgSecondary text-dark-textSecondary border-dark-border hover:bg-zinc-800':
                             mode === 'dark',
@@ -254,7 +274,6 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                             mode === 'light',
                         },
                       )}
-                      name={field.name}
                       id={field.id}
                       {...register(field.name as never, {
                         required: {
@@ -262,7 +281,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                           message: 'this is a required field',
                         },
                         pattern: {
-                          value: field.pattern,
+                          value: field.pattern as RegExp,
                           message: `a required valid pattern is ${field.pattern}`,
                         },
                         maxLength: {
@@ -273,12 +292,15 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                           value: field.minLength,
                           message: `minLength is ${field.minLength}`,
                         },
-                        validate: field.validation?.reduce((acc, validator:any) => {
-                          return {
-                            ...acc,
-                            ...validator,
-                          };
-                        }, {}),
+                        validate: (field.validation as any[])?.reduce(
+                          (acc: any, validator: any) => {
+                            return {
+                              ...acc,
+                              ...validator,
+                            };
+                          },
+                          {},
+                        ),
                       })}
                     >
                       <option selected>Select</option>
@@ -286,9 +308,9 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                       <option value="mercedes">Mercedes</option>
                       <option value="audi">Audi</option>
                     </select>
-                    {errors[field.name] && (
+                    {errors[field.name as keyof typeof errors] && (
                       <span className="opacity-0 group-hover:opacity-100 transition-all duration-300 text-red-500 px-1 rounded-full text-center w-fit absolute left-[12%] bg-white border border-red-500">
-                        {errors[field.name].message}
+                        {errors[field.name as keyof typeof errors]?.message}
                       </span>
                     )}
                   </div>
@@ -300,14 +322,17 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                   >
                     {field.label && (
                       <label className="capitalize " htmlFor={field.name}>
-                        {field.label}
+                        {t(field.label)}
                       </label>
                     )}
 
                     <textarea
                       className={classNames(
                         'p-2 rounded-md border font-normal',
-                        { 'border-red-500': errors[field.name] },
+                        {
+                          'border-red-500':
+                            errors[field.name as keyof typeof errors],
+                        },
                         {
                           'bg-dark-bgSecondary text-dark-textSecondary border-dark-border hover:bg-zinc-800':
                             mode === 'dark',
@@ -315,12 +340,11 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                             mode === 'light',
                         },
                       )}
-                      name={field.name}
                       id={field.id}
                     ></textarea>
-                    {errors[field.name] && (
+                    {errors[field.name as keyof typeof errors] && (
                       <span className="opacity-0 group-hover:opacity-100 transition-all duration-300 text-red-500 px-1 rounded-full text-center w-fit absolute left-[12%] bg-white border border-red-500">
-                        {errors[field.name].message}
+                        {errors[field.name as keyof typeof errors]?.message}
                       </span>
                     )}
                   </div>
@@ -332,13 +356,16 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                   >
                     {field.label && (
                       <label className="capitalize " htmlFor={field.name}>
-                        {field.label}
+                        {t(field.label)}
                       </label>
                     )}
                     <input
                       className={classNames(
                         'p-2 rounded-md border font-normal',
-                        { 'border-red-500': errors[field.name] },
+                        {
+                          'border-red-500':
+                            errors[field.name as keyof typeof errors],
+                        },
                         {
                           'bg-dark-bgSecondary text-dark-textSecondary border-dark-border hover:bg-zinc-800':
                             mode === 'dark',
@@ -346,7 +373,6 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                             mode === 'light',
                         },
                       )}
-                      name={field.name}
                       id={field.id}
                       type={passwordType}
                       {...register(field.name as never, {
@@ -355,7 +381,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                           message: 'this is a required field',
                         },
                         pattern: {
-                          value: field.pattern,
+                          value: field.pattern as RegExp,
                           message: `a required valid pattern is ${field.pattern}`,
                         },
                         maxLength: {
@@ -366,8 +392,8 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                           value: field.minLength,
                           message: `minLength is ${field.minLength}`,
                         },
-                        validate: field.validation?.reduce(
-                          (acc, validator: any) => {
+                        validate: (field.validation as any[])?.reduce(
+                          (acc: any, validator: any) => {
                             return {
                               ...acc,
                               ...validator,
@@ -424,9 +450,9 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                         </svg>
                       </Switch>
                     </span>
-                    {errors[field.name] && (
+                    {errors[field.name as keyof typeof errors] && (
                       <span className="opacity-0 group-hover:opacity-100 transition-all duration-300 text-red-500 px-1 rounded-full text-center w-fit absolute left-[12%] bg-white border border-red-500">
-                        {errors[field.name].message}
+                        {errors[field.name as keyof typeof errors]?.message}
                       </span>
                     )}
                   </div>
@@ -437,7 +463,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                     className="flex flex-col items-start justify-center w-full col-span-2"
                   >
                     <label className="capitalize  font-semibold">
-                      {field.label}
+                      {t(field.label)}
                     </label>
                     <label
                       htmlFor="dropzone-file"
@@ -482,13 +508,16 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                   >
                     {field.label && (
                       <label className="capitalize " htmlFor={field.name}>
-                        {field.label}
+                        {t(field.label)}
                       </label>
                     )}
                     <input
                       className={classNames(
                         'p-2 rounded-md border font-normal',
-                        { 'border-red-500': errors[field.name] },
+                        {
+                          'border-red-500':
+                            errors[field.name as keyof typeof errors],
+                        },
                         {
                           'bg-dark-bgSecondary text-dark-textSecondary border-dark-border hover:bg-zinc-800':
                             mode === 'dark',
@@ -496,7 +525,6 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                             mode === 'light',
                         },
                       )}
-                      name={field.name}
                       id={field.id}
                       type={field.type}
                       {...register(field.name as never, {
@@ -505,7 +533,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                           message: 'this is a required field',
                         },
                         pattern: {
-                          value: field.pattern,
+                          value: field.pattern as RegExp,
                           message: `a required valid pattern is ${field.pattern}`,
                         },
                         maxLength: {
@@ -516,17 +544,20 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                           value: field.minLength,
                           message: `minLength is ${field.minLength}`,
                         },
-                        validate: field.validation?.reduce((acc, validator:any) => {
-                          return {
-                            ...acc,
-                            ...validator,
-                          };
-                        }, {}),
+                        validate: (field.validation as any[])?.reduce(
+                          (acc: any, validator: any) => {
+                            return {
+                              ...acc,
+                              ...validator,
+                            };
+                          },
+                          {},
+                        ),
                       })}
                     />
-                    {errors[field.name] && (
+                    {errors[field.name as keyof typeof errors] && (
                       <span className="opacity-0 group-hover:opacity-100 transition-all duration-300 text-red-500 px-1 rounded-full text-center w-fit absolute left-[12%] bg-white border border-red-500">
-                        {errors[field.name].message}
+                        {errors[field.name as keyof typeof errors]?.message}
                       </span>
                     )}
                   </div>
@@ -538,13 +569,16 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                   >
                     {field.label && (
                       <label className="capitalize " htmlFor={field.name}>
-                        {field.label}
+                        {t(field.label)}
                       </label>
                     )}
                     <input
                       className={classNames(
                         'p-2 rounded-md border font-normal',
-                        { 'border-red-500': errors[field.name] },
+                        {
+                          'border-red-500':
+                            errors[field.name as keyof typeof errors],
+                        },
                         {
                           'bg-dark-bgSecondary text-dark-textSecondary border-dark-border hover:bg-zinc-800':
                             mode === 'dark',
@@ -552,7 +586,6 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                             mode === 'light',
                         },
                       )}
-                      name={field.name}
                       id={field.id}
                       type={field.type}
                       {...register(field.name as never, {
@@ -561,7 +594,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                           message: 'this is a required field',
                         },
                         pattern: {
-                          value: field.pattern,
+                          value: field.pattern as RegExp,
                           message: `a required valid pattern is ${field.pattern}`,
                         },
                         maxLength: {
@@ -572,17 +605,20 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                           value: field.minLength,
                           message: `minLength is ${field.minLength}`,
                         },
-                        validate: field.validation?.reduce((acc, validator:any) => {
-                          return {
-                            ...acc,
-                            ...validator,
-                          };
-                        }, {}),
+                        validate: (field.validation as any[])?.reduce(
+                          (acc: any, validator: any) => {
+                            return {
+                              ...acc,
+                              ...validator,
+                            };
+                          },
+                          {},
+                        ),
                       })}
                     />
-                    {errors[field.name] && (
+                    {errors[field.name as keyof typeof errors] && (
                       <span className="opacity-0 group-hover:opacity-100 transition-all duration-300 text-red-500 px-1 rounded-full text-center w-fit absolute left-[12%] bg-white border border-red-500">
-                        {errors[field.name].message}
+                        {errors[field.name as keyof typeof errors]?.message}
                       </span>
                     )}
                   </div>
@@ -594,13 +630,16 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                   >
                     {field.label && (
                       <label className="capitalize " htmlFor={field.name}>
-                        {field.label}
+                        {t(field.label)}
                       </label>
                     )}
                     <input
                       className={classNames(
                         'p-2 rounded-md border font-normal',
-                        { 'border-red-500': errors[field.name] },
+                        {
+                          'border-red-500':
+                            errors[field.name as keyof typeof errors],
+                        },
                         {
                           'bg-dark-bgSecondary text-dark-textSecondary border-dark-border hover:bg-zinc-800':
                             mode === 'dark',
@@ -608,7 +647,6 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                             mode === 'light',
                         },
                       )}
-                      name={field.name}
                       id={field.id}
                       type={field.type}
                       {...register(field.name as never, {
@@ -617,7 +655,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                           message: 'this is a required field',
                         },
                         pattern: {
-                          value: field.pattern,
+                          value: field.pattern as RegExp,
                           message: `a required valid pattern is ${field.pattern}`,
                         },
                         maxLength: {
@@ -628,17 +666,20 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                           value: field.minLength,
                           message: `minLength is ${field.minLength}`,
                         },
-                        validate: field.validation?.reduce((acc, validator: any) => {
-                          return {
-                            ...acc,
-                            ...validator,
-                          };
-                        }, {}),
+                        validate: (field.validation as any[])?.reduce(
+                          (acc: any, validator: any) => {
+                            return {
+                              ...acc,
+                              ...validator,
+                            };
+                          },
+                          {},
+                        ),
                       })}
                     />
-                    {errors[field.name] && (
+                    {errors[field.name as keyof typeof errors] && (
                       <span className="opacity-0 group-hover:opacity-100 transition-all duration-300 text-red-500 px-1 rounded-full text-center w-fit absolute left-[12%] bg-white border border-red-500">
-                        {errors[field.name].message}
+                        {errors[field.name as keyof typeof errors]?.message}
                       </span>
                     )}
                   </div>
@@ -650,13 +691,16 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                   >
                     {field.label && (
                       <label className="capitalize " htmlFor={field.name}>
-                        {field.label}
+                        {t(field.label)}
                       </label>
                     )}
                     <input
                       className={classNames(
                         'p-2 rounded-md border font-normal',
-                        { 'border-red-500': errors[field.name] },
+                        {
+                          'border-red-500':
+                            errors[field.name as keyof typeof errors],
+                        },
                         {
                           'bg-dark-bgSecondary text-dark-textSecondary border-dark-border hover:bg-zinc-800':
                             mode === 'dark',
@@ -664,7 +708,6 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                             mode === 'light',
                         },
                       )}
-                      name={field.name}
                       id={field.id}
                       type={field.type}
                       placeholder={field.placholder}
@@ -674,7 +717,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                           message: 'this is a required field',
                         },
                         pattern: {
-                          value: field.pattern,
+                          value: field.pattern as RegExp,
                           message: `a required valid pattern is ${field.pattern}`,
                         },
                         maxLength: {
@@ -685,17 +728,20 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                           value: field.minLength,
                           message: `minLength is ${field.minLength}`,
                         },
-                        validate: field.validation?.reduce((acc, validator: any) => {
-                          return {
-                            ...acc,
-                            ...validator,
-                          };
-                        }, {}),
+                        validate: (field.validation as any[])?.reduce(
+                          (acc: any, validator: any) => {
+                            return {
+                              ...acc,
+                              ...validator,
+                            };
+                          },
+                          {},
+                        ),
                       })}
                     />
-                    {errors[field.name] && (
+                    {errors[field.name as keyof typeof errors] && (
                       <span className="opacity-0 group-hover:opacity-100 transition-all duration-300 text-red-500 px-1 rounded-full text-center w-fit absolute left-[12%] bg-white border border-red-500">
-                        {errors[field.name].message}
+                        {errors[field.name as keyof typeof errors]?.message}
                       </span>
                     )}
                   </div>
@@ -707,13 +753,16 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                   >
                     {field.label && (
                       <label className="capitalize " htmlFor={field.name}>
-                        {field.label}
+                        {t(field.label)}
                       </label>
                     )}
                     <input
                       className={classNames(
                         'p-2 rounded-md border font-normal',
-                        { 'border-red-500': errors[field.name] },
+                        {
+                          'border-red-500':
+                            errors[field.name as keyof typeof errors],
+                        },
                         {
                           'bg-dark-bgSecondary text-dark-textSecondary border-dark-border hover:bg-zinc-800':
                             mode === 'dark',
@@ -721,7 +770,6 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                             mode === 'light',
                         },
                       )}
-                      name={field.name}
                       id={field.id}
                       type={field.type}
                       placeholder={field.placholder}
@@ -731,7 +779,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                           message: 'this is a required field',
                         },
                         pattern: {
-                          value: field.pattern,
+                          value: field.pattern as RegExp,
                           message: `a required valid pattern is ${field.pattern}`,
                         },
                         maxLength: {
@@ -742,17 +790,20 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                           value: field.minLength,
                           message: `minLength is ${field.minLength}`,
                         },
-                        validate: field.validation?.reduce((acc, validator: any) => {
-                          return {
-                            ...acc,
-                            ...validator,
-                          };
-                        }, {}),
+                        validate: (field.validation as any[])?.reduce(
+                          (acc: any, validator: any) => {
+                            return {
+                              ...acc,
+                              ...validator,
+                            };
+                          },
+                          {},
+                        ),
                       })}
                     />
-                    {errors[field.name] && (
+                    {errors[field.name as keyof typeof errors] && (
                       <span className="opacity-0 group-hover:opacity-100 transition-all duration-300 text-red-500 px-1 rounded-full text-center w-fit absolute left-[12%] bg-white border border-red-500">
-                        {errors[field.name].message}
+                        {errors[field.name as keyof typeof errors]?.message}
                       </span>
                     )}
                   </div>

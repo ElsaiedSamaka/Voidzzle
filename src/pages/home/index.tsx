@@ -204,6 +204,7 @@ const Home = () => {
     </section>
   );
 };
+// eslint-disable-next-line
 Home.getLayout = (page) => {
   return (
     <RootLayout>

@@ -1,3 +1,5 @@
+import { Validate } from "react-hook-form";
+
 export type FormField = {
   name: string;
   id: string;
@@ -8,7 +10,9 @@ export type FormField = {
   maxLength: number;
   minLength: number;
   placholder?: string;
-  validation?: {
-    [key: string]: (val: string, form) => string | void | undefined;
-  }[];
+  validation?:
+    | {
+        [key: string]: (val: string, form: any) => string | void | undefined;
+      }[]
+    | Validate<never, object>;
 };

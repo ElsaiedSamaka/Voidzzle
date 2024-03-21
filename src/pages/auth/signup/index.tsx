@@ -48,7 +48,7 @@ const Signup = () => {
   const formFields: FormField[] = [
     {
       name: 'firstname',
-      label: 'firstname',
+      label: 'form.firstname',
       id: 'firstname',
       type: 'text',
       required: true,
@@ -62,11 +62,11 @@ const Signup = () => {
             }
           },
         },
-      ] ,
+      ],
     },
     {
       name: 'lastname',
-      label: 'lastname',
+      label: 'form.lastname',
       id: 'lastname',
       type: 'text',
       required: true,
@@ -84,7 +84,7 @@ const Signup = () => {
     },
     {
       name: 'email',
-      label: 'email',
+      label: 'form.email',
       id: 'email',
       type: 'email',
       required: true,
@@ -101,7 +101,7 @@ const Signup = () => {
     {
       name: 'password',
       id: 'password',
-      label: 'password',
+      label: 'form.password',
       type: 'password',
       required: true,
       maxLength: 40,
@@ -119,7 +119,7 @@ const Signup = () => {
     },
     {
       name: 'passwordConfirmation',
-      label: 'passwordConfirmation',
+      label: 'form.passwordconfirmation',
       id: 'passwordConfirmation',
       type: 'password',
       required: true,
