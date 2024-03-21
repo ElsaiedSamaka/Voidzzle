@@ -38,12 +38,9 @@ a {
   box-sizing: border-box;
   scroll-behavior: smooth;
 }
-::-moz-selection {
-  width: 4px;
-}
 
 ::selection {
-  border-radius: 10px;
+  background-color: rgba(255, 0, 0, 0.129);
 }
 
 ::-webkit-scrollbar {
