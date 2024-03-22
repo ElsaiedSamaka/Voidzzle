@@ -127,7 +127,7 @@ const AccountSettings = () => {
     </>
   );
 };
-AccountSettings.getLayout = (page) => {
+AccountSettings.getLayout = (page: any) => {
   return (
     <RootLayout>
       <SettingsLayout>{page}</SettingsLayout>

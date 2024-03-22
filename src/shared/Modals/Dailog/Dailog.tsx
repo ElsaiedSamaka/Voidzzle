@@ -1,8 +1,8 @@
 import classNames from 'classnames';
 import { useThemeContext } from 'core/context/ThemeContext';
-import PropTypes from 'prop-types';
+import propTypes from 'prop-types';
 
-const Dailog = ({ header, body, footer }) => {
+const Dialog = ({ header, body, footer }: any) => {
   const { theme } = useThemeContext();
   const { mode } = theme;
   return (
@@ -38,10 +38,12 @@ const Dailog = ({ header, body, footer }) => {
     </>
   );
 };
-// component props
-Dailog.propTypes = {
-  header: PropTypes.element.isRequired,
-  body: PropTypes.element.isRequired,
-  footer: PropTypes.element, // Make it optional
+
+// Define prop types
+Dialog.propTypes = {
+  header: propTypes.node.isRequired,
+  body: propTypes.node.isRequired,
+  footer: propTypes.node,
 };
-export default Dailog;
+
+export default Dialog;

@@ -28,6 +28,8 @@ const Navbar = () => {
   const { t } = useTranslation(locale);
 
   const authSlice = useSelector((state: RootState) => state.user);
+  const { user } = authSlice;
+  console.log(user);
   return (
     <nav
       className={classNames('border-b px-4 py-1 z-30 w-full backdrop-blur-md', {
@@ -117,7 +119,7 @@ const Navbar = () => {
           {authSlice.user ? (
             <>
               <NotificationBell />
-              <UserMenu />
+              <UserMenu user={user}/>
             </>
           ) : (
             <div className="auth space-x-2">

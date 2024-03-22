@@ -5,16 +5,13 @@ import Image from 'next/image';
 // hooks
 import { useThemeContext } from 'core/context/ThemeContext';
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
-import { RootState } from 'core/store';
+// Models & types
+import { User } from 'core/models';
 
-const UserMenu = () => {
+const UserMenu = ({user}) => {
   const [showUserMenuDDL, setUserMenuDDL] = useState(true);
-  const { theme } = useThemeContext();
-  const { mode } = theme;
-  const authSlice = useSelector((state: RootState) => state.user);
-  const { user } = authSlice;
-
+  const { theme: { mode } } = useThemeContext();
+  console.log(user)
   function toggleUserMenu() {
     setUserMenuDDL(!showUserMenuDDL);
   }
@@ -50,7 +47,7 @@ const UserMenu = () => {
       >
         <div className="py-3 px-4">
           <span className="block text-sm font-semibold  ">Neil Sims</span>
-          <span className="block text-sm  truncate ">name@flowbite.com</span>
+          <span className="block text-sm  truncate ">{user?.email}</span>
         </div>
         <ul className="py-1  " aria-labelledby="dropdown">
           <li>

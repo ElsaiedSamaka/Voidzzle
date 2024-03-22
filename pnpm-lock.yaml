@@ -38,9 +38,6 @@ dependencies:
   nprogress:
     specifier: ^0.2.0
     version: 0.2.0
-  prop-types:
-    specifier: ^15.8.1
-    version: 15.8.1
   react:
     specifier: 18.2.0
     version: 18.2.0
@@ -82,6 +79,9 @@ devDependencies:
   '@types/node':
     specifier: 20.8.0
     version: 20.8.0
+  '@types/prop-types':
+    specifier: ^15.7.11
+    version: 15.7.11
   '@types/react':
     specifier: ^17.0.38
     version: 17.0.67
@@ -600,8 +600,8 @@ packages:
     resolution: {integrity: sha512-//oorEZjL6sbPcKUaCdIGlIUeH26mgzimjBB77G6XRgnDl/L5wOnpyBGRe/Mmf5CVW3PwEBE1NjiMZ/ssFh4wA==}
     dev: true
 
-  /@types/prop-types@15.7.8:
-    resolution: {integrity: sha512-kMpQpfZKSCBqltAJwskgePRaYRFukDkm1oItcAbC3gNELR20XIBcN9VRgg4+m8DKsTfkWeA4m4Imp4DDuWy7FQ==}
+  /@types/prop-types@15.7.11:
+    resolution: {integrity: sha512-ga8y9v9uyeiLdpKddhxYQkxNDrfvuPrlFb0N1qnZZByvcElJaXthF1UhvCh9TLWJBEHeNtdnbysW7Y6Uq8CVng==}
 
   /@types/react-dom@17.0.21:
     resolution: {integrity: sha512-3rQEFUNUUz2MYiRwJJj6UekcW7rFLOtmK7ajQP7qJpjNdggInl3I/xM4I3Hq1yYPdCGVMgax1gZsB7BBTtayXg==}
@@ -620,7 +620,7 @@ packages:
   /@types/react@17.0.67:
     resolution: {integrity: sha512-zE76EIJ0Y58Oy9yDX/9csb/NuKjt0Eq2YgWb/8Wxo91YmuLzzbyiRoaqJE9h8iDlsT7n35GdpoLomHlaB1kFbg==}
     dependencies:
-      '@types/prop-types': 15.7.8
+      '@types/prop-types': 15.7.11
       '@types/scheduler': 0.16.4
       csstype: 3.1.2
 
