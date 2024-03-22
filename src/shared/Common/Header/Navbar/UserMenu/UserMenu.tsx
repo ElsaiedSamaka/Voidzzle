@@ -4,11 +4,12 @@ import classNames from 'classnames';
 import Image from 'next/image';
 import { useThemeContext } from 'core/context/ThemeContext';
 import {  useDispatch,useSelector } from 'react-redux';
+import { RootState } from 'core/store';
 import { logoutThunk } from 'core/store/user/user.thunk';
 
-const UserMenu = (props: any) => {
+const UserMenu = () => {
 
-  const [showUserMenuDDL, setUserMenuDDL] = useState(true);
+  const [showUserMenuDDL, setUserMenuDDL] = useState(false);
   const authSlice = useSelector((state: RootState) => state.user);
   const { user, tokens } = authSlice;
 

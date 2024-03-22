@@ -13,10 +13,10 @@ interface AuthState {
   user: User | null;
   loading: boolean;
   error: string | null;
-  tokens:{
-    accessTokens:string,
-    refreshToken:string
-  }
+  tokens: {
+    accessTokens: string,
+    refreshToken: string
+  } | null;
 }
 
 const initialState: AuthState = {
