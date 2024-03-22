@@ -9,8 +9,9 @@ import { useThemeContext } from 'core/context/ThemeContext';
 
 const Messages = () => {
   const { t } = useTranslation();
-  const { theme: {mode} } = useThemeContext();
-
+  const {
+    theme: { mode },
+  } = useThemeContext();
 
   return (
     <>
@@ -116,9 +117,12 @@ const Messages = () => {
                     {/* Dropdown menu */}
                     <div
                       id="dropdownComment1"
-                      className={classNames('z-10 absolute rounded divide-y divide-gray-100 shadow opacity-0 transition-all duration-900',   { 'bg-light-bgSecondary': mode === 'light' },
-          { 'bg-dark-bgSecondary': mode === 'dark' },
-          { 'opacity-100': true },)}
+                      className={classNames(
+                        'z-10 absolute rounded divide-y divide-gray-100 shadow opacity-0 transition-all duration-900',
+                        { 'bg-light-bgSecondary': mode === 'light' },
+                        { 'bg-dark-bgSecondary': mode === 'dark' },
+                        { 'opacity-100': true },
+                      )}
                     >
                       <ul
                         className="py-1 text-sm  w-full"
@@ -196,9 +200,7 @@ const Messages = () => {
                 <div className="text-7xl my-2 font-extrabold align-middle self-center items-center content-center">
                   404
                 </div>
-                <span className="">
-                  no conversations found
-                </span>
+                <span className="">no conversations found</span>
               </div>
             </ul>
             {/* conversations */}

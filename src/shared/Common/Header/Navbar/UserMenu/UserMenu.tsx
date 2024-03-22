@@ -3,14 +3,27 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Image from 'next/image';
 import { useThemeContext } from 'core/context/ThemeContext';
+import {  useDispatch,useSelector } from 'react-redux';
+import { logoutThunk } from 'core/store/user/user.thunk';
 
 const UserMenu = (props: any) => {
+
   const [showUserMenuDDL, setUserMenuDDL] = useState(true);
+  const authSlice = useSelector((state: RootState) => state.user);
+  const { user, tokens } = authSlice;
+
+  const dispatch = useDispatch();
+
   const {
     theme: { mode },
   } = useThemeContext();
+
   function toggleUserMenu() {
     setUserMenuDDL(!showUserMenuDDL);
+  }
+
+  function handleDispatch():void{
+    dispatch(logoutThunk(tokens.refreshToken))
   }
 
   return (
@@ -45,9 +58,9 @@ const UserMenu = (props: any) => {
       >
         <div className="py-3 px-4">
           <span className="block text-sm font-semibold  ">
-            {props.user.firstname} {props.user.lastname}
+            {user.firstname} {user.lastname}
           </span>
-          <span className="block text-sm  truncate ">{props.user.email}</span>
+          <span className="block text-sm  truncate ">{user.email}</span>
         </div>
         <ul className="py-1  " aria-labelledby="dropdown">
           <li>
@@ -61,7 +74,7 @@ const UserMenu = (props: any) => {
             </a>
           </li>
         </ul>
-        <ul className="py-1  " aria-labelledby="dropdown">
+        <ul className="py-1" aria-labelledby="dropdown">
           <li>
             <a className="flex items-center py-2 px-4 text-sm hover:cursor-pointer hover:font-semibold transition-all duration-300">
               <svg
@@ -80,9 +93,12 @@ const UserMenu = (props: any) => {
             </a>
           </li>
         </ul>
-        <ul className="py-1  " aria-labelledby="dropdown">
+        <ul className="py-1" aria-labelledby="dropdown">
           <li>
-            <a className="block py-2 px-4 text-sm hover:cursor-pointer hover:font-semibold transition-all duration-300">
+            <a
+              onClick={handleDispatch}
+              className="block py-2 px-4 text-sm hover:cursor-pointer hover:font-semibold transition-all duration-300"
+            >
               Sign out
             </a>
           </li>
@@ -97,7 +113,7 @@ UserMenu.propTypes = {
     firstname: PropTypes.string.isRequired,
     lastname: PropTypes.string.isRequired,
     email: PropTypes.string.isRequired,
-    username: PropTypes.string, 
+    username: PropTypes.string,
     role: PropTypes.oneOf(['user', 'admin', 'seller']).isRequired,
     phone: PropTypes.string,
     isEmailVerified: PropTypes.bool.isRequired,
@@ -112,6 +128,5 @@ UserMenu.propTypes = {
     _id: PropTypes.string.isRequired,
   }).isRequired,
 };
-
 
 export default UserMenu;

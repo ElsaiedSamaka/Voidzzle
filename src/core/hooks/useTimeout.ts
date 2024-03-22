@@ -9,7 +9,7 @@ export default function useTimeout(callback, delay) {
   }, [callback]);
 
   const set = useCallback(() => {
-    timeoutRef.current = setTimeout(() => callbackRef.current(), delay) ;
+    timeoutRef.current = setTimeout(() => callbackRef.current(), delay);
   }, [delay]);
 
   const clear = useCallback(() => {

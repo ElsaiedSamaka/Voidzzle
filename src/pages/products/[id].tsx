@@ -369,7 +369,7 @@ const ProductDetails = () => {
 };
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-ProductDetails.getLayout = (page:any) => {
+ProductDetails.getLayout = (page: any) => {
   return <RootLayout>{page}</RootLayout>;
 };
 export default ProductDetails;

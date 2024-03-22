@@ -26,7 +26,9 @@ const AccountSettings = () => {
               <h1 className="py-2 text-2xl font-semibold">
                 {t('account.name')}
               </h1>
-              <p className="">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+              <p className="">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              </p>
             </div>
             <hr className="mt-4 mb-8 border border-zinc-500/50" />
             <p className="py-2 text-xl font-semibold">Email Address</p>
@@ -43,9 +45,7 @@ const AccountSettings = () => {
             <div className="flex items-center">
               <div className="flex flex-col space-y-2 sm:flex-row sm:space-y-0 sm:space-x-3">
                 <label htmlFor="login-password">
-                  <span className="text-sm">
-                    Current Password
-                  </span>
+                  <span className="text-sm">Current Password</span>
                   <div className="relative flex overflow-hidden rounded-md border-2 transition focus-within:border-blue-600">
                     <input
                       type="password"

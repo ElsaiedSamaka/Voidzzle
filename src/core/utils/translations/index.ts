@@ -32,7 +32,7 @@ const allTranslations = {
     notificationsTranslations.en,
     accountTranslations.en,
     messagesTranslations.en,
-    formTranslations.en
+    formTranslations.en,
   ),
   ar: Object.assign(
     {},

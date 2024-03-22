@@ -1,5 +1,5 @@
 // Packages
-import Image from "next/image";
+import Image from 'next/image';
 import Glide from '@glidejs/glide';
 // Hooks
 import { useEffect } from 'react';

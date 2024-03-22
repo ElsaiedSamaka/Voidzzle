@@ -13,12 +13,17 @@ interface AuthState {
   user: User | null;
   loading: boolean;
   error: string | null;
+  tokens:{
+    accessTokens:string,
+    refreshToken:string
+  }
 }
 
 const initialState: AuthState = {
   user: null,
   loading: false,
   error: null,
+  tokens: null
 };
 export const authSlice = createSlice({
   name: 'auth',
@@ -36,13 +41,18 @@ export const authSlice = createSlice({
         state.user = null;
         state.error =
           action.error.message || 'An error occurred during registration.';
+        state.tokens = null;
       })
       .addCase(registerThunk.fulfilled, (state, action) => {
-        const { user } = action.payload;
-        // getting user from api action payload is the response of register service
+        // getting user from api action payload which is the response of register service
+        const { user , tokens } = action.payload;
         state.loading = false;
         state.user = user;
         state.error = null;
+        state.tokens = {
+          accessTokens : tokens.accessToken,
+          refreshToken : tokens.refreshToken,
+        };
       });
     // login
     builder

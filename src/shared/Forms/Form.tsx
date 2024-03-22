@@ -26,7 +26,6 @@ interface Errors {
   };
 }
 
-
 const Form = ({ defaultValues, formFields, children }: IFromProps) => {
   const {
     control,
@@ -50,14 +49,15 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
   const previousFormValues = useRef(formValues); // Track previous form values
 
   const [passwordType, togglePassword] = useState('password');
-  const [passwordConfirmationType, togglePasswordConfirmation] = useState('password')
+  const [passwordConfirmationType, togglePasswordConfirmation] =
+    useState('password');
 
   function handlePasswordToggle(type: string) {
     togglePassword(type);
   }
 
-  function handPasswordConfirmation(type: string){
-    togglePasswordConfirmation(type)
+  function handPasswordConfirmation(type: string) {
+    togglePasswordConfirmation(type);
   }
   const submit = (formData: any) => {
     dispatch({

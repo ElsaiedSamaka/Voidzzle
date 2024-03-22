@@ -15,7 +15,7 @@ import NotificationBell from './NotificationBell/notificationBell';
 import UserMenu from './UserMenu/UserMenu';
 // builtin components
 import Link from 'next/link';
-import Image from 'next/image'
+import Image from 'next/image';
 const Navbar = () => {
   const { state, toggleDrawer } = useDrawerContext();
   const { theme } = useThemeContext();
@@ -29,7 +29,7 @@ const Navbar = () => {
 
   const authSlice = useSelector((state: RootState) => state.user);
   const { user } = authSlice;
-  console.log(user);
+
   return (
     <nav
       className={classNames('border-b px-4 py-1 z-30 w-full backdrop-blur-md', {
@@ -119,7 +119,7 @@ const Navbar = () => {
           {authSlice.user ? (
             <>
               <NotificationBell />
-              <UserMenu user={user}/>
+              <UserMenu />
             </>
           ) : (
             <div className="auth space-x-2">

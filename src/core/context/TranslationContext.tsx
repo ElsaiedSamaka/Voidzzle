@@ -4,7 +4,7 @@ import translations from '../utils/translations';
 const TranslationContext = createContext({
   t: (value: string) => {
     return value;
-  }
+  },
 });
 
 export const TranslationProvider = ({ children, locale }) => {

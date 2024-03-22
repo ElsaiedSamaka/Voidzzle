@@ -1,4 +1,4 @@
-import {  useState } from 'react';
+import { useState } from 'react';
 // ApexCharts wont work for server component by default so we have to use dynamic import in order
 // to lazely load it
 import dynamic from 'next/dynamic';

@@ -1,4 +1,4 @@
-import { Validate } from "react-hook-form";
+import { Validate } from 'react-hook-form';
 
 export type FormField = {
   name: string;

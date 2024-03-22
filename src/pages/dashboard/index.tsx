@@ -7,7 +7,6 @@ import Head from 'next/head';
 // Hooks
 import { useTranslation } from 'core/context/TranslationContext';
 
-
 const Dashboard = () => {
   const { t } = useTranslation();
   return (

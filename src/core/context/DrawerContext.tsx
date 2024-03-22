@@ -24,7 +24,7 @@ const drawerReducer = (state: DrawerState, action) => {
 export const DrawerContext = createContext({
   state: initialState,
   toggleDrawer: (value) => {
-    console.log(value)
+    console.log(value);
   },
 });
 // context provider

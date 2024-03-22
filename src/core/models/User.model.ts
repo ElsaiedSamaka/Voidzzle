@@ -4,14 +4,14 @@ export interface User {
   email: string;
   username?: string;
   role: 'user' | 'admin' | 'seller';
-  phone?: string; 
+  phone?: string;
   isEmailVerified: boolean;
-  address?: string; 
-  companyName?: string; 
+  address?: string;
+  companyName?: string;
   password?: string;
   passwordConfirmation?: string;
   passwordChangedAt?: Date;
-    profileImage?: string;
+  profileImage?: string;
   discountCode?: string;
   socketId?: string;
   _id: string;

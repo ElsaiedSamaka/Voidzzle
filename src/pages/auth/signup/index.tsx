@@ -3,7 +3,7 @@
 import classNames from 'classnames';
 import Head from 'next/head';
 import Link from 'next/link';
-import Image from "next/image";
+import Image from 'next/image';
 // Components
 import {
   LanguageSwitcher,
@@ -26,12 +26,12 @@ import Validators from 'core/validators';
 import { RootState } from 'core/store';
 import { FormField } from 'core/types';
 
-
 const Signup = () => {
   const router = useRouter();
   const { locale } = router;
-  const { theme } = useThemeContext();
-  const { mode } = theme;
+  const {
+    theme: { mode },
+  } = useThemeContext();
   const { t } = useTranslation(locale);
   const { state } = useFormStateContext();
   const {
@@ -42,9 +42,7 @@ const Signup = () => {
 
   const authSlice = useSelector((state: RootState) => state.user);
   const dispatch = useDispatch();
-  console.log('authSlice', authSlice);
-  console.log('form state', state);
-  
+
   const formFields: FormField[] = [
     {
       name: 'firstname',

@@ -31,9 +31,7 @@ const NotificationsSettings = () => {
             </div>
             <div className="grid py-6 sm:grid-cols-2">
               <div className="">
-                <h2 className="text-lg font-semibold leading-4 ">
-                  Comments
-                </h2>
+                <h2 className="text-lg font-semibold leading-4 ">Comments</h2>
                 <p className="font- ">
                   Lorem ipsum dolor, Alias eligendi laboriosam magni reiciendis
                   neque.
@@ -91,9 +89,7 @@ const NotificationsSettings = () => {
             </div>
             <div className="grid border-b border-zinc-500/50 py-6 sm:grid-cols-2">
               <div className="">
-                <h2 className="text-lg font-semibold leading-4 ">
-                  Reminders
-                </h2>
+                <h2 className="text-lg font-semibold leading-4 ">Reminders</h2>
                 <p className="font- ">
                   Lorem ipsum dolor, Alias eligendi laboriosam magni reiciendis
                   neque.
@@ -151,9 +147,7 @@ const NotificationsSettings = () => {
             </div>
             <div className="grid py-6 sm:grid-cols-2">
               <div className="">
-                <h2 className="text-lg font-semibold leading-4 ">
-                  Updates
-                </h2>
+                <h2 className="text-lg font-semibold leading-4 ">Updates</h2>
                 <p className="font- ">
                   Lorem ipsum dolor, Alias eligendi laboriosam magni reiciendis
                   neque.
