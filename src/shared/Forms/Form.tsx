@@ -379,7 +379,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                         },
                       )}
                       id={field.id}
-                      type={passwordType}
+                      type={'text'}
                       {...register(field.name as never, {
                         required: {
                           value: field.required,
@@ -487,7 +487,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                         },
                       )}
                       id={field.id}
-                      type={passwordConfirmationType}
+                      type={'text'}
                       {...register(field.name as never, {
                         required: {
                           value: field.required,
@@ -523,7 +523,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                             handPasswordConfirmation('text');
                           }}
                           id="password"
-                          className="w-5 h-5 text-gray-400 ltr:ml-auto rtl:mr-auto hover:cursor-pointer mr-auto"
+                          className="w-5 h-5 text-gray-400 ltr:ml-auto rtl:mr-auto hover:cursor-pointer"
                           fill="none"
                           stroke="currentColor"
                           strokeWidth="1.5"
@@ -598,7 +598,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                             d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"
                           />
                         </svg>
-                        <p className="mb-2 text-sm text-gray-500 ">
+                        <p className="mb-2 text-sm text-gray-500">
                           <span className="font-semibold">Click to upload</span>{' '}
                           or drag and drop
                         </p>

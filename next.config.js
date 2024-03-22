@@ -25,7 +25,7 @@ const nextConfig = {
   // Image optimization configuration
   images: {
     // Image optimization configuration
-    domains: ['images.unsplash.com'],
+    domains: ['images.unsplash.com', 'flowbite.s3.amazonaws.com'],
   },
 
   // Redirects configuration
