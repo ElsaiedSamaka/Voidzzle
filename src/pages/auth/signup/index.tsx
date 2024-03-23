@@ -270,7 +270,7 @@ const Signup = () => {
             <Form formFields={formFields} defaultValues={defaultValues}>
               <button
                 className={classNames(
-                  'hover:shadow-red-600/40 rounded-xl px-8 py-3 font-bold transition-all hover:opacity-90 hover:shadow-lg disabled:cursor-not-allowed',
+                  'hover:shadow-red-800/40 text-white rounded-xl px-8 py-3 font-bold transition-all hover:opacity-90 hover:shadow-lg disabled:cursor-not-allowed',
                   {
                     'bg-dark-primary disabled:bg-dark-bgDisabled':
                       mode === 'dark',

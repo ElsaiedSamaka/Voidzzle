@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Image from 'next/image';
 import { useThemeContext } from 'core/context/ThemeContext';
@@ -24,7 +23,7 @@ const UserMenu = () => {
   }
 
   function handleDispatch():void{
-    dispatch(logoutThunk(tokens.refreshToken))
+    dispatch(logoutThunk(tokens?.refreshToken || '' ))
   }
 
   return (
@@ -59,9 +58,9 @@ const UserMenu = () => {
       >
         <div className="py-3 px-4">
           <span className="block text-sm font-semibold  ">
-            {user.firstname} {user.lastname}
+            {user?.firstname} {user?.lastname}
           </span>
-          <span className="block text-sm  truncate ">{user.email}</span>
+          <span className="block text-sm  truncate ">{user?.email}</span>
         </div>
         <ul className="py-1  " aria-labelledby="dropdown">
           <li>
@@ -110,24 +109,6 @@ const UserMenu = () => {
 };
 
 UserMenu.propTypes = {
-  user: PropTypes.shape({
-    firstname: PropTypes.string.isRequired,
-    lastname: PropTypes.string.isRequired,
-    email: PropTypes.string.isRequired,
-    username: PropTypes.string,
-    role: PropTypes.oneOf(['user', 'admin', 'seller']).isRequired,
-    phone: PropTypes.string,
-    isEmailVerified: PropTypes.bool.isRequired,
-    address: PropTypes.string,
-    companyName: PropTypes.string,
-    password: PropTypes.string,
-    passwordConfirmation: PropTypes.string,
-    passwordChangedAt: PropTypes.instanceOf(Date),
-    profileImage: PropTypes.string,
-    discountCode: PropTypes.string,
-    socketId: PropTypes.string,
-    _id: PropTypes.string.isRequired,
-  }).isRequired,
 };
 
 export default UserMenu;

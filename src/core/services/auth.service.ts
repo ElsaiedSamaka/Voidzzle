@@ -18,7 +18,7 @@ const authservice = {
       throw error;
     }
   },
-  logout: async (body: object) => {
+  logout: async (body: string) => {
     try {
       const response = await apiservice.post('auth/logout', body);
       return response;

@@ -116,7 +116,7 @@ const Navbar = () => {
               />
             </svg>
           </button>
-          {authSlice.user ? (
+          {user ? (
             <>
               <NotificationBell />
               <UserMenu />

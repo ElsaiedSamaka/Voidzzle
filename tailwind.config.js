@@ -21,7 +21,7 @@ module.exports = {
           iconSecondary: '#F5F5F5',
           bgDisabled: '#818182',
           border: '#27272a',
-          primary: '#4e0000',
+          primary: '#bd1d1d',
           accent: '#181a1b',
         },
         light: {
@@ -33,7 +33,7 @@ module.exports = {
           iconSecondary: '#495057',
           bgDisabled: '#C9CCCF',
           border: '#e7e5e4',
-          primary: '#FA254C',
+          primary: '#d92525',
           accent: '#181a1b',
         },
       },
