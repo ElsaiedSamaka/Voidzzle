@@ -19,7 +19,7 @@ import { registerThunk } from 'core/store/user/user.thunk';
 import { useFormStateContext } from 'shared/Forms/shared/FormContext';
 import { useRouter } from 'next/router';
 import { useThemeContext } from 'core/context/ThemeContext';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import useTranslation from 'core/hooks/useTranslation';
 // Core
 import getDirection from 'core/utils/translations/getDirections';
@@ -35,6 +35,7 @@ const Signup = () => {
   } = useThemeContext();
   const { t } = useTranslation(locale);
   const { state } = useFormStateContext();
+  const [showToast,toggleToast] = useState(false);
   const {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     formState: { errors, isValid, isDirty, isSubmitting },
@@ -148,9 +149,7 @@ const Signup = () => {
   // Listen for changes in the Redux store
   useEffect(() => {
     if (authSlice.error) {
-      // TODO: add toast to handle this case
-      // Handle error display or any other action
-      console.error('Register error:', authSlice.error);
+      toggleToast(true)
     } else if (authSlice.user) {
       console.log('Register success. Redirecting to home.');
       router.push('/');
@@ -295,7 +294,7 @@ const Signup = () => {
           </div>
         </div>
       </div>
-      <Toast  />
+      {showToast && <Toast type='warning' message={authSlice.error} />} 
       {mode === 'light' && <LightDecortor />}
       {mode === 'dark' && <DarkDecorator />}
     </>

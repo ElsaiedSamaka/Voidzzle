@@ -37,21 +37,22 @@ export const authSlice = createSlice({
         state.error = null;
       })
       .addCase(registerThunk.rejected, (state, action) => {
+        const error = action.payload.response.data.message;
+        
         state.loading = false;
         state.user = null;
         state.error =
-          action.error.message || 'An error occurred during registration.';
+          error || 'An error occurred during registration.';
         state.tokens = null;
       })
       .addCase(registerThunk.fulfilled, (state, action) => {
         // getting user from api action payload which is the response of register service
-        const { user, tokens } = action.payload;
         state.loading = false;
-        state.user = user;
+        state.user = action.payload?.user;
         state.error = null;
         state.tokens = {
-          accessTokens: tokens.accessToken,
-          refreshToken: tokens.refreshToken,
+          accessTokens: action.payload?.tokens?.accessToken,
+          refreshToken: action.payload?.tokens?.refreshToken,
         };
       });
     // login
