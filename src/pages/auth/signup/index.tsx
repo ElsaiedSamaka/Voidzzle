@@ -11,6 +11,7 @@ import {
   LightDecortor,
   DarkDecorator,
   Form,
+  Toast
 } from 'shared';
 // Hooks & services
 import { useSelector, useDispatch } from 'react-redux';
@@ -294,6 +295,7 @@ const Signup = () => {
           </div>
         </div>
       </div>
+      <Toast  />
       {mode === 'light' && <LightDecortor />}
       {mode === 'dark' && <DarkDecorator />}
     </>

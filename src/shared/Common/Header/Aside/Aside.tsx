@@ -75,7 +75,7 @@ const Aside = () => {
             <Anchor href="/">
               <div className="p-2 flex items-center  text-base ltr:rounded-l-none rtl:rounded-r-none rounded-2xl  hover:bg-white/20  group">
                 <svg
-                  className="w-6 h-6  transition duration-75   group-hover:animate-pulse  "
+                  className="w-6 h-6  transition duration-75   group-hover:animate-pulse"
                   fill="none"
                   stroke="currentColor"
                   strokeWidth="1.5"
@@ -157,7 +157,7 @@ const Aside = () => {
               </button>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="arrow-down-icon absolute ltr:right-0 rtl:left-0 top-4 ltr:ml-auto rtl:mr-auto ltr:mr-5 rtl:ml-auto h-4  transition peer-checked:rotate-180 "
+                className="arrow-down-icon absolute ltr:right-0 rtl:left-0 top-4 ltr:ml-auto rtl:mr-auto ltr:mr-5 rtl:ml-auto h-4  transition peer-checked:rotate-180  "
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"

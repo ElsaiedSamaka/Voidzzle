@@ -14,8 +14,8 @@ interface AuthState {
   loading: boolean;
   error: string | null;
   tokens: {
-    accessTokens: string,
-    refreshToken: string
+    accessTokens: string;
+    refreshToken: string;
   } | null;
 }
 
@@ -23,7 +23,7 @@ const initialState: AuthState = {
   user: null,
   loading: false,
   error: null,
-  tokens: null
+  tokens: null,
 };
 export const authSlice = createSlice({
   name: 'auth',
@@ -45,13 +45,13 @@ export const authSlice = createSlice({
       })
       .addCase(registerThunk.fulfilled, (state, action) => {
         // getting user from api action payload which is the response of register service
-        const { user , tokens } = action.payload;
+        const { user, tokens } = action.payload;
         state.loading = false;
         state.user = user;
         state.error = null;
         state.tokens = {
-          accessTokens : tokens.accessToken,
-          refreshToken : tokens.refreshToken,
+          accessTokens: tokens.accessToken,
+          refreshToken: tokens.refreshToken,
         };
       });
     // login

@@ -48,7 +48,7 @@ const Navbar = () => {
             onClick={() => toggleDrawer(!state.showDrawer)}
             data-drawer-target="drawer-navigation"
             data-drawer-toggle="drawer-navigation"
-            className="p-2 mr-2 rounded-lg cursor-pointer md:hidden  focus:bg-gray-100 :focus:bg-gray-700 focus:ring-2 focus:ring-gray-100 "
+            className="p-2 mr-2 rounded-lg cursor-pointer md:hidden  focus:bg-gray-100  focus:ring-2 focus:ring-gray-100 "
           >
             <svg
               aria-hidden="true"

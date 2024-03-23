@@ -15,7 +15,7 @@ import { useSelectedItems } from 'shared/Table/shared/context/SelectedItemsConte
 
 const Products = () => {
   const productsSlice = useSelector((state: RootState) => state.products);
-  const brandsSlice = useSelector((state: RootState) => state.brands);
+  // const brandsSlice = useSelector((state: RootState) => state.brands);
   const { state, dispatch: dispatchSelectedItems } = useSelectedItems();
   const { items } = state;
   const dispatch = useDispatch();
