@@ -294,7 +294,7 @@ const Signup = () => {
           </div>
         </div>
       </div>
-      {showToast && <Toast type='warning' message={authSlice.error} />} 
+      {showToast && <Toast type='error' message={authSlice.error} />} 
       {mode === 'light' && <LightDecortor />}
       {mode === 'dark' && <DarkDecorator />}
     </>
