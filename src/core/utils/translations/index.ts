@@ -13,6 +13,7 @@ import messagesTranslations from './pages/messages';
 import asideTranslations from './components/Aside/aside';
 import navbarTranslations from './components/Navbar/navbar';
 import formTranslations from './components/Form/form';
+import userMenuTranslations from './components/Navbar/usermenu';
 // General
 import generalTranslations from './shared/general';
 
@@ -33,6 +34,7 @@ const allTranslations = {
     accountTranslations.en,
     messagesTranslations.en,
     formTranslations.en,
+    userMenuTranslations.en
   ),
   ar: Object.assign(
     {},
@@ -50,6 +52,7 @@ const allTranslations = {
     accountTranslations.ar,
     messagesTranslations.ar,
     formTranslations.ar,
+    userMenuTranslations.ar
   ),
 };
 

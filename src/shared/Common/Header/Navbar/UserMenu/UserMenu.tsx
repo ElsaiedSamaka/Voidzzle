@@ -5,8 +5,12 @@ import { useThemeContext } from 'core/context/ThemeContext';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from 'core/store';
 import { logoutThunk } from 'core/store/user/user.thunk';
+import { useTranslation } from 'core/context/TranslationContext';
+import Link from 'next/link';
 
 const UserMenu = () => {
+  const { t } = useTranslation();
+
   const [showUserMenuDDL, setUserMenuDDL] = useState(false);
   const authSlice = useSelector((state: RootState) => state.user);
   const { user, tokens } = authSlice;
@@ -44,7 +48,7 @@ const UserMenu = () => {
       </button>
       <div
         className={classNames(
-          'absolute opacity-0 transition-all duration-300 top-10 right-5 z-50 my-4 w-56 text-base list-none   divide-y  shadow-xl rounded-xl',
+          'absolute opacity-0 transition-all duration-300 top-10 ltr:right-5 rtl:left-5 z-40 my-4 w-56 text-base list-none   divide-y  shadow-xl rounded-xl',
           { 'opacity-100 -translate-x-5': showUserMenuDDL },
           {
             'bg-dark-bgSecondary text-dark-textSecondary divide-dark-border':
@@ -63,13 +67,18 @@ const UserMenu = () => {
         </div>
         <ul className="py-1  " aria-labelledby="dropdown">
           <li>
-            <a className="block py-2 px-4 text-sm hover:cursor-pointer hover:font-semibold transition-all duration-300">
-              My profile
-            </a>
+            <Link href={{
+    pathname: '/about',
+    query: { name: 'test' },
+  }}>
+            <span  className="block py-2 px-4 text-sm hover:cursor-pointer hover:font-semibold transition-all duration-300">
+              {t('usermenu.My profile')}
+            </span>
+            </Link>
           </li>
           <li>
             <a className="block py-2 px-4 text-sm hover:cursor-pointer hover:font-semibold transition-all duration-300">
-              Account settings
+              {t('usermenu.Account settings')}
             </a>
           </li>
         </ul>
@@ -88,7 +97,7 @@ const UserMenu = () => {
                   clipRule="evenodd"
                 />
               </svg>
-              My likes
+              {t('usermenu.My likes')}
             </a>
           </li>
         </ul>
@@ -98,7 +107,7 @@ const UserMenu = () => {
               onClick={handleDispatch}
               className="block py-2 px-4 text-sm hover:cursor-pointer hover:font-semibold transition-all duration-300"
             >
-              Sign out
+              {t('usermenu.Sign out')}
             </a>
           </li>
         </ul>
