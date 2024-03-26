@@ -8,7 +8,7 @@ export const registerThunk = createAsyncThunk(
       const response = await authService.register(params);
       return thunkAPI.fulfillWithValue(response);
     } catch (error) {
-    return  thunkAPI.rejectWithValue(error);
+      return thunkAPI.rejectWithValue(error);
     }
   },
 );
@@ -27,7 +27,7 @@ export const loginThunk = createAsyncThunk(
 
 export const logoutThunk = createAsyncThunk(
   'user/logout',
-  async (params: string, thunkAPI) => {
+  async (params: object, thunkAPI) => {
     try {
       const response = await authService.logout(params);
       return thunkAPI.fulfillWithValue(response);

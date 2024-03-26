@@ -3,8 +3,8 @@ import { useEffect, useState } from 'react';
 
 const Toast = (props: any) => {
   const { type, message } = props;
-    const [showToast, setShowToast] = useState(true);
-    console.log(showToast)
+  const [showToast, setShowToast] = useState(true);
+  console.log(showToast);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -70,7 +70,7 @@ const Toast = (props: any) => {
             className="ms-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex items-center justify-center h-8 w-8 "
             data-dismiss-target="#toast-default"
             aria-label="Close"
-            onClick={()=>setShowToast(false)}
+            onClick={() => setShowToast(false)}
           >
             <span className="sr-only">Close</span>
             <svg
@@ -96,7 +96,7 @@ const Toast = (props: any) => {
 };
 
 Toast.propTypes = {
-  type: propTypes.oneOf(["error", "warning","success"]),
-  message: propTypes.string
-}
+  type: propTypes.oneOf(['error', 'warning', 'success']),
+  message: propTypes.string,
+};
 export default Toast;

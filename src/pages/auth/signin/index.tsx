@@ -11,11 +11,12 @@ import {
   LightDecortor,
   DarkDecorator,
   Form,
+  Toast,
 } from 'shared';
 // Hooks & services
 import { useThemeContext } from 'core/context/ThemeContext';
 import { useSelector, useDispatch } from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { useFormStateContext } from 'shared/Forms/shared/FormContext';
 // Core
@@ -32,6 +33,8 @@ const Signin = () => {
   const { mode } = theme;
   const { t } = useTranslation(locale);
   const { state } = useFormStateContext();
+  const [showToast, toggleToast] = useState(false);
+
   const {
     formState: { errors, isValid, isDirty, isSubmitting },
     formValue,
@@ -39,12 +42,11 @@ const Signin = () => {
 
   const userSlice = useSelector((state: RootState) => state.user);
   const dispatch = useDispatch();
-  console.log('userSlice', userSlice);
-  console.log('form state', state);
+
   const formFields = [
     {
       name: 'email',
-      label: 'email',
+      label: 'form.email',
       id: 'email',
       type: 'email',
       required: true,
@@ -64,7 +66,7 @@ const Signin = () => {
     {
       name: 'password',
       id: 'password',
-      label: 'password',
+      label: 'form.password',
       type: 'password',
       required: true,
       maxLength: 20,
@@ -164,7 +166,7 @@ const Signin = () => {
             <div className="mb-10 block font-bold text--600">
               {t("signin.don't have an account ?")}
               <Link href="/auth/signup">
-                <span className="hover:underline">{t('signin.Sign Up')}</span>
+                <span className="underline hover:text-red-500">{t('signin.Sign Up')}</span>
               </Link>
             </div>
 
@@ -195,6 +197,8 @@ const Signin = () => {
           </div>
         </div>
       </div>
+      {showToast && <Toast type="error" message={userSlice.error} />}
+
       {mode === 'light' && <LightDecortor />}
       {mode === 'dark' && <DarkDecorator />}
     </>

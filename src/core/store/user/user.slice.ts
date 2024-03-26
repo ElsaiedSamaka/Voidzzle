@@ -37,12 +37,12 @@ export const authSlice = createSlice({
         state.error = null;
       })
       .addCase(registerThunk.rejected, (state, action) => {
-        const error = action.payload.response.data.message;
-        
+        // eslint-disable-next-line
+        const error = action.payload?.response?.data.message;
+
         state.loading = false;
         state.user = null;
-        state.error =
-          error || 'An error occurred during registration.';
+        state.error = error || 'An error occurred during registration.';
         state.tokens = null;
       })
       .addCase(registerThunk.fulfilled, (state, action) => {
@@ -62,19 +62,35 @@ export const authSlice = createSlice({
         state.loading = false;
         state.user = user;
         state.error = null;
+        state.tokens = {
+          accessTokens: action.payload?.tokens?.accessToken,
+          refreshToken: action.payload?.tokens?.refreshToken,
+        };
       })
       .addCase(loginThunk.rejected, (state, action) => {
         state.loading = false;
         state.user = null;
         state.error = action.error.message || 'An error occurred during login.';
+        state.tokens = null;
       });
     // logout
     builder
-      .addCase(logoutThunk.fulfilled, (state, action) => {
-        state.user = action.payload;
+      .addCase(logoutThunk.pending, (state) => {
+        state.loading = true;
+        state.user = null;
+        state.error = null;
+      })
+      .addCase(logoutThunk.fulfilled, (state) => {
+        state.loading = false;
+        state.user = null;
+        state.error = null;
+        state.tokens = null;
       })
       .addCase(logoutThunk.rejected, (state) => {
+        state.loading = false;
         state.user = null;
+        state.error = 'An error occurred during logout.';
+        state.tokens = null;
       });
   },
 });

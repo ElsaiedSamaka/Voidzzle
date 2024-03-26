@@ -22,7 +22,7 @@ const UserMenu = () => {
   }
 
   function handleDispatch(): void {
-    dispatch(logoutThunk(tokens?.refreshToken || ''));
+    dispatch(logoutThunk({ refreshToken: tokens?.refreshToken }));
   }
 
   return (

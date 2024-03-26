@@ -11,7 +11,7 @@ import {
   LightDecortor,
   DarkDecorator,
   Form,
-  Toast
+  Toast,
 } from 'shared';
 // Hooks & services
 import { useSelector, useDispatch } from 'react-redux';
@@ -35,7 +35,7 @@ const Signup = () => {
   } = useThemeContext();
   const { t } = useTranslation(locale);
   const { state } = useFormStateContext();
-  const [showToast,toggleToast] = useState(false);
+  const [showToast, toggleToast] = useState(false);
   const {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     formState: { errors, isValid, isDirty, isSubmitting },
@@ -149,7 +149,7 @@ const Signup = () => {
   // Listen for changes in the Redux store
   useEffect(() => {
     if (authSlice.error) {
-      toggleToast(true)
+      toggleToast(true);
     } else if (authSlice.user) {
       console.log('Register success. Redirecting to home.');
       router.push('/');
@@ -223,7 +223,7 @@ const Signup = () => {
             <div className="mb-10 block font-bold text--600">
               {t('signup.have an account ?')}
               <Link href="/auth/signin">
-                <span className="hover:underline">{t('signup.Sign In')}</span>
+                <span className="underline hover:text-red-500">{t('signup.Sign In')}</span>
               </Link>
             </div>
             <p className="mb-1 font-medium text--500">{t('signup.Sign as?')}</p>
@@ -294,7 +294,7 @@ const Signup = () => {
           </div>
         </div>
       </div>
-      {showToast && <Toast type='error' message={authSlice.error} />} 
+      {showToast && <Toast type="error" message={authSlice.error} />}
       {mode === 'light' && <LightDecortor />}
       {mode === 'dark' && <DarkDecorator />}
     </>

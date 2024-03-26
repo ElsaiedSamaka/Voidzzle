@@ -63,5 +63,5 @@ export {
   Switch,
   Icon,
   XYZ,
-  Toast
+  Toast,
 };
