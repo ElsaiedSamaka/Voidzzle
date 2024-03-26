@@ -166,7 +166,9 @@ const Signin = () => {
             <div className="mb-10 block font-bold text--600">
               {t("signin.don't have an account ?")}
               <Link href="/auth/signup">
-                <span className="underline hover:text-red-500">{t('signin.Sign Up')}</span>
+                <span className="underline hover:text-red-500">
+                  {t('signin.Sign Up')}
+                </span>
               </Link>
             </div>
 

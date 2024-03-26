@@ -48,7 +48,7 @@ const UserMenu = () => {
       </button>
       <div
         className={classNames(
-          'absolute opacity-0 transition-all duration-300 top-10 ltr:right-5 rtl:left-5 z-40 my-4 w-56 text-base list-none   divide-y  shadow-xl rounded-xl',
+          'absolute opacity-0 transition-all duration-300 top-10 ltr:right-5 rtl:left-5 z-50 my-4 w-56 text-base list-none   divide-y  shadow-xl rounded-xl',
           { 'opacity-100 -translate-x-5': showUserMenuDDL },
           {
             'bg-dark-bgSecondary text-dark-textSecondary divide-dark-border':
@@ -67,19 +67,20 @@ const UserMenu = () => {
         </div>
         <ul className="py-1  " aria-labelledby="dropdown">
           <li>
-            <Link href={{
-    pathname: '/about',
-    query: { name: 'test' },
-  }}>
-            <span  className="block py-2 px-4 text-sm hover:cursor-pointer hover:font-semibold transition-all duration-300">
-              {t('usermenu.My profile')}
-            </span>
+            <Link
+              href={{
+                pathname: '/profile',
+                query: { name: 'test' },
+              }}
+              className="block  w-full py-2 px-4 text-sm hover:cursor-pointer hover:font-semibold transition-all duration-300"
+            >
+                {t('usermenu.My profile')}
             </Link>
           </li>
           <li>
-            <a className="block py-2 px-4 text-sm hover:cursor-pointer hover:font-semibold transition-all duration-300">
-              {t('usermenu.Account settings')}
-            </a>
+            <Link href="/settings/account" className="block py-2 px-4 text-sm hover:cursor-pointer hover:font-semibold transition-all duration-300" >
+                {t('usermenu.Account settings')}
+            </Link>
           </li>
         </ul>
         <ul className="py-1" aria-labelledby="dropdown">

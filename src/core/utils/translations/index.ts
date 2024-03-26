@@ -34,7 +34,7 @@ const allTranslations = {
     accountTranslations.en,
     messagesTranslations.en,
     formTranslations.en,
-    userMenuTranslations.en
+    userMenuTranslations.en,
   ),
   ar: Object.assign(
     {},
@@ -52,7 +52,7 @@ const allTranslations = {
     accountTranslations.ar,
     messagesTranslations.ar,
     formTranslations.ar,
-    userMenuTranslations.ar
+    userMenuTranslations.ar,
   ),
 };
 

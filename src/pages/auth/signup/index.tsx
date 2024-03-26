@@ -223,7 +223,9 @@ const Signup = () => {
             <div className="mb-10 block font-bold text--600">
               {t('signup.have an account ?')}
               <Link href="/auth/signin">
-                <span className="underline hover:text-red-500">{t('signup.Sign In')}</span>
+                <span className="underline hover:text-red-500">
+                  {t('signup.Sign In')}
+                </span>
               </Link>
             </div>
             <p className="mb-1 font-medium text--500">{t('signup.Sign as?')}</p>
