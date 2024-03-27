@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import * as React from 'react';
 
-type Dispatch = (action) => void;
+type Dispatch = (action:any) => void;
 type State = {
   formState: {
     errors: object;
@@ -25,7 +25,7 @@ const FormStateContext = React.createContext<
   { state: State; dispatch: Dispatch } | undefined
 >(undefined);
 
-function formStateReducer(state: State, action) {
+function formStateReducer(state: State, action:any) {
   const {
     type,
     formState: { errors, isValid, isDirty, isSubmitting },

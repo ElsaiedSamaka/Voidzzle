@@ -19,12 +19,6 @@ interface IFromProps {
   formFields: FormField[];
   children?: React.ReactNode;
 }
-interface Errors {
-  [fieldName: string]: {
-    type: string | number;
-    message: string;
-  };
-}
 
 const Form = ({ defaultValues, formFields, children }: IFromProps) => {
   const {
@@ -45,7 +39,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
   const { theme } = useThemeContext();
   const { mode } = theme;
 
-  const formValues = getValues(); // Use watch to get the form field values
+  const formValues = watch(); 
   const previousFormValues = useRef(formValues); // Track previous form values
 
   const [passwordType, togglePassword] = useState('password');
@@ -70,10 +64,10 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
       },
     });
   };
-  const temp = 1 + 1;
-  console.log(temp);
+  
 
   useEffect(() => {
+    console.log("form values",formValues)
     const hasFormValuesChanged = !isEqual(
       formValues,
       previousFormValues.current,
