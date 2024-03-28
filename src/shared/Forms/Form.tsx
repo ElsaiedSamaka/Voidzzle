@@ -81,10 +81,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
       handleChange;
     };
   });
-  // useEffectOnOBJ(() => {
-  //   console.log('useEffectOnOBJ called!!');
-  //   handleChange();
-  // }, formValues);
+  
 
   function handleChange() {
     dispatch({
