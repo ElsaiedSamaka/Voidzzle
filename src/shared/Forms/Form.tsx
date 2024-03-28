@@ -67,20 +67,10 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
   };
   
 
-  useEffect(() => {
-    const hasFormValuesChanged = !isEqual(
-      formValues,
-      previousFormValues.current,
-    );
+useEffect(() => {
+    handleChange(); // Trigger handleChange when formValues change
+});
 
-    if (hasFormValuesChanged) {
-      previousFormValues.current = formValues;
-    handleChange();
-    }
-    return () => {
-      handleChange;
-    };
-  });
   
 
   function handleChange() {
