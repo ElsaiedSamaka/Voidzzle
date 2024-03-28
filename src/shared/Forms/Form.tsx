@@ -13,6 +13,7 @@ import { useTranslation } from 'core/context/TranslationContext';
 import { isEqual } from 'core/helper';
 import Switch from 'shared/Common/Switch/Switch';
 import { FormField } from 'core/types';
+import { useEffectOnOBJ } from 'core/hooks';
 
 interface IFromProps {
   defaultValues: object;
@@ -67,7 +68,6 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
   
 
   useEffect(() => {
-    console.log("form values",formValues)
     const hasFormValuesChanged = !isEqual(
       formValues,
       previousFormValues.current,
@@ -75,16 +75,20 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
 
     if (hasFormValuesChanged) {
       previousFormValues.current = formValues;
-      handleChange();
+    handleChange();
     }
     return () => {
       handleChange;
     };
-  }, [formValues, errors, isValid, isDirty, isSubmitting]);
+  });
+  // useEffectOnOBJ(() => {
+  //   console.log('useEffectOnOBJ called!!');
+  //   handleChange();
+  // }, formValues);
 
   function handleChange() {
     dispatch({
-      type: 'CHANGE',
+      type: 'FORM.CHANGE',
       formState: {
         errors: errors,
         isValid: isValid,

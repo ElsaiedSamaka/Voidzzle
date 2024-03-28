@@ -31,8 +31,9 @@ function formStateReducer(state: State, action:any) {
     formState: { errors, isValid, isDirty, isSubmitting },
     formValue,
   } = action;
+  console.log("action",action)
   switch (type) {
-    case 'CHANGE':
+    case 'FORM.CHANGE':
       return {
         ...state,
         formState: {

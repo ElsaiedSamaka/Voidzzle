@@ -39,6 +39,7 @@ const Signin = () => {
     formState: { errors, isValid, isDirty, isSubmitting },
     formValue,
   } = state;
+  console.log("state",state)
 
   const userSlice = useSelector((state: RootState) => state.user);
   const dispatch = useDispatch();
@@ -183,7 +184,7 @@ const Signin = () => {
                       mode === 'light',
                   },
                 )}
-                disabled={!isValid || !isDirty}
+                disabled={!isValid }
                 type="submit"
                 onClick={() => {
                   handleDispatch();
