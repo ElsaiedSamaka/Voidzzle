@@ -328,6 +328,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                         },
                       )}
                       id={field.id}
+                      rows={5}
                     ></textarea>
                     {errors[field.name as keyof typeof errors] && (
                       <span className="opacity-0 group-hover:opacity-100 transition-all duration-300 text-red-500 px-1 rounded-full text-center w-fit absolute left-[12%] bg-white border border-red-500">
