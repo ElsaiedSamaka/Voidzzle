@@ -12,7 +12,7 @@ const translations = {
     'products.width': 'width',
     'products.description': 'description',
     'products.product_imgs': 'product images',
-
+    'products.add_new_product': 'Add new product',
     lang: 'English',
     language: 'عربي',
   },
@@ -29,7 +29,7 @@ const translations = {
     'products.width': 'العرض',
     'products.description': 'الوصف',
     'products.product_imgs': 'صور المنتج',
-
+    'products.add_new_product': 'اضافة منتج جديد',
     lang: 'العربية',
     language: 'English',
   },

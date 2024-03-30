@@ -301,13 +301,17 @@ const TableHead = ({
     </>
   );
 };
+// Core
+import useTranslation from 'core/hooks/useTranslation';
+
 const DailogHeader = ({ handleModalToggle }: any) => {
+  const { t } = useTranslation();
   return (
-    <div className="dailog-header flex justify-between items-center border-b py-2">
-      <h3 className=" text-xl font-bold text-gray-900 ">Add new product</h3>
+    <div className="dailog-header flex justify-between items-center border-b border-zinc-500/10 py-2">
+      <h3 className="text-xl font-bold ">{t('products.add_new_product')}</h3>
       <div
         onClick={handleModalToggle}
-        className="p-1 w-fit h-fit rounded-full text-gray-700 bg-gray-50 hover:bg-gray-100 hover:cursor-pointer hover:text-gray-900"
+        className="p-1 w-fit h-fit rounded-full text-white/50 bg-gray-50/10 hover:bg-gray-100/10 hover:cursor-pointer hover:text-gray-900/10"
       >
         <svg
           className="w-5 h-5"
@@ -328,6 +332,8 @@ const DailogHeader = ({ handleModalToggle }: any) => {
     </div>
   );
 };
+// Core
+import { useThemeContext } from 'core/context/ThemeContext';
 
 const DailogBody = ({
   handleModalToggle,
@@ -335,6 +341,11 @@ const DailogBody = ({
   defaultValues,
   formFields,
 }: any) => {
+  const {
+    theme: { mode },
+  } = useThemeContext();
+  const { t } = useTranslation();
+
   return (
     <Form
       formActions={{
@@ -343,7 +354,32 @@ const DailogBody = ({
       }}
       formFields={formFields}
       defaultValues={defaultValues}
-    />
+    >
+        <button
+          className={classNames(
+            'hover:shadow-black/40 text-white rounded-xl px-8 py-2 font-bold transition-all hover:opacity-90 hover:shadow-lg disabled:cursor-not-allowed',
+            {
+              'bg-black disabled:bg-dark-bgDisabled': mode === 'dark',
+              'bg-black disabled:bg-light-bgDisabled': mode === 'light',
+            },
+          )}
+          type="submit"
+        >
+          {t('general.cancel')}
+        </button>
+           <button
+          className={classNames(
+            'hover:shadow-red-800/40 text-white rounded-xl px-8 py-2 font-bold transition-all hover:opacity-90 hover:shadow-lg disabled:cursor-not-allowed',
+            {
+              'bg-dark-primary disabled:bg-dark-bgDisabled': mode === 'dark',
+              'bg-light-primary disabled:bg-light-bgDisabled': mode === 'light',
+            },
+          )}
+          type="submit"
+        >
+          {t('products.add_new_product')}
+        </button>
+    </Form>
   );
 };
 export default TableHead;

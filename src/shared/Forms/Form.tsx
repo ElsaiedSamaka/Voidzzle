@@ -289,7 +289,6 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                           {},
                         ),
                       })}
-                      value={''}
                     >
                       <option value="">Select</option>
                       <option value="saab">Saab</option>
@@ -910,7 +909,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
         {/* Form fields */}
 
         {/* Buttons */}
-        <div className="flex mr-auto gap-x-2">{children}</div>
+        <div className={classNames('flex items-center gap-x-2 ltr:ml-auto rtl:mr-auto')}>{children}</div>
         {/* Buttons */}
       </form>
       {/* <DevTool control={control} /> */}

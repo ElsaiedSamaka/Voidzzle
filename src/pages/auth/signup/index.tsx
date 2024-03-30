@@ -18,11 +18,11 @@ import { useSelector, useDispatch } from 'react-redux';
 import { registerThunk } from 'core/store/user/user.thunk';
 import { useFormStateContext } from 'shared/Forms/shared/FormContext';
 import { useRouter } from 'next/router';
-import { useThemeContext } from 'core/context/ThemeContext';
 import { useEffect, useState } from 'react';
 import useTranslation from 'core/hooks/useTranslation';
 // Core
 import getDirection from 'core/utils/translations/getDirections';
+import { useThemeContext } from 'core/context/ThemeContext';
 import Validators from 'core/validators';
 import { RootState } from 'core/store';
 import { FormField } from 'core/types';

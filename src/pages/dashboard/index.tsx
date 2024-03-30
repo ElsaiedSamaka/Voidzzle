@@ -19,7 +19,7 @@ const Dashboard = () => {
         />
       </Head>
       <TabProvider>
-        <section className="min-h-screen  p-4">
+        <section className="p-4">
           <div className="flex mb-5">
             <h1 className="text-4xl font-semibold">{t('dashboard.name')}</h1>
           </div>
