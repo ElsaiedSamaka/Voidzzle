@@ -15,14 +15,14 @@ import { useSelectedItems } from 'shared/Table/shared/context/SelectedItemsConte
 
 const Products = () => {
   const productsSlice = useSelector((state: RootState) => state.products);
-  // const brandsSlice = useSelector((state: RootState) => state.brands);
+  const brandsSlice = useSelector((state: RootState) => state.brands);
   const { state, dispatch: dispatchSelectedItems } = useSelectedItems();
   const { items } = state;
   const dispatch = useDispatch();
-  const handleAddetionDispatch = (data) => {
+  const handleAddetionDispatch = (data:any) => {
     dispatch(createProductThunk(data));
   };
-  const handleUpdateDispatch = (data) => {
+  const handleUpdateDispatch = (data:any) => {
     dispatch(updateProductThunk(data));
   };
   const handleDeleteAll = () => {
@@ -64,7 +64,7 @@ const Products = () => {
       minLength: 10,
       validation: [
         {
-          isName: (val) => {
+          isName: (val:string) => {
             if (val === 'name') {
               return 'Enter a different product name';
             }

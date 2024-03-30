@@ -23,7 +23,6 @@ const Dashboard = () => {
           <div className="flex mb-5">
             <h1 className="text-4xl font-semibold">{t('dashboard.name')}</h1>
           </div>
-          {/* taps */}
           <Tabs
             items={[
               { label: 'Products', id: 0 },
@@ -33,7 +32,6 @@ const Dashboard = () => {
               { label: 'Ads', id: 4 },
             ]}
           />
-          {/* taps */}
           {/* data table */}
           <Content />
           {/* data table */}
