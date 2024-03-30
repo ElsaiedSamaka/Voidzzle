@@ -19,10 +19,10 @@ const Products = () => {
   const { state, dispatch: dispatchSelectedItems } = useSelectedItems();
   const { items } = state;
   const dispatch = useDispatch();
-  const handleAddetionDispatch = (data:any) => {
+  const handleAddetionDispatch = (data: any) => {
     dispatch(createProductThunk(data));
   };
-  const handleUpdateDispatch = (data:any) => {
+  const handleUpdateDispatch = (data: any) => {
     dispatch(updateProductThunk(data));
   };
   const handleDeleteAll = () => {
@@ -52,7 +52,7 @@ const Products = () => {
   // get products from api just when component is mounted
   useEffect(() => {
     dispatch(getProductsThunk());
-  },[]);
+  }, []);
   const formFields = [
     {
       name: 'name',

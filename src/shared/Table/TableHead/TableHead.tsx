@@ -17,7 +17,7 @@ const TableHead = ({
   handleDeleteAllDispatch,
   handleSearchDispatch,
   handleGetFilterationDispatch,
-}:any) => {
+}: any) => {
   // Hooks
   const [searchInput, setSearchInput] = useState('');
   const [showAddModal, toggleAddetionModal] = useState(false);
@@ -301,7 +301,7 @@ const TableHead = ({
     </>
   );
 };
-const DailogHeader = ({ handleModalToggle }:any) => {
+const DailogHeader = ({ handleModalToggle }: any) => {
   return (
     <div className="dailog-header flex justify-between items-center border-b py-2">
       <h3 className=" text-xl font-bold text-gray-900 ">Add new product</h3>
@@ -334,7 +334,7 @@ const DailogBody = ({
   handleAddetionDispatch,
   defaultValues,
   formFields,
-}:any) => {
+}: any) => {
   return (
     <Form
       formActions={{

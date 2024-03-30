@@ -12,7 +12,7 @@ const translations = {
     'products.width': 'width',
     'products.description': 'description',
     'products.product_imgs': 'product images',
-    
+
     lang: 'English',
     language: 'عربي',
   },

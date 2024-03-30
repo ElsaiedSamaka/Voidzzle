@@ -13,7 +13,7 @@ const TableBody = ({
   defaultValues,
   formFields,
   handleUpdateDispatch,
-}:any) => {
+}: any) => {
   const [showActionsPopover, setShowActionsPopover] = useState(false);
   const [rowIndex, setRowIndex] = useState(null);
   const [showEditModal, toggleEditModal] = useState(false);
@@ -21,7 +21,7 @@ const TableBody = ({
   const { state, dispatch: dispatchSelectedItems } = useSelectedItems();
   const { items } = state;
   const dispatch = useDispatch();
-  function toggleActionsPopover(index:any) {
+  function toggleActionsPopover(index: any) {
     if (rowIndex == index) {
       setShowActionsPopover(!showActionsPopover);
     } else {
@@ -29,15 +29,15 @@ const TableBody = ({
       setShowActionsPopover(true);
     }
   }
-  function deleteItem(id:any) {
+  function deleteItem(id: any) {
     dispatch(deleteProductThunk(id));
     toggleActionsPopover(null);
   }
-  function handleEditModalToggle(item:any) {
+  function handleEditModalToggle(item: any) {
     toggleActionsPopover(null);
     toggleEditModal(!showEditModal);
   }
-  function handlePreviewModalToggle(item:any) {
+  function handlePreviewModalToggle(item: any) {
     toggleActionsPopover(null);
     togglePreviewModal(!showPreviewModal);
   }
@@ -47,7 +47,7 @@ const TableBody = ({
    * @param {Object} item - The item to be selected.
    * @returns {Array} - The updated list of selected items.
    */
-  function handleItemSelect(item:any) {
+  function handleItemSelect(item: any) {
     const itemIndex = items.findIndex((selectedItem) => {
       return selectedItem.id === item.id;
     });
@@ -98,7 +98,7 @@ const TableBody = ({
                   </div>
                 </th>
               )}
-              {_config.th.map((col:any, i:number) => {
+              {_config.th.map((col: any, i: number) => {
                 return (
                   <th key={col.id} scope="col" className="px-4 py-3">
                     {col.label}
@@ -115,7 +115,7 @@ const TableBody = ({
           <tbody>
             {data.Loading && <tr>Loading...</tr>}
             {data.error && <tr>Error</tr>}
-            {data.items.map((item:any, i:number) => {
+            {data.items.map((item: any, i: number) => {
               return (
                 <>
                   <tr className="border-b border-white/10" key={item.id}>
@@ -143,7 +143,7 @@ const TableBody = ({
                         </div>
                       </td>
                     )}
-                    {_config.th.map((column:any, i:number) => (
+                    {_config.th.map((column: any, i: number) => (
                       <td className="px-4 py-1" key={column.id}>
                         <div className="flex items-center">
                           {/* {column.select
@@ -259,7 +259,10 @@ const TableBody = ({
             })}
             {data.items.length < 10 &&
               Array.from({ length: 10 - data.items.length }).map((_, i) => (
-                <tr className="border-b border-white/10" key={`placeholder-${i}`}>
+                <tr
+                  className="border-b border-white/10"
+                  key={`placeholder-${i}`}
+                >
                   {/* Placeholder row */}
                   {_config.multiSelect && (
                     <td className="w-4 px-4 py-2">
@@ -279,7 +282,7 @@ const TableBody = ({
                       </div>
                     </td>
                   )}
-                  {_config.th.map((column:any, i:number) => (
+                  {_config.th.map((column: any, i: number) => (
                     <td className="px-4 py-2" key={column.id}>
                       <div className="flex items-center"></div>
                     </td>
@@ -316,7 +319,7 @@ const TableBody = ({
     </>
   );
 };
-const EditDailogHeader = ({ handleModalToggle }:any) => {
+const EditDailogHeader = ({ handleModalToggle }: any) => {
   return (
     <div className="dailog-header flex justify-between items-center">
       <h3 className=" text-xl font-bold  ">Edit product</h3>
@@ -348,14 +351,14 @@ const EditDailogBody = ({
   handleDispatch,
   defaultValues,
   formFields,
-}:any) => {
+}: any) => {
   return (
     <Form formFields={formFields} defaultValues={defaultValues}>
       <div>test</div>
     </Form>
   );
 };
-const PreviewDailogHeader = ({ handleModalToggle }:any) => {
+const PreviewDailogHeader = ({ handleModalToggle }: any) => {
   return (
     <div className="dailog-header flex justify-between items-center  pb-2">
       <h3 className=" text-xl font-bold  ">product details</h3>
@@ -382,7 +385,7 @@ const PreviewDailogHeader = ({ handleModalToggle }:any) => {
     </div>
   );
 };
-const PreviewDailogBody = ({ item, handleModalToggle }:any) => {
+const PreviewDailogBody = ({ item, handleModalToggle }: any) => {
   return (
     <div
       id="readProductModal"

@@ -179,7 +179,7 @@ const Profile = () => {
     </>
   );
 };
-Profile.getLayout = (page:any) => {
+Profile.getLayout = (page: any) => {
   return (
     <RootLayout>
       <ProfileLayout>{page}</ProfileLayout>

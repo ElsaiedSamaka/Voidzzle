@@ -289,7 +289,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                           {},
                         ),
                       })}
-                        value={''} 
+                      value={''}
                     >
                       <option value="">Select</option>
                       <option value="saab">Saab</option>
