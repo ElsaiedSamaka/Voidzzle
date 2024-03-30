@@ -42,7 +42,7 @@ const Dashboard = () => {
     </>
   );
 };
-Dashboard.getLayout = (page) => {
+Dashboard.getLayout = (page:any) => {
   return (
     <RootLayout>
       <DashboardLayout>{page}</DashboardLayout>
