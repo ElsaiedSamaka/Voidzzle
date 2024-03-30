@@ -563,7 +563,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                     </label>
                     <label
                       htmlFor="dropzone-file"
-                      className="flex flex-col items-center justify-center w-full h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100 "
+                      className="flex flex-col items-center justify-center w-full h-32 border-2 border-gray-300/10 border-dashed rounded-lg cursor-pointer bg-gray-50/10 hover:bg-gray-100/10 "
                     >
                       <div className="flex flex-col items-center justify-center pt-5 pb-6">
                         <svg
