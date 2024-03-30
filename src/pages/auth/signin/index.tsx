@@ -85,16 +85,15 @@ const Signin = () => {
   ];
 
   const defaultValues = {};
-
-  function handleDispatch(): void {
+  // Methods
+  function handleLoginDispatch(): void {
     dispatch(loginThunk(formValue));
+    router.push('/');
   }
   // Listen for changes in the Redux store
   useEffect(() => {
     if (userSlice.error) {
-      // TODO: add toast to handle this case
-      console.error('Login error:', userSlice.error);
-      // Handle error display or any other action
+       toggleToast(true);
     } else if (userSlice.user) {
       console.log('Login success. Redirecting to home.');
       router.push('/');
@@ -183,10 +182,10 @@ const Signin = () => {
                       mode === 'light',
                   },
                 )}
-                disabled={!isValid }
+                disabled={!isValid}
                 type="submit"
                 onClick={() => {
-                  handleDispatch();
+                  handleLoginDispatch();
                 }}
               >
                 {t('signin.Sign In')}

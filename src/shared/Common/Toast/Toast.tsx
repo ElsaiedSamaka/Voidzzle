@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react';
 const Toast = (props: any) => {
   const { type, message } = props;
   const [showToast, setShowToast] = useState(true);
-  console.log(showToast);
 
   useEffect(() => {
     const timer = setTimeout(() => {

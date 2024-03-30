@@ -41,6 +41,7 @@ const Signup = () => {
     formState: { errors, isValid, isDirty, isSubmitting },
     formValue,
   } = state;
+  const [selectedOption, setSelectedOption] = useState('User');
 
   const authSlice = useSelector((state: RootState) => state.user);
   const dispatch = useDispatch();
@@ -142,10 +143,15 @@ const Signup = () => {
   ];
 
   const defaultValues = {};
-
-  function handleDispatch(): void {
-    dispatch(registerThunk(formValue));
+  // Methods
+  function handleRegsisterDispatch(): void {
+    const newUser = { ...formValue, role: selectedOption.toLowerCase() };
+    dispatch(registerThunk(newUser));
   }
+  const handleUserTypeChange = (option: string) => {
+    setSelectedOption(option);
+  };
+
   // Listen for changes in the Redux store
   useEffect(() => {
     if (authSlice.error) {
@@ -220,7 +226,7 @@ const Signup = () => {
           {/* start journey card */}
           <div className="regteration-form px-4 py-20 z-10">
             <h2 className="mb-2 text-3xl font-bold">{t('signup.name')}</h2>
-            <div className="mb-10 block font-bold text--600">
+            <div className="mb-10 block font-bold">
               {t('signup.have an account ?')}
               <Link href="/auth/signin">
                 <span className="underline hover:text-red-500">
@@ -230,13 +236,20 @@ const Signup = () => {
             </div>
             <p className="mb-1 font-medium text--500">{t('signup.Sign as?')}</p>
             <div className="mb-6 flex flex-col gap-y-2 gap-x-4 lg:flex-row">
-              <div className="relative flex w-56 items-center justify-center rounded-xl px-4 py-3 font-medium">
+              <div
+                className={`relative flex w-56 items-center justify-center rounded-xl px-4 py-3 font-medium ${
+                  selectedOption === 'Seller'
+                    ? 'peer-checked:border-red-600 peer-checked:bg-red-200/10'
+                    : ''
+                }`}
+              >
                 <input
                   className="peer hidden"
                   type="radio"
                   name="radio"
                   id="radio1"
-                  defaultChecked
+                  defaultChecked={selectedOption === 'Seller'}
+                  onChange={() => handleUserTypeChange('Seller')}
                 />
                 <label
                   className="peer-checked:border-red-600 peer-checked:bg-red-200/10 absolute top-0 h-full w-full cursor-pointer rounded-xl border border-gray-100/10"
@@ -249,13 +262,20 @@ const Signup = () => {
                   {t('signup.Seller')}
                 </span>
               </div>
-              <div className="relative flex w-56 items-center justify-center rounded-xl bg--50 px-4 py-3 font-medium text--700">
+              <div
+                className={`relative flex w-56 items-center justify-center rounded-xl bg--50 px-4 py-3 font-medium text--700 ${
+                  selectedOption === 'User'
+                    ? 'peer-checked:border-red-600 peer-checked:bg-red-200/10'
+                    : ''
+                }`}
+              >
                 <input
                   className="peer hidden"
                   type="radio"
                   name="radio"
                   id="radio3"
-                  defaultChecked
+                  defaultChecked={selectedOption === 'User'}
+                  onChange={() => handleUserTypeChange('User')}
                 />
                 <label
                   className="peer-checked:border-red-600 peer-checked:bg-red-200/10 absolute top-0 h-full w-full cursor-pointer rounded-xl border border-gray-100/10"
@@ -265,7 +285,7 @@ const Signup = () => {
                 </label>
                 <div className="peer-checked:border-transparent peer-checked:bg-red-200/10 peer-checked:ring-2 absolute left-4 h-5 w-5 rounded-full border-2 border-gray-300/10 bg--200 ring-red-600 ring-offset-2" />
                 <span className="pointer-events-none z-10">
-                  {t('signup.Customer')}
+                  {t('signup.User')}
                 </span>
               </div>
             </div>
@@ -283,7 +303,7 @@ const Signup = () => {
                 disabled={!isValid || !isDirty}
                 type="submit"
                 onClick={() => {
-                  handleDispatch();
+                  handleRegsisterDispatch();
                 }}
               >
                 {t('signup.Sign Up')}
