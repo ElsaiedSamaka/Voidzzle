@@ -93,7 +93,7 @@ const Signin = () => {
   // Listen for changes in the Redux store
   useEffect(() => {
     if (userSlice.error) {
-       toggleToast(true);
+      toggleToast(true);
     } else if (userSlice.user) {
       console.log('Login success. Redirecting to home.');
       router.push('/');

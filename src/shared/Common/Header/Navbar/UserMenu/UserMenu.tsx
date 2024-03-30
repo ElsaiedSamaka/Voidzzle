@@ -74,12 +74,15 @@ const UserMenu = () => {
               }}
               className="block  w-full py-2 px-4 text-sm hover:cursor-pointer hover:font-semibold transition-all duration-300"
             >
-                {t('usermenu.My profile')}
+              {t('usermenu.My profile')}
             </Link>
           </li>
           <li>
-            <Link href="/settings/account" className="block py-2 px-4 text-sm hover:cursor-pointer hover:font-semibold transition-all duration-300" >
-                {t('usermenu.Account settings')}
+            <Link
+              href="/settings/account"
+              className="block py-2 px-4 text-sm hover:cursor-pointer hover:font-semibold transition-all duration-300"
+            >
+              {t('usermenu.Account settings')}
             </Link>
           </li>
         </ul>

@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 
-function useEffectOnOBJ(effect:any, object:any) {
+function useEffectOnOBJ(effect: any, object: any) {
   const prevObjectRef = useRef();
 
   useEffect(() => {

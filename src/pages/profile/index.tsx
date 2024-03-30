@@ -21,10 +21,10 @@ const Profile = () => {
         <h1 className="border-b border-zinc-500/20 py-6 text-4xl font-semibold">
           {t('profile.name')}
         </h1>
-        <div className="flex items-center">
+        <div className=" flex items-center">
           {/* Tab Navs */}
           <nav
-            className="grid gap-4 text-zinc-500"
+            className="flex flex-col gap-2 text-zinc-500"
             aria-label="Tabs"
             role="tablist"
           >
@@ -50,15 +50,11 @@ const Profile = () => {
                     d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"
                   />
                 </svg>
-                <span className="grow ml-6">
+                <div className="grow ml-6">
                   <span className="block text-lg font-semibold ">
                     Wish list
                   </span>
-                  <span className="block mt-1 ">
-                    Use Preline thoroughly thought and automated libraries to
-                    manage your businesses.
-                  </span>
-                </span>
+                </div>
               </span>
             </button>
             <button
@@ -85,10 +81,6 @@ const Profile = () => {
                 </svg>
                 <span className="grow ml-6">
                   <span className="block text-lg font-semibold ">Orders</span>
-                  <span className="block mt-1 ">
-                    Quickly Preline sample components, copy-paste codes, and
-                    start right off.
-                  </span>
                 </span>
               </span>
             </button>
@@ -116,10 +108,6 @@ const Profile = () => {
                 <span className="grow ml-6">
                   <span className="block text-lg font-semibold ">
                     Buying requests
-                  </span>
-                  <span className="block mt-1 ">
-                    Reduce time and effort on building modern look design with
-                    Preline only.
                   </span>
                 </span>
               </span>
@@ -150,10 +138,6 @@ const Profile = () => {
                   <span className="block text-lg font-semibold ">
                     Refund requests
                   </span>
-                  <span className="block mt-1 ">
-                    Reduce time and effort on building modern look design with
-                    Preline only.
-                  </span>
                 </span>
               </span>
             </button>
@@ -161,11 +145,11 @@ const Profile = () => {
           {/* End Tab Navs */}
           {/* products grid */}
           <div>
-            <ul className="grid grid-cols-4 xs:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 pt-3 pb-10 ">
-              <Card />
-              <Card />
-              <Card />
-              <Card />
+            <ul className="flex flex-wrap gap-2 pt-3 pb-10">
+              <Card id={1} />
+              <Card id={2} />
+              <Card id={3} />
+              <Card id={4} />
             </ul>
             <div className="flex justify-center">
               {/* Previous Button */}
@@ -195,7 +179,7 @@ const Profile = () => {
     </>
   );
 };
-Profile.getLayout = (page) => {
+Profile.getLayout = (page:any) => {
   return (
     <RootLayout>
       <ProfileLayout>{page}</ProfileLayout>

@@ -40,7 +40,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
   const { theme } = useThemeContext();
   const { mode } = theme;
 
-  const formValues = watch(); 
+  const formValues = watch();
   const previousFormValues = useRef(formValues); // Track previous form values
 
   const [passwordType, togglePassword] = useState('password');
@@ -65,13 +65,10 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
       },
     });
   };
-  
 
-useEffect(() => {
+  useEffect(() => {
     handleChange(); // Trigger handleChange when formValues change
-});
-
-  
+  });
 
   function handleChange() {
     dispatch({
