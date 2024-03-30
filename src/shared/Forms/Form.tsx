@@ -67,8 +67,8 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
   };
 
   useEffect(() => {
-    handleChange(); // Trigger handleChange when formValues change
-  });
+    handleChange(); // Useing a JSON.stringify as a wrapper
+  }, [JSON.stringify(formValues), errors, isValid, isDirty, isSubmitting]);
 
   function handleChange() {
     dispatch({
@@ -289,8 +289,9 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                           {},
                         ),
                       })}
+                        value={''} 
                     >
-                      <option selected>Select</option>
+                      <option value="">Select</option>
                       <option value="saab">Saab</option>
                       <option value="mercedes">Mercedes</option>
                       <option value="audi">Audi</option>

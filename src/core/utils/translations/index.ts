@@ -1,5 +1,6 @@
 // Pages
-import dashboardTranslations from './pages/dashboard';
+import dashboardTranslations from './pages/dashboard/dashboard';
+import productsTranslations from './pages/dashboard/products.tab'
 import settingsTranslations from './pages/settings/settings';
 import signupTranslations from './pages/signup';
 import signinTranslations from './pages/signin';
@@ -35,6 +36,7 @@ const allTranslations = {
     messagesTranslations.en,
     formTranslations.en,
     userMenuTranslations.en,
+    productsTranslations.en
   ),
   ar: Object.assign(
     {},
@@ -53,6 +55,7 @@ const allTranslations = {
     messagesTranslations.ar,
     formTranslations.ar,
     userMenuTranslations.ar,
+    productsTranslations.ar
   ),
 };
 

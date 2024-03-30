@@ -56,7 +56,7 @@ const Products = () => {
   const formFields = [
     {
       name: 'name',
-      label: 'name',
+      label: 'products.name',
       id: 'name',
       type: 'text',
       required: true,
@@ -64,7 +64,7 @@ const Products = () => {
       minLength: 10,
       validation: [
         {
-          isName: (val:string) => {
+          isName: (val: string) => {
             if (val === 'name') {
               return 'Enter a different product name';
             }
@@ -74,7 +74,7 @@ const Products = () => {
     },
     {
       name: 'category',
-      label: 'category',
+      label: 'products.category',
       id: 'category',
       type: 'select',
       required: true,
@@ -82,7 +82,7 @@ const Products = () => {
     },
     {
       name: 'brand',
-      label: 'brand',
+      label: 'products.brand',
       id: 'brand',
       type: 'text',
       required: true,
@@ -90,7 +90,7 @@ const Products = () => {
     },
     {
       name: 'price',
-      label: 'price',
+      label: 'products.price',
       id: 'price',
       type: 'number',
       required: true,
@@ -107,7 +107,7 @@ const Products = () => {
     },
     {
       name: 'stock',
-      label: 'stock',
+      label: 'products.stock',
       id: 'stock',
       type: 'number',
       required: true,
@@ -124,7 +124,7 @@ const Products = () => {
     },
     {
       name: 'weight',
-      label: 'weight (Kg)',
+      label: 'products.weight',
       id: 'weight',
       type: 'number',
       validation: [
@@ -140,7 +140,7 @@ const Products = () => {
     },
     {
       name: 'length',
-      label: 'Length (cm)',
+      label: 'products.length',
       id: 'length',
       type: 'number',
       validation: [
@@ -156,7 +156,7 @@ const Products = () => {
     },
     {
       name: 'breadth',
-      label: 'Breadth (cm)',
+      label: 'products.breadth',
       id: 'breadth',
       type: 'number',
       validation: [
@@ -172,7 +172,7 @@ const Products = () => {
     },
     {
       name: 'width',
-      label: 'Width (cm)',
+      label: 'products.width',
       id: 'width',
       type: 'number',
       // required: true,
@@ -182,7 +182,7 @@ const Products = () => {
     },
     {
       name: 'description',
-      label: 'description',
+      label: 'products.description',
       id: 'description',
       type: 'text-area',
       required: true,
@@ -192,7 +192,7 @@ const Products = () => {
     },
     {
       name: 'product_imgs',
-      label: 'product images',
+      label: 'products.product_imgs',
       id: 'product_imgs',
       type: 'file',
       required: false,

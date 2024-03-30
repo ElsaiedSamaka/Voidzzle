@@ -118,7 +118,7 @@ const TableBody = ({
             {data.items.map((item:any, i:number) => {
               return (
                 <>
-                  <tr className="" key={item.id}>
+                  <tr className="border-b border-white/10" key={item.id}>
                     {_config.multiSelect && (
                       <td className="w-4 px-4 py-2 ">
                         <div className="flex items-center">
@@ -259,7 +259,7 @@ const TableBody = ({
             })}
             {data.items.length < 10 &&
               Array.from({ length: 10 - data.items.length }).map((_, i) => (
-                <tr className="border-b" key={`placeholder-${i}`}>
+                <tr className="border-b border-white/10" key={`placeholder-${i}`}>
                   {/* Placeholder row */}
                   {_config.multiSelect && (
                     <td className="w-4 px-4 py-2">

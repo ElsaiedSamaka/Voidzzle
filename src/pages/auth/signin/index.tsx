@@ -88,7 +88,6 @@ const Signin = () => {
   // Methods
   function handleLoginDispatch(): void {
     dispatch(loginThunk(formValue));
-    router.push('/');
   }
   // Listen for changes in the Redux store
   useEffect(() => {
