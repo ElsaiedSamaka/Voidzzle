@@ -30,7 +30,7 @@ export const deleteProductThunk = createAsyncThunk(
 
 export const deleteAllProductsThunk = createAsyncThunk(
   'products/deleteAll',
-  async (ids: [], thunkAPI) => {
+  async (ids: any[], thunkAPI) => {
     try {
       const response = await productsService.removeAll(ids);
       return thunkAPI.fulfillWithValue(response);
@@ -41,7 +41,7 @@ export const deleteAllProductsThunk = createAsyncThunk(
 );
 export const updateProductThunk = createAsyncThunk(
   'products/update',
-  async (body: object, thunkAPI) => {
+  async (body: any, thunkAPI) => {
     try {
       const response = await productsService.put(body.id, body);
       return thunkAPI.fulfillWithValue(response);

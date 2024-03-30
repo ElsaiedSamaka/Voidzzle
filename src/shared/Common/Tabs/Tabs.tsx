@@ -1,20 +1,17 @@
 // Hooks & Services
-import { useThemeContext } from 'core/context/ThemeContext';
 import { useTabContext } from 'core/context/TabContext';
 
-const Tabs = ({ items }) => {
+const Tabs = ({ items }:any) => {
   const { state:{selectedTabIndex}, selectTab } = useTabContext();
-    const {
-    theme: { mode },
-  } = useThemeContext();
-  const handleTabClick = (id) => {
+   
+  const handleTabClick = (id:string) => {
     selectTab(id);
   };
   return (
     <div className="w-fit my-2 shadow rounded-md">
       <div className="rounded-md bg-white/5 p-2">
         <nav className="flex flex-wrap gap-2  font-semibold">
-          {items.map((item, i) => {
+          {items.map((item:any, i:number) => {
             return (
               <a
                 key={i}
