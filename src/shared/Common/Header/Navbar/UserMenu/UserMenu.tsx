@@ -26,6 +26,7 @@ const UserMenu = () => {
   }
 
   function handleLogoutDispatch(): void {
+    // TODO: clear tokens from cookies
     dispatch(logoutThunk({ refreshToken: tokens?.refreshToken }));
   }
 

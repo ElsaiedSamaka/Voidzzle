@@ -44,7 +44,6 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
   const [passwordType, togglePassword] = useState('password');
   const [passwordConfirmationType, togglePasswordConfirmation] =
     useState('password');
-  const [selectedFile, setSelectedFile] = useState<File | null>(null);
 
   function handlePasswordToggle(type: string) {
     togglePassword(type);
@@ -53,12 +52,6 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
   function handPasswordConfirmation(type: string) {
     togglePasswordConfirmation(type);
   }
-
-  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-  if (event.target.files) {
-    setSelectedFile(event.target.files[0]);
-  }
-};
 
   const submit = async () => {
     dispatch({
@@ -335,7 +328,6 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                       )}
                       id={field.id}
                       rows={5}
-                      onChange={handleFileChange}
                       {...register(field.name as never, {
                         required: {
                           value: field.required,
@@ -596,52 +588,62 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                       {t(field.label)}
                     </label>
                     <label
-                      htmlFor="dropzone-file"
+                      htmlFor={field.name}
                       className="flex flex-col items-center justify-center w-full h-32 border-2 border-gray-300/10 border-dashed rounded-lg cursor-pointer bg-gray-50/10 hover:bg-gray-100/10 "
                     >
-                      <div className="flex flex-col items-center justify-center pt-5 pb-6">
-                        <svg
-                          className="w-8 h-8 mb-4 text-gray-500 "
-                          aria-hidden="true"
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 20 16"
-                        >
-                          <path
-                            stroke="currentColor"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"
-                          />
-                        </svg>
-                        <p className="mb-2 text-sm text-gray-500">
-                          <span className="font-semibold">Click to upload</span>{' '}
-                          or drag and drop
-                        </p>
-                        <p className="text-xs text-gray-500 ">
-                          SVG, PNG, JPG or GIF (MAX. 800x400px) {field.name}
-                        </p>
-                      </div>
-                    <input
-                      id={field.id}
-                      type={field.type}
-                      {...register(field.name as never, {
-                        required: {
-                          value: field.required,
-                          message: 'this is a required field',
-                        },
-                        validate: (field.validation as any[])?.reduce(
-                          (acc: any, validator: any) => {
-                            return {
-                              ...acc,
-                              ...validator,
-                            };
+                      {!formValues.img && (
+                        <div className="flex flex-col items-center justify-center pt-5 pb-6">
+                          <svg
+                            className="w-8 h-8 mb-4 text-gray-500 "
+                            aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 20 16"
+                          >
+                            <path
+                              stroke="currentColor"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"
+                            />
+                          </svg>
+                          <p className="mb-2 text-sm text-gray-500">
+                            <span className="font-semibold">
+                              Click to upload
+                            </span>{' '}
+                            or drag and drop
+                          </p>
+                          <p className="text-xs text-gray-500 ">
+                            SVG, PNG, JPG or GIF (MAX. 800x400px) {field.name}
+                          </p>
+                        </div>
+                      )}
+                      {formValues.img && (
+                        <div className="flex flex-col items-center justify-center pt-5 pb-6">
+                        </div>
+                      )}
+
+                      <input
+                      className="apperace-none"
+                        id={field.id}
+                        type={field.type}
+                        {...register(field.name as never, {
+                          required: {
+                            value: field.required,
+                            message: 'this is a required field',
                           },
-                          {},
-                        ),
-                      })}
-                    />
+                          validate: (field.validation as any[])?.reduce(
+                            (acc: any, validator: any) => {
+                              return {
+                                ...acc,
+                                ...validator,
+                              };
+                            },
+                            {},
+                          ),
+                        })}
+                      />
                     </label>
                     {errors[field.name as keyof typeof errors] && (
                       <span className="opacity-0 group-hover:opacity-100 transition-all duration-300 text-red-500 px-1 rounded-full text-center w-fit absolute left-[12%] bg-white border border-red-500">
