@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { useThemeContext } from 'core/context/ThemeContext';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from 'core/store';
-import { logoutThunk } from 'core/store/user/user.thunk';
+import { logoutThunk } from 'core/store/auth/user.thunk';
 import { useTranslation } from 'core/context/TranslationContext';
 import Link from 'next/link';
 
@@ -25,7 +25,7 @@ const UserMenu = () => {
     setUserMenuDDL(!showUserMenuDDL);
   }
 
-  function handleDispatch(): void {
+  function handleLogoutDispatch(): void {
     dispatch(logoutThunk({ refreshToken: tokens?.refreshToken }));
   }
 
@@ -49,7 +49,8 @@ const UserMenu = () => {
       <div
         className={classNames(
           'absolute opacity-0 transition-all duration-300 top-10 ltr:right-5 rtl:left-5 z-50 my-4 w-56 text-base list-none   divide-y  shadow-xl rounded-xl',
-          { 'opacity-100 -translate-x-5': showUserMenuDDL },
+          { ' opacity-100 -translate-x-5': showUserMenuDDL },
+          {'hidden': !showUserMenuDDL},
           {
             'bg-dark-bgSecondary text-dark-textSecondary divide-dark-border':
               mode === 'dark',
@@ -108,7 +109,7 @@ const UserMenu = () => {
         <ul className="py-1" aria-labelledby="dropdown">
           <li>
             <a
-              onClick={handleDispatch}
+              onClick={handleLogoutDispatch}
               className="block py-2 px-4 text-sm hover:cursor-pointer hover:font-semibold transition-all duration-300"
             >
               {t('usermenu.Sign out')}

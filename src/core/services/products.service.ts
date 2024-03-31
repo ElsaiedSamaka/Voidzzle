@@ -10,17 +10,17 @@ const productsService = {
       throw error;
     }
   },
-  //   post2: async (body: object) => {
-  //     try {
-  //       const response = await axiosClient.post(`${base_url}/products`, body, {
-  //         headers: { "Content-Type": "multipart/form-data" },
-  //         ...axiosConfig,
-  //       });
-  //       return response.data;
-  //     } catch (error) {
-  //       throw error;
-  //     }
-  //   },
+  
+    postMultiPartFormData: async (body: object) => {
+      try {
+        const response = await apiservice.post('product', body, {
+          headers: { "Content-Type": "multipart/form-data" },
+        });
+        return response;
+      } catch (error) {
+        throw error;
+      }
+    },
 
   get: async () => {
     try {

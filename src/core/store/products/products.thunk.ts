@@ -54,8 +54,9 @@ export const updateProductThunk = createAsyncThunk(
 export const createProductThunk = createAsyncThunk(
   'products/post',
   async (body: object, thunkAPI) => {
+    console.log('createProductThunk',body)
     try {
-      const response = await productsService.post(body);
+      const response = await productsService.postMultiPartFormData(body);
       return thunkAPI.fulfillWithValue(response);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);

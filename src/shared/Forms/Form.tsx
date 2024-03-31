@@ -10,10 +10,8 @@ import { useFormStateContext } from './shared/FormContext';
 import { useThemeContext } from 'core/context/ThemeContext';
 import { useTranslation } from 'core/context/TranslationContext';
 
-import { isEqual } from 'core/helper';
 import Switch from 'shared/Common/Switch/Switch';
 import { FormField } from 'core/types';
-import { useEffectOnOBJ } from 'core/hooks';
 
 interface IFromProps {
   defaultValues: object;
@@ -46,6 +44,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
   const [passwordType, togglePassword] = useState('password');
   const [passwordConfirmationType, togglePasswordConfirmation] =
     useState('password');
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
 
   function handlePasswordToggle(type: string) {
     togglePassword(type);
@@ -54,7 +53,14 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
   function handPasswordConfirmation(type: string) {
     togglePasswordConfirmation(type);
   }
-  const submit = (formData: any) => {
+
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  if (event.target.files) {
+    setSelectedFile(event.target.files[0]);
+  }
+};
+
+  const submit = async () => {
     dispatch({
       type: 'SUBMIT',
       formState: {
@@ -67,7 +73,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
   };
 
   useEffect(() => {
-    handleChange(); // Useing a JSON.stringify as a wrapper
+    handleChange(); // Useing a JSON.stringify as a wrapper for formValues since its an object
   }, [JSON.stringify(formValues), errors, isValid, isDirty, isSubmitting]);
 
   function handleChange() {
@@ -329,6 +335,34 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                       )}
                       id={field.id}
                       rows={5}
+                      onChange={handleFileChange}
+                      {...register(field.name as never, {
+                        required: {
+                          value: field.required,
+                          message: 'this is a required field',
+                        },
+                        pattern: {
+                          value: field.pattern as RegExp,
+                          message: `a required valid pattern is ${field.pattern}`,
+                        },
+                        maxLength: {
+                          value: field.maxLength,
+                          message: `maxLength is ${field.maxLength}`,
+                        },
+                        minLength: {
+                          value: field.minLength,
+                          message: `minLength is ${field.minLength}`,
+                        },
+                        validate: (field.validation as any[])?.reduce(
+                          (acc: any, validator: any) => {
+                            return {
+                              ...acc,
+                              ...validator,
+                            };
+                          },
+                          {},
+                        ),
+                      })}
                     ></textarea>
                     {errors[field.name as keyof typeof errors] && (
                       <span className="opacity-0 group-hover:opacity-100 transition-all duration-300 text-red-500 px-1 rounded-full text-center w-fit absolute left-[12%] bg-white border border-red-500">
@@ -586,15 +620,34 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                           or drag and drop
                         </p>
                         <p className="text-xs text-gray-500 ">
-                          SVG, PNG, JPG or GIF (MAX. 800x400px)
+                          SVG, PNG, JPG or GIF (MAX. 800x400px) {field.name}
                         </p>
                       </div>
-                      <input
-                        id="dropzone-file"
-                        type="file"
-                        className="hidden"
-                      />
+                    <input
+                      id={field.id}
+                      type={field.type}
+                      {...register(field.name as never, {
+                        required: {
+                          value: field.required,
+                          message: 'this is a required field',
+                        },
+                        validate: (field.validation as any[])?.reduce(
+                          (acc: any, validator: any) => {
+                            return {
+                              ...acc,
+                              ...validator,
+                            };
+                          },
+                          {},
+                        ),
+                      })}
+                    />
                     </label>
+                    {errors[field.name as keyof typeof errors] && (
+                      <span className="opacity-0 group-hover:opacity-100 transition-all duration-300 text-red-500 px-1 rounded-full text-center w-fit absolute left-[12%] bg-white border border-red-500">
+                        {errors[field.name as keyof typeof errors]?.message}
+                      </span>
+                    )}
                   </div>
                 )}
                 {field.type == 'radio' && (

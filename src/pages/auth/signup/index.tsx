@@ -15,7 +15,7 @@ import {
 } from 'shared';
 // Hooks & services
 import { useSelector, useDispatch } from 'react-redux';
-import { registerThunk } from 'core/store/user/user.thunk';
+import { registerThunk } from 'core/store/auth/user.thunk';
 import { useFormStateContext } from 'shared/Forms/shared/FormContext';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';

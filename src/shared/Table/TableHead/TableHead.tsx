@@ -334,6 +334,7 @@ const DailogHeader = ({ handleModalToggle }: any) => {
 };
 // Core
 import { useThemeContext } from 'core/context/ThemeContext';
+import { useFormStateContext } from 'shared/Forms/shared/FormContext';
 
 const DailogBody = ({
   handleModalToggle,
@@ -341,11 +342,17 @@ const DailogBody = ({
   defaultValues,
   formFields,
 }: any) => {
+  // Hooks
   const {
     theme: { mode },
   } = useThemeContext();
   const { t } = useTranslation();
+  const { state } = useFormStateContext();
 
+  const {
+    formState: { errors, isValid, isDirty, isSubmitting },
+    formValue,
+  } = state;
   return (
     <Form
       formActions={{
@@ -356,6 +363,7 @@ const DailogBody = ({
       defaultValues={defaultValues}
     >
         <button
+        onClick={handleModalToggle}
           className={classNames(
             'hover:shadow-black/40 text-white rounded-xl px-8 py-2 font-bold transition-all hover:opacity-90 hover:shadow-lg disabled:cursor-not-allowed',
             {
@@ -368,6 +376,7 @@ const DailogBody = ({
           {t('general.cancel')}
         </button>
            <button
+           onClick={()=>{handleAddetionDispatch(formValue)}}
           className={classNames(
             'hover:shadow-red-800/40 text-white rounded-xl px-8 py-2 font-bold transition-all hover:opacity-90 hover:shadow-lg disabled:cursor-not-allowed',
             {

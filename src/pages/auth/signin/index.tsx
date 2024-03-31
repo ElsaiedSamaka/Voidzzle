@@ -22,7 +22,7 @@ import { useFormStateContext } from 'shared/Forms/shared/FormContext';
 // Core
 import useTranslation from 'core/hooks/useTranslation';
 import getDirection from 'core/utils/translations/getDirections';
-import { loginThunk } from 'core/store/user/user.thunk';
+import { loginThunk } from 'core/store/auth/user.thunk';
 import Validators from 'core/validators';
 import { RootState } from 'core/store';
 
