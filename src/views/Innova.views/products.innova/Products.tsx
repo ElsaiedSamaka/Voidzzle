@@ -1,5 +1,5 @@
 import { RootState } from 'core/store';
-import { getBrandsThunk } from 'core/store/brands/brands.thunk';
+import { getCategoriesThunk } from 'core/store/categories/categories.thunk';
 import {
   createProductThunk,
   deleteAllProductsThunk,
@@ -15,7 +15,7 @@ import { useSelectedItems } from 'shared/Table/shared/context/SelectedItemsConte
 
 const Products = () => {
   const productsSlice = useSelector((state: RootState) => state.products);
-  const brandsSlice = useSelector((state: RootState) => state.brands);
+  const categoriesSlice = useSelector((state: RootState) => state.categoires);
   const { state, dispatch: dispatchSelectedItems } = useSelectedItems();
   const { items } = state;
   const dispatch = useDispatch();
@@ -35,9 +35,7 @@ const Products = () => {
   const handleItemsSearch = (query: string) => {
     dispatch(searchProductsThunk(query));
   };
-  const handleGetBrandsDispatch = () => {
-    dispatch(getBrandsThunk());
-  };
+
   const th = [
     { label: 'name', id: 1 },
     { label: 'category', select: 'name', id: 2 },
@@ -52,6 +50,7 @@ const Products = () => {
   // get products from api just when component is mounted
   useEffect(() => {
     dispatch(getProductsThunk());
+    dispatch(getCategoriesThunk());
   }, []);
   const formFields = [
     {
@@ -78,6 +77,10 @@ const Products = () => {
       id: 'category',
       type: 'select',
       required: true,
+      options: categoriesSlice.items.map((category) => ({
+        label: category.name,
+        value: category._id,
+      })),
       validation: [],
     },
     {
@@ -85,7 +88,7 @@ const Products = () => {
       label: 'products.brand',
       id: 'brand',
       type: 'text',
-      required: true,
+      required: false,
       validation: [],
     },
     {
@@ -123,62 +126,25 @@ const Products = () => {
       ],
     },
     {
-      name: 'weight',
-      label: 'products.weight',
-      id: 'weight',
+      name: 'priceDiscount',
+      label: 'products.price_discount',
+      id: 'priceDiscount',
+      required: true,
       type: 'number',
-      validation: [
-        {
-          isNotZero: (val: number) => {
-            Validators.isNotZero(val, 'product');
-          },
-          isNotNegative: (val: number) => {
-            Validators.isNotNegative(val, 'product');
-          },
-        },
-      ],
     },
     {
-      name: 'length',
-      label: 'products.length',
-      id: 'length',
-      type: 'number',
-      validation: [
-        {
-          isNotZero: (val: number) => {
-            Validators.isNotZero(val, 'product');
-          },
-          isNotNegative: (val: number) => {
-            Validators.isNotNegative(val, 'product');
-          },
-        },
-      ],
+      name: 'colors',
+      label: 'products.colors',
+      id: 'colors',
+      required: false,
+      type: 'select',
     },
     {
-      name: 'breadth',
-      label: 'products.breadth',
-      id: 'breadth',
-      type: 'number',
-      validation: [
-        {
-          isNotZero: (val: number) => {
-            Validators.isNotZero(val, 'product');
-          },
-          isNotNegative: (val: number) => {
-            Validators.isNotNegative(val, 'product');
-          },
-        },
-      ],
-    },
-    {
-      name: 'width',
-      label: 'products.width',
-      id: 'width',
-      type: 'number',
-      // required: true,
-      // maxLength: 20,
-      // minLength: 10,
-      // validation: [],
+      name: 'sizes',
+      label: 'products.sizes',
+      id: 'sizes',
+      required: false,
+      type: 'select',
     },
     {
       name: 'description',
@@ -222,14 +188,13 @@ const Products = () => {
         _extenstions: { actionsColumns: true },
       }}
       data={productsSlice}
-      filterData={brandsSlice}
+      filterData={categoriesSlice}
       defaultValues={defaultValues}
       formFields={formFields}
       handleAddetionDispatch={handleAddetionDispatch}
       handleUpdateDispatch={handleUpdateDispatch}
       handleDeleteAllDispatch={handleDeleteAll}
       handleSearchDispatch={handleItemsSearch}
-      handleGetFilterationDispatch={handleGetBrandsDispatch}
     />
   );
 };

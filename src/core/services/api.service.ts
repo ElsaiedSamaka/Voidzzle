@@ -4,13 +4,12 @@ import { axiosClient, axiosConfig } from './axios.client';
 const base_url = process.env.NEXT_PUBLIC_BASE_URL;
 
 const apiservice = {
-  post: async (path: string, body: object , options:object ) => {
+  post: async (path: string, body: object, options: object) => {
     try {
-      const response = await axiosClient.post(
-        `${base_url}/${path}`,
-        body,
-        {...options,...axiosConfig},
-      );
+      const response = await axiosClient.post(`${base_url}/${path}`, body, {
+        ...options,
+        ...axiosConfig,
+      });
       return response.data;
     } catch (error) {
       throw error;

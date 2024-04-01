@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { deleteProductThunk } from 'core/store/products/products.thunk';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import Form from 'shared/Forms/Form';
 import Dailog from 'shared/Modals/Dailog/Dailog';
@@ -86,7 +86,7 @@ const TableBody = ({
                 <th scope="col" className="p-4">
                   <div className="flex items-center">
                     <input
-                      checked={items.length == data.items.length}
+                      // checked={items.length == data.items.length}
                       onChange={handleSelectAll}
                       id="checkbox-all"
                       type="checkbox"
@@ -146,9 +146,9 @@ const TableBody = ({
                     {_config.th.map((column: any, i: number) => (
                       <td className="px-4 py-1" key={column.id}>
                         <div className="flex items-center">
-                          {/* {column.select
-                            ? item[column.label].select
-                            : item[column.label]} */}
+                          {column.select
+                            ? item[column.label].name
+                            : item[column.label]}
                         </div>
                       </td>
                     ))}

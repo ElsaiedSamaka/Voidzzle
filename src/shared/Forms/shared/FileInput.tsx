@@ -1,7 +1,7 @@
-import {useRef,useState} from "react";
+import { useRef, useState } from 'react';
 
-const FileInput = (props:any) => {
-  const {register , onFileChange} = props;
+const FileInput = (props: any) => {
+  const { register, onFileChange } = props;
   const hiddenInputRef = useRef();
 
   const [preview, setPreview] = useState('');
@@ -13,7 +13,7 @@ const FileInput = (props:any) => {
     if (file) {
       const urlImage = URL.createObjectURL(file);
       setPreview(urlImage);
-      onFileChange(file); 
+      onFileChange(file);
     }
   };
 
@@ -41,4 +41,4 @@ const FileInput = (props:any) => {
   );
 };
 
-export default FileInput; 
+export default FileInput;

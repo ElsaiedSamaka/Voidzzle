@@ -362,32 +362,34 @@ const DailogBody = ({
       formFields={formFields}
       defaultValues={defaultValues}
     >
-        <button
+      <button
         onClick={handleModalToggle}
-          className={classNames(
-            'hover:shadow-black/40 text-white rounded-xl px-8 py-2 font-bold transition-all hover:opacity-90 hover:shadow-lg disabled:cursor-not-allowed',
-            {
-              'bg-black disabled:bg-dark-bgDisabled': mode === 'dark',
-              'bg-black disabled:bg-light-bgDisabled': mode === 'light',
-            },
-          )}
-          type="submit"
-        >
-          {t('general.cancel')}
-        </button>
-           <button
-           onClick={()=>{handleAddetionDispatch(formValue)}}
-          className={classNames(
-            'hover:shadow-red-800/40 text-white rounded-xl px-8 py-2 font-bold transition-all hover:opacity-90 hover:shadow-lg disabled:cursor-not-allowed',
-            {
-              'bg-dark-primary disabled:bg-dark-bgDisabled': mode === 'dark',
-              'bg-light-primary disabled:bg-light-bgDisabled': mode === 'light',
-            },
-          )}
-          type="submit"
-        >
-          {t('products.add_new_product')}
-        </button>
+        className={classNames(
+          'hover:shadow-black/40 text-white rounded-xl px-8 py-2 font-bold transition-all hover:opacity-90 hover:shadow-lg disabled:cursor-not-allowed',
+          {
+            'bg-black disabled:bg-dark-bgDisabled': mode === 'dark',
+            'bg-black disabled:bg-light-bgDisabled': mode === 'light',
+          },
+        )}
+        type="submit"
+      >
+        {t('general.cancel')}
+      </button>
+      <button
+        onClick={() => {
+          handleAddetionDispatch(formValue);
+        }}
+        className={classNames(
+          'hover:shadow-red-800/40 text-white rounded-xl px-8 py-2 font-bold transition-all hover:opacity-90 hover:shadow-lg disabled:cursor-not-allowed',
+          {
+            'bg-dark-primary disabled:bg-dark-bgDisabled': mode === 'dark',
+            'bg-light-primary disabled:bg-light-bgDisabled': mode === 'light',
+          },
+        )}
+        type="submit"
+      >
+        {t('products.add_new_product')}
+      </button>
     </Form>
   );
 };

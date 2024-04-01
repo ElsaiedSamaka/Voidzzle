@@ -41,8 +41,8 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
 
   const formValues = watch(); // Track current form values
   const previousFormValues = useRef(formValues); // Track previous form values
-  
-  const [img,setImage] = useState<File | null>(null)
+
+  const [img, setImage] = useState<File | null>(null);
   const [passwordType, togglePassword] = useState('password');
   const [passwordConfirmationType, togglePasswordConfirmation] =
     useState('password');
@@ -87,7 +87,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
     });
   }
   const handleFileChange = (file: File) => {
-    setImage(file)
+    setImage(file);
   };
   return (
     <>
@@ -296,9 +296,11 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                       })}
                     >
                       <option value="">Select</option>
-                      <option value="saab">Saab</option>
-                      <option value="mercedes">Mercedes</option>
-                      <option value="audi">Audi</option>
+                      {field.options?.map((option) => (
+                        <option key={option.value} value={option.value}>
+                          {option.label}
+                        </option>
+                      ))}
                     </select>
                     {errors[field.name as keyof typeof errors] && (
                       <span className="opacity-0 group-hover:opacity-100 transition-all duration-300 text-red-500 px-1 rounded-full text-center w-fit absolute left-[12%] bg-white border border-red-500">
@@ -979,7 +981,13 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
         {/* Form fields */}
 
         {/* Buttons */}
-        <div className={classNames('flex items-center gap-x-2 ltr:ml-auto rtl:mr-auto')}>{children}</div>
+        <div
+          className={classNames(
+            'flex items-center gap-x-2 ltr:ml-auto rtl:mr-auto',
+          )}
+        >
+          {children}
+        </div>
         {/* Buttons */}
       </form>
       {/* <DevTool control={control} /> */}

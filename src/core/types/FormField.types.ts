@@ -1,10 +1,16 @@
 import { Validate } from 'react-hook-form';
 
+type SelectOption = {
+  label: string;
+  value: string;
+};
+
 export type FormField = {
   name: string;
   id: string;
   type: string;
   label: string;
+  options?: SelectOption[];
   pattern?: RegExp;
   required: boolean;
   maxLength: number;

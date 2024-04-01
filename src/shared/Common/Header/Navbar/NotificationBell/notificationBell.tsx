@@ -36,7 +36,7 @@ const NotificationBell = () => {
           'absolute top-10 right-10 overflow-hidden z-50 my-4 max-w-sm text-base list-none shadow-lg opacity-0 divide-y transition-all duration-300 rounded-xl',
           {
             'opacity-100 -translate-x-10': showNotificationDDL,
-            'hidden': !showNotificationDDL,
+            hidden: !showNotificationDDL,
             'bg-dark-bgSecondary text-dark-textSecondary divide-dark-border':
               mode === 'dark',
             'bg-light-bgSecondary text-light-textSecondary divide-light-border':

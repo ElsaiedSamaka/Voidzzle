@@ -1,10 +1,10 @@
 /* eslint-disable no-useless-catch */
 import apiservice from './api.service';
 
-const productsService = {
+const categoriesService = {
   post: async (body: object) => {
     try {
-      const response = await apiservice.post('product', body, {});
+      const response = await apiservice.post('category', body, {});
       return response;
     } catch (error) {
       throw error;
@@ -13,7 +13,7 @@ const productsService = {
 
   postMultiPartFormData: async (body: object) => {
     try {
-      const response = await apiservice.post('product', body, {
+      const response = await apiservice.post('category', body, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
       return response;
@@ -24,7 +24,7 @@ const productsService = {
 
   get: async () => {
     try {
-      const response = await apiservice.get('product');
+      const response = await apiservice.get('category');
       return response.data;
     } catch (error) {
       throw error;
@@ -32,7 +32,7 @@ const productsService = {
   },
   getById: async (id: string) => {
     try {
-      const response = await apiservice.get(`product/${id}`);
+      const response = await apiservice.get(`category/${id}`);
       return response;
     } catch (error) {
       throw error;
@@ -40,7 +40,7 @@ const productsService = {
   },
   put: async (id: string, body: object) => {
     try {
-      const response = await apiservice.put(`product/${id}`, body);
+      const response = await apiservice.put(`category/${id}`, body);
       return response;
     } catch (error) {
       throw error;
@@ -49,7 +49,7 @@ const productsService = {
 
   remove: async (id: string) => {
     try {
-      const response = await apiservice.remove(`product/${id}`);
+      const response = await apiservice.remove(`category/${id}`);
       return response;
     } catch (error) {
       throw error;
@@ -58,7 +58,7 @@ const productsService = {
 
   removeAll: async (ids: []) => {
     try {
-      const response = await apiservice.post('product/remove-all', ids, {});
+      const response = await apiservice.post('category/remove-all', ids, {});
       return response;
     } catch (error) {
       throw error;
@@ -67,16 +67,24 @@ const productsService = {
 
   patch: async (id: string, body: object) => {
     try {
-      const response = await apiservice.put(`product/${id}`, body);
+      const response = await apiservice.put(`category/${id}`, body);
       return response;
     } catch (error) {
       throw error;
     }
   },
-
+  // TODO: add search endpoint on BE
   search: async (query: string) => {
     try {
-      const response = await apiservice.get(`product/search/${query}`);
+      const response = await apiservice.get(`category/search/${query}`);
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  },
+  updateCategoryImage: async (id: string, body: object) => {
+    try {
+      const response = await apiservice.put(`category/${id}/image`, body);
       return response;
     } catch (error) {
       throw error;
@@ -84,4 +92,4 @@ const productsService = {
   },
 };
 
-export default productsService;
+export default categoriesService;
