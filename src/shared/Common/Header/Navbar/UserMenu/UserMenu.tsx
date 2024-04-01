@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
 import classNames from 'classnames';
 import Image from 'next/image';
+import Link from 'next/link';
+import { useState } from 'react';
 import { useThemeContext } from 'core/context/ThemeContext';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from 'core/store';
 import { logoutThunk } from 'core/store/auth/user.thunk';
 import { useTranslation } from 'core/context/TranslationContext';
-import Link from 'next/link';
 
 const UserMenu = () => {
   const { t } = useTranslation();
@@ -26,7 +26,6 @@ const UserMenu = () => {
   }
 
   function handleLogoutDispatch(): void {
-    // TODO: clear tokens from cookies
     dispatch(logoutThunk({ refreshToken: tokens?.refreshToken }));
   }
 
@@ -51,7 +50,7 @@ const UserMenu = () => {
         className={classNames(
           'absolute opacity-0 transition-all duration-300 top-10 ltr:right-5 rtl:left-5 z-50 my-4 w-56 text-base list-none   divide-y  shadow-xl rounded-xl',
           { ' opacity-100 -translate-x-5': showUserMenuDDL },
-          {'hidden': !showUserMenuDDL},
+          { hidden: !showUserMenuDDL },
           {
             'bg-dark-bgSecondary text-dark-textSecondary divide-dark-border':
               mode === 'dark',
