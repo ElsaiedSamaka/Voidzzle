@@ -12,6 +12,7 @@ import { useTranslation } from 'core/context/TranslationContext';
 
 import Switch from 'shared/Common/Switch/Switch';
 import { FormField } from 'core/types';
+import FileInput from './shared/FileInput';
 
 interface IFromProps {
   defaultValues: object;
@@ -38,9 +39,10 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
   const { theme } = useThemeContext();
   const { mode } = theme;
 
-  const formValues = watch();
+  const formValues = watch(); // Track current form values
   const previousFormValues = useRef(formValues); // Track previous form values
-
+  
+  const [img,setImage] = useState<File | null>(null)
   const [passwordType, togglePassword] = useState('password');
   const [passwordConfirmationType, togglePasswordConfirmation] =
     useState('password');
@@ -53,7 +55,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
     togglePasswordConfirmation(type);
   }
 
-  const submit = async () => {
+  const submit = () => {
     dispatch({
       type: 'SUBMIT',
       formState: {
@@ -80,9 +82,13 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
       },
       formValue: {
         ...formValues,
+        img,
       },
     });
   }
+  const handleFileChange = (file: File) => {
+    setImage(file)
+  };
   return (
     <>
       <form
@@ -591,7 +597,7 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                       htmlFor={field.name}
                       className="flex flex-col items-center justify-center w-full h-32 border-2 border-gray-300/10 border-dashed rounded-lg cursor-pointer bg-gray-50/10 hover:bg-gray-100/10 "
                     >
-                      {!formValues.img && (
+                      {/* {!formValues.img && (
                         <div className="flex flex-col items-center justify-center pt-5 pb-6">
                           <svg
                             className="w-8 h-8 mb-4 text-gray-500 "
@@ -618,32 +624,40 @@ const Form = ({ defaultValues, formFields, children }: IFromProps) => {
                             SVG, PNG, JPG or GIF (MAX. 800x400px) {field.name}
                           </p>
                         </div>
-                      )}
-                      {formValues.img && (
-                        <div className="flex flex-col items-center justify-center pt-5 pb-6">
-                        </div>
-                      )}
+                      )} */}
+                      {/* {formValues.img && (
+                        <div className="flex flex-col items-center justify-center pt-5 pb-6"></div>
+                      )} */}
+                      <FileInput
+                        register={register}
+                        onFileChange={handleFileChange}
+                      />
 
-                      <input
-                      className="apperace-none"
+                      {/* <input
+                        className="apperace-none"
                         id={field.id}
                         type={field.type}
-                        {...register(field.name as never, {
-                          required: {
-                            value: field.required,
-                            message: 'this is a required field',
-                          },
-                          validate: (field.validation as any[])?.reduce(
-                            (acc: any, validator: any) => {
-                              return {
-                                ...acc,
-                                ...validator,
-                              };
-                            },
-                            {},
-                          ),
-                        })}
-                      />
+                        value={selectedFile}
+                        onChange={(e:any) => {
+                          setSelectedFile(e.target.value)
+                          console.log('e', e.target.files);
+                        }}
+                        // {...register(field.name as never, {
+                        //   required: {
+                        //     value: field.required,
+                        //     message: 'this is a required field',
+                        //   },
+                        //   validate: (field.validation as any[])?.reduce(
+                        //     (acc: any, validator: any) => {
+                        //       return {
+                        //         ...acc,
+                        //         ...validator,
+                        //       };
+                        //     },
+                        //     {},
+                        //   ),
+                        // })}
+                      /> */}
                     </label>
                     {errors[field.name as keyof typeof errors] && (
                       <span className="opacity-0 group-hover:opacity-100 transition-all duration-300 text-red-500 px-1 rounded-full text-center w-fit absolute left-[12%] bg-white border border-red-500">

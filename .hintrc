@@ -8,5 +8,8 @@
     "not and_ff <= 119",
     "not firefox <= 121",
     "not opera <= 106"
-  ]
+  ],
+  "hints": {
+    "axe/forms": "off"
+  }
 }
