@@ -209,7 +209,7 @@ const TableHead = ({
                       )}
                     >
                       <h6 className="mb-3 text-sm font-medium  ">
-                        Choose brand
+                        Choose one or more
                       </h6>
                       <ul
                         className="space-y-2 text-sm bg-white/10 h-full overflow-scroll"

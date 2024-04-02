@@ -40,13 +40,13 @@ const Products = () => {
   };
 
   const th = [
-    { label: 'name', id: 1 },
-    { label: 'category', select: 'name', id: 2 },
-    { label: 'quantity', id: 3 },
-    { label: 'brand', select: 'name', id: 4 },
-    { label: 'ratingsAverage', id: 6 },
-    { label: 'sold', id: 7 },
-    { label: 'price', id: 8 },
+    { key: 'name', label: 'products.name', id: 1 },
+    { key: 'category', label: 'products.category', select: 'name', id: 2 },
+    { key: 'quantity', label: 'products.quantity', id: 3 },
+    { key: 'brand', label: 'products.brand', select: 'name', id: 4 },
+    { key: 'ratingsAverage', label: 'products.average_ratings', id: 6 },
+    { key: 'sold', label: 'products.sold', id: 7 },
+    { key: 'price', label: 'products.price', id: 8 },
   ];
   // get products from api just when component is mounted
   useEffect(() => {

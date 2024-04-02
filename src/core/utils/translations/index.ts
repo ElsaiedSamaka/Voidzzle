@@ -15,6 +15,7 @@ import asideTranslations from './components/Aside/aside';
 import navbarTranslations from './components/Navbar/navbar';
 import formTranslations from './components/Form/form';
 import userMenuTranslations from './components/Navbar/usermenu';
+import tableTranslations from './components/Table/table';
 // General
 import generalTranslations from './shared/general';
 
@@ -37,6 +38,7 @@ const allTranslations = {
     formTranslations.en,
     userMenuTranslations.en,
     productsTranslations.en,
+    tableTranslations.en
   ),
   ar: Object.assign(
     {},
@@ -56,6 +58,7 @@ const allTranslations = {
     formTranslations.ar,
     userMenuTranslations.ar,
     productsTranslations.ar,
+    tableTranslations.ar
   ),
 };
 

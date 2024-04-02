@@ -8,6 +8,8 @@ const translations = {
     'products.quantity': 'quantity',
     'products.weight': 'weight',
     'products.length': 'length',
+    'products.sold': 'sold',
+    'products.average_ratings': 'ratingsAverage',
     'products.breadth': 'breadth',
     'products.width': 'width',
     'products.description': 'description',
@@ -16,10 +18,12 @@ const translations = {
     'products.price_discount': 'Price Discount',
     'products.colors': 'Available Colors',
     'products.sizes': 'Available Sizes',
+    // TODO: Please remove below translation for the following keys to dashboard page
     'products.users': 'users',
     'products.orders': 'orders',
     'products.categories': 'categories',
     'products.roles': 'roles',
+    // End of TODO
     lang: 'English',
     language: 'عربي',
   },
@@ -32,6 +36,8 @@ const translations = {
     'products.quantity': 'المخزن',
     'products.weight': 'الوزن',
     'products.length': 'الطول',
+    'products.sold': 'مباع',
+    'products.average_ratings': 'متوسط التقييمات',
     'products.breadth': 'الابعاد',
     'products.width': 'العرض',
     'products.description': 'الوصف',
@@ -40,10 +46,13 @@ const translations = {
     'products.price_discount': 'خفض السعر',
     'products.colors': 'الالوان المتاحة',
     'products.sizes': 'الاحجام المتاحة',
+    // TODO: Please remove below translation for the following keys to dashboard page
     'products.users': 'المستخدمين',
     'products.orders': 'الطلبات',
     'products.categories': 'التصنيفات',
     'products.roles': 'الادوار',
+    // End of TODO
+
     lang: 'العربية',
     language: 'English',
   },

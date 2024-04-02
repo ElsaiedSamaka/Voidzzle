@@ -6,6 +6,7 @@ import Form from 'shared/Forms/Form';
 import Dailog from 'shared/Modals/Dailog/Dailog';
 import Popover from 'shared/Modals/Popover/Popover';
 import { useSelectedItems } from '../shared/context/SelectedItemsContext';
+import { useTranslation } from 'core/context/TranslationContext';
 
 const TableBody = ({
   _config,
@@ -18,8 +19,11 @@ const TableBody = ({
   const [rowIndex, setRowIndex] = useState(null);
   const [showEditModal, toggleEditModal] = useState(false);
   const [showPreviewModal, togglePreviewModal] = useState(false);
-  const { state, dispatch: dispatchSelectedItems } = useSelectedItems();
-  const { items } = state;
+  const {
+    state: { items },
+    dispatch: dispatchSelectedItems,
+  } = useSelectedItems();
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   function toggleActionsPopover(index: any) {
     if (rowIndex == index) {
@@ -79,7 +83,7 @@ const TableBody = ({
   return (
     <>
       <div className="overflow-x-auto bg-white/5 rounded-md">
-        <table className="w-full text-sm text-left">
+        <table className="w-full text-sm ltr:text-left rtl:text-right">
           <thead className="text-xs uppercase">
             <tr>
               {_config.multiSelect && (
@@ -101,7 +105,7 @@ const TableBody = ({
               {_config.th.map((col: any, i: number) => {
                 return (
                   <th key={col.id} scope="col" className="px-4 py-3">
-                    {col.label}
+                    {t(col.label)}
                   </th>
                 );
               })}
@@ -147,8 +151,8 @@ const TableBody = ({
                       <td className="px-4 py-1" key={column.id}>
                         <div className="flex items-center">
                           {column.select
-                            ? item[column.label]?.name
-                            : item[column.label]}
+                            ? item[column.key]?.name
+                            : item[column.key]}
                         </div>
                       </td>
                     ))}
