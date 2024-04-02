@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import TableHead from './TableHead/TableHead';
 import TableBody from './TableBody/TableBody';
 import TableFooter from './TableFooter/TableFooter';

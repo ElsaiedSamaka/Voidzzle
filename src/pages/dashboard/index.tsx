@@ -25,11 +25,11 @@ const Dashboard = () => {
           </div>
           <Tabs
             items={[
-              { label: 'Products', id: 0 },
-              { label: 'Users', id: 1 },
-              { label: 'Tasks', id: 2 },
-              { label: 'Sales', id: 3 },
-              { label: 'Ads', id: 4 },
+              { label: 'products.title', id: 0 },
+              { label: 'products.users', id: 1 },
+              { label: 'products.orders', id: 2 },
+              { label: 'products.categories', id: 3 },
+              { label: 'products.roles', id: 4 },
             ]}
           />
           {/* data table */}

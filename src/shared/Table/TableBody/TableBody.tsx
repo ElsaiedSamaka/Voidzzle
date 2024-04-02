@@ -147,7 +147,7 @@ const TableBody = ({
                       <td className="px-4 py-1" key={column.id}>
                         <div className="flex items-center">
                           {column.select
-                            ? item[column.label].name
+                            ? item[column.label]?.name
                             : item[column.label]}
                         </div>
                       </td>

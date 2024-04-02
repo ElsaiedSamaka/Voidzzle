@@ -1,7 +1,9 @@
 // Hooks & Services
 import { useTabContext } from 'core/context/TabContext';
+import { useTranslation } from 'core/context/TranslationContext';
 
 const Tabs = ({ items }: any) => {
+  const { t } = useTranslation();
   const {
     state: { selectedTabIndex },
     selectTab,
@@ -19,11 +21,11 @@ const Tabs = ({ items }: any) => {
               <a
                 key={i}
                 onClick={() => handleTabClick(item.id)}
-                className={`whitespace-nowrap inline-flex rounded-md py-2 px-4 items-center text-sm ${
+                className={`whitespace-nowrap capitalize inline-flex rounded-md py-2 px-4 items-center text-sm ${
                   item.id === selectedTabIndex ? ' bg-white/10 shadow' : ''
                 } transition-all duration-200 hover:cursor-pointer ease-in-out hover:text-gray-700 hover:shadow`}
               >
-                {item.label}
+                {t(item.label)}
               </a>
             );
           })}

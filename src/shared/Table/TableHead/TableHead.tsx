@@ -1,11 +1,13 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { useState } from 'react';
+import { RootState } from 'core/store';
+import { useState } from 'react';
 import Form from 'shared/Forms/Form';
 import Dailog from 'shared/Modals/Dailog/Dailog';
 import classNames from 'classnames';
-import { useDispatch } from 'react-redux';
 import { deleteAllProductsThunk } from 'core/store/products/products.thunk';
 import { useSelectedItems } from '../shared/context/SelectedItemsContext';
+import { useDispatch,useSelector } from 'react-redux';
+
 import { useDebounce } from 'core/hooks';
 const TableHead = ({
   _config,
@@ -23,8 +25,10 @@ const TableHead = ({
   const [showAddModal, toggleAddetionModal] = useState(false);
   const [showActionsPopover, setShowActionsPopover] = useState(false);
   const [showFilterPopOver, setShowFilterPopOver] = useState(false);
-  const { state, dispatch: dispatchSelectedItems } = useSelectedItems();
-  const { items } = state;
+  const { state:{items}, dispatch: dispatchSelectedItems } = useSelectedItems();
+  const { theme:{mode} } = useThemeContext();
+  const { t } = useTranslation();
+
   const dispatch = useDispatch();
   // Methods
   function handleModalToggle() {
@@ -57,7 +61,7 @@ const TableHead = ({
                 <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                   <svg
                     aria-hidden="true"
-                    className="w-5 h-5 text-gray-500 "
+                    className="w-5 h-5 text-blue-500 "
                     fill="currentColor"
                     viewBox="0 0 20 20"
                     xmlns="http://www.w3.org/2000/svg"
@@ -76,7 +80,7 @@ const TableHead = ({
                   }}
                   type="text"
                   id="simple-search"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-10 p-2 :bg-gray-700 :border-gray-600 :placeholder-gray-400 :text-white :focus:ring-primary-500 :focus:border-primary-500"
+                  className="bg-gray-50/10 border border-zinc-300/40  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2"
                   placeholder={'Search over ' + _config.title}
                 />
               </div>
@@ -89,7 +93,7 @@ const TableHead = ({
               <button
                 onClick={handleModalToggle}
                 type="button"
-                className="flex items-center justify-center text-white  bg-black hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-md text-sm px-4 py-2 focus:outline-none "
+                className="flex items-center justify-center capitalize text-white  bg-black hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-md text-sm px-4 py-2 focus:outline-none "
               >
                 <svg
                   className="h-3.5 w-3.5 mr-2"
@@ -104,11 +108,11 @@ const TableHead = ({
                     d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
                   />
                 </svg>
-                Add {_config.title}
+                {t('general.add')} {_config.title}
               </button>
             )}
 
-            <div className="flex items-center space-x-3 w-full md:w-auto ">
+            <div className="flex items-center space-x-3 w-full md:w-auto">
               {_config.actions && (
                 <>
                   <div className="relative">
@@ -116,7 +120,7 @@ const TableHead = ({
                       onClick={handleActionToggle}
                       id="actionsDropdownButton"
                       data-dropdown-toggle="actionsDropdown"
-                      className="w-full md:w-auto flex items-center justify-center py-2 px-4 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-200 :focus:ring-gray-700 :bg-gray-800 :text-gray-400 :border-gray-600 :hover:text-white :hover:bg-gray-700"
+                      className="w-full md:w-auto flex items-center justify-center py-2 px-4 text-sm font-medium  focus:outline-none bg-white/20 rounded-lg border border-gray-200/30 hover:bg-gray-100/30 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-200"
                       type="button"
                     >
                       <svg
@@ -136,7 +140,7 @@ const TableHead = ({
                     </button>
                     <div
                       className={classNames(
-                        'absolute opacity-0 transition-opacity duration-300 top-10 z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow',
+                        'absolute opacity-0 transition-opacity duration-300 top-10 z-10 w-44 bg-black rounded divide-y divide-gray-100/20 shadow',
                         { 'opacity-100': showActionsPopover },
                       )}
                       id="actionsDropdown"
@@ -144,7 +148,7 @@ const TableHead = ({
                       <div className="py-1">
                         <a
                           onClick={handleDeleteAll}
-                          className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 hover:text-red-600 hover:cursor-pointer"
+                          className="block py-2 px-4 text-sm  hover:text-red-600 hover:cursor-pointer"
                         >
                           Delete all
                         </a>
@@ -160,7 +164,7 @@ const TableHead = ({
                       onClick={handleFilterToggle}
                       id="filterDropdownButton"
                       data-dropdown-toggle="filterDropdown"
-                      className="w-full md:w-auto flex items-center justify-center py-2 px-4 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-200 :focus:ring-gray-700 :bg-gray-800 :text-gray-400 :border-gray-600 :hover:text-white :hover:bg-gray-700"
+                      className="w-full mx-1 md:w-auto flex items-center justify-center py-2 px-4 text-sm font-medium  focus:outline-none bg-white/20 rounded-lg border border-gray-200/30 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200"
                       type="button"
                     >
                       <svg
@@ -194,88 +198,39 @@ const TableHead = ({
                     <div
                       id="filterDropdown"
                       className={classNames(
-                        'absolute opacity-0 translate-y-0 transition-all duration-300 top-10 z-10 w-44 h-36 overflow-clip  bg-white rounded divide-y divide-gray-100 p-1 shadow-md',
+                        'absolute opacity-0 translate-y-0 transition-all duration-300 top-10 z-10 w-44 h-36 mx-1 overflow-clip rounded divide-y divide-gray-100/10 p-1 shadow-md',
                         { 'opacity-100 translate-y-1': showFilterPopOver },
+                        {
+                          'bg-dark-bgSecondary text-dark-textSecondary border-dark-border hover:bg-zinc-800':
+                            mode === 'dark',
+                          'bg-light-bgSecondary text-light-textSecondary border-light-border hover:bg-gray-100':
+                            mode === 'light',
+                        },
                       )}
                     >
-                      <h6 className="mb-3 text-sm font-medium text-gray-900 :text-white">
+                      <h6 className="mb-3 text-sm font-medium  ">
                         Choose brand
                       </h6>
-                      {/* filterData.items.map() */}
                       <ul
-                        className="space-y-2 text-sm bg-white h-full overflow-scroll"
+                        className="space-y-2 text-sm bg-white/10 h-full overflow-scroll"
                         aria-labelledby="filterDropdownButton"
                       >
-                        <li className="flex items-center">
-                          <input
-                            id="apple"
-                            type="checkbox"
-                            defaultValue=""
-                            className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 :focus:ring-primary-600 :ring-offset-gray-700 focus:ring-2 :bg-gray-600 :border-gray-500"
-                          />
-                          <label
-                            htmlFor="apple"
-                            className="ml-2 text-sm font-medium text-gray-900 :text-gray-100"
-                          >
-                            Apple (56)
-                          </label>
-                        </li>
-                        <li className="flex items-center">
-                          <input
-                            id="fitbit"
-                            type="checkbox"
-                            defaultValue=""
-                            className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 :focus:ring-primary-600 :ring-offset-gray-700 focus:ring-2 :bg-gray-600 :border-gray-500"
-                          />
-                          <label
-                            htmlFor="fitbit"
-                            className="ml-2 text-sm font-medium text-gray-900 :text-gray-100"
-                          >
-                            Microsoft (16)
-                          </label>
-                        </li>
-                        <li className="flex items-center">
-                          <input
-                            id="razor"
-                            type="checkbox"
-                            defaultValue=""
-                            className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 :focus:ring-primary-600 :ring-offset-gray-700 focus:ring-2 :bg-gray-600 :border-gray-500"
-                          />
-                          <label
-                            htmlFor="razor"
-                            className="ml-2 text-sm font-medium text-gray-900 :text-gray-100"
-                          >
-                            Razor (49)
-                          </label>
-                        </li>
-                        <li className="flex items-center">
-                          <input
-                            id="nikon"
-                            type="checkbox"
-                            defaultValue=""
-                            className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 :focus:ring-primary-600 :ring-offset-gray-700 focus:ring-2 :bg-gray-600 :border-gray-500"
-                          />
-                          <label
-                            htmlFor="nikon"
-                            className="ml-2 text-sm font-medium text-gray-900 :text-gray-100"
-                          >
-                            Nikon (12)
-                          </label>
-                        </li>
-                        <li className="flex items-center">
-                          <input
-                            id="benq"
-                            type="checkbox"
-                            defaultValue=""
-                            className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 :focus:ring-primary-600 :ring-offset-gray-700 focus:ring-2 :bg-gray-600 :border-gray-500"
-                          />
-                          <label
-                            htmlFor="benq"
-                            className="ml-2 text-sm font-medium text-gray-900 :text-gray-100"
-                          >
-                            BenQ (74)
-                          </label>
-                        </li>
+                        {filterData.items.map((item: any) => (
+                          <li key={item.id} className="flex items-center">
+                            <input
+                              id="apple"
+                              type="checkbox"
+                              defaultValue=""
+                              className="w-4 h-4 bg-red-100/5 border-gray-300 rounded text-primary-600 focus:ring-primary-500 focus:ring-2"
+                            />
+                            <label
+                              htmlFor="apple"
+                              className="ml-2 text-sm font-medium "
+                            >
+                              {item.name} ({item.brands.length})
+                            </label>
+                          </li>
+                        ))}
                       </ul>
                     </div>
                   </div>
@@ -311,7 +266,7 @@ const DailogHeader = ({ handleModalToggle }: any) => {
       <h3 className="text-xl font-bold ">{t('products.add_new_product')}</h3>
       <div
         onClick={handleModalToggle}
-        className="p-1 w-fit h-fit rounded-full text-white/50 bg-gray-50/10 hover:bg-gray-100/10 hover:cursor-pointer hover:text-gray-900/10"
+        className="p-1 w-fit h-fit rounded-full text-white/50 bg-gray-50/10 hover:bg-gray-100/10 hover:cursor-pointer hover:/10"
       >
         <svg
           className="w-5 h-5"

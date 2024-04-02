@@ -25,6 +25,9 @@ const Products = () => {
   const handleUpdateDispatch = (data: any) => {
     dispatch(updateProductThunk(data));
   };
+  const handleGetFilterationDispatch = ()=>{
+    dispatch(getCategoriesThunk())
+  }
   const handleDeleteAll = () => {
     const ids = items.map((item) => item.id);
     dispatch(deleteAllProductsThunk(ids));
@@ -40,12 +43,10 @@ const Products = () => {
     { label: 'name', id: 1 },
     { label: 'category', select: 'name', id: 2 },
     { label: 'quantity', id: 3 },
-    { label: 'brand', id: 4 },
-    { label: 'Sales/Month', id: 5 },
+    { label: 'brand', select: 'name', id: 4 },
     { label: 'ratingsAverage', id: 6 },
     { label: 'sold', id: 7 },
     { label: 'price', id: 8 },
-    { label: 'updatedAt', id: 9 },
   ];
   // get products from api just when component is mounted
   useEffect(() => {
@@ -195,6 +196,7 @@ const Products = () => {
       handleUpdateDispatch={handleUpdateDispatch}
       handleDeleteAllDispatch={handleDeleteAll}
       handleSearchDispatch={handleItemsSearch}
+      handleGetFilterationDispatch={handleGetFilterationDispatch}
     />
   );
 };
