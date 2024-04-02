@@ -52,7 +52,6 @@ const translations = {
     'products.categories': 'التصنيفات',
     'products.roles': 'الادوار',
     // End of TODO
-
     lang: 'العربية',
     language: 'English',
   },

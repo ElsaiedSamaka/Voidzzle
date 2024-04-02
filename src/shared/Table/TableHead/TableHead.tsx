@@ -1,14 +1,18 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { RootState } from 'core/store';
-import { useState } from 'react';
-import Form from 'shared/Forms/Form';
-import Dailog from 'shared/Modals/Dailog/Dailog';
+// Packages
 import classNames from 'classnames';
-import { deleteAllProductsThunk } from 'core/store/products/products.thunk';
+// Components
+import Dailog from 'shared/Modals/Dailog/Dailog';
+import Form from 'shared/Forms/Form';
+// Hooks
 import { useSelectedItems } from '../shared/context/SelectedItemsContext';
 import { useDispatch,useSelector } from 'react-redux';
-
 import { useDebounce } from 'core/hooks';
+import { useState } from 'react';
+// Thunks
+import { RootState } from 'core/store';
+import { deleteAllProductsThunk } from 'core/store/products/products.thunk';
+
 const TableHead = ({
   _config,
   data,

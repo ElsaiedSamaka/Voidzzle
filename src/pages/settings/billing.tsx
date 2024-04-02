@@ -29,7 +29,7 @@ const BillingSettings = () => {
               <h1 className="py-2 text-2xl font-semibold">
                 {t('billing.name')}
               </h1>
-              <p className="font- ">
+              <p className="">
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit.
               </p>
             </div>

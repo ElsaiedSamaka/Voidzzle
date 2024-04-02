@@ -1,12 +1,17 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { deleteProductThunk } from 'core/store/products/products.thunk';
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+// Packages
+import classNames from 'classnames';
+// Components
 import Form from 'shared/Forms/Form';
 import Dailog from 'shared/Modals/Dailog/Dailog';
 import Popover from 'shared/Modals/Popover/Popover';
+// Hooks
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { useSelectedItems } from '../shared/context/SelectedItemsContext';
 import { useTranslation } from 'core/context/TranslationContext';
+// Thunks
+import { deleteProductThunk } from 'core/store/products/products.thunk';
 
 const TableBody = ({
   _config,
@@ -193,7 +198,7 @@ const TableBody = ({
                                           onClick={() =>
                                             handlePreviewModalToggle(item)
                                           }
-                                          className="block py-2 px-4  hover:cursor-pointer"
+                                          className="block py-2 px-4 hover:cursor-pointer hover:font-semibold"
                                         >
                                           Show
                                         </a>
@@ -203,7 +208,7 @@ const TableBody = ({
                                           onClick={() =>
                                             handleEditModalToggle(item)
                                           }
-                                          className="block py-2 px-4  hover:cursor-pointer"
+                                          className="block py-2 px-4 hover:cursor-pointer hover:font-semibold"
                                         >
                                           Edit
                                         </a>
@@ -213,7 +218,7 @@ const TableBody = ({
                                       className="py-1"
                                       onClick={() => deleteItem(item.id)}
                                     >
-                                      <a className="block py-2 px-4 text-sm  hover:cursor-pointer">
+                                      <a className="block py-2 px-4 text-sm hover:cursor-pointer hover:font-semibold">
                                         Delete
                                       </a>
                                     </div>
@@ -329,7 +334,7 @@ const EditDailogHeader = ({ handleModalToggle }: any) => {
       <h3 className=" text-xl font-bold  ">Edit product</h3>
       <div
         onClick={handleModalToggle}
-        className="p-1 w-fit h-fit rounded-full   hover:cursor-pointer "
+        className="p-1 w-fit h-fit rounded-full   hover:cursor-pointer hover:font-semibold "
       >
         <svg
           className="w-5 h-5"
@@ -350,15 +355,49 @@ const EditDailogHeader = ({ handleModalToggle }: any) => {
     </div>
   );
 };
+// Core
+import { useThemeContext } from 'core/context/ThemeContext';
+
 const EditDailogBody = ({
   handleModalToggle,
   handleDispatch,
   defaultValues,
   formFields,
 }: any) => {
+  const { theme:{mode} } = useThemeContext();
+  const { t } = useTranslation();
+
+
   return (
     <Form formFields={formFields} defaultValues={defaultValues}>
-      <div>test</div>
+      <button
+        onClick={handleModalToggle}
+        className={classNames(
+          'hover:shadow-black/40 text-white rounded-xl px-8 py-2 font-bold transition-all hover:opacity-90 hover:shadow-lg disabled:cursor-not-allowed',
+          {
+            'bg-black disabled:bg-dark-bgDisabled': mode === 'dark',
+            'bg-black disabled:bg-light-bgDisabled': mode === 'light',
+          },
+        )}
+        type="submit"
+      >
+        {t('general.cancel')}
+      </button>
+      <button
+        onClick={() => {
+          handleDispatch();
+        }}
+        className={classNames(
+          'hover:shadow-red-800/40 text-white rounded-xl px-8 py-2 font-bold transition-all hover:opacity-90 hover:shadow-lg disabled:cursor-not-allowed',
+          {
+            'bg-dark-primary disabled:bg-dark-bgDisabled': mode === 'dark',
+            'bg-light-primary disabled:bg-light-bgDisabled': mode === 'light',
+          },
+        )}
+        type="submit"
+      >
+        {t('form.submit')}
+      </button>
     </Form>
   );
 };
@@ -368,7 +407,7 @@ const PreviewDailogHeader = ({ handleModalToggle }: any) => {
       <h3 className=" text-xl font-bold  ">product details</h3>
       <div
         onClick={handleModalToggle}
-        className="p-1 w-fit h-fit rounded-full   hover:cursor-pointer "
+        className="p-1 w-fit h-fit rounded-full   hover:cursor-pointer hover:font-semibold "
       >
         <svg
           className="w-5 h-5"
@@ -416,7 +455,7 @@ const PreviewDailogBody = ({ item, handleModalToggle }: any) => {
                 <input
                   id="red"
                   type="checkbox"
-                  className="appearance-none inline-block w-5 h-5 mr-2 bg-red-700 rounded-full hover:cursor-pointer"
+                  className="appearance-none inline-block w-5 h-5 mr-2 bg-red-700 rounded-full hover:cursor-pointer hover:font-semibold"
                 />
                 <label htmlFor="red" className="sr-only">
                   checkbox

@@ -14,7 +14,7 @@ const translations = {
     'form.email': 'البريد الإلكتروني',
     'form.password': 'كلمة المرور',
     'form.passwordconfirmation': 'تأكيد كلمة المرور',
-    'form.submit': 'إرسال',
+    'form.submit': 'حفظ',
     lang: 'العربية',
   },
 };
